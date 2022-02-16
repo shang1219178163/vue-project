@@ -1,17 +1,24 @@
 <template>
     <div>
-        <van-nav-bar title="人员清单" left-arrow  @click-left="onClickLeft" right-text="刷新" @click-right="onClickRight"
- />
-        <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-          <van-list
-              v-model:loading="loading"
-              :finished="finished"
-              finished-text="没有更多了"
-              @load="onLoad"
-          >
-              <van-cell v-for="item in list" :key="item" :title="item" />
-          </van-list>
-        </van-pull-refresh>
+        <van-nav-bar title="人员清单" 
+        left-arrow  
+        @click-left="onClickLeft" 
+        right-text="刷新" 
+        @click-right="onClickRight"/>
+        <van-tabs v-model:active="active">
+          <van-tab v-for="t in tabTitles" :key="t" :title="t">
+            <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+                <van-list
+                    v-model:loading="loading"
+                    :finished="finished"
+                    finished-text="没有更多了"
+                    @load="onLoad"
+                >
+                    <van-cell v-for="item in list" :key="item" :title="item" />
+                </van-list>
+              </van-pull-refresh>
+          </van-tab>
+        </van-tabs>
     </div>
 </template>
 
@@ -20,6 +27,13 @@ import { ref } from 'vue';
 
 export default {
   setup() {
+
+    const tabTitles = [
+    "装修图纸",
+    "物料清单",
+    "人员清单"
+    ]
+
     const list = ref([]);
     const loading = ref(false);
     const finished = ref(false);
@@ -61,6 +75,7 @@ export default {
     return {
       onClickLeft,
       onClickRight,
+      tabTitles,
       list,
       onLoad,
       loading,

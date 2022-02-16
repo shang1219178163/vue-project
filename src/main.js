@@ -9,6 +9,8 @@ import store from '@/store' // short for @/store/index
 
 import * as utils from './lib/utils'
 
+import iosAlertSheet from './components/iosAlertSheet'
+
 const app = createApp(App)
 
 ///添加全局方法
@@ -24,4 +26,5 @@ app.config.globalProperties.user = {
 app.use(router)
 .use(store)
 .use(Vant)
+.use(iosAlertSheet)
 .mount('#app')

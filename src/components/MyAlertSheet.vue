@@ -92,6 +92,6 @@ van-popup {
   /* background: none; */
   max-height: 50%;
   overflow-y: auto;
-  /* popup-background-color: yellow; */
+  background-color: yellow;
 }
 </style>

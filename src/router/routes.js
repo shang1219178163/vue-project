@@ -79,4 +79,8 @@ export const RouterMap = [
   { path: '/storeDemo', name: 'StoreDemo', component:  _import_('StoreDemo') },
   { path: '/watchDemo', name: 'WatchDemo', component:  _import_('WatchDemo') },
 
+  { path: '/vantComposablesDemo', name: 'VantComposablesDemo', component:  _import_('VantComposablesDemo') },
+  { path: '/vantOverlayDemo', name: 'VantOverlay', component:  _import_('VantOverlayDemo') },
+  { path: '/bScrollDemo', name: 'BetterScrollDemo', component:  _import_('BScrollDemo') },
+
 ]

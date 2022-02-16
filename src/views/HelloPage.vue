@@ -130,6 +130,21 @@
         class="page-item"
         >WatchDemo
       </router-link>
+      <router-link
+        :to="{path: '/vantComposablesDemo', query: {plan: 'private'}}"
+        class="page-item"
+        >VantComposablesDemo
+      </router-link>
+            <router-link
+        :to="{path: '/vantOverlayDemo', query: {plan: 'private'}}"
+        class="page-item"
+        >VantOverlay
+      </router-link>
+      <router-link
+        :to="{path: '/bScrollDemo', query: {plan: 'private'}}"
+        class="page-item"
+        >bScrollDemo
+      </router-link>
     </div>
   </div>
 </template>

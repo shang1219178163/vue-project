@@ -4,49 +4,31 @@
       <li>
         <div class='cell'>
             <div>新插槽 v-slot 代替具名插槽 作用于插槽
-                <todo-list>
-                    <!-- <template #todo="e = {id:1, text:'扫地'}"> -->
-                    <template #todo="{obj:e}">
-                        <div @click = tap(e)>
-                            {{e.text}}
+                <todo-list @click="tap">
+                    <!-- <template #todo="{obj: e, test: t}">
+                        <div class="todocell" @click = tap(e)>
+                            {{e.text}} {{ t}}  111
                         </div>
-                    </template>
+                    </template> -->
                 </todo-list>
             </div >
         </div>
       </li>
-      <!-- <li>
-        <div class='cell'>
-            <div>submit-button插槽</div>
-            <submit-button>Save</submit-button>
-        </div>
-      </li> -->
     </ol>
   </div>
-
 </template>
 
 <script setup>
+import { ref, reactive, getCurrentInstance } from 'vue';
+import todoList from "@/components/TodoList.vue";
 
-// export default {
-//     setup() {
-//         const list = [{name: '样式1', tag: 'grid1'}
-//                     ]
-//         tap = (e) => {
-//             alert(e)
-//         }
-//         return {
-//             list,
-//             tap
-//         }
-//     }
-// }
+const instance = getCurrentInstance()
+console.log(instance);
 
-
-const tap = (val) => {
-      // alert(val.name)
-      console.log(val.text)
-    }
+const tap = (e) => {
+  alert(typeof e, JSON.stringify(e))
+  console.log(e.text)
+}
 
 </script>
 
