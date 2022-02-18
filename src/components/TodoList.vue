@@ -1,41 +1,66 @@
 <template>
-  <ul class="slotTodoChildren">
-    <li class="lis" v-for="e in props.list" :key="e.id" @click="tap(e)">
-      <!--
-      我们为每个 todo 准备了一个插槽，
-      将 `todo(list里的)` 对象作为一个插槽的 prop 传入。
-      -->
-      <slot name="todo" :obj="e">
-      <!-- 后备内容 -->
-      {{ e.text }}
-      </slot>
-    </li>
-  </ul>
+    <ul class="slotTodoChildren">
+        <li class="lis" v-for="(e, idx) in list" :key="e.id">
+            <!--
+            我们为每个 todo 准备了一个插槽，
+            将 `todo(list里的)` 对象作为一个插槽的 prop 传入。
+            -->
+            <slot name="todo" :obj="e" :test="test[idx]">
+            <!-- 后备内容 -->
+            {{ e.text }}
+            </slot>
+        </li>
+    </ul>
 </template>
 
-<script setup>
-import { ref, reactive, defineProps, defineEmits } from 'vue';
-
-const props = defineProps({
-  list: {
-      type: Array,
-      // eslint-disable-next-line vue/require-valid-default-prop
-      default: [
+<script>
+export default {
+  name: 'todolist',
+  data () {
+    return {
+      list: [
         {id: 1, text: '扫地'},
         {id: 2, text: '做饭'},
         {id: 3, text: '擦桌子'}
-      ]
+      ],
+       test: [
+        {id: 1, text: '扫地', des: 'a'},
+        {id: 2, text: '做饭', des: 'b'},
+        {id: 3, text: '擦桌子', des: 'c'}
+      ].map((e) => e.des)
+    }
   },
-})
-
-const emit = defineEmits(['click',])
-
-const tap = (e, idx) => {
-  // alert(JSON.stringify(e))
-  emit("click", e, idx);
+  created () {
+    console.log('slotChildren')
+  }
 }
-
 </script>
+
+
+<!-- <script>
+export default {
+  name: 'todolist',
+
+  data () {
+    return {
+      list: [
+        {id: 1, text: '扫地'},
+        {id: 2, text: '做饭'},
+        {id: 3, text: '擦桌子'}
+      ],
+       test: [
+        {id: 1, text: '扫地', des: 'a'},
+        {id: 2, text: '做饭', des: 'b'},
+        {id: 3, text: '擦桌子', des: 'c'}
+      ].map((e) => e.des)
+    }
+  },
+  created () {
+    console.log('slotChildren')
+  }
+}
+</script> -->
+
 
 <style scoped>
 .slotTodoChildren .lis{

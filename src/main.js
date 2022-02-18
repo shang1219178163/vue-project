@@ -8,6 +8,7 @@ import 'vant/lib/index.css'
 import store from '@/store' // short for @/store/index
 
 import * as utils from './lib/utils'
+import Directives from './lib/directives'
 
 import iosAlertSheet from './components/iosAlertSheet'
 
@@ -22,9 +23,36 @@ app.config.globalProperties.user = {
     uid: "sdfasdfasdfwe2342dsds"
 }
 
+// 注册全局自定义指令
+
+/// 仅在 mounted 和 updated 时触发相同行为
+app.directive("font-size", (el, binding, vnode) => {
+    // console.log('font-sizeo', binding)
+    var size = 16;
+    switch (binding.arg || binding.value) {
+    case "small":
+        size = 12;
+        break;
+    case "large":
+        size = 24;
+        break;
+    case "huge":
+        size = 34;
+        break;
+    default:
+        size = 16;
+        break;
+    }
+    el.style.fontSize = size + "px";
+});
+
+// app.directive('demo', (el, binding) => {
+//     console.log('demo', binding)
+// })
 
 app.use(router)
 .use(store)
 .use(Vant)
 .use(iosAlertSheet)
+.use(Directives)
 .mount('#app')

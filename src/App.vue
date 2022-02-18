@@ -15,6 +15,8 @@ export default {
 }
 </script>
 
+
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -26,6 +28,7 @@ export default {
   margin: 0 auto;
   -webkit-overflow-scrolling: touch;
 }
+
 .van-toast{
   width: auto !important;
   min-height: 1.5rem !important;

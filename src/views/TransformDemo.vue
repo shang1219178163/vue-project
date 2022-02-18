@@ -1,74 +1,65 @@
 <template>
-  <transition @after-leave="afterLeave">
-    <div class="ios-actionsheet-overlay" v-if="showModal" @click="deactivate">
-      <div class="ios-actionsheet">
-        <div class="ios-actionsheet-group" v-for="(group, groupIndex) in groups" :key="groupIndex" >
-          <div v-for="(button, index) in group" :key="index" @click.stop.prevent="onClick(button, index, groupIndex)" :class="{'ios-actionsheet-label': button.label, 'ios-actionsheet-button': !button.label, 'ios-actionsheet-button-color': button.color, 'ios-actionsheet-button-bold': button.bold, 'ios-actionsheet-button-disable': button.disable}">{{ button.text }}</div>
-        </div>
-      </div>
+    <div id="example-1">
+        <button @click="show = !show">
+            Toggle render
+        </button>
+        <transition @after-leave="afterLeave">
+            <div class="ios-actionsheet-overlay" v-if="show" @click="deactivate">
+            <div class="ios-actionsheet">
+                <div class="ios-actionsheet-group" v-for="(group, groupIndex) in groups" :key="groupIndex" >
+                <div v-for="(button, index) in group" :key="index" 
+                @click.stop.prevent="onClick(button, index, groupIndex)" 
+                :class="{'ios-actionsheet-label': button.label, 
+                'ios-actionsheet-button': !button.label, 
+                'ios-actionsheet-button-color': button.color, 
+                'ios-actionsheet-button-bold': button.bold, 
+                'ios-actionsheet-button-disable': button.disable}">{{ button.text }}</div>
+                </div>
+            </div>
+            </div>
+        </transition>
     </div>
-  </transition>
 </template>
 
-<script>
-import defer from './defer.js';
+<script setup>
+import { ref, getCurrentInstance, onMounted, inject } from 'vue';
 
-export default {
-    props: {
-    buttons: [Array]
-  },
-  data: function(){
-    return {
-      showModal: false
-    };
-  },
-  methods: {
-    activate: function(){
-      this._deferred = defer();
-      this.showModal = true;
-      return this._deferred.promise;
-    },
-    deactivate: function(){
-      this.showModal = false;
-      this._deferred.reject();
-    },
-    onClick: function(button, selectedIndex, selectedGroupIndex){
-      if(button.disable || button.label){
-        return;
-      }
+const onClickLeft = () => history.back();
 
-      if(button.handle){
-        button.handle({button, selectedIndex, selectedGroupIndex});
-      }
+const show = ref(false);
 
-      this._deferred.resolve({button, selectedIndex, selectedGroupIndex});
-      this.showModal = false;
-    },
-    afterLeave: function(){
-      this.$destroy();
-      this.$el.parentNode.removeChild(this.$el);
-    }
-  },
-  computed: {
-    groups: function(){
-      if(!this.buttons){
-        return [];
-      }
+const activate = () => {
+    show.value = true;
+}
 
-      return this.buttons.map(function(group){
-        if(Object.prototype.toString.call(group) === '[object Object]'){
-          return [group];
-        }else{
-          return group;
-        }
-      });
-    }
-  }
-};
+const deactivate = () => {
+    show.value = false;
+}
+
+const onClick = (button, selectedIndex, selectedGroupIndex) => {
+    show.value = false;
+
+    //   if(button.disable || button.label){
+    //     return;
+    //   }
+
+    //   if(button.handle){
+    //     button.handle({button, selectedIndex, selectedGroupIndex});
+    //   }
+
+    //   this._deferred.resolve({button, selectedIndex, selectedGroupIndex});
+    //   this.showModal = false;
+}
+
+const afterLeave = () => {
+    console.log("afterLeave");
+}
+
 </script>
 
-<style>
-.ios-actionsheet-overlay{
+
+<style scoped>
+ .ios-actionsheet-overlay{
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   color: #000;
   font-size: 14px;

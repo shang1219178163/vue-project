@@ -1,51 +1,61 @@
 
 <template>
   <div class='container'>
-    <van-nav-bar title="人员清单" left-arrow  @click-left="onClickLeft"/>
-    <!-- <van-button type="primary" text="显示遮罩层" @click="show = true" />
-    <van-overlay :show="show" @click="show = false" /> -->
-    <van-cell is-link title="Overlay" @click="show = true" />
-    <van-overlay :show="show" @click="show = false">
-      <div class="wrapper" @click.stop>
-        <div class="block" @click="click" >
-          <div class="item item0">
-            <div class="callphone">
-              <!-- <img width="24" height="24" src="../assets/images/call_phone.png" /> -->
-              <van-image :src="require('../assets/images/call_phone.png')" />
-              <div>呼叫 188 8888 8888</div>
+    <van-overlay :show="props.show">
+     <!-- <transition @after-leave="afterLeave"> -->
+        <div class="wrapper" @click.stop>
+            <div class="block" @click="click" >
+                <div class="item item0">
+                    <div class="callphone">
+                    <!-- <img width="24" height="24" src="../assets/images/call_phone.png" /> -->
+                    <van-image :src="require('../assets/images/call_phone.png')" />
+                    <div>呼叫 {{ props.phone || '-' }}</div>
+                    </div>
+                </div>
+                <div class="item"  @click="cancell">取消</div>
             </div>
-          </div>
-          <div class="item">取消</div>
         </div>
-      </div>     
+     <!-- </transition> -->
     </van-overlay>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { Toast } from 'vant';
+import { ref, defineProps, defineEmits } from 'vue';
 
-const onClickLeft = () => history.back();
+// console.log("CallPhone.vue");
 
-const show = ref(false);
+const props = defineProps({
+    phone: {
+        type: String,
+        // default: undefined,
+        required: true,
+        validator: (val) => {
+          return val != undefined && val != null
+        }
+    },
+    show: {
+        type: Boolean,
+        required: true,
+        default: false,
+    }
+})
 
-// const actions = [
-//     { name: '选项一' },
-//     { name: '选项二' },
-//     { name: '选项三' },
-// ];
-// const onSelect = (item) => {
-//     // 默认情况下点击选项时不会自动收起
-//     // 可以通过 close-on-click-action 属性开启自动收起
-//     show.value = false;
-//     Toast(item.name);
-// };
+const emit = defineEmits(['click', "cancell"])
+
 const click = () => {
-    show.value = false;
-    console.log("block");
-    // Toast("block");
+    emit("click", props.phone)
 };
+
+const cancell = () => {
+    emit("cancell")
+};
+
+const afterLeave = () => {
+    console.log("afterLeave");
+};
+
+
 </script>
 
 
@@ -60,7 +70,7 @@ const click = () => {
 .block {
   width: calc(100% - 16px);
   height: 126px;
-  /* background-color: green; */
+  background-color: transparent;
 
   display: flex;
   flex-direction: column;

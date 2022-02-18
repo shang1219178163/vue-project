@@ -81,6 +81,9 @@ export const RouterMap = [
 
   { path: '/vantComposablesDemo', name: 'VantComposablesDemo', component:  _import_('VantComposablesDemo') },
   { path: '/vantOverlayDemo', name: 'VantOverlay', component:  _import_('VantOverlayDemo') },
-  { path: '/bScrollDemo', name: 'BetterScrollDemo', component:  _import_('BScrollDemo') },
+  { path: '/callphoneDemo', name: 'callphoneDemo', component:  _import_('callphoneDemo') },
+  { path: '/transformDemo', name: 'TransformDemo', component:  _import_('TransformDemo') },
+  { path: '/decorateMaterialList', name: 'DecorateMaterialList', component:  _import_('DecorateMaterialList') },
+
 
 ]

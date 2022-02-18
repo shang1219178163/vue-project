@@ -1,70 +1,74 @@
 <template>
   <transition @after-leave="afterLeave">
-    <div class="ios-actionsheet-overlay" v-if="showModal" @click="deactivate">
+    <div class="ios-actionsheet-overlay" v-if="props.show" @click="dismiss">
       <div class="ios-actionsheet">
         <div class="ios-actionsheet-group" v-for="(group, groupIndex) in groups" :key="groupIndex" >
-          <div v-for="(button, index) in group" :key="index" @click.stop.prevent="onClick(button, index, groupIndex)" :class="{'ios-actionsheet-label': button.label, 'ios-actionsheet-button': !button.label, 'ios-actionsheet-button-color': button.color, 'ios-actionsheet-button-bold': button.bold, 'ios-actionsheet-button-disable': button.disable}">{{ button.text }}</div>
+          <div v-for="(button, index) in group" :key="index" 
+          @click.stop.prevent="clickItem(button, index, groupIndex)" 
+          :class="{'ios-actionsheet-label': button.label, 
+          'ios-actionsheet-button': !button.label, 
+          'ios-actionsheet-button-color': button.color, 
+          'ios-actionsheet-button-bold': button.bold, 
+          'ios-actionsheet-button-disable': button.disable}">{{ button.text }}</div>
         </div>
       </div>
     </div>
   </transition>
 </template>
 
-<script>
-import defer from './defer.js';
+<script setup>
+import { getCurrentInstance, ref, defineProps, defineEmits, defineExpose, computed } from 'vue';
 
-export default {
-    props: {
-    buttons: [Array]
-  },
-  data: function(){
-    return {
-      showModal: false
-    };
-  },
-  methods: {
-    activate: function(){
-      this._deferred = defer();
-      this.showModal = true;
-      return this._deferred.promise;
-    },
-    deactivate: function(){
-      this.showModal = false;
-      this._deferred.reject();
-    },
-    onClick: function(button, selectedIndex, selectedGroupIndex){
-      if(button.disable || button.label){
-        return;
-      }
+const instance = getCurrentInstance()
 
-      if(button.handle){
-        button.handle({button, selectedIndex, selectedGroupIndex});
-      }
-
-      this._deferred.resolve({button, selectedIndex, selectedGroupIndex});
-      this.showModal = false;
-    },
-    afterLeave: function(){
-      this.$destroy();
-      this.$el.parentNode.removeChild(this.$el);
+const props = defineProps({
+    buttons: [Array],
+    show: {
+        type: Boolean,
+        default: false,
     }
-  },
-  computed: {
-    groups: function(){
-      if(!this.buttons){
+})
+
+const emit = defineEmits(['dismiss', "clickItem"])
+
+defineExpose({
+    onclick,
+})
+
+const dismiss = () => {
+    console.log(instance.type.__file, "dismiss");
+    // props.show = false;
+    emit("dismiss")
+}
+
+const clickItem = (button, selectedIndex, selectedGroupIndex) => {
+    console.log(instance.type.__file, button, selectedIndex, selectedGroupIndex);
+    emit("clickItem", {button, selectedIndex, selectedGroupIndex})
+
+    if(button.disable){
+    console.log(`button.disable:${button.disable}`);
+    return;
+    }
+}
+
+const afterLeave = () => {
+    console.log(instance.type.__file, "afterLeave");
+}
+  
+const groups = computed(() => {
+      if(!props.buttons){
         return [];
       }
 
-      return this.buttons.map(function(group){
+      return props.buttons.map(function(group){
         if(Object.prototype.toString.call(group) === '[object Object]'){
           return [group];
-        }else{
+        } else {
           return group;
         }
       });
-    }
-  }
-};
+})
+
 </script>
 
 <style>
@@ -108,11 +112,11 @@ export default {
   transform: translate3d(0,100%,0);
 }
 .ios-actionsheet-overlay.v-enter-active .ios-actionsheet{
-  transition: transform .3s;
+  transition: transform 1.3s;
 }
 .ios-actionsheet-overlay.v-leave-active .ios-actionsheet{
   transform: translate3d(0,100%,0);
-  transition: transform .4s;
+  transition: transform 1.4s;
 }
 
 .ios-actionsheet-group{

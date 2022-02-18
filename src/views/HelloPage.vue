@@ -135,16 +135,27 @@
         class="page-item"
         >VantComposablesDemo
       </router-link>
-            <router-link
+      <router-link
         :to="{path: '/vantOverlayDemo', query: {plan: 'private'}}"
         class="page-item"
         >VantOverlay
       </router-link>
       <router-link
-        :to="{path: '/bScrollDemo', query: {plan: 'private'}}"
+        :to="{path: '/callphoneDemo', query: {plan: 'private'}}"
         class="page-item"
-        >bScrollDemo
+        >callphoneDemo
       </router-link>
+      <router-link
+        :to="{path: '/transformDemo', query: {plan: 'private'}}"
+        class="page-item"
+        >TransformDemo
+      </router-link>
+      <router-link
+        :to="{path: '/decorateMaterialList', query: {plan: 'private'}}"
+        class="page-item"
+        >decorateMaterialList
+      </router-link>
+
     </div>
   </div>
 </template>

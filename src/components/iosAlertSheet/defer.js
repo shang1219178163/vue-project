@@ -14,4 +14,4 @@ export default function(){
     resolve: resolve,
     reject: reject
   };
-}
+};

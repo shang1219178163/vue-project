@@ -3,14 +3,14 @@ import iosActionSheet from './iosActionSheet.vue';
 
 export default {
   install(app, options) {   
-    // app.component("iosActionSheet", iosActionSheet);
+    app.component("iosActionSheet", iosActionSheet);
  
     // // app.config.globalProperties.$iosActionSheet = function (...buttons){
     // //   app.component("iosActionSheet", iosActionSheet);
     // // };
     // app.config.globalProperties.$iosActionSheet = this;
 
-    app.config.globalProperties.$iosActionSheet = function (...buttons){
+    function $iosActionSheet(...buttons){
   
       let instance = new iosActionSheet({propsData: {buttons}});
   
@@ -21,25 +21,9 @@ export default {
       instance.$mount(mount);
   
       return instance.activate();
-    };
+    }
 
-    app.provide('iosActionSheet', iosActionSheet)
-
-    app.directive("font-size", (el, binding, vnode) => {
-      var size = 16;
-      switch (binding.arg) {
-        case "small":
-          size = 12;
-          break;
-        case "large":
-          size = 24;
-          break;
-        default:
-          size = 18;
-          break;
-      }
-      el.style.fontSize = size + "px";
-    });
+    app.provide('$iosActionSheet', $iosActionSheet)
   }
 }
 

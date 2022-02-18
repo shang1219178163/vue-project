@@ -4,7 +4,7 @@
       <li>
         <div class='cell'>
             <div>新插槽 v-slot 代替具名插槽 作用于插槽
-                <todo-list @click="tap">
+                <todo-list>
                     <!-- <template #todo="{obj: e, test: t}">
                         <div class="todocell" @click = tap(e)>
                             {{e.text}} {{ t}}  111
@@ -15,19 +15,33 @@
         </div>
       </li>
     </ol>
+
+    <bcard :margin="20" :padding="40">
+      <template #header>
+          <h1>Here might be a page title</h1>
+      </template>
+
+      <template #default>
+          <p>A paragraph for the main content.</p>
+          <p>And another one.</p>
+      </template>
+
+      <template #footer>
+          <p>Here's some contact info</p>
+      </template>
+  </bcard>
   </div>
+
 </template>
 
 <script setup>
-import { ref, reactive, getCurrentInstance } from 'vue';
+import { ref, reactive } from 'vue';
 import todoList from "@/components/TodoList.vue";
+import bcard from '@/components/BCard.vue';
 
-const instance = getCurrentInstance()
-console.log(instance);
-
-const tap = (e) => {
-  alert(typeof e, JSON.stringify(e))
-  console.log(e.text)
+const tap = (val) => {
+  // alert(val.name)
+  console.log(val.text)
 }
 
 </script>
