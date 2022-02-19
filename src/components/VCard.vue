@@ -1,13 +1,17 @@
 <template>
     <div class="card">
         <div>
-            <slot name="header"></slot>
+            <slot name="header">
+                <div class="header" v-if="headerTitle">{{headerTitle}}</div>
+            </slot>
         </div>
         <div>
             <slot></slot>
         </div>
         <div>
-            <slot name="footer"></slot>
+            <slot name="footer">
+                <div class="footer" v-if="footerTitle">{{footerTitle}}</div>
+            </slot>
         </div>
     </div>
 </template>
@@ -17,26 +21,64 @@
 import { ref, getCurrentInstance, defineProps } from 'vue';
 
 const props = defineProps({
+    /// 标题
+    headerTitle: {
+        type: String,
+        default: undefined
+    },
+    /// 标题字体 css font
+    headerFont: {
+        type: String,
+        default: "large PingFangSC-Regular"
+    },
+    /// 标题颜色 css color
+    headerColor: {
+        type: String,
+        default: "#000000",
+    },
+    /// 标尾
+    footerTitle: {
+        type: String,
+        default: undefined
+    },
+
+    /// 标尾 css font
+    footerFont: {
+        type: String,
+        default: "smaller PingFangSC-Regular"
+    },
+    /// 标尾颜色 css color
+    footerColor: {
+        type: String,
+        default: "#000000",
+    },
+
+    /// css margin
     margin: {
         type: String,
         default: "8px"
     },
+    /// css padding
     padding: {
         type: String,
         default: "8px"
     },
+    /// css border-radius
     borderRadius: {
         type: String,
         default: "4px"
     },
+    /// css background-color
     backgroundColor: {
         type: String,
         default: "white",
     },
+    /// css box-shadow
     boxShadow: {
         type: String,
         default: "0px 4px 18px 0px rgba(0,0,0,0.08)",
     },
+    ///裁剪 css overflow
     overflow: {
         type: String,
         default: "hidden",
@@ -68,6 +110,16 @@ const props = defineProps({
     box-shadow: v-bind(boxShadow);
 
     overflow: v-bind(overflow);
+}
+
+.header{
+    color: v-bind(headerColor);
+    font: v-bind(headerFont);
+}
+
+.footer{
+    color: v-bind(footerColor);
+    font: v-bind(footerFont);
 }
 
 </style>

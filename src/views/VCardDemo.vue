@@ -4,6 +4,8 @@
       :margin="'12px'" 
       :padding="'19px 8px 19px'" 
       :borderRadius="'8px'"
+      :headerTitle="'headerTitle'"
+      :footerTitle="'footerTitle'"
     >
       <template #header>
           <h2>VCard slot header: template #header</h2>
