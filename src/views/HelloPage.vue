@@ -155,6 +155,11 @@
         class="page-item"
         >decorateMaterialList
       </router-link>
+      <router-link
+        :to="{path: '/vCardDemo', query: {plan: 'private'}}"
+        class="page-item"
+        >vCardDemo
+      </router-link>
 
     </div>
   </div>

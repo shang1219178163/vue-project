@@ -7,12 +7,10 @@
             right-text="请求" 
             @click-right="onClickRight" />
             <!-- <van-pull-refresh v-model="loading" @refresh="onRefresh"> -->
-            <bcard 
-            :marginTop="12" 
-            :marginRight="12" 
-            :marginLeft="12" 
-            :paddingTop="19" 
-            :paddingBottom="19" 
+            <vcard 
+            :margin="'12px'" 
+            :padding="'19px 8px 19px'" 
+            :borderRadius="'8px'"
             >
                 <div class="group">
                     <div class="header">
@@ -45,8 +43,8 @@
                         </tbody>
                     </table>
                 </div>
-            </bcard>
-            <bcard :paddingbottom="19" >
+            </vcard>
+            <vcard :paddingbottom="19" >
                 <!-- <template #header>
                     <h1>Here might be a page title</h1>
                 </template> -->
@@ -58,7 +56,7 @@
                 <template #footer>
                     <p>Here's some contact info</p>
                 </template>
-            </bcard>
+            </vcard>
         <!-- </van-pull-refresh>  -->
     </div>
     <!-- </suspense> -->
@@ -68,7 +66,7 @@
 import { ref, getCurrentInstance } from 'vue';
 import { Toast } from 'vant';
 // import { Promise } from 'es6-promise';
-import bcard from '@/components/BCard.vue';
+import vcard from '@/components/VCard.vue';
 
 
 const currentInstance = getCurrentInstance()

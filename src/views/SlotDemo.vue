@@ -16,7 +16,11 @@
       </li>
     </ol>
 
-    <bcard :margin="20" :padding="40">
+    <vcard
+      :margin="'12px'" 
+      :padding="'19px 8px 19px'" 
+      :borderRadius="'8px'"
+    >
       <template #header>
           <h1>Here might be a page title</h1>
       </template>
@@ -25,11 +29,10 @@
           <p>A paragraph for the main content.</p>
           <p>And another one.</p>
       </template>
-
       <template #footer>
           <p>Here's some contact info</p>
       </template>
-  </bcard>
+  </vcard>
   </div>
 
 </template>
@@ -37,7 +40,7 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import todoList from "@/components/TodoList.vue";
-import bcard from '@/components/BCard.vue';
+import vcard from '@/components/VCard.vue';
 
 const tap = (val) => {
   // alert(val.name)

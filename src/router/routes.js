@@ -84,6 +84,6 @@ export const RouterMap = [
   { path: '/callphoneDemo', name: 'callphoneDemo', component:  _import_('callphoneDemo') },
   { path: '/transformDemo', name: 'TransformDemo', component:  _import_('TransformDemo') },
   { path: '/decorateMaterialList', name: 'DecorateMaterialList', component:  _import_('DecorateMaterialList') },
-
+  { path: '/vCardDemo', name: 'VCardDemo', component:  _import_('VCardDemo') },
 
 ]
