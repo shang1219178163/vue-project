@@ -2,8 +2,9 @@ import pin from './pin'
 import focus from './focus'
 import throttle from './throttle'
 import debounce from './debounce'
-import randomcolor from './randomcolor'
-import bordercolor from './bordercolor'
+import randomColor from './randomColor'
+import borderColor from './borderColor'
+import itemSelect from './itemSelect';
 
 //自定义指令
 const directives = {
@@ -11,8 +12,9 @@ const directives = {
     focus,
     throttle,
     debounce,
-    randomcolor,
-    bordercolor
+    randomColor,
+    borderColor,
+    itemSelect
 }
 
 export default {

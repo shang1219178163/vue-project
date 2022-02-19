@@ -28,11 +28,12 @@
         </template>
     </my-header> -->
 
-    <!-- <p v-pin="200" v-randomcolor >Stick me 200px from the top of the page</p> -->
     <div class="qq">qqqq</div>
+    <button @click="click">button</button>
+
+    <!-- <p v-pin="200" v-randomcolor >Stick me 200px from the top of the page</p> -->
     <!-- <div v-font-size="'large'">ffff</div>
     <div v-font-size="'huge'">gggg</div> -->
-    <button @click="click">button</button>
     <!-- <input type="text" v-focus /> -->
     <!-- <div v-demo="{ color: 'white', text: 'hello!' }">v-demo</div>
     <div v-demo="'zzz'" v-randomcolor>zzz_v-demo</div> -->
