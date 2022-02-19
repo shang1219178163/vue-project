@@ -36,12 +36,12 @@ const props = defineProps({
         type: String,
         default: "#000000",
     },
+
     /// 标尾
     footerTitle: {
         type: String,
         default: undefined
     },
-
     /// 标尾 css font
     footerFont: {
         type: String,
