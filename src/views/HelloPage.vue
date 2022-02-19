@@ -16,150 +16,16 @@
     <!-- <UserCell></UserCell> -->
 
     <div class="page">
-      <div class="page-item" @click="gotoPage">Page</div>
+      <!-- <div class="page-item" @click="gotoPage">Page</div>
       <div class="page-item" @click="gotoGrid">Grid</div>
       <div class="page-item" @click="gotoLayoutTest">layoutTest</div>
 
       <div class="page-item" @click="gotoFlexDemo">FlexDemo</div>
-      <div class="page-item" @click="gotoTableViewDemo">tableViewDemo</div>
+      <div class="page-item" @click="gotoTableViewDemo">tableViewDemo</div> -->
 
-      <!-- <router-link v-for='e in RouterMap' :to='{ path: e.path, query: { plan: 'private' } }' class="page-item"
-        >{{ e.name }}</router-link> -->
-      <router-link :to="{path: '/pageSetup', query: {id: '99'}}" class="page-item"
-        >pageSetup
-      </router-link>
-      <router-link :to="{path: '/girdDemo', query: {plan: 'private'}}" class="page-item"
-        >GirdDemo
-      </router-link>
-      <router-link :to="{path: '/domChange', query: {plan: 'private'}}" class="page-item"
-        >domChange
-      </router-link>
-      <router-link :to="{path: '/layoutDemo', query: {plan: 'private'}}" class="page-item"
-        >layoutDemo
-      </router-link>
-      <router-link :to="{path: '/compDemo', query: {plan: 'private'}}" class="page-item"
-        >compDemo
-      </router-link>
-      <router-link :to="{path: '/slotDemo', query: {plan: 'private'}}" class="page-item"
-        >slotDemo
-      </router-link>
-      <router-link :to="{path: '/setupDemo', query: {plan: 'private'}}" class="page-item"
-        >setupDemo
-      </router-link>
-      <router-link
-        :to="{path: '/dataTransferDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >dataTransferDemo
-      </router-link>
-      <router-link :to="{path: '/tableDemo', query: {plan: 'private'}}" class="page-item"
-        >tableDemo
-      </router-link>
-      <router-link :to="{path: '/userlist', query: {plan: 'private'}}" class="page-item"
-        >userlist
-      </router-link>
-      <router-link :to="{path: '/userlist1', query: {plan: 'private'}}" class="page-item"
-        >userlist1
-      </router-link>
-      <router-link
-        :to="{path: '/alertSheetDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >alertSheetDemo
-      </router-link>
-      <router-link
-        :to="{path: '/pullRefreshDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >pullRefreshDemo</router-link
-      >
-      <router-link
-        :to="{path: '/pullMoreDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >pullMoreDemo
-      </router-link>
-      <router-link :to="{path: '/sceneList', query: {plan: 'private'}}" class="page-item"
-        >sceneList
-      </router-link>
-      <router-link
-        :to="{path: '/vanConfigProvider', query: {plan: 'private'}}"
-        class="page-item"
-        >vanConfigProvider
-      </router-link>
-      <!-- <router-link :to="{path: '/father', query: {plan: 'private'}}" class="page-item"
-        >father
-      </router-link> -->
-      <router-link
-        :to="{path: '/counterDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >counterDemo
-      </router-link>
-      <router-link
-        :to="{path: '/reactiveDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >reactiveDemo
-      </router-link>
-      <router-link :to="{path: '/refDemo', query: {plan: 'private'}}" class="page-item"
-        >refDemo
-      </router-link>
-      <router-link :to="{path: '/toRefDemo', query: {plan: 'private'}}" class="page-item"
-        >toRefDemo
-      </router-link>
-      <router-link :to="{path: '/toRefsDemo', query: {plan: 'private'}}" class="page-item"
-        >toRefsDemo
-      </router-link>
-      <router-link
-        :to="{path: '/dynamicDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >dynamicDemo
-      </router-link>
-      <router-link
-        :to="{path: '/attrsFather', query: {plan: 'private'}}"
-        class="page-item"
-        >attrsFather
-      </router-link>
-      <router-link
-        :to="{path: '/teleportDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >teleportDemo
-      </router-link>
-      <router-link
-        :to="{path: '/storeDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >StoreDemo
-      </router-link>
-      <router-link
-        :to="{path: '/watchDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >WatchDemo
-      </router-link>
-      <router-link
-        :to="{path: '/vantComposablesDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >VantComposablesDemo
-      </router-link>
-      <router-link
-        :to="{path: '/vantOverlayDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >VantOverlay
-      </router-link>
-      <router-link
-        :to="{path: '/callphoneDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >callphoneDemo
-      </router-link>
-      <router-link
-        :to="{path: '/transformDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >TransformDemo
-      </router-link>
-      <router-link
-        :to="{path: '/decorateMaterialList', query: {plan: 'private'}}"
-        class="page-item"
-        >decorateMaterialList
-      </router-link>
-      <router-link
-        :to="{path: '/vCardDemo', query: {plan: 'private'}}"
-        class="page-item"
-        >vCardDemo
-      </router-link>
+      <div v-for="(item) in RouterMap" :key="item.path"><router-link :to="item.path" class="page-item"
+        >{{item.name}}
+      </router-link></div>
 
     </div>
   </div>
@@ -167,16 +33,20 @@
 
 <script setup>
 // import { useRouter, useRoute } from "vue-router"
+import { ref, reactive, computed, watc, getCurrentInstance} from "vue";
 import router from "@/router/index";
-import {ref, reactive, computed, watch} from "vue";
 
-// import { RouterMap } from '@/router/routes'
+import { RouterMap } from "../router/routes";
 
 import Counter from "@/components/Counter.vue";
 // import UserCell from '@/components/UserCell.vue'
 
 // const router = useRouter();
 // const route = useRoute();
+
+const instance = getCurrentInstance();
+console.log(instance.type.__file, RouterMap);
+
 
 const count = ref(8);
 const step = ref(5);
