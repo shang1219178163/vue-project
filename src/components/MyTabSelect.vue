@@ -13,7 +13,7 @@
             >{{item.title}}</a> -->
             <a href="javascript:;"
                     class='tab-item'
-                    v-for="(item, index) in tabData" :key="item.id"
+                    v-for="(item, index) in items" :key="item.id"
                     @click="changeIndex(index)"
                 >{{item.title}}</a>
         </div>
@@ -46,7 +46,7 @@ import { ref, reactive, getCurrentInstance, computed, defineProps } from 'vue';
 // console.log(instance.type.__file, instance.props);
 
 const props = defineProps({
-    tabData: {
+    items: {
         type: Array,
         // eslint-disable-next-line vue/require-valid-default-prop
         default () {
@@ -62,7 +62,7 @@ const props = defineProps({
 const currentIndex = ref(props.initailIndex);
 
 const currentContent = computed(() => {
-   return props.tabData[currentIndex.value].content;
+   return props.items[currentIndex.value].content;
 })
 
 

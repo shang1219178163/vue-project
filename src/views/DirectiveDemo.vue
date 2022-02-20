@@ -17,14 +17,14 @@
     >
     </my-tab> -->
     <my-tab-select
-        :tabData="tabData"
+        :items="items"
         :initailIndex="initailIndex"
-    >
+        >
     </my-tab-select>
     <my-item-select
-        :list="tabData"
+        :items="items"
         :initailIndex="initailIndex"
-    >
+        >
     </my-item-select>
 </template>
 
@@ -42,7 +42,7 @@ const onClickLeft = () => history.back();
 // console.log(instance.type.__file);
 
 const props = defineProps({
-    tabData: {
+    items: {
         type: Array,
         // eslint-disable-next-line vue/require-valid-default-prop
         default: [
@@ -57,13 +57,9 @@ const props = defineProps({
     },
     initailIndex: {
         type: [Number, String],
-        default: 0
+        default: 1
     }
 })
 
 </script>
 
-
-<style lang="">
-    
-</style>

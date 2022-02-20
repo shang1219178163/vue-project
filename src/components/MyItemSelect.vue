@@ -6,13 +6,16 @@
             selectClass: 'item-select',
             currentIndex: currentIdx,
             isMultiple: true,
-            min:2,
+            min: 1,
             max: 5,
-            selectItems: selectItems
+            list: items,
+            minblock: minblock,
+            maxblock: maxblock,
+            block: block,
             }">
             <a
                 class='item'
-                v-for="(item, idx) in list" :key="idx"
+                v-for="(item, idx) in items" :key="idx"
                 @click="changeItem(idx)"
                 >
                 {{item.title}}
@@ -23,13 +26,15 @@
 
 
 <script setup>
+import { Toast } from 'vant';
 import { ref, reactive, getCurrentInstance, computed, defineProps } from 'vue';
+
 
 const instance = getCurrentInstance();
 console.log(instance.type.__file, instance);
 
 const props = defineProps({
-    list: {
+    items: {
         type: Array,
         // eslint-disable-next-line vue/require-valid-default-prop
         default () {
@@ -56,16 +61,27 @@ const changeIndex = (index) => {
 
 const currentIdx = ref(props.initailIndex);
 
-const selectItems = reactive([props.list[props.initailIndex]])
+const selectItems = reactive([props.items[props.initailIndex]])
 
 const changeItem = (idx) => {
     currentIdx.value = idx;
     // console.log(currentIdx.value, selectIndexs);
-    props.list[idx].isSelect
     console.log(instance.type.__file, currentIdx.value, selectItems);
-
 }
 
+const block = (indexs, items, idx) => {
+    console.log("block", instance.type.__file, indexs, items.map((e) => {
+        return e.title
+    }));
+}
+
+const minblock = (val) => {
+    Toast(`数量不能小于 ${val}`)
+}
+
+const maxblock = (val) => {
+    Toast(`数量不能大于 ${val}`)
+}
 
 // let warn = alert
 // window.alert = (t) => {
