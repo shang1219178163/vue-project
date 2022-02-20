@@ -10,9 +10,7 @@ export default {
         el.items = el.getElementsByClassName(itemClass);
         el.items[currentIndex].className = `${itemClass} ${selectClass}`
 
-        // console.log("el.items", typeof el.items, el.items);
-        // console.log("_vei", vnode.el.items[0]._vei);
-        
+        // console.log("el.items", typeof el.items, el.items);        
         if (!el.isMultiple) {
             return
         }
@@ -63,11 +61,6 @@ export default {
         const {itemClass, selectClass, items } = el;
         // console.log(currentIndex, oldIndex, itemClass,  selectClass, oitems);
 
-        // if (el.isMultiple === undefined || el.isMultiple === false) items[oldIndex].className = itemClass;
-        // items[oldIndex].className = itemClass;
-        // items[currentIndex].className = `${itemClass} ${selectClass}`
-        // console.log( "updated", oldIndex, currentIndex);
-        // console.log( `updated >>> el.isMultiple:${el.isMultiple}_${oldIndex}: ${items[oldIndex].className} >>> current: ${currentIndex}: ${items[currentIndex].className}`);
         if (el.isMultiple) {
             return
         }
