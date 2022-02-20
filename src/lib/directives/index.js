@@ -4,7 +4,9 @@ import throttle from './throttle'
 import debounce from './debounce'
 import randomColor from './randomColor'
 import borderColor from './borderColor'
+import tabSelect from './tabSelect';
 import itemSelect from './itemSelect';
+
 
 //自定义指令
 const directives = {
@@ -14,6 +16,7 @@ const directives = {
     debounce,
     randomColor,
     borderColor,
+    tabSelect,
     itemSelect
 }
 

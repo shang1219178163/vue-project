@@ -33,7 +33,7 @@
 
 <script setup>
 // import { useRouter, useRoute } from "vue-router"
-import { ref, reactive, computed, watc, getCurrentInstance} from "vue";
+import { ref, reactive, computed, watch, getCurrentInstance} from "vue";
 import router from "@/router/index";
 
 import { RouterMap } from "../router/routes";

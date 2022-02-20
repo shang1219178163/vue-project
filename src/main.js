@@ -47,7 +47,7 @@ app.directive("font-size", (el, binding, vnode) => {
 });
 
 app.directive('demo', (el, binding) => {
-    console.log('demo', binding)
+    // console.log('demo', binding)
 })
 
 app.use(router)

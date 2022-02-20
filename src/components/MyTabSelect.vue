@@ -1,4 +1,5 @@
 <template>
+    <h1>单选 my-tab-select</h1>
     <div>
         <div v-tab-select="{
         tabClass: 'tab-item',
@@ -11,39 +12,22 @@
                 @click="changeIndex(index)"
             >{{item.title}}</a> -->
             <a href="javascript:;"
-                class='tab-item'
-                v-for="(item, index) in tabData" :key="item.id"
-                @click="changeIndex(index)"
-            >{{item.title}}</a>
+                    class='tab-item'
+                    v-for="(item, index) in tabData" :key="item.id"
+                    @click="changeIndex(index)"
+                >{{item.title}}</a>
         </div>
-
+        <div>
+            <p>{{currentContent}}</p>
+        </div>
     </div>
-    <!-- <div>
+    <div>
         <div v-tab-select="{
             tabClass: 'item',
             activeClass: 'item-select',
             currentIndex: currentIdx
         }">
             <a href="javascript:;"
-                class='item'
-                v-for="(item, idx) in list" :key="idx"
-                @click="changeItem(idx)"
-                >
-                {{item}}
-            </a>
-        </div>    
-    </div> -->
-    <h1>单选/多选 v-item-select</h1>
-    <div>
-        <div v-item-select="{
-            itemClass: 'item',
-            selectClass: 'item-select',
-            currentIndex: currentIdx,
-            isMultiple: true,
-            min:2,
-            max: 5
-            }">
-            <a
                 class='item'
                 v-for="(item, idx) in list" :key="idx"
                 @click="changeItem(idx)"
@@ -58,8 +42,8 @@
 <script setup>
 import { ref, reactive, getCurrentInstance, computed, defineProps } from 'vue';
 
-const instance = getCurrentInstance();
-console.log(instance.type.__file, instance);
+// const instance = getCurrentInstance();
+// console.log(instance.type.__file, instance.props);
 
 const props = defineProps({
     tabData: {
@@ -87,26 +71,14 @@ const changeIndex = (index) => {
 }
 
 
-const list = reactive(Array(10).fill().map((e, i)=> `item_${i}`))
+const list = reactive(["男", "女"])
 const currentIdx = ref(props.initailIndex);
 
-const selectIndexs = reactive([])
-
 const changeItem = (idx) => {
-    selectIndexs.push(idx);
     currentIdx.value = idx;
-    // console.log(currentIdx.value, selectIndexs);
-    console.log(instance.type.__file, currentIdx.value);
-    
+    console.log(currentIdx.value);
 }
 
-
-// let warn = alert
-// window.alert = (t) => {
-//     if (confirm('How are you?')) warn(t)
-// }
-
-// alert('Help me...!!!')
 
 </script>
 
@@ -131,17 +103,6 @@ a{
 //         text-decoration: underline;
 //     }
 // }
-
-.item{
-    margin: 8px;
-
-    color: red;
-
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: warp;
-    // width: 60px;
-}
 
 .item-select{
     border: 1.5px solid #000;

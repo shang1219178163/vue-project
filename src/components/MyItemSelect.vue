@@ -1,38 +1,4 @@
 <template>
-    <div>
-        <div v-tab-select="{
-        tabClass: 'tab-item',
-        activeClass: 'active',
-        currentIndex
-        }">
-            <!-- <a href="javascript:;"
-                :class="['tab-item', {'active': index === currentIndex}]"
-                v-for="(item, index) in tabData" :key="item.id"
-                @click="changeIndex(index)"
-            >{{item.title}}</a> -->
-            <a href="javascript:;"
-                class='tab-item'
-                v-for="(item, index) in tabData" :key="item.id"
-                @click="changeIndex(index)"
-            >{{item.title}}</a>
-        </div>
-
-    </div>
-    <!-- <div>
-        <div v-tab-select="{
-            tabClass: 'item',
-            activeClass: 'item-select',
-            currentIndex: currentIdx
-        }">
-            <a href="javascript:;"
-                class='item'
-                v-for="(item, idx) in list" :key="idx"
-                @click="changeItem(idx)"
-                >
-                {{item}}
-            </a>
-        </div>    
-    </div> -->
     <h1>单选/多选 v-item-select</h1>
     <div>
         <div v-item-select="{
@@ -41,14 +7,15 @@
             currentIndex: currentIdx,
             isMultiple: true,
             min:2,
-            max: 5
+            max: 5,
+            selectItems: selectItems
             }">
             <a
                 class='item'
                 v-for="(item, idx) in list" :key="idx"
                 @click="changeItem(idx)"
                 >
-                {{item}}
+                {{item.title}}
             </a>
         </div>    
     </div>
@@ -62,7 +29,7 @@ const instance = getCurrentInstance();
 console.log(instance.type.__file, instance);
 
 const props = defineProps({
-    tabData: {
+    list: {
         type: Array,
         // eslint-disable-next-line vue/require-valid-default-prop
         default () {
@@ -78,7 +45,7 @@ const props = defineProps({
 const currentIndex = ref(props.initailIndex);
 
 const currentContent = computed(() => {
-   return props.tabData[currentIndex.value].content;
+   return props.list[currentIndex.value].content;
 })
 
 
@@ -87,17 +54,16 @@ const changeIndex = (index) => {
 }
 
 
-const list = reactive(Array(10).fill().map((e, i)=> `item_${i}`))
 const currentIdx = ref(props.initailIndex);
 
-const selectIndexs = reactive([])
+const selectItems = reactive([props.list[props.initailIndex]])
 
 const changeItem = (idx) => {
-    selectIndexs.push(idx);
     currentIdx.value = idx;
     // console.log(currentIdx.value, selectIndexs);
-    console.log(instance.type.__file, currentIdx.value);
-    
+    props.list[idx].isSelect
+    console.log(instance.type.__file, currentIdx.value, selectItems);
+
 }
 
 
