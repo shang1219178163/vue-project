@@ -17,12 +17,12 @@
     >
     </my-tab> -->
     <my-tab-select
-        :items="items"
+        :list="list"
         :initailIndex="initailIndex"
         >
     </my-tab-select>
     <my-item-select
-        :items="items"
+        :list="list"
         :initailIndex="initailIndex"
         >
     </my-item-select>
@@ -42,7 +42,7 @@ const onClickLeft = () => history.back();
 // console.log(instance.type.__file);
 
 const props = defineProps({
-    items: {
+    list: {
         type: Array,
         // eslint-disable-next-line vue/require-valid-default-prop
         default: [

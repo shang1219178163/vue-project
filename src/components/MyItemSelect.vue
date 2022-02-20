@@ -8,14 +8,14 @@
             isMultiple: true,
             min: 1,
             max: 5,
-            list: items,
+            list: list,
             minblock: minblock,
             maxblock: maxblock,
             block: block,
             }">
             <a
                 class='item'
-                v-for="(item, idx) in items" :key="idx"
+                v-for="(item, idx) in list" :key="idx"
                 @click="changeItem(idx)"
                 >
                 {{item.title}}
@@ -34,7 +34,7 @@ const instance = getCurrentInstance();
 console.log(instance.type.__file, instance);
 
 const props = defineProps({
-    items: {
+    list: {
         type: Array,
         // eslint-disable-next-line vue/require-valid-default-prop
         default () {
@@ -61,7 +61,7 @@ const changeIndex = (index) => {
 
 const currentIdx = ref(props.initailIndex);
 
-const selectItems = reactive([props.items[props.initailIndex]])
+const selectItems = reactive([props.list[props.initailIndex]])
 
 const changeItem = (idx) => {
     currentIdx.value = idx;
