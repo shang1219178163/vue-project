@@ -83,13 +83,6 @@ const maxblock = (val) => {
     Toast(`数量不能大于 ${val}`)
 }
 
-// let warn = alert
-// window.alert = (t) => {
-//     if (confirm('How are you?')) warn(t)
-// }
-
-// alert('Help me...!!!')
-
 </script>
 
 
@@ -118,11 +111,6 @@ a{
     margin: 8px;
 
     color: red;
-
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: warp;
-    // width: 60px;
 }
 
 .item-select{
