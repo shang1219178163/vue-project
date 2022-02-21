@@ -12,7 +12,7 @@
                     <div>呼叫 {{ props.phone || '-' }}</div>
                     </div>
                 </div>
-                <div class="item"  @click="cancell">取消</div>
+                <div class="item" @click="cancell">取消</div>
             </div>
         </div>
      <!-- </transition> -->

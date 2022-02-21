@@ -6,8 +6,8 @@
     <!-- <van-action-sheet v-model:show="show" :actions="actions" @select="onSelect" cancel-text="取消"
  /> -->
 
-    <vue-sheet v-model:show="show" :buttons="buttons" @dismiss="dismiss" />
-    <!-- <call-phone :show="show" @click="callphone" @cancell="cancell" /> -->
+    <!-- <vue-sheet v-model:show="show" :buttons="buttons" @dismiss="dismiss" /> -->
+    <call-phone :show="show" :phone="'188888888999'" @click="callphone" @cancell="cancell" />
 
     <!-- <van-cell is-link title="van-overlay" @click="click" />
     <van-overlay :show="show" @click="show = false">
@@ -58,6 +58,7 @@ import CallPhone from '../components/CallPhone.vue';
 const onClickLeft = () => history.back();
 
 const show = ref(false);
+
 const actions = [
     { name: '选项一' },
     { name: '选项二' },

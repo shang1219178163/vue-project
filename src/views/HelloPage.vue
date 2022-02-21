@@ -23,30 +23,40 @@
       <div class="page-item" @click="gotoFlexDemo">FlexDemo</div>
       <div class="page-item" @click="gotoTableViewDemo">tableViewDemo</div> -->
 
-      <div v-for="(item) in RouterMap" :key="item.path"><router-link :to="item.path" class="page-item"
-        >{{item.name}}
-      </router-link></div>
-
+      <div v-for="item in RouterMap" :key="item.path">
+        <vcard
+          :margin="'12px'" 
+          :padding="'19px 8px 19px'" 
+          :borderRadius="'8px'"
+          :footerTitle="item.desc"
+        >
+          <router-link :to="item.path" class="page-item"> {{ item.name }} </router-link>
+        </vcard>
+        <!-- <div class="button">
+          <router-link :to="item.path" class="page-item">{{ item.name }} </router-link>
+        </div> -->
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 // import { useRouter, useRoute } from "vue-router"
-import { ref, reactive, computed, watch, getCurrentInstance} from "vue";
+import {ref, reactive, computed, watch, getCurrentInstance} from "vue";
 import router from "@/router/index";
 
-import { RouterMap } from "../router/routes";
+import {RouterMap} from "@/router/routes";
 
 import Counter from "@/components/Counter.vue";
+import VCard from "@/components/VCard.vue";
 // import UserCell from '@/components/UserCell.vue'
+
 
 // const router = useRouter();
 // const route = useRoute();
 
 const instance = getCurrentInstance();
 console.log(instance.type.__file, RouterMap);
-
 
 const count = ref(8);
 const step = ref(5);
@@ -118,11 +128,22 @@ a {
   color: #42b983;
 }
 
-.page {
+.button {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: grey 50%;
+  color: black;
+
+  display: inline-block;
+}
+
+/* .page {
   display: flex;
   flex-wrap: wrap;
   margin: 0 10px;
-}
+} */
 
 .page-item {
   margin: 0 10px;

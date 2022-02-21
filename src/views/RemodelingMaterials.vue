@@ -5,13 +5,15 @@
             left-arrow  
             @click-left="onClickLeft" 
             right-text="请求" 
-            @click-right="onClickRight" />
+            @click-right="onClickRight" 
+            v-if="props.isShowNavBar"
+            />
             <!-- <van-pull-refresh v-model="loading" @refresh="onRefresh"> -->
             <vcard 
-            :margin="'12px'" 
-            :padding="'19px 8px 19px'" 
-            :borderRadius="'8px'"
-            >
+                :margin="'12px'" 
+                :padding="'19px 8px 19px'" 
+                :borderRadius="'8px'"
+                >
                 <div class="group">
                     <div class="header">
                         <div class="header-left">
@@ -44,30 +46,23 @@
                     </table>
                 </div>
             </vcard>
-            <vcard :paddingbottom="19" >
-                <!-- <template #header>
-                    <h1>Here might be a page title</h1>
-                </template> -->
-                <template #default>
-                    <p>A paragraph for the main content.</p>
-                    <p>And another one.</p>
-                </template>
-
-                <template #footer>
-                    <p>Here's some contact info</p>
-                </template>
-            </vcard>
         <!-- </van-pull-refresh>  -->
     </div>
     <!-- </suspense> -->
 </template>
 
 <script setup>
-import { ref, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance, defineProps } from 'vue';
 import { Toast } from 'vant';
 // import { Promise } from 'es6-promise';
 import vcard from '@/components/VCard.vue';
 
+const props = defineProps({
+    isShowNavBar: {
+        type: Boolean,
+        default: true
+    }
+})
 
 const currentInstance = getCurrentInstance()
 const { $api } = currentInstance.appContext.config.globalProperties
@@ -153,8 +148,12 @@ table{
 }
 
 thead {
-    font-weight: bold;
-    background-color: #eeeeee;
+    font-family: PingFangSC-Medium;
+    font-size: 12px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 12px;
+    font-weight: 500;
 }
 
 tr{

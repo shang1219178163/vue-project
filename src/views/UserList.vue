@@ -1,7 +1,7 @@
 <template>
   <van-nav-bar title="人员清单" left-arrow @click-left="onClickLeft" />
   <ul>
-    <user-cell-one
+    <user-cell
       v-for="e in list"
       :key="e.uid"
       :headUrl="e.headUrl"
@@ -32,7 +32,7 @@
 <script setup>
 import { ref, reactive, computed, watch } from "vue";
 import { Toast } from "vant";
-import UserCellOne from "@/components/UserCellOne";
+import UserCell from "@/components/UserCell";
 import CallPhoneSheet from "@/components/CallPhoneSheet";
 
 const onClickLeft = () => history.back();

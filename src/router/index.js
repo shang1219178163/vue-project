@@ -12,4 +12,11 @@ const router = createRouter({
    // }
 })
 
+// router.afterEach((to, from, next) => {
+//    //页面埋点
+//    // console.log("afterEach", from, "=>", to)
+//    // alert("beforeEach", from, "=>", to)
+//    next()
+// });
+
 export default router

@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import VueMD from './router/eventTracking.js'
 // 导入所有组件
 import Vant from 'vant'
 import 'vant/lib/index.css'
@@ -51,6 +52,7 @@ app.directive('demo', (el, binding) => {
 })
 
 app.use(router)
+.use(VueMD)
 .use(store)
 .use(Vant)
 .use(iosAlertSheet)
