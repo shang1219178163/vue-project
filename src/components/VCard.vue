@@ -29,7 +29,7 @@ const props = defineProps({
     /// 标题字体 css font
     headerFont: {
         type: String,
-        default: "large PingFangSC-Regular"
+        default: "medium PingFangSC-Regular"
     },
     /// 标题颜色 css color
     headerColor: {

@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <div>hello page</div>
-    <h3>{{ msg }}<span @click="changeMsg">-></span></h3>
+    <h3>{{ message }}<span @click="changeMsg">-></span></h3>
     <h3>Essential Links</h3>
     <ul>
       <li v-for="e in arr" :key="e.id">
@@ -13,28 +13,19 @@
 
     <input type="text" v-model="watchObj.name" />
     <counter :count="count" :step="step" />
-    <!-- <UserCell></UserCell> -->
-
     <div class="page">
-      <!-- <div class="page-item" @click="gotoPage">Page</div>
-      <div class="page-item" @click="gotoGrid">Grid</div>
-      <div class="page-item" @click="gotoLayoutTest">layoutTest</div>
-
-      <div class="page-item" @click="gotoFlexDemo">FlexDemo</div>
-      <div class="page-item" @click="gotoTableViewDemo">tableViewDemo</div> -->
-
       <div v-for="item in RouterMap" :key="item.path">
+          <!-- <router-link class="page-item" :to="item.path" > {{ item.name }} </router-link> -->
         <vcard
-          :margin="'12px'" 
-          :padding="'19px 8px 19px'" 
-          :borderRadius="'8px'"
-          :footerTitle="item.desc"
+        :margin="'8px 0 8px'" 
+        :padding="'8px 8px 8px'" 
+        :borderRadius="'8px'"
+        :footerTitle="item.desc"
+        @click="gotoPage(item.path)"
         >
-          <router-link :to="item.path" class="page-item"> {{ item.name }} </router-link>
+          <div class="name">{{ item.name }}</div>
+          <!-- <router-link class="page-item" :to="item.path" > {{ item.name }} </router-link> -->
         </vcard>
-        <!-- <div class="button">
-          <router-link :to="item.path" class="page-item">{{ item.name }} </router-link>
-        </div> -->
       </div>
     </div>
   </div>
@@ -48,7 +39,7 @@ import router from "@/router/index";
 import {RouterMap} from "@/router/routes";
 
 import Counter from "@/components/Counter.vue";
-import VCard from "@/components/VCard.vue";
+import vcard from '@/components/VCard.vue';
 // import UserCell from '@/components/UserCell.vue'
 
 
@@ -61,7 +52,7 @@ console.log(instance.type.__file, RouterMap);
 const count = ref(8);
 const step = ref(5);
 
-let msg = "Welcome to Your Vue.js App";
+let message = "Welcome to Your Vue.js App";
 
 const arr = [
   {url: "http://router.vuejs.org/", name: "vue-router", id: 0},
@@ -71,38 +62,19 @@ const arr = [
 ];
 
 const changeMsg = () => {
-  msg = msg === "Welcome to Your Vue.js App" ? "前端框架" : "Welcome to Your Vue.js App";
+  message = message === "Welcome to Your Vue.js App" ? "前端框架" : "Welcome to Your Vue.js App";
 };
 
 const add = () => {
   console.log("父组件");
 };
 
-const gotoPage = () => {
+const gotoPage = (to) => {
   console.log(typeof router);
   // router.push("/page/12?kind=car");
   // router.push({ path: "/page/22", query: { kind: "car" } });
-  router.push({name: "page", params: {id: "32"}, query: {kind: "car"}});
-};
-
-const gotoUserList = () => {
-  router.push({path: "/user", query: {name: "hf"}});
-};
-
-const gotoGrid = () => {
-  router.push({path: "/grid", query: {name: "hf"}});
-};
-
-const gotoLayoutTest = () => {
-  router.push({path: "/layoutTest", query: {name: "hf"}});
-};
-
-const gotoFlexDemo = () => {
-  router.push({path: "/flexDemo", query: {name: "hf"}});
-};
-
-const gotoTableViewDemo = () => {
-  router.push({path: "/tableViewDemo", query: {name: "hf"}});
+  // router.push({name: "page", params: {id: "32"}, query: {kind: "car"}});
+  router.push({ path: to, query: { kind: "car" } });
 };
 
 const watchObj = {
@@ -139,16 +111,24 @@ a {
   display: inline-block;
 }
 
-/* .page {
+.page {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 10px;
-} */
+  justify-content: space-evenly;
+}
 
 .page-item {
-  margin: 0 10px;
-  /* border: 1px solid red; */
-  color: red;
-  text-decoration: underline;
+  /* font-size: medium; */
+  /* margin: 8px;
+  padding: 8px;
+  border: 1px solid red; */
+  /* margin: 0 10px; */
+  /* color: red; */
+  /* background-color: #42b983; */
+  /* text-decoration: underline; */
+}
+.name{
+  color: #0082e0;
+  font-weight: 600;
 }
 </style>

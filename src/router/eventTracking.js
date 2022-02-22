@@ -83,15 +83,15 @@ class VueMD {
 
 	// 记录md数据
 	recordMD(data) {
-		console.warn(data)
-		console.log('%c记录数据埋点...', "color: red;")
+		// console.warn(data)
+		// console.log('%c记录数据埋点...', "color: red;")
 		this.mdList.push(data);
 	}
 
 	// 埋点数据推送到远程
 	pushOrigin() {
-		console.warn(this.mdList)
-		console.log('%c推送埋点数据....', "color: red;")
+		// console.warn(this.mdList)
+		// console.log('%c推送埋点数据....', "color: red;")
 		this.mdList = [];
 	}
 }

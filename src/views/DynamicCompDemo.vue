@@ -1,5 +1,6 @@
 <template lang="">
   <div> 
+    <h1>动态组件</h1>
     <div id ="example"> 
         <button @click="change">切换页面</button> 
         <component :is="currentView"></component> 

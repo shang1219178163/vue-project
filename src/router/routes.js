@@ -43,7 +43,10 @@ export const H5Router = {
 };
 
 export const RouterMap = [
-  { path: "/", redirect: "/home", desc: "为空跳回到首页" },
+  { path: "/", 
+    redirect: "/home", 
+    desc: "为空跳回到首页" 
+  },
   {
     path: "/home",
     name: "home",
@@ -292,4 +295,11 @@ export const RouterMap = [
     component: _import_("RemodelingStagers"),
     desc: "装修人员清单",
   },
+  {
+    path: "/dyamicClassDemo",
+    name: "dyamicClassDemo",
+    component: _import_("DyamicClassDemo"),
+    desc: "动态类名绑定",
+  },
+
 ];
