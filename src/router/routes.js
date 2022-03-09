@@ -301,5 +301,59 @@ export const RouterMap = [
     component: _import_("DyamicClassDemo"),
     desc: "动态类名绑定",
   },
-
+  {
+    path: "/VNetDemo",
+    name: "VNetDemo",
+    component: _import_("VNetDemo"),
+    desc: "VNet Demo",
+  },
+  {
+    path: "/ArrayTest",
+    name: "ArrayTest",
+    component: _import_("ArrayTest"),
+    desc: "ArrayTest",
+  },
+  {
+    path: "/CSSPositionDemo",
+    name: "CSSPositionDemo",
+    component: _import_("CSSPositionDemo"),
+    desc: "CSSPositionDemo",
+  },
+  {
+    path: "/VImgDemo",
+    name: "VImgDemo",
+    component: _import_("VImgDemo"),
+    desc: "VImgDemo",
+  },
+  {
+    path: "/ImgDemo",
+    name: "ImgDemo",
+    component: _import_("ImgDemo"),
+    desc: "ImgDemo",
+  },
+  {
+    path: "/LeaveContainerDemo",
+    name: "LeaveContainerDemo",
+    component: _import_("LeaveContainerDemo"),
+    desc: "LeaveContainerDemo",
+  },
+  {
+    path: "/Base64Demo",
+    name: "Base64Demo",
+    component: _import_("Base64Demo"),
+    desc: "Base64Demo",
+  },
+  {
+    path: "/FontTest",
+    name: "FontTest",
+    component: _import_("FontTest"),
+    desc: "FontTest",
+  },
+  {
+    path: "/FormatNumberDemo",
+    name: "FormatNumberDemo",
+    component: _import_("FormatNumberDemo"),
+    desc: "FormatNumberDemo",
+  },
+  
 ];
