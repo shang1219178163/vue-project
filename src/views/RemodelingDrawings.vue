@@ -1,6 +1,7 @@
 <template>
     <div>
-        <!-- <navbar isleftarrow=true navBarTitle="家装档案"></navbar> -->
+
+        <navbar isleftarrow=true navBarTitle="家装档案"></navbar>
         <van-nav-bar 
         title="装修图纸" 
         left-arrow 
@@ -20,6 +21,7 @@
 // import navbar from '@/components/navbar.vue'
 import { ref, defineProps} from 'vue';
 import router from '../router';
+
 
 const props = defineProps({
     isShowNavBar: {

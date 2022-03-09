@@ -6,7 +6,9 @@
             </slot>
         </div>
         <div>
-            <slot></slot>
+            <slot>
+                <div class="content" v-if="content">{{content}}</div>
+            </slot>
         </div>
         <div>
             <slot name="footer">
@@ -33,6 +35,22 @@ const props = defineProps({
     },
     /// 标题颜色 css color
     headerColor: {
+        type: String,
+        default: "#000000",
+    },
+
+    /// 内容
+    content: {
+        type: String,
+        default: undefined
+    },
+    /// 内容字体 css font
+    font: {
+        type: String,
+        default: "PingFangSC-Regular"
+    },
+    /// 内容颜色 css color
+    color: {
         type: String,
         default: "#000000",
     },
@@ -116,6 +134,12 @@ const props = defineProps({
     color: v-bind(headerColor);
     font: v-bind(headerFont);
 }
+
+.content{
+    color: v-bind(color);
+    font: v-bind(font);
+}
+
 
 .footer{
     color: v-bind(footerColor);

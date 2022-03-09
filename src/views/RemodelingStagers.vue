@@ -131,7 +131,7 @@ const list = reactive([
     uid: 1,
     name: "赵四",
     headUrl: "https://img.yzcdn.cn/vant/cat.jpeg",
-    job: "项目管家",
+    job: "012345678910",
     experience: "10年",
     phone: 18888888888,
     des: "我们是最棒的服务!业主的小事是我们的大事最多三十六个字展示文字可以展示",

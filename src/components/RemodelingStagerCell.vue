@@ -52,7 +52,13 @@ defineEmits(
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@mixin line-limit-length {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 div {
   /* font-size: 12px; */
   text-align: left;
@@ -129,6 +135,8 @@ div {
   -webkit-transform: scale(0.7);
   padding: 5px 3px 2px;
   margin: 0;
+
+  @include line-limit-length;
 }
 
 .line1 {
