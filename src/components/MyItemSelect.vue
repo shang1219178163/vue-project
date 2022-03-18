@@ -92,6 +92,7 @@ a{
     font-size: 1rem;
     margin: 8px;
     &.active{
+        margin: 8px;
         text-decoration: none;
         color: #000;
         // border: 1px solid #000;

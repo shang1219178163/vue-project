@@ -11,11 +11,16 @@
                 v-for="(item, index) in tabData" :key="item.id"
                 @click="changeIndex(index)"
             >{{item.title}}</a> -->
-            <a href="javascript:;"
+            <!-- <a href="javascript:;"
                     class='tab-item'
                     v-for="(item, index) in list" :key="item.id"
                     @click="changeIndex(index)"
-                >{{item.title}}</a>
+                >{{item.title}}</a> -->
+            <span
+                    class='tab-item'
+                    v-for="(item, index) in list" :key="item.id"
+                    @click="changeIndex(index)"
+                >{{item.title}}</span>
         </div>
         <div>
             <p>{{currentContent}}</p>
@@ -93,7 +98,30 @@ a{
         color: #000;
         // border: 1px solid #000;
         border-bottom: 1.5px solid #000;
+
+        // &::after{
+        //     content: '';
+        //     width: 40%;
+        //     height: 1px;
+        //     display: block;
+        //     padding-top: 10upx;
+        //     margin: 0 auto;
+        //     border-bottom: 1px solid #00DDDD;
+        // }
     }
+}
+
+.tab-item{
+    font-size: 1rem;
+    margin: 8px;
+    color: gray;
+    &.active{
+        color: #000;
+        // border: 1px solid #000;
+        border-bottom: 1.5px solid #000;
+
+    }
+
 }
 
 // .item{

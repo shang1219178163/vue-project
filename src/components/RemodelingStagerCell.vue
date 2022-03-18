@@ -1,7 +1,7 @@
 <template>
   <div class="cell">
     <div class="left">
-      <van-image class="headUrl" :src="headUrl" fit="contain" radius="32ppx">
+      <van-image class="headUrl" :src="headUrl" fit="cover" radius="32ppx">
         <template v-slot:loading>
           <van-loading type="spinner" size="20" />
         </template>
@@ -12,15 +12,15 @@
         <div class="font-bold"> {{ name }} </div>
         <div class="tag-job"> {{ job }} </div>
       </div>
-      <div class="line1">
+      <div class="line1" v-if="experience">
         <!-- <div>岗位:{{ job }}</div> -->
-        <div>从业经验:  {{ experience }}</div>
+        <div v-if="experience">从业经验:  {{ experience }}</div>
       </div>
       <div class="des">服务宗旨:  {{ des }}</div>
     </div>
     <div class="right">
       <van-image 
-      :src="require('../assets/images/call_phone_circle.png')" 
+      :src="require('@/assets/images/call_phone_circle.png')" 
       fit="fill" 
       class="img-callphone"
       @click="$emit('click', phone)"
@@ -40,7 +40,7 @@ defineProps({
   name: String,
   job: String,
   experience: String,
-  phone: Number,
+  phone: String,
   des: String,
 })
 
@@ -49,20 +49,28 @@ defineEmits(
   ["click",]
 )
 
-
 </script>
 
 <style scoped lang="scss">
+
+$spacing: 8px;
+$padding-left: 16px;
+$padding-right: 8px;
+
+$headImage: 48px;
+$phoneImage: 42px;
+
 @mixin line-limit-length {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+
 div {
   /* font-size: 12px; */
   text-align: left;
-  /* border: 0.3px solid blue; */
+  // border: 0.3px solid blue; 
 }
 
 .cell {
@@ -71,21 +79,20 @@ div {
   /* margin: 0; */
   /* padding: 8px; */
   /* background-color: aquamarine; */
-  height: 88px;
+  // height: 68px;
   border-bottom: 1px solid #eeeeee;
 
   background-color: #ffffff;
   border-radius: 8px;
 
-  margin: 8px 8px 8px;
-  padding: 16px 7px 16px 14px;
+  margin: $spacing $spacing $spacing;
+  padding: 16px $padding-right 16px $padding-left;
 
   background: rgba(255,255,255, 0.60);
   box-shadow: inset -0.5px -0.5px 0px 0px rgba(0,0,0,0.15);
   box-shadow: inset 0.5px 0.5px 0px 0px rgba(255,255,255,1);
   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.08);
   border-radius: 8px;
-
 
   font-family: PingFangSC-Regular;
   font-size: 12px;
@@ -98,8 +105,6 @@ div {
 .line0{
   display: flex;
   align-items: center;
-  /* justify-content: flex-start */
-  /* justify-content: space-around */
 }
 
 .font-bold{
@@ -109,6 +114,10 @@ div {
   letter-spacing: 0.1px;
   line-height: 20px;
   font-weight: 600;
+
+  flex-shrink: 1;
+
+  @include line-limit-length;
 }
 
 .tag-job{
@@ -130,18 +139,20 @@ div {
 
   display: flex;
   align-self: center;
-  /* text-align: center;
-  vertical-align: baseline; */
-  -webkit-transform: scale(0.7);
+  flex-shrink: 0;
+
+  // -webkit-transform: scale(0.7);
+  font-size: 8px;
+
   padding: 5px 3px 2px;
-  margin: 0;
+  margin-left: 8px;
 
   @include line-limit-length;
 }
 
 .line1 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .flex-column {
@@ -150,16 +161,14 @@ div {
   justify-content: space-between;
 }
 
-/* .left {
-  width: 48px;
+.left {
+  width: $headImage;
   height: 48px;
-  border: 1px solid red;
-  display: flex;
-  align-self: auto;
-  
-} */
+} 
 
 .mid {
+  width: calc(100vw - $spacing - $padding-left - $headImage - $spacing - $spacing - $phoneImage - $spacing - $spacing - 16px);
+
   padding: 0 8px 0px;
   display: flex;
   flex-direction: column;
@@ -169,6 +178,7 @@ div {
 }
 
 .right {
+  width: $phoneImage;
   display: flex;
   /* align-items: center; */
   align-self: flex-start;
@@ -179,8 +189,8 @@ div {
   display: flex;
   align-self: flex-start;
 
-  width: 48px;
-  height: 48px;
+  width: $headImage;
+  height: $headImage;
   border-radius: 32px;
 
   /* border: 0.3px solid red; */
@@ -194,8 +204,8 @@ div {
 }
 
 .img-callphone{
-  width: 42px;
-  height: 42px;
+  width: $phoneImage;
+  height: $phoneImage;
 }
 
 </style>
