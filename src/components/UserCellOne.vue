@@ -35,7 +35,11 @@ export default {
     }
   },
   props: {},
-  methods: {}
+  methods: {
+    add: () => {
+      
+    }
+  }
 }
 </script>
 

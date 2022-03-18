@@ -1,63 +1,59 @@
-
 <template>
-  <div class='container'>
+  <div class="container">
     <van-overlay :show="props.show">
-     <!-- <transition @after-leave="afterLeave"> -->
-        <div class="wrapper" @click.stop>
-            <div class="block" @click="click" >
-                <div class="item item0">
-                    <div class="callphone">
-                    <!-- <img width="24" height="24" src="../assets/images/call_phone.png" /> -->
-                    <van-image :src="require('../assets/images/call_phone.png')" />
-                    <div>呼叫 {{ props.phone || '-' }}</div>
-                    </div>
-                </div>
-                <div class="item" @click="cancell">取消</div>
+      <div class="wrapper" @click.stop>
+        <transition name="goon" @after-leave="afterLeave">
+          <div class="block" @click="click">
+            <div class="item item0">
+              <div class="callphone">
+                <!-- <img width="24" height="24" src="../assets/images/call_phone.png" /> -->
+                <van-image :src="require('../assets/images/call_phone.png')" />
+                <div>呼叫 {{ props.phone || "-" }}</div>
+              </div>
             </div>
-        </div>
-     <!-- </transition> -->
+            <div class="item" @click="cancell">取消</div>
+          </div>
+        </transition>
+      </div>
     </van-overlay>
   </div>
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue';
+import {ref, defineProps, defineEmits} from "vue";
 
 // console.log("CallPhone.vue");
 
 const props = defineProps({
-    phone: {
-        type: String,
-        // default: undefined,
-        required: true,
-        validator: (val) => {
-          return val != undefined && val != null
-        }
+  phone: {
+    type: String,
+    // default: undefined,
+    required: true,
+    validator: (val) => {
+      return val != undefined && val != null;
     },
-    show: {
-        type: Boolean,
-        required: true,
-        default: false,
-    }
-})
+  },
+  show: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+});
 
-const emit = defineEmits(['click', "cancell"])
+const emit = defineEmits(["click", "cancell"]);
 
 const click = () => {
-    emit("click", props.phone)
+  emit("click", props.phone);
 };
 
 const cancell = () => {
-    emit("cancell")
+  emit("cancell");
 };
 
 const afterLeave = () => {
-    console.log("afterLeave");
+  console.log("afterLeave");
 };
-
-
 </script>
-
 
 <style scoped>
 .wrapper {
@@ -78,9 +74,11 @@ const afterLeave = () => {
   align-self: flex-end;
   /* align-items: stretch; */
   justify-content: space-between;
+
+  background-color: yellow;
 }
 
-.item{
+.item {
   height: 58px;
   background-color: white;
   /* margin-top: 8px;
@@ -95,19 +93,19 @@ const afterLeave = () => {
   font-family: PingFangSC-Regular;
 
   /* 垂直水平居中 */
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.item:first-child{
+.item:first-child {
   /* padding-right: 50; */
   /* padding-left: -50px; */
   /* background-color: aquamarine; */
   padding-left: -50px;
 }
 
-.item:last-child{
+.item:last-child {
   margin-top: 8px;
   font-weight: 600;
 }
@@ -118,16 +116,16 @@ const afterLeave = () => {
   padding-left: -50;
 } */
 
-.van-image{
+.van-image {
   width: 24px;
   height: 24px;
   padding-right: 13px;
   /* background-color: red; */
 }
 
-.callphone{
-  display:flex;
-  justify-content:center;
+.callphone {
+  display: flex;
+  justify-content: center;
   align-items: center;
 
   width: auto;
@@ -135,4 +133,14 @@ const afterLeave = () => {
   margin-left: -30px;
 }
 
+.goon-enter-active,
+.goon-leave-active {
+  transition: all 0.8s ease;
+}
+
+.goon-enter,
+.goon-leave-to {
+  /* opacity: 0; */
+  transform: translateY(100%);
+}
 </style>

@@ -1,4 +1,5 @@
-// a mini defer like angular's $q.defer()
+
+
 export default function(){
   var promise;
   var resolve;
@@ -14,4 +15,4 @@ export default function(){
     resolve: resolve,
     reject: reject
   };
-};
+}

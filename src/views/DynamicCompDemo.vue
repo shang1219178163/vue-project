@@ -38,4 +38,6 @@ const change = () => {
   console.log(index.value, currentView);
 };
 </script>
+
+
 <style lang=""></style>
