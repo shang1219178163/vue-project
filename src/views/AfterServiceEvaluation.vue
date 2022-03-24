@@ -2,7 +2,7 @@
 
   <div class="content">
     <div class="top">
-        <after-service-evaluation-cell
+        <service-evaluation-cell
             v-for="e in list"
             :key="e.uid"
             :headUrl="e.headUrl"
@@ -61,7 +61,7 @@ import {
     defineProps 
     } from 'vue';
 import { Toast } from 'vant';
-import AfterServiceEvaluationCell from '@/components/AfterServiceEvaluationCell.vue';
+import ServiceEvaluationCell from '@/components/ServiceEvaluationCell.vue';
 import { Dialog } from 'vant';
 
 // eslint-disable-next-line no-undef

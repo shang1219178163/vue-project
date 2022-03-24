@@ -19,7 +19,7 @@
                     @load="onLoad"
                     >
                     <!-- <van-cell v-for="item in list" :key="item" :title="item" /> -->
-                    <after-service-cell
+                    <service-cell
                         v-for="e in list"
                         :key="e.uid"
                         :headUrl="e.headUrl"
@@ -51,7 +51,7 @@ import {
     defineProps 
     } from 'vue';
 import { Toast } from 'vant';
-import AfterServiceCell from '@/components/AfterServiceCell.vue';
+import ServiceCell from '@/components/ServiceCell.vue';
 
 import CallPhone from "@/components/CallPhone.vue";
 
