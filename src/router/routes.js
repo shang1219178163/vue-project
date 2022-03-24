@@ -355,5 +355,28 @@ export const RouterMap = [
     component: _import_("FormatNumberDemo"),
     desc: "FormatNumberDemo",
   },
-  
+  {
+    path: "/AfterService",
+    name: "AfterService",
+    component: _import_("AfterService"),
+    desc: "AfterService",
+  },
+  {
+    path: "/AfterServiceEvaluation",
+    name: "AfterServiceEvaluation",
+    component: _import_("AfterServiceEvaluation"),
+    desc: "AfterServiceEvaluation",
+  },
+  {
+    path: "/AfterServiceBookingResult",
+    name: "AfterServiceBookingResult",
+    component: _import_("AfterServiceBookingResult"),
+    desc: "AfterServiceBookingResult",
+  },
+  {
+    path: "/LogDemo",
+    name: "LogDemo",
+    component: _import_("LogDemo"),
+    desc: "LogDemo",
+  },
 ];
