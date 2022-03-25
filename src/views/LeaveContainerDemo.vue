@@ -11,7 +11,15 @@
     </div> -->
 
     <vleave>
-    
+        <template #header>
+            <van-nav-bar title="标题" left-arrow  @click-left="onClickLeft"/>
+        </template>
+        <div>
+            dddddddddddddddddddd
+        </div>
+        <template #footer>
+            <div>footer</div>
+        </template>
     </vleave>
 </template>
 
@@ -34,15 +42,6 @@ const clickPlaceHolder = (val) => {
 // </script>
 
 <style scoped>
-    
-.container{
-	display: flex;
-	flex-flow: column nowrap;
-	height: inherit;
-    height: 500px;
-	border: 1px dashed orange;
-}
-
 .top {
 	flex-basis: 100px;
 	background-color: lightblue;
