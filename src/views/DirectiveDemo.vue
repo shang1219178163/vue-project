@@ -26,6 +26,49 @@
         :initailIndex="initailIndex"
         >
     </my-item-select>
+
+    <div class="tab">
+        <div class="tab-item" @click="tabValueChanged(0)">
+            <div class="text">选项1</div>
+            <div :class="['indicator', {'active': tabIdx == 0}]"></div>
+        </div>
+        <div class="tab-item" @click="tabValueChanged(1)">
+            <div class="text">选项2</div>
+            <div :class="['indicator', {'active': tabIdx == 1}]"></div>
+        </div>
+        <div class="tab-item" @click="tabValueChanged(2)">
+            <div class="text">选项3</div>
+            <div :class="['indicator', {'active': tabIdx == 2}]"></div>
+        </div>
+    </div>
+    
+    <div class="tab">
+        <div class="tab-item" @click="tabValueChanged(0)">
+            <div class="text">选项1</div>
+            <div :class="['indicator', {'active': tabIdx == 0}]"></div>
+        </div>
+        <div class="tab-item" @click="tabValueChanged(1)">
+            <div class="text">选项2</div>
+            <div :class="['indicator', {'active': tabIdx == 1}]"></div>
+        </div>
+        <div class="tab-item" @click="tabValueChanged(2)">
+            <div class="text">选项3</div>
+            <div :class="['indicator', {'active': tabIdx == 2}]"></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="items">
+            <div class="item">
+                <div v-for="(item, index) in list" :key="index"
+                @click="clickText(index)"
+                >
+                {{ item.title }}    
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
 </template>
 
 
@@ -52,7 +95,6 @@ const props = defineProps({
             { id: 4, title: "选项4", content: "内容4", },
             { id: 5, title: "选项5", content: "内容5", },
             { id: 6, title: "选项6", content: "内容6", },
-
         ],
     },
     initailIndex: {
@@ -61,5 +103,95 @@ const props = defineProps({
     }
 })
 
+
+const tabIdx = ref(0)
+
+
+const tabValueChanged = (idx) => {
+    console.log(idx);
+    tabIdx.value = idx
+}
+
+const clickText = (val) => {
+    console.log(val);
+    tabIdx.value = val
+}
 </script>
 
+
+<style scoped lang="scss">
+
+.box{
+    /* width: 100vw; */
+    border: 1px solid blue;
+
+    margin-top: 20px;
+
+    display: flex;
+    /* flex-direction: row; */
+}
+
+.items{
+    /* margin: 0px;
+    background-color: aqua;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; */
+        display: flex;
+
+}
+.item{
+    margin: 10px;
+    background-color: yellow;
+
+    width: 80px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.line{
+    width: 15px;
+    height: 1.5px;
+    background-color: red;
+
+    margin-left: 200px;
+}
+
+.tab{
+    display: flex;
+    justify-content: space-around;
+}
+.tab-item{
+    width: 30%;
+    border: 1px solid blue;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.text{
+    text-align: center;
+
+}
+
+.indicator{
+    width: 20px;
+    height: 1.5px;
+    background-color: red;
+    background-color: transparent;
+
+    &.active{
+        height: 4px;
+        // background-color: blue;
+        background-image: linear-gradient(90deg, #FFC800 2%, rgba(255,200,0,0.00) 100%);
+    }
+
+    /* margin-left: 200px; */
+}
+</style>
