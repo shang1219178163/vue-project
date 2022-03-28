@@ -379,4 +379,10 @@ export const RouterMap = [
     component: _import_("LogDemo"),
     desc: "LogDemo",
   },
+  {
+    path: "/ServiceProgress",
+    name: "ServiceProgress",
+    component: _import_("ServiceProgress"),
+    desc: "ServiceProgress",
+  },
 ];
