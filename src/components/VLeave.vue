@@ -52,6 +52,8 @@ const props = defineProps({
 .leave {
 	flex: 1;
 
+    flex-direction: column;
+
 	background-color: darkcyan;
     @include flex-center;
 }

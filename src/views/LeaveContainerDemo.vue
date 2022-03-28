@@ -12,11 +12,14 @@
 
     <vleave>
         <template #header>
-            <van-nav-bar title="标题" left-arrow  @click-left="onClickLeft"/>
+            <van-nav-bar class="van-nav-bar" title="标题" left-arrow  @click-left="onClickLeft"/>
         </template>
-        <div>
-            dddddddddddddddddddd
+        <div class="content">
+            <div  v-for="(item, index) in 100" :key="index">
+                <div>{{index}}</div> 
+            </div>
         </div>
+
         <template #footer>
             <div>footer</div>
         </template>
@@ -42,6 +45,16 @@ const clickPlaceHolder = (val) => {
 // </script>
 
 <style scoped>
+
+.van-nav-bar{
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+.content{
+    padding-top: 46px;
+}
 .top {
 	flex-basis: 100px;
 	background-color: lightblue;
