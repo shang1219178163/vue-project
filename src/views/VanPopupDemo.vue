@@ -1,6 +1,14 @@
 <template lang="">
     <div>
-        <van-popup v-model="show" position="bottom" :style="{ height: '95%', overflow: 'hidden' }"> 
+        <van-nav-bar title="标题" left-arrow @click-left="onClickLeft" />
+        <div class="tips">设置van-popup overlay 颜色必须使用 rgba 方法,不然会有视觉bug</div>
+        <van-cell is-link @click="showPopup">展示弹出层</van-cell>
+        <van-popup 
+        v-model:show="show" 
+        position="bottom" 
+        :style="{ height: '55%', overflow: 'hidden' }"
+        :overlay-style="{background: 'rgba(0,0,0,0.3)'}" 
+        > 
           <!-- 这里是头部-->
             <van-nav-bar
                 title="全部回复"
@@ -24,7 +32,7 @@
                 :autosize= "{ maxHeight: 80, minHeight: 40 }"
                 class="dtextarea"
                 type="textarea"
-                :placeholder="'你想对'+childTop.userName+'说点什么...'"
+                :placeholder="'你想说点什么...'"
                 >
                 <template #button>
                     <van-button type="info" @click="onBackSubmit(childTop.id)" class="backSecound">回复</van-button>
@@ -33,11 +41,30 @@
         </van-popup>
     </div>
 </template>
-<script>
-export default {
-    
+
+
+<script setup>
+import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
+
+const show = ref(false);
+const showPopup = () => {
+    show.value = true;
+};
+
+
+const userName = ref("?")
+const backMessage = ref("回复啊啊啊")
+
+
+const onClickLeft = () => {
+    window.history.go(-1);
 }
+
 </script>
-<style lang="">
-    
+
+
+<style scoped lang='scss'>
+.tips{
+    padding: 8px 10px 8px 10px;
+}
 </style>

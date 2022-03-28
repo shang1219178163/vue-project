@@ -235,6 +235,13 @@ export const RouterMap = [
     desc: "vant 组合属性",
   },
   {
+    path: "/VanPopupDemo",
+    name: "VanPopupDemo",
+    component: _import_("VanPopupDemo"),
+    desc: "Vant Popup",
+  },
+
+  {
     path: "/vantOverlayDemo",
     name: "VantOverlay",
     component: _import_("VantOverlayDemo"),
