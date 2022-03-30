@@ -392,4 +392,10 @@ export const RouterMap = [
     component: _import_("ServiceProgress"),
     desc: "ServiceProgress",
   },
+  {
+    path: "/VButtonDemo",
+    name: "VButtonDemo",
+    component: _import_("VButtonDemo"),
+    desc: "VButtonDemo",
+  },
 ];
