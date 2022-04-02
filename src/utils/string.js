@@ -1,25 +1,25 @@
 
 
 // 复制到剪贴板
-Date.prototype.copyToClipboard = function () {
+String.prototype.copyToClipboard = function () {
     const str = this;
     return navigator.clipboard.writeText(str);
 }
 
 // 首字符串大写
-Date.prototype.capitalize = function () {
+String.prototype.capitalize = function () {
     const str = this;
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 // 反转字符串
-Date.prototype.reverse = function () {
+String.prototype.reverse = function () {
     const str = this;
     return str.split('').reverse().join('');
 }
 
 // 反转字符串
-Date.prototype.URLParameters = function () {
+String.prototype.URLParameters = function () {
     let URL = this;
     URL = JSON.parse('{"' + decodeURI(URL.split("?")[1])
     .replace(/"/g, '\'')
@@ -27,4 +27,11 @@ Date.prototype.URLParameters = function () {
     .replace(/=/g, '":"') + '"}');
         
     return JSON.stringify(URL);
+}
+
+
+// 检查日期是否有效
+String.prototype.isValid = function () {
+	let date = this;
+    return !Number.isNaN(new Date(date).valueOf())
 }

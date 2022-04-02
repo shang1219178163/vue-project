@@ -13,7 +13,7 @@ const scrollToTop = (e) => e.scrollIntoView({ behavior: "smooth", block: "start"
 const scrollToBottom = (e) => e.scrollIntoView({ behavior: "smooth", block: "end" });
 
 // 检测深色模式
-// const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matchesconsole.log(isDarkMode) // Result: True or False
+const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 // 随机十六进制颜色
 const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`
@@ -38,7 +38,7 @@ function mins(a, b) {
 export{
     cookie,
     clearCookies,
-    // isDarkMode,
+    isDarkMode,
     randomHex,
     rgbToHex,
     getSelectedText,

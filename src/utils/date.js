@@ -12,6 +12,15 @@ var moment =require('moment');
 	return now
 }
 
+/**
+ * 日期几点几分 ex: 10:05
+ * @returns 字符串日期
+ */
+ Date.prototype.hourAndMinute = function () {
+    let date = this; 
+	return date.toLocaleTimeString().slice(0, 5);
+}
+
 const weekMap = {
 	1: "星期一",
 	2: "星期二",
@@ -87,17 +96,12 @@ if (!Date.prototype.getMonday) {
 	return date
 }
 
-// 检查日期是否有效
-Date.prototype.isValid = function () {
-	let date = this;
-    return !Number.isNaN(date.valueOf())
-}
 
-// Date.prototype.dayOfYear = function () {
-// 	let date = this;
-//     let dateYearStart = new Date(date.getFullYear(), 0, 0)
-//     return Math.floor((date - dateYearStart) / 1000 / 60 / 60 / 24);
-// }
+Date.prototype.dayOfYear = function () {
+	let date = this;
+    let dateYearStart = new Date(date.getFullYear(), 0, 0)
+    return Math.floor((date - dateYearStart) / 1000 / 60 / 60 / 24);
+}
 
 /**
  * 获取两个日期之间的所有日期
@@ -115,4 +119,15 @@ Date.prototype.betweenDates = function (endDate) {
       dateTmp.setDate(dateTmp.getDate() + 1)
     }
     return list
+}
+
+/**
+ * 计算两个日期之间的间隔天数
+ * 
+ * @param {*} endDate 截止日期
+ * @returns 
+ */
+Date.prototype.dayDif = function (endDate) {
+	let date = this;
+    return Math.ceil(Math.abs(date.getTime() - endDate.getTime()) / 86400000)
 }
