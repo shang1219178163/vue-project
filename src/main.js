@@ -8,8 +8,8 @@ import 'vant/lib/index.css'
 
 import store from '@/store' // short for @/store/index
 
-import * as utils from './lib/utils'
-import Directives from './lib/directives'
+import * as utils from './utils/common'
+import Directives from './utils/directives'
 
 import iosAlertSheet from './components/iosAlertSheet'
 

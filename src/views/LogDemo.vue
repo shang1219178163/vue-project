@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { ddlog, ddlogExample, printInfo } from "@/lib/ddlog.ts";
+import { ddlog, ddlogExample, printInfo } from "@/utils/ddlog.ts";
 
 //引入工具类包，有一些帮助函数可以使用，这里主要使用的是格式化的部分。
 var util = require('util');

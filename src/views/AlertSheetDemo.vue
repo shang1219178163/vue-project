@@ -50,7 +50,7 @@ import { Toast, Overlay } from 'vant';
 // import { MyHeader } from '@/components/MyHeader.vue';
 
 // import iosAlertSheet from '@/components/iosAlertSheet';
-import randomcolor from '@/lib/random.js';
+import randomcolor from '@/utils/random.js';
 import vueSheet from './vueSheet.vue';
 
 import CallPhone from '../components/CallPhone.vue';
