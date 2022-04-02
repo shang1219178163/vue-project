@@ -17,6 +17,12 @@ Array.prototype.isEmpty = function () {
     return !this.isNotEmpty;
 }
 
+// 两个数组合并
+Array.prototype.concat = function (arrNew) {
+    const arr = this
+    return  [...arr, ...arrNew];
+}
+
 // 数组乱序
 Array.prototype.shuffle = function () {
     const arr = this

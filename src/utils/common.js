@@ -1,31 +1,33 @@
-// 获取浏览器Cookie的值
-const cookie = name => `; ${document.cookie}`.split(`; ${name}=`).pop().split(';').shift();    
 
-// 清除所有 Cookie
-const clearCookies = document.cookie.split(';')
-.forEach(cookie => document.cookie = cookie.replace(/^ +/, '')
-.replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`));
+// 该方法用于将一个数字按照指定位进行四舍五入：
+const round = (n, d) => Number(Math.round(n + "e" + d) + "e-" + d)
+// round(1.005, 2) //1.01
+// round(1.555, 2) //1.56
 
-// 滚动到顶部
-const scrollToTop = (e) => e.scrollIntoView({ behavior: "smooth", block: "start" });
+// 变量交换
+// [foo, bar] = [bar, foo];
 
-// 滚动到底部"
-const scrollToBottom = (e) => e.scrollIntoView({ behavior: "smooth", block: "end" });
+const trueTypeOf = (obj) => Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
+// trueTypeOf('');     // string
+// trueTypeOf(0);      // number
+// trueTypeOf();       // undefined
+// trueTypeOf(null);   // null
+// trueTypeOf({});     // object
+// trueTypeOf([]);     // array
+// trueTypeOf(0);      // number
+// trueTypeOf(() => {});  // function
 
-// 检测深色模式
-const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+// 检测一个JavaScript对象是否为空：
+const isEmpty = obj => Reflect.ownKeys(obj).length === 0 && obj.constructor === Object;
 
-// 随机十六进制颜色
-const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`
-
-// rgb 转 hex
-const rgbToHex = (r, g, b) =>   "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-// rgbToHex(0, 51, 255); 
-// Result: #0033ff
-
-// 获取选定的文本
-const getSelectedText = () => window.getSelection().toString();
-
+// 华氏度和摄氏度之间的转化
+const celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;
+const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
+// celsiusToFahrenheit(15);    // 59
+// celsiusToFahrenheit(0);     // 32
+// celsiusToFahrenheit(-20);   // -4
+// fahrenheitToCelsius(59);    // 15
+// fahrenheitToCelsius(32);    // 0
 
 function plus(a, b) {
     return a + b;
@@ -36,12 +38,11 @@ function mins(a, b) {
 }
 
 export{
-    cookie,
-    clearCookies,
-    isDarkMode,
-    randomHex,
-    rgbToHex,
-    getSelectedText,
+    round,
+    trueTypeOf,
+    isEmpty,
+    celsiusToFahrenheit,
+    fahrenheitToCelsius,
     plus,
     mins,
 }

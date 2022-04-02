@@ -13,12 +13,14 @@
 import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
 // import { Toast } from 'vant;
 
+import * as BO from "@/utils/browser"
 import * as CM from "@/utils/common"
+import * as CO from "@/utils/color"
+
 import "@/utils/date-ext"
 import "@/utils/array-ext"
 import "@/utils/string-ext"
 import "@/utils/number-ext"
-
 
 // function runMethod(method) {
 //   this[method]()
@@ -49,20 +51,20 @@ const list = ref([
     {name: "日期是一年中哪一天", func: "ondayOfYear", },
     {name: "找出两日期之间的天数", func: "ondayDif", },
 
-    {name: "获取日期小时分钟", func: "hourAndMinute", },
+    {name: "获取日期小时分钟", func: "onhourAndMinute", },
     {name: "测试", func: "onTest", },
 ])
 
 const oncookie = () => {
     console.log('>>>document.cookie', document.cookie)
 
-    const result = CM.cookie('_ga');
+    const result = BO.cookie('_ga');
     console.log('>>>oncookie', result)
 }
 
 const onclearCookies = () => {
     console.log('>>>document.cookie', document.cookie)
-    CM.clearCookies()
+    BO.clearCookies()
     console.log('>>>clearCookies', document.cookie)
 }
 
@@ -78,12 +80,12 @@ const onisDarkMode = () => {
 }
 
 const onRandomHexColor = () => {
-    console.log('>>>randomHexColor', CM.randomHex());
+    console.log('>>>randomHexColor', CO.randomHex());
 }
 
 // const rgbToHex = (r, g, b) =>   "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 const onrgbToHex = () => {
-    const result = CM.rgbToHex(0, 51, 255);
+    const result = CO.rgbToHex(0, 51, 255);
     console.log('>>>onrgbToHex: (0, 51, 255)>', result)
 }
 
@@ -124,7 +126,7 @@ const onisEven = () => {
 
 
 const onDateisValid = () => {
-    console.log('>>>onisDateValid',  "December 17, 1995 03:24:00".isValid());
+    console.log('>>>onisValidDate',  "December 17, 1995 03:24:00".isValidDate());
 }
 
 const ondayOfYear = () => {

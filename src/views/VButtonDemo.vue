@@ -16,6 +16,7 @@
         <VButton
             class="VButton"
             background="linear-gradient(90deg, #FFC800 2%, rgba(255,200,0,0.00) 100%)"
+            :fontSize="'12px'"
             @click="click"
             >
             <div>asdfasdf</div>

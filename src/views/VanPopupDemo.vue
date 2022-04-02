@@ -4,29 +4,27 @@
         <div class="tips">设置van-popup overlay 颜色必须使用 rgba 方法,不然会有视觉bug</div>
         <van-cell is-link @click="showPopup">展示弹出层</van-cell>
         <van-popup 
-        v-model:show="show" 
-        position="bottom" 
-        :style="{ height: '55%', overflow: 'hidden' }"
-        :overlay-style="{background: 'rgba(0,0,0,0.3)'}" 
-        > 
+            v-model:show="show" 
+            position="bottom" 
+            :style="{ height: '55%', overflow: 'hidden' }"
+            :overlay-style="{background: 'rgba(0,0,0,0.3)'}" 
+            > 
           <!-- 这里是头部-->
             <van-nav-bar
-                title="全部回复"
+                left-text="选择服务类型"
                 class="dback-message"
                 :placeholder="true"
                 @click-left="onClickLeft"
             >
-            <template #left>
-                <van-icon name="cross" size="18"/>
-            </template>
+                <template #left>
+                    <div>确定</div>
+                </template>
             </van-nav-bar>
-            <template>
-                <div class="dback-all" style="height:90%; overflow: auto;">
-                       这是内容也是，滚动区域
-                </div>
-            </template>
+            <div class="dback-all" style="height:90%; overflow: auto;">
+                    这是内容也是，滚动区域
+            </div>
            <!-- 这里是底部  设置一下它的样式 positon:fixed; bottom:0-->
-            <van-field
+            <!-- <van-field
                 v-model="backMessage"
                 rows="1"
                 :autosize= "{ maxHeight: 80, minHeight: 40 }"
@@ -37,7 +35,7 @@
                 <template #button>
                     <van-button type="info" @click="onBackSubmit(childTop.id)" class="backSecound">回复</van-button>
                 </template>
-            </van-field>
+            </van-field> -->
         </van-popup>
     </div>
 </template>

@@ -31,7 +31,14 @@ String.prototype.URLParameters = function () {
 
 
 // 检查日期是否有效
-String.prototype.isValid = function () {
+String.prototype.isValidDate = function () {
 	let date = this;
     return !Number.isNaN(new Date(date).valueOf())
+}
+
+// 去除字符串中的HTML
+String.prototype.isValidDate = function () {
+	let html = this;
+    const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
+    return stripHtml
 }

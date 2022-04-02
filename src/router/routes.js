@@ -398,4 +398,10 @@ export const RouterMap = [
     component: _import_("VButtonDemo"),
     desc: "VButtonDemo",
   },
+  {
+    path: "/JavaScriptSkillPage",
+    name: "JavaScriptSkillPage",
+    component: _import_("JavaScriptSkillPage"),
+    desc: "JavaScriptSkillPage",
+  },
 ];
