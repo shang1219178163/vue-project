@@ -404,4 +404,10 @@ export const RouterMap = [
     component: _import_("JavaScriptSkillPage"),
     desc: "JavaScriptSkillPage",
   },
+  {
+    path: "/VModelDemo",
+    name: "VModelDemo",
+    component: _import_("VModelDemo"),
+    desc: "自定义双向绑定",
+  },
 ];
