@@ -1,4 +1,12 @@
 
+function deepCopy(obj) {
+    let _obj = Array.isArray(obj) ? [] : {}
+    for (let i in obj) {
+      _obj[i] = typeof obj[i] === 'object' ? deepCopy(obj[i]) : obj[i]
+    }
+    return _obj
+}
+
 // 该方法用于将一个数字按照指定位进行四舍五入：
 const round = (n, d) => Number(Math.round(n + "e" + d) + "e-" + d)
 // round(1.005, 2) //1.01
