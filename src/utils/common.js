@@ -1,10 +1,16 @@
 
 function deepCopy(obj) {
-    let _obj = Array.isArray(obj) ? [] : {}
-    for (let i in obj) {
-      _obj[i] = typeof obj[i] === 'object' ? deepCopy(obj[i]) : obj[i]
+    if (typeof obj !== "object" || obj == null) {
+        return obj;
     }
-    return _obj
+
+    let objNew = Array.isArray(obj) ? [] : {};
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            objNew[key] = deepCopy(obj[key]);
+        }
+    }
+    return objNew;
 }
 
 // 该方法用于将一个数字按照指定位进行四舍五入：
