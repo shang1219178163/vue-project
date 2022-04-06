@@ -416,4 +416,10 @@ export const RouterMap = [
     component: _import_("ExtensionFuncDemo"),
     desc: "Extension Func Demo",
   },
+  {
+    path: "/VUploadDemo",
+    name: "VUploadDemo",
+    component: _import_("VUploadDemo"),
+    desc: "VUpload Demo",
+  },
 ];

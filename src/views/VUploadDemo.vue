@@ -1,0 +1,77 @@
+<template>
+    <div>
+        <h1>VUploadPlaceholder</h1>
+        <VUploadPlaceholder
+        :src="require('@/assets/images/icon_camera.png')"
+        title="（最多6张）"
+        @click="click"
+        ></VUploadPlaceholder>
+        <div class="section1">
+            <VUploadPlaceholder v-for="(item, index) in 6" :key="index"
+            :src="require('@/assets/images/icon_camera.png')"
+            title="（最多6张）"
+            @click="click(index)"
+            ></VUploadPlaceholder>
+        </div>
+    </div>
+</template>
+
+
+<script setup>
+import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
+// import { Toast } from 'vant;
+import { useRouter, useRoute } from 'vue-router';
+
+import VUploadPlaceholder from '@/components/VUploadPlaceholder.vue';
+
+const router = useRouter();
+const route = useRoute()
+
+onMounted(() => {
+    onRefresh();
+});
+
+watch(() => route.params, (params, previousParams) => {
+    if (Object.keys(params).length === 0 ) {
+        return;
+    }
+    handleRouteParams()
+})
+
+const handleRouteParams = () => {
+
+};
+
+
+const onRefresh = async () => {
+
+};
+
+const click = async (val) => {
+    console.log("click", val);
+};
+
+</script>
+
+
+<style scoped lang='scss'>
+
+@mixin flex-wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin flex-column-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.section1{
+    @include flex-wrap;
+}
+</style>
