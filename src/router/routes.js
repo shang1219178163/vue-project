@@ -410,4 +410,10 @@ export const RouterMap = [
     component: _import_("VModelDemo"),
     desc: "自定义双向绑定",
   },
+  {
+    path: "/ExtensionFuncDemo",
+    name: "ExtensionFuncDemo",
+    component: _import_("ExtensionFuncDemo"),
+    desc: "Extension Func Demo",
+  },
 ];
