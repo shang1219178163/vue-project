@@ -6,7 +6,8 @@ function deepCopy(obj) {
 
     let objNew = Array.isArray(obj) ? [] : {};
     for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
+        // if (obj.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(obj, "key")) {
             objNew[key] = deepCopy(obj[key]);
         }
     }
@@ -43,13 +44,18 @@ const fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;
 // fahrenheitToCelsius(59);    // 15
 // fahrenheitToCelsius(32);    // 0
 
-function plus(a, b) {
-    return a + b;
-}
+/**
+ * 暂停一会 ex: await pause(1000)
+ * 
+ * @param {*} millis 
+ * @returns 
+ */
+const pause = (millis) => new Promise(resolve => setTimeout(resolve, millis))
 
-function mins(a, b) {
-    return a - b;
-}
+
+const plus = (a, b) => a + b;
+
+const mins = (a, b) => a - b;
 
 export{
     round,

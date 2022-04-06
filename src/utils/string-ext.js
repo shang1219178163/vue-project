@@ -42,3 +42,35 @@ String.prototype.isValidDate = function () {
     const stripHtml = html => (new DOMParser().parseFromString(html, 'text/html')).body.textContent || '';
     return stripHtml
 }
+
+// 转义HTML特殊字符
+String.prototype.escape = function () {
+	let str = this;
+    return str.replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]))
+}
+
+// 字符串中每个单词的第一个字符大写
+String.prototype.uppercaseWords = function () {
+	let str = this;
+    return (str) => str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase())
+}
+
+/**
+ * 将字符串转换为camelCase
+ * 
+ * toCamelCase('background-color'); // backgroundColor
+ * toCamelCase('-webkit-scrollbar-thumb'); // WebkitScrollbarThumb
+ * toCamelCase('_hello_world'); // HelloWorld
+ * toCamelCase('hello_world'); // helloWorld
+ */
+String.prototype.toCamelCase = function () {
+	let str = this;
+    return (str) => str.trim().replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''));
+}
+
+
+// 从数组中删除虚假值
+String.prototype.uppercaseWords = function () {
+	let str = this;
+    return (str) => str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase())
+}

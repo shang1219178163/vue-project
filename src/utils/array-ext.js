@@ -30,3 +30,9 @@ Array.prototype.shuffle = function () {
 }
 
 
+// 从数组中删除虚假值
+Array.prototype.removeFalsy = function () {
+    const arr = this
+    return arr.filter(Boolean)
+}
+
