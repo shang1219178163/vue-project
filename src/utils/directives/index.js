@@ -7,6 +7,13 @@ import borderColor from './borderColor'
 import tabSelect from './tabSelect';
 import itemSelect from './itemSelect';
 
+import draggable from './draggable';
+import waterMarker from './waterMarker';
+import permission from './permission';
+import LazyLoad from './LazyLoad';
+import emoji from './emoji';
+import copy from './copy';
+
 
 //自定义指令
 const directives = {
@@ -17,7 +24,14 @@ const directives = {
     randomColor,
     borderColor,
     tabSelect,
-    itemSelect
+    itemSelect,
+
+    draggable,
+    waterMarker,
+    permission,
+    LazyLoad,
+    emoji,
+    copy,
 }
 
 export default {
