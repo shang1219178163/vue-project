@@ -2,6 +2,7 @@
     <div>
         <button @click="testwatch">testwatch</button>
         <button @click="testWatchEffect">watchEffect</button>
+        <button @click="testWatchArray">WatchArray</button>
     </div>
 </template>
 <script setup>
@@ -50,6 +51,11 @@ const testWatchEffect = (() => {
         console.log('watchEffect is stop');
 
     }, 2000);
+})
+
+let list = []
+const testWatchArray = (() => {
+
 })
 
 </script>
