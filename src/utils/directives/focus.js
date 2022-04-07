@@ -7,3 +7,6 @@
   }
 
   export default focus
+
+  
+  // <input v-focus />
