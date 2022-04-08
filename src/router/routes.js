@@ -422,4 +422,10 @@ export const RouterMap = [
     component: _import_("VUploadDemo"),
     desc: "VUpload Demo",
   },
+  {
+    path: "/ThemeChange",
+    name: "ThemeChange",
+    component: _import_("ThemeChange"),
+    desc: "ThemeChange",
+  },
 ];
