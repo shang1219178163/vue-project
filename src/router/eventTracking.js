@@ -54,7 +54,7 @@ class VueMD {
 	// 监听点击事件
 	addClickListener() {
 		const handleClickMD = (dataset) => {
-			const data = {
+			const obj = {
 				type: 'click',
 				page: {
 					from: this.pageFrom,
@@ -62,7 +62,7 @@ class VueMD {
 				},
 				data: dataset,
 			}
-			this.recordMD(data)
+			this.recordMD(obj)
 		}
 	
 		document.onclick = (e) => {
@@ -82,10 +82,11 @@ class VueMD {
 	}
 
 	// 记录md数据
-	recordMD(data) {
+	recordMD(obj) {
+		console.log(">>>data", JSON.stringify(obj.data));
 		// console.warn(data)
 		// console.log('%c记录数据埋点...', "color: red;")
-		this.mdList.push(data);
+		this.mdList.push(obj);
 	}
 
 	// 埋点数据推送到远程
