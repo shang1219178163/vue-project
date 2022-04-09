@@ -3,6 +3,8 @@
         <h1>自定义双向绑定 v-model</h1>
         <div>
             BInput: <BInput v-model="user" label="请输入"></BInput>
+            CInput: <CInput v-model:aaa="user" label="请输入"></CInput>
+
         </div>
         <div>
             BCheckbox: <BCheckbox v-model="checked" ></BCheckbox>
@@ -24,6 +26,8 @@
 import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
 // import { Toast } from 'vant;
 import { useRouter, useRoute } from 'vue-router';
+
+import CInput from '@/components/vmodel/CInput.vue';
 
 import BInput from '@/components/vmodel/BInput.vue';
 import BCheckbox from '@/components/vmodel/BCheckbox.vue';
