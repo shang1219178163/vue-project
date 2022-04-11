@@ -228,9 +228,9 @@ const getStepType = (index, list) => {
 
 const getStepIcon = (index) => {
   if (index === 0) {
-      return require('@/assets/images/step_icon_selected.png');
+      return require('@/assets/images/icon_step_selected.png');
   }
-  return require('@/assets/images/step_icon.png');
+  return require('@/assets/images/icon_step.png');
 };
 
 const getLeftTitle = (val) => {

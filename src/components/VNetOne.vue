@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img src="../assets/images/no_data.png" 
+        <img src="../assets/images/img_no_data.png" 
         @click="click" 
         :width="imgWidth" 
         :height="imgHeight" 

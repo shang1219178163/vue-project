@@ -3,20 +3,23 @@
         <button @click="show = !show">
             Toggle render
         </button>
-        <transition @after-leave="afterLeave">
+        <!-- <transition @after-leave="afterLeave">
             <div class="ios-actionsheet-overlay" v-if="show" @click="deactivate">
-            <div class="ios-actionsheet">
-                <div class="ios-actionsheet-group" v-for="(group, groupIndex) in groups" :key="groupIndex" >
-                <div v-for="(button, index) in group" :key="index" 
-                @click.stop.prevent="onClick(button, index, groupIndex)" 
-                :class="{'ios-actionsheet-label': button.label, 
-                'ios-actionsheet-button': !button.label, 
-                'ios-actionsheet-button-color': button.color, 
-                'ios-actionsheet-button-bold': button.bold, 
-                'ios-actionsheet-button-disable': button.disable}">{{ button.text }}</div>
-                </div>
+              <div class="ios-actionsheet">
+                  <div class="ios-actionsheet-group" v-for="(group, groupIndex) in groups" :key="groupIndex" >
+                  <div v-for="(button, index) in group" :key="index" 
+                  @click.stop.prevent="onClick(button, index, groupIndex)" 
+                  :class="{'ios-actionsheet-label': button.label, 
+                  'ios-actionsheet-button': !button.label, 
+                  'ios-actionsheet-button-color': button.color, 
+                  'ios-actionsheet-button-bold': button.bold, 
+                  'ios-actionsheet-button-disable': button.disable}">{{ button.text }}</div>
+                  </div>
+              </div>
             </div>
-            </div>
+        </transition> -->
+        <transition name="van-slide-up">
+          <div class="slide" v-show="show">Slide Up</div>
         </transition>
     </div>
 </template>
@@ -181,5 +184,12 @@ const afterLeave = () => {
 }
 .ios-actionsheet-button:first-child:last-child, .ios-actionsheet-label:first-child:last-child {
   border-radius: 4px;
+}
+
+
+.slide{
+  background-color: red;
+
+  height: 90vh;
 }
 </style>

@@ -5,7 +5,7 @@
         <vimg
         text="我标签" 
         align="bottomCenter"
-        :src="require('@/assets/images/net_error.png')"
+        :src="require('@/assets/images/img_net_error.png')"
         :width="100"
         :height="200"
         @clickTag="clickTag"

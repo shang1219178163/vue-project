@@ -1,3 +1,20 @@
+
+// :root[theme='dark'] {
+//     --red-hue: 360;
+//     --blue-hue: 240;
+//     --green-hue: 120;
+//     --main-hue: var(--blue-hue);
+//     --nav-bg-color: hsl(var(--main-hue), 50%, 90%);
+//     --nav-text-color: hsl(var(--main-hue), 50%, 10%);
+//     --container-bg-color: hsl(var(--main-hue), 50%, 95%);
+//     --content-text-color: hsl(var(--main-hue), 50%, 50%);
+//     --title-color: hsl(--main-hue, 50%, 20%);
+//     --footer-bg-color: hsl(var(--main-hue), 93%, 88%);
+//     --button-text-color: hsl(var(--main-hue), 50%, 20%);
+//     filter: invert(1) brightness(0.6);
+// }
+
+
 @charset "utf-8";
 * {
     box-sizing: border-box;
@@ -82,3 +99,4 @@ i {
 .van-nav-bar .van-icon {
     color: #000;
 }
+

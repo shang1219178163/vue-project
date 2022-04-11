@@ -4,7 +4,7 @@
      <div class="container">
         <div class="error" v-if="status===-1">
             <div class="item">
-                <img src="@/assets/images/net_error.png" 
+                <img src="@/assets/images/img_net_error.png" 
                 :width="imageWidth" 
                 :height="imageHeight" 
                 @click="click" 
@@ -14,7 +14,7 @@
         </div>
         <div class="nodata" v-else-if="status===0">
             <div class="item">
-                <img src="@/assets/images/no_data.png" 
+                <img src="@/assets/images/img_no_data.png" 
                 :width="imageWidth" 
                 :height="imageHeight" 
                 @click="click" 
