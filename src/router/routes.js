@@ -428,4 +428,12 @@ export const RouterMap = [
     component: _import_("ThemeChange"),
     desc: "ThemeChange",
   },
+  {
+    path: "/OffLineTest",
+    name: "OffLineTest",
+    component: _import_("OffLineTest"),
+    desc: "OffLineTest",
+  },
+
+  
 ];
