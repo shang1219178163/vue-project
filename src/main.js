@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import VueMD from './router/eventTracking.js'
 // 导入所有组件
-import Vant from 'vant'
+import Vant, {Lazyload, ConfigProvider} from 'vant'
 import 'vant/lib/index.css'
 
 import store from '@/store' // short for @/store/index
@@ -55,6 +55,8 @@ app.use(router)
 .use(VueMD)
 .use(store)
 .use(Vant)
+// .use(Lazyload)
+.use(ConfigProvider)
 .use(iosAlertSheet)
 .use(Directives)
 .mount('#app')

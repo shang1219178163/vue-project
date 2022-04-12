@@ -83,6 +83,9 @@ class VueMD {
 
 	// 记录md数据
 	recordMD(obj) {
+		if (!obj.data) {
+			return
+		}
 		console.log(">>>data", JSON.stringify(obj.data));
 		// console.warn(data)
 		// console.log('%c记录数据埋点...', "color: red;")
