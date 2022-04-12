@@ -446,5 +446,17 @@ export const RouterMap = [
     component: _import_("EventDelegateDemo"),
     desc: "事件代理",
   },
+  {
+    path: "/ColorfulImg",
+    name: "ColorfulImg",
+    component: _import_("ColorfulImg"),
+    desc: "CSS 随意更改img或者background的图片颜色",
+  },
+  {
+    path: "/VPageDemo",
+    name: "VPageDemo",
+    component: _import_("VPageDemo"),
+    desc: "Fixed Demo",
+  },
 
 ];
