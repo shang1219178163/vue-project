@@ -1,10 +1,23 @@
+/**
+ * 剩余视图 默认 margin/padding 8px, borderRadius 4px;
+ **********************************************
+ *  slot name="header"                        *
+ *  *******************************************
+ *  *                                         *
+ *  *  剩余高度视图                             *
+ *  *                                         *
+ *  *******************************************
+ *  slot name="footer"                        *
+ **********************************************
+ */
+
 <template>
     <div class="container">
         <div class="header">
             <slot name="header"></slot>
         </div>
         <div class="leave">
-            <slot>剩余视图高度</slot>
+            <slot>剩余高度视图</slot>
         </div>
         <div class="footer">
             <slot name="footer"></slot>

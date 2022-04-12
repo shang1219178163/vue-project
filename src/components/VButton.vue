@@ -1,6 +1,9 @@
-/**
-    此组件用于按钮需要额外支持高亮(Highlighted)和不可点击(disabled)的情形, disabled 为true 时不会返回事件;
- */
+ /**
+    支持三种 type: 
+    默认: 白色背景,外边框圆角矩形;
+    高亮(Highlighted): 可设置背景,字体颜色;
+    不可点击(disabled): opacity: 0.3; disabled 为true 时不会返回事件;
+  */
 
 <template>
     <button 
