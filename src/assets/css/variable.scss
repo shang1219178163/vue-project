@@ -1,3 +1,6 @@
 
 
-$--theme-color: #BE965A;
+$--theme-color: var(--theme-color, #BE965A);
+$--bg-color: var(--bg-color, #F6F6F6);
+
+$--nav-height: 46px;

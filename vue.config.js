@@ -39,9 +39,9 @@ module.exports = {
   productionSourceMap: true,
 
   devServer: {
-    host: 'localhost',
+    // host: 'localhost',
     port: 57103, // 端口号配置
-    open: true,
+    // open: true,
     proxy: {
       '/appApi': {
         target: 'https://zjsj-test.haier.net/',//测试
