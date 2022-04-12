@@ -434,6 +434,17 @@ export const RouterMap = [
     component: _import_("OffLineTest"),
     desc: "OffLineTest",
   },
+  {
+    path: "/VanTabsDemo",
+    name: "VanTabsDemo",
+    component: _import_("VanTabsDemo"),
+    desc: "VanTabsDemo",
+  },
+  {
+    path: "/EventDelegateDemo",
+    name: "EventDelegateDemo",
+    component: _import_("EventDelegateDemo"),
+    desc: "事件代理",
+  },
 
-  
 ];
