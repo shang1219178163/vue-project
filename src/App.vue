@@ -77,14 +77,17 @@ html[theme="gray"] {
   padding: .2rem .4rem!important;
   font-size: .28rem!important;
 }
+
 body {
     -webkit-text-size-adjust: 100% !important;
     text-size-adjust: 100% !important;
     -moz-text-size-adjust: 100% !important;
     font-size: 10px;
 
-    --themeColor:#000;
-    --themeBgColor:#FFF;
+    // 主题颜色
+    --theme-color:#0082e0;
+    // 全局背景色
+    --bg-color:#F6F6F6;
     //  color: var(--themeColor);
     // document.body.style.setProperty('--themeColor', '#ff0000');
 }
