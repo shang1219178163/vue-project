@@ -1,61 +1,6 @@
 
-// const Style = {
-//     reset: "\x1b[0m",
-//     bright: "\x1b[1m",
-//     dim: "\x1b[2m",
-//     underscore: "\x1b[4m",
-//     blink: "\x1b[5m",
-//     reverse: "\x1b[7m",
-//     hidden: "\x1b[8m",
-//     // Foreground (text) colors
-//     fg: {
-//       black: "\x1b[30m",
-//       red: "\x1b[31m",
-//       green: "\x1b[32m",
-//       yellow: "\x1b[33m",
-//       blue: "\x1b[34m",
-//       magenta: "\x1b[35m",
-//       cyan: "\x1b[36m",
-//       white: "\x1b[37m",
-//       crimson: "\x1b[38m"
-//     },
-//     // Background colors
-//     bg: {
-//       black: "\x1b[40m",
-//       red: "\x1b[41m",
-//       green: "\x1b[42m",
-//       yellow: "\x1b[43m",
-//       blue: "\x1b[44m",
-//       magenta: "\x1b[45m",
-//       cyan: "\x1b[46m",
-//       white: "\x1b[47m",
-//       crimson: "\x1b[48m"
-//     }
-// };
+const hasTime = false;
 
-// const color = (color, message, ...optionalParams) => {
-//     const optionalMessage = optionalParams.join(" ")
-//     console.log(`${color}%s %s${Style.reset}`, message, optionalMessage);
-//     // console.log(`%c%s %s`, "color: white; background-color: green", message, optionalMessage);
-// };
-
-// const ddlogExample = () => {
-//     const message = "Hellow World!"
-//     // console.log(`${'\x1b[31m'}%s${'\x1b[0m'}`, message);
-//     const options = ["aa", "bb", "cc"]
-//     color(Style.fg.red, message, "a", "b", "c");
-//     color(Style.fg.yellow, message, "a", "b", "c");
-//     color(Style.fg.blue, message, "a", "b", "c");
-//     color(Style.fg.green, message, "a", "b", "c");
-
-//     color(Style.bg.red, message, ...options);
-//     color(Style.bg.yellow, message, ...options);
-//     color(Style.bg.blue, message, ...options);
-//     color(Style.bg.green, message, ...options);
-// }
-
-
-/// 获取日志方法信息
 
 /**
  * 获取日志位置方法信息
@@ -63,7 +8,7 @@
  * @param {*} row 锁定错误日志行
  * @returns 
  */
- const getMethodInfo = (row = 2, message, ...optionalParams) => {
+const getMethodInfo = (row = 2, message, ...optionalParams) => {
 
     // var err = new Error;
     // err.name = 'Trace';
@@ -235,4 +180,5 @@ export {
     orange,    
     blue,
     green,
+
 }

@@ -3,45 +3,52 @@
     ddlog彩色日志封装
     <button @click="clickButton">button</button>
     <button @click="clickButton2">实现方式</button>
+    <button @click="clickButton3">颜色</button>
   </div>
 </template>
 
 <script setup>
-import { ddlog, ddlogExample, printInfo } from "@/utils/ddlog.ts";
+// import { ddlog, ddlogExample, printInfo, ddlogColor } from "@/utils/ddlog.ts";
+import * as LOG from "@/utils/ddlog.ts";
+import * as DDLOG from "@/utils/log";
 
 //引入工具类包，有一些帮助函数可以使用，这里主要使用的是格式化的部分。
 var util = require('util');
+  const greeting = "Hello,world";
 
 const clickButton = () => {
-  const greeting = "Hello,world";
-  ddlog(greeting);
-  console.log(greeting);
+    LOG.red("Hello,world", "a", "b", "c")
+    LOG.orange("Hello,world", "a", "b", "c")
+    LOG.blue("Hello,world", "a", "b", "c")
+    LOG.green("Hello,world", "a", "b", "c")
 
-  console.log('%c this is a message','color:#0f0;')
-  console.log('%c this %c is a %c message','color:#f00;','font-size:16px;','color:blue;background:yellow;')
+    console.log("****************************");
 
-  console.log('%c this is a message','color:green;')
-  console.log('%c this is a message','color:blue;')
-  console.log('%c this is a message','color:red;')
-
-//   console.log('color:#0f0; this is a message')
-//   console.log('color:#f00; this is a message','color:#f00;','font-size:20px;','color:blue;background:yellow;')
+    LOG.log("Hello,world", "a", "b", "c")
+    LOG.info("Hello,world", "a", "b", "c")
+    LOG.debug("Hello,world", "a", "b", "c")
+    LOG.warn("Hello,world", "a", "b", "c")
+    LOG.error("Hello,world", "a", "b", "c")
 };
 
 const clickButton2 = () => {
-    ddlog("Hello,world", "a", "b", "c")
+    DDLOG.red("Hello,world", "a", "b", "c")
+    DDLOG.orange("Hello,world", "a", "b", "c")
+    DDLOG.blue("Hello,world", "a", "b", "c")
+    DDLOG.green("Hello,world", "a", "b", "c")
+    
+    console.log("****************************");
 
-    // ddlogExample() 
-    // console.warn("Hello,world", "a", "b", "c")
+    DDLOG.log("Hello,world", "a", "b", "c")
+    DDLOG.info("Hello,world", "a", "b", "c")
+    DDLOG.debug("Hello,world", "a", "b", "c")
+    DDLOG.warn("Hello,world", "a", "b", "c")
+    DDLOG.error("Hello,world", "a", "b", "c")
+};
 
-    // let traceString = Error().stack
-    // const list = traceString.split("\n")
-    // console.log(list);
-  // log("Normal Logs");
-  // log("Warning Logs", Style.warning);
-  // log("Success Logs", Style.success);
+const clickButton3 = () => {
 
-  printInfo("Hello,world", "a", "b", "c")
+
 };
 
 const Style = {
@@ -65,42 +72,6 @@ const log = (text, extra = []) => {
   style += extra.join(';'); // Add any additional styles
   console.log(`%c${text}`, style);
 }
-
-// const printLog = () => {
-//     // ddlogDemo() 
-    
-//     let traceString = Error().stack
-//     console.log(traceString);
-
-//     const list = traceString.split("\n")
-//     console.log(list);
-
-//     // const str = "    at clickButton2 (webpack-internal:///./node_modules/cache-loader/dist/cjs.js?!./node_modules/babel-loader/lib/index.js!./node_modules/cache-loader/dist/cjs.js?!./node_modules/vue-loader-v16/dist/index.js?!./src/views/LogDemo.vue?vue&type=script&setup=true&lang=js:35:25)"
-//     const matchFuncs = list[1].match(/at (\S*) \(/);
-//     if (matchFuncs == undefined || matchFuncs.length < 2) {
-//         console.log()
-//         return
-//     }
-//     // console.log("matchs", matchFuncs)
-//     const funcName = matchFuncs[1];
-//     console.log(`_${funcName}_`);
-
-//     const matchFiles = list[1].match(/[a-zA-Z0-9]*\.vue/);
-//     if (matchFiles == undefined || matchFiles.length == 0) {
-//         console.log()
-//         return
-//     }
-//     console.log("matchFiles", matchFiles);
-
-//     console.log(`${matchFiles[0]} ${funcName}: `)
-// };
-
-
-// var getStackTrace = function() {
-//   var obj = {};
-//   Error.captureStackTrace(obj, getStackTrace);
-//   return obj.stack;
-// };
 
 
 </script>
