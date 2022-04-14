@@ -1,3 +1,6 @@
+export const isProd = process.env.NODE_ENV === 'production'
+
+
 const path = require("path")
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CompressionPlugin = require('compression-webpack-plugin')// 引入gzip压缩插件
