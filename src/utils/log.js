@@ -8,7 +8,7 @@ const hasTime = false;
  * @param {*} row 锁定错误日志行
  * @returns 
  */
-const getMethodInfo = (row = 2, message, ...optionalParams) => {
+const getMethodInfo = (row = 2) => {
 
     // var err = new Error;
     // err.name = 'Trace';
@@ -55,10 +55,10 @@ const LogLevel = {
  * @returns 
  */
 const logLevel = (row = 3, leve = LogLevel.log, message, ...optionalParams) => {
-    if (message == undefined || message === "") {
-        return
-    }
-    const msg = `${getMethodInfo(row,  message, optionalParams)}: ${message}`
+    // if (message == undefined || message === "") {
+    //     return
+    // }
+    const msg = `${getMethodInfo(row)}: ${message}`
     if (optionalParams) {
         const optionalMessage = optionalParams.join(" ")
         // console.log(`>> %c%s %s`, style, msg, optionalMessage);
@@ -131,10 +131,10 @@ const error = (message, ...optionalParams) => {
  * @returns 
  */
 const logColor = (style = `color: green; background-color: white;`, row = 3, message, ...optionalParams) => {
-    if (message == undefined || message === "") {
-        return
-    }
-    const msg = `${getMethodInfo(row,  message, optionalParams)}: ${message}`
+    // if (message == undefined || message === "") {
+    //     return
+    // }
+    const msg = `${getMethodInfo(row)}: ${message}`
     if (optionalParams) {
         const optionalMessage = optionalParams.join(" ")
         console.log(`%c%s %s`, style, msg, optionalMessage);
@@ -180,5 +180,37 @@ export {
     orange,    
     blue,
     green,
-
 }
+
+
+/* 
+example:
+
+LogDemo.vue
+
+...
+<script setup>
+import * as LOG from "@/utils/log.js";
+
+const clickButton1 = () => {
+    //颜色日志
+    LOG.red("Hello,world", "a", "b", "c") 
+    LOG.orange("Hello,world", "a", "b", "c") 
+    LOG.blue("Hello,world", "a", "b", "c")
+    LOG.green("Hello,world", "a", "b", "c")
+
+    //LogDemo.vue clickButton1: Hello,world a,b,c
+    console.log("****************************");
+
+    LOG.log("Hello,world", "a", "b", "c")
+    LOG.info("Hello,world", "a", "b", "c")
+    LOG.debug("Hello,world", "a", "b", "c")
+    LOG.warn("Hello,world", "a", "b", "c")
+    LOG.error("Hello,world", "a", "b", "c")
+
+    // console 原生方法包装
+};
+
+...
+</script> 
+*/

@@ -1,22 +1,37 @@
 <template>
   <div>
     ddlog彩色日志封装
-    <button @click="clickButton">button</button>
-    <button @click="clickButton2">实现方式</button>
-    <button @click="clickButton3">颜色</button>
+    <button @click="clickButton">ddlog.ts</button>
+    <button @click="clickButton1">log.js</button>
+    <!-- <button @click="clickButton3">颜色</button> -->
   </div>
 </template>
 
 <script setup>
 // import { ddlog, ddlogExample, printInfo, ddlogColor } from "@/utils/ddlog.ts";
-import * as LOG from "@/utils/ddlog.ts";
-import * as DDLOG from "@/utils/log";
+import * as DDLOG from "@/utils/ddlog.ts";
+import * as LOG from "@/utils/log.js";
 
 //引入工具类包，有一些帮助函数可以使用，这里主要使用的是格式化的部分。
 var util = require('util');
   const greeting = "Hello,world";
 
 const clickButton = () => {
+    DDLOG.red("Hello,world", "a", "b", "c")
+    DDLOG.orange("Hello,world", "a", "b", "c")
+    DDLOG.blue("Hello,world", "a", "b", "c")
+    DDLOG.green("Hello,world", "a", "b", "c")
+
+    console.log("****************************");
+
+    DDLOG.log("Hello,world", "a", "b", "c")
+    DDLOG.info("Hello,world", "a", "b", "c")
+    DDLOG.debug("Hello,world", "a", "b", "c")
+    DDLOG.warn("Hello,world", "a", "b", "c")
+    DDLOG.error("Hello,world", "a", "b", "c")
+};
+
+const clickButton1 = () => {
     LOG.red("Hello,world", "a", "b", "c")
     LOG.orange("Hello,world", "a", "b", "c")
     LOG.blue("Hello,world", "a", "b", "c")
@@ -29,21 +44,6 @@ const clickButton = () => {
     LOG.debug("Hello,world", "a", "b", "c")
     LOG.warn("Hello,world", "a", "b", "c")
     LOG.error("Hello,world", "a", "b", "c")
-};
-
-const clickButton2 = () => {
-    DDLOG.red("Hello,world", "a", "b", "c")
-    DDLOG.orange("Hello,world", "a", "b", "c")
-    DDLOG.blue("Hello,world", "a", "b", "c")
-    DDLOG.green("Hello,world", "a", "b", "c")
-    
-    console.log("****************************");
-
-    DDLOG.log("Hello,world", "a", "b", "c")
-    DDLOG.info("Hello,world", "a", "b", "c")
-    DDLOG.debug("Hello,world", "a", "b", "c")
-    DDLOG.warn("Hello,world", "a", "b", "c")
-    DDLOG.error("Hello,world", "a", "b", "c")
 };
 
 const clickButton3 = () => {
