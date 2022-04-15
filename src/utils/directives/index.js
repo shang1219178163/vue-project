@@ -1,37 +1,45 @@
-import pin from './pin'
-import focus from './focus'
-import throttle from './throttle'
+
+import lazyLoad from './lazyLoad'
+import backtop from './backtop'
+import color from './color'
+import copy from './copy'
 import debounce from './debounce'
+import drag from './drag'
+import draggable from './draggable'
+import ellipsis from './ellipsis'
+import emoji from './emoji'
+import expandClick from './expandClick'
+import focus from './focus'
+import itemSelect from './itemSelect'
+import longpress from './longpress'
+import permission from './permission'
+import pin from './pin'
 import randomColor from './randomColor'
-import borderColor from './borderColor'
-import tabSelect from './tabSelect';
-import itemSelect from './itemSelect';
-
-import draggable from './draggable';
-import waterMarker from './waterMarker';
-import permission from './permission';
-import LazyLoad from './LazyLoad';
-import emoji from './emoji';
-import copy from './copy';
-
+import tabSelect from './tabSelect'
+import throttle from './throttle'
+import waterMarker from './waterMarker'
 
 //自定义指令
 const directives = {
-    pin,
-    focus,
-    throttle,
-    debounce,
-    randomColor,
-    borderColor,
-    tabSelect,
-    itemSelect,
-
-    draggable,
-    waterMarker,
-    permission,
-    LazyLoad,
-    emoji,
-    copy,
+  lazyLoad,
+  backtop,
+  color,
+  copy,
+  debounce,
+  drag,
+  draggable,
+  ellipsis,
+  emoji,
+  expandClick,
+  focus,
+  itemSelect,
+  longpress,
+  permission,
+  pin,
+  randomColor,
+  tabSelect,
+  throttle,
+  waterMarker
 }
 
 export default {
