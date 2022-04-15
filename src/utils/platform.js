@@ -1,10 +1,5 @@
 const ua = window.navigator.userAgent.toLowerCase()
 
-// Mac 平台
-const isMac = (() => {
-  return /Macintosh/i.test(ua) || /mac os x/i.test(ua)
-})()
-
 // android平台
 const isAndroid = (() => {
   return /Android|Adr/i.test(ua)
@@ -46,7 +41,6 @@ const isInnerApp = (() => {
 })()
 
 export default {
-  isMac,
   isAndroid,
   isIos,
   isWechat,

@@ -13,6 +13,8 @@ import Directives from './utils/directives'
 
 import iosAlertSheet from './components/iosAlertSheet'
 
+import platformMixin from '@/mixin/platform'
+
 const app = createApp(App)
 
 ///添加全局方法
@@ -57,4 +59,5 @@ app.use(router)
 .use(Vant)
 .use(iosAlertSheet)
 .use(Directives)
+.mixin(platformMixin)
 .mount('#app')
