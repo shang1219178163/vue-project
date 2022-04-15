@@ -1,9 +1,10 @@
  /**
     支持三种 type: 
     默认: 白色背景,外边框圆角矩形;
-    高亮(Highlighted): 可设置背景,字体颜色;
+    高亮(highlighted): 可设置背景,字体颜色;
     不可点击(disabled): opacity: 0.3; disabled 为true 时不会返回事件;
   */
+
 
 <template>
     <button 
@@ -38,15 +39,15 @@ const props = defineProps({
     },
     fontColor: {
         type: String,
-        default: "#333333"
+        default: "#BE965A"
     },
-    background: {
+    bg: {
         type: String,
-        default: "#FAFAFC"
+        default: "#FFFFFF"
     },
-    backgroundHighlighted: {
+    bgHighlighted: {
         type: String,
-        default: "#FFC800"
+        default: "linear-gradient(136deg, #BE965A, #D4BB86)"
     },
     disabled: {
         type: Boolean,
@@ -57,7 +58,7 @@ const props = defineProps({
 const emits = defineEmits(["click"])
 
 const click = () => {
-    if (props.type === "disabled") {
+    if (props.type === "disabled" || props.disabled) {
         return
     }
     emits("click", props.type)
@@ -68,6 +69,18 @@ const click = () => {
 
 <style scoped lang='scss'>
 
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin line-limit-length {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @mixin text{
     font-family: PingFangSC-Regular;
     font-size: 12px;
@@ -76,21 +89,25 @@ const click = () => {
     line-height: 16px;
 }
 .button{
+    @include flex-center;
     @include text;
+    @include line-limit-length;
     font-family: v-bind(fontFamily);
     font-size: v-bind(fontSize);
-    color: v-bind(fontColor);
 
-    background: v-bind(background);
+    color: v-bind(fontColor);
+    background: v-bind(bg);
+
     border: 1px solid #E4E4E4;
     border-radius: 4px;
+
     &.highlighted{
-        background: v-bind(backgroundHighlighted);
+        color: #FFFFFF;
+        background: v-bind(bgHighlighted);
         border: 1px solid transparent;
     }
     &.disabled{
-        background: v-bind(background);
-        opacity: 0.3;
+        opacity: 0.4; //有选择图片的弹窗时,会图层错位
     }
 }
 </style>

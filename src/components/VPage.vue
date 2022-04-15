@@ -30,13 +30,17 @@
     <div class="section-footer" v-if="footerHeight" >
       <slot name="footer">
           <div class="footer">
-            <!-- <div class="button" @click="onSubmit" >{{btnTitle}}</div> -->
             <VButton
             class="VButton"
             type="highlighted"
             :disabled='btnDisabled'
-            @click="onSubmit"
+            @click="submit"
             >{{btnTitle}}</VButton> 
+            <!-- <button
+            :class="['button', {'disabled': btnDisabled}]"
+            @click="submit"
+            >{{btnTitle}}
+            </button> -->
           </div>
       </slot>
     </div>
@@ -82,7 +86,7 @@ defineProps({
 
 const emit = defineEmits(['submit'])
 
-function onSubmit() {
+function submit() {
   emit("submit");
 }
 
@@ -95,26 +99,39 @@ function onSubmit() {
     height: 100%;
 
     background: var(--bg-color, v-bind(bg));
-
+    display: flex;
+    flex-direction: column;
+    
     .section-box{
       overflow-y: auto;
 
       padding-top: v-bind(headerHeight);
-      padding-bottom: v-bind(footerHeight);
+      // padding-bottom: v-bind(footerHeight);
       // padding: 46px 0 84px;
-    }
+      width: 100vw;
+      height: calc(100vh - v-bind(headerHeight) - v-bind(footerHeight));
 
-    .section-header, .section-footer {
-      position: fixed;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      background-color: var(--bg-color, #F6F6F6);
     }
 
     .section-header {
-      top: 0
+      position: fixed;
+      width: 100%;
+
+      top: 0;
+      z-index: 999990;
     }
 
     .section-footer {
+      // position: fixed;
+      width: 100%;
+      height: v-bind(footerHeight);
+
       bottom: 0;
+      // z-index: 0;
     }
 }
 
@@ -124,17 +141,10 @@ function onSubmit() {
     height: v-bind(footerHeight);
 
     // border: 1px solid blue;
-    // background-color: #FFFFFF;
+    background-color: #FFFFFF;
     // background-color: orange;
     padding-top: 1px;
 }
-// .button{
-//     height: 44px;
-//     border-radius: 22px;
-//     @include syn-btn-submit; 
-
-//     margin: 8px 20px 34px;
-// }
 
 .VButton{
     width: calc(100vw - 40px);
@@ -144,4 +154,20 @@ function onSubmit() {
 
     margin: 8px 20px 34px;
 }
+
+.button{
+    width: calc(100vw - 40px);
+    height: 44px;
+    border-radius: 22px;
+    @include syn-btn-submit; 
+
+    margin: 8px 20px 34px;
+
+    border: 1px solid transparent;
+    &.disabled{
+      // opacity: 0.4; //有选择图片的弹窗时,会图层错位
+      background: rgba(190,150,90, 0.4);
+    }
+}
+
 </style>
