@@ -51,9 +51,8 @@ import { Toast, Overlay } from 'vant';
 
 // import iosAlertSheet from '@/components/iosAlertSheet';
 import randomcolor from '@/utils/random.js';
-import vueSheet from './vueSheet.vue';
-
-import CallPhone from '../components/CallPhone.vue';
+import vueSheet from '@/views/VueSheet.vue';
+import CallPhone from '@/components/CallPhone.vue';
 
 const onClickLeft = () => history.back();
 
