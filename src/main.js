@@ -13,10 +13,9 @@ import Directives from './utils/directives'
 
 import iosAlertSheet from './components/iosAlertSheet'
 
-import platformMixin from '@/mixin/platform'
+import platformMixin from '@/mixin/platformMixin'
 
 const app = createApp(App)
-
 ///添加全局方法
 app.config.globalProperties.utils = utils
 ///添加全局实例
