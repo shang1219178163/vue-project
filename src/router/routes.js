@@ -60,6 +60,12 @@ export const RouterMap = [
     desc: "第二主页面",
   },
   {
+    path: "/Lifecycle",
+    name: "Lifecycle",
+    component: _import_("Lifecycle"),
+    desc: "生命周期",
+  },
+  {
     path: "/page/:id",
     name: "page",
     component: _import_("Page"),
