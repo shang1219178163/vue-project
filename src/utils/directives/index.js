@@ -3,7 +3,6 @@ import lazyLoad from './lazyLoad'
 import backtop from './backtop'
 import color from './color'
 import copy from './copy'
-import debounce from './debounce'
 import drag from './drag'
 import draggable from './draggable'
 import ellipsis from './ellipsis'
@@ -16,7 +15,6 @@ import permission from './permission'
 import pin from './pin'
 import randomColor from './randomColor'
 import tabSelect from './tabSelect'
-import throttle from './throttle'
 import waterMarker from './waterMarker'
 
 //自定义指令
@@ -25,7 +23,6 @@ const directives = {
   backtop,
   color,
   copy,
-  debounce,
   drag,
   draggable,
   ellipsis,
@@ -38,7 +35,6 @@ const directives = {
   pin,
   randomColor,
   tabSelect,
-  throttle,
   waterMarker
 }
 
