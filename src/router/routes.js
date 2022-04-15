@@ -458,5 +458,16 @@ export const RouterMap = [
     component: _import_("VPageDemo"),
     desc: "Fixed Demo",
   },
-
+  {
+    path: "/DomRef",
+    name: "DomRef",
+    component: _import_("DomRef"),
+    desc: "DomRef",
+  },
+  {
+    path: "/PlatformTest",
+    name: "PlatformTest",
+    component: _import_("PlatformTest"),
+    desc: "PlatformTest",
+  },
 ];

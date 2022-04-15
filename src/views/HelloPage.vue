@@ -109,6 +109,8 @@ const onSelect = (color) => {
 
     console.log("color", color);
 }
+
+
 // const router = useRouter();
 // const route = useRoute();
 

@@ -144,7 +144,7 @@ const logColor = (style = `color: green; background-color: white;`, row = 3, mes
 };
 
 
-// 白底黑字
+// 白底红字
 const red = (message, ...optionalParams) => {
     const style = `color: red; background-color: white;`
     logColor(style, 4, message, optionalParams);
