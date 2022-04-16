@@ -4,7 +4,7 @@
       <li v-for="e in list" :key="e.name">
         <div class="cell">
           <div class="cell-left">
-            <!-- <img src="./assets/logo.png" width="40" height="40"> -->
+            <!-- <img src="@/assets/logo.png" width="40" height="40"> -->
             <img src="https://syntest.haier.net/resource/smallRoutine/sybird_logo.png" class="icon">
           </div>
           <div class="cell-right">

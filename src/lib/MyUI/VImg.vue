@@ -16,7 +16,7 @@
             v-if="src"
             />
         </slot>
-        <!-- <van-image :src="require('../assets/images/no_data.png')" /> -->
+        <!-- <van-image :src="require('@/assets/images/no_data.png')" /> -->
     </div>
 </template>
 

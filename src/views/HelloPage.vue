@@ -76,8 +76,8 @@
 
 <script setup>
 import Counter from "@/components/Counter.vue";
-import vcard from '@/components/VCard.vue';
-import vwarp from "@/components/VWarp.vue";
+// import vcard from '@/components/VCard.vue';
+// import vwarp from "@/components/VWarp.vue";
 // import UserCell from '@/components/UserCell.vue'
 
 // import { useRouter, useRoute } from "vue-router"

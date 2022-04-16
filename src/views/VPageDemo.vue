@@ -45,7 +45,7 @@
 
 
 <script setup>
-import VPage from "@/components/VPage.vue";
+// import VPage from "@/components/VPage.vue";
 
 import { ref, reactive, toRaw, defineProps, onMounted, computed } from 'vue';
 import { Toast } from 'vant';

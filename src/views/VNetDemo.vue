@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref, reactive, getCurrentInstance, defineProps } from 'vue';
-import vnet from '@/components/VNet.vue';
+// import vnet from '@/components/VNet.vue';
 
 
 let netStatus = ref(0);

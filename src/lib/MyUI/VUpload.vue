@@ -1,6 +1,8 @@
 <template>
   <div>
+    <slot>
     VUpload
+    </slot>
   </div>
 </template>
 

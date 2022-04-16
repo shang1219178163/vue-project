@@ -16,6 +16,7 @@ import iosAlertSheet from './components/iosAlertSheet'
 import platformMixin from '@/mixin/platformMixin'
 // import logMixin from '@/mixin/logMixin'
 
+import MyUI from '@/lib/MyUI'
 
 const app = createApp(App)
 ///添加全局方法
@@ -60,6 +61,7 @@ app.use(router)
 .use(Vant)
 .use(iosAlertSheet)
 .use(Directives)
+.mixin(MyUI)
 .mixin(platformMixin)
 // .mixin(logMixin)
 .mount('#app')

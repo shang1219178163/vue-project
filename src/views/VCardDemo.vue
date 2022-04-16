@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue';
-import vcard from '@/components/VCard.vue';
+// import vcard from '@/components/VCard.vue';
 
 const tap = (val) => {
   // alert(val.name)

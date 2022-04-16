@@ -13,7 +13,7 @@ import { ref, defineProps } from 'vue';
 const props = defineProps({
     title: {
         type: String,
-        default: "vwarp"
+        default: "VWarp"
     },
 })
 

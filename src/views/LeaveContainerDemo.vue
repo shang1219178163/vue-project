@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref, reactive, getCurrentInstance, defineProps } from 'vue';
-import vleave from '@/components/VLeave.vue';
+// import vleave from '@/components/VLeave.vue';
 
 let netStatus = ref(0);
 

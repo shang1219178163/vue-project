@@ -37,7 +37,7 @@
       <!-- <div v-for="e in actions" :key="e.name">{{ e.name }}</div> -->
       <van-cell v-for="e in actions" :key="e.name" :title="e.name">
         <template #icon>
-          <img class="van-cell-icon" src="../assets/logo.png" width="15" height="15" />
+          <img class="van-cell-icon" src="@/assets/logo.png" width="15" height="15" />
         </template>
       </van-cell>
     </van-action-sheet>

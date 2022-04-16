@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import vnet from "@/components/VNet.vue";
+// import vnet from "@/components/VNet.vue";
 // import * as uplusApi from '@/utils/uplusApi'
 
 import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from "vue";

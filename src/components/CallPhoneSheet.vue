@@ -7,7 +7,7 @@
   >
     <van-cell :title="phone" @click="clickThis(phone)">
       <template #icon>
-        <img class="van-cell-icon" src="../assets/logo.png" width="15" height="15" />
+        <img class="van-cell-icon" src="@/assets/logo.png" width="15" height="15" />
       </template>
     </van-cell>
   </van-action-sheet>

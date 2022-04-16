@@ -55,7 +55,7 @@
 import { ref, getCurrentInstance, defineProps } from 'vue';
 import { Toast } from 'vant';
 // import { Promise } from 'es6-promise';
-import vcard from '@/components/VCard.vue';
+// import vcard from '@/components/VCard.vue';
 
 const props = defineProps({
     isShowNavBar: {

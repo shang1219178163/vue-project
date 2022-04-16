@@ -22,7 +22,7 @@
   >
     <van-cell :title="phone" @click="clickSheetCell(seletedObj.value)">
       <template #icon>
-        <img class="van-cell-icon" src="../assets/logo.png" width="15" height="15" />
+        <img class="van-cell-icon" src="@/assets/logo.png" width="15" height="15" />
       </template>
     </van-cell>
   </van-action-sheet> -->

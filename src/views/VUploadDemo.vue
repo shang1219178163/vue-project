@@ -1,22 +1,22 @@
 <template>
     <div>
         <h1>VUploadPlaceholder</h1>
-        <VUpload
+        <vupload
         title="设计"
         @change="onChange"
         >
-        <!-- <template #subtitle>
-            <div>
-                <button>button</button>
-            </div>
-        </template> -->
-        <!-- <template #footer>
-            <div>
-                <button>button1</button>
-            </div>
-        </template> -->
-        </VUpload>
-        <!-- <VUploadPlaceholder
+            <!-- <template #subtitle>
+                <div>
+                    <button>button</button>
+                </div>
+            </template>
+            <template #footer>
+                <div>
+                    <button>button1</button>
+                </div>
+            </template> -->
+        </vupload>
+        <VUploadPlaceholder
         :src="require('@/assets/images/icon_camera.png')"
         title="（最多6张）"
         @click="click"
@@ -27,7 +27,7 @@
             title="（最多6张）"
             @click="click(index)"
             ></VUploadPlaceholder>
-        </div> -->
+        </div>
     </div>
 </template>
 
@@ -37,8 +37,8 @@ import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from '
 // import { Toast } from 'vant;
 import { useRouter, useRoute } from 'vue-router';
 
-import VUploadPlaceholder from '@/components/VUploadPlaceholder.vue';
-import VUpload from "@/components/VUpload.vue";
+// import VUploadPlaceholder from '@/components/VUploadPlaceholder.vue';
+// import VUpload from "@/components/VUpload.vue";
 
 const router = useRouter();
 const route = useRoute()

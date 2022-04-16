@@ -29,7 +29,7 @@
 import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
 // import { Toast } from 'vant;
 import { useRouter, useRoute } from 'vue-router';
-import VButton from '@/components/VButton.vue';
+// import VButton from '@/components/VButton.vue';
 
 
 const router = useRouter();
