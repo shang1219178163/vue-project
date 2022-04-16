@@ -66,6 +66,12 @@ export const RouterMap = [
     desc: "生命周期",
   },
   {
+    path: "/HookDemo",
+    name: "HookDemo",
+    component: _import_("HookDemo"),
+    desc: "Hook Demo",
+  },
+  {
     path: "/page/:id",
     name: "page",
     component: _import_("Page"),
