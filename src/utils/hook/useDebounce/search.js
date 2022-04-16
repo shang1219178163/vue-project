@@ -17,7 +17,7 @@ import {useDebounce} from "./index";
 export function useAssociateSearch() {
     const keyword = ref('')
 
-    const search = () => {
+    const search = (oldVal, newVal) => {
         console.log('search...', keyword.value)
         // mock 请求接口获取数据
     }

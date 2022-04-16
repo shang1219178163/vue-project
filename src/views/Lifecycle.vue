@@ -24,7 +24,7 @@ import {
     } from 'vue';
 import { Toast, Dialog } from 'vant';
 import * as LOG from "@/utils/log.js";
-
+import { blue } from '../utils/log';
 
 onBeforeMount(() => {
     LOG.log("onBeforeMount")
@@ -73,7 +73,11 @@ onErrorCaptured((err, instance, info) => {
 
 
 const onClickLeft = () => history.back();
-const onClickRight = () => Toast('按钮');
+const onClickRight = () => {
+    Toast('按钮');
+    LOG.green("按钮");
+    blue("按钮")
+}
 
 
 const handleRouteParams = () => {

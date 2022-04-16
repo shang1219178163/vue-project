@@ -14,6 +14,8 @@ import Directives from './utils/directives'
 import iosAlertSheet from './components/iosAlertSheet'
 
 import platformMixin from '@/mixin/platformMixin'
+// import logMixin from '@/mixin/logMixin'
+
 
 const app = createApp(App)
 ///添加全局方法
@@ -59,4 +61,9 @@ app.use(router)
 .use(iosAlertSheet)
 .use(Directives)
 .mixin(platformMixin)
+// .mixin(logMixin)
 .mount('#app')
+
+
+// import * as LOG from "@/utils/log.js";
+// window.LOG = LOG;
