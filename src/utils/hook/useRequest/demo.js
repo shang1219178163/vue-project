@@ -1,4 +1,4 @@
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, onUnmounted} from 'vue'
 import useApi from './index'
 
 function fetchBookList(params) {
@@ -76,7 +76,13 @@ export function useUser() {
     const {loading, error, result, fetchResource,} = useApi(handler)
 
     onMounted(() => {
+        console.log("useUser: onMounted")
+
         fetchResource({page: 1})
+    })
+
+    onUnmounted(() => {
+        console.log("useUser: onUnmounted");
     })
 
     return {

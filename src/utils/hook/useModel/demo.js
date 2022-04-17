@@ -29,11 +29,11 @@ const store = createStore({
     },
     actions: {
         decrement({commit}) {
-            const {count} = state
+            const {count} = this.state;
             commit('setCount', count - 1)
         },
         increment({commit}) {
-            const {count} = state
+            const {count} = this.state;
             commit('setCount', count + 1)
         }
     },
