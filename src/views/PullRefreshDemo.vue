@@ -7,7 +7,7 @@
       <van-tab title="标签 1">
         <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
           <van-list
-            v-model:loading="loading"
+            v-model:loading="isLoading"
             :finished="finished"
             finished-text="没有更多了"
             @load="onLoad"
@@ -38,7 +38,7 @@ import {ref} from "vue";
 export default {
   setup() {
     const list = ref([]);
-    const loading = ref(false);
+    const isLoading = ref(false);
     const finished = ref(false);
     const refreshing = ref(false);
 
@@ -52,7 +52,7 @@ export default {
         for (let i = 0; i < 10; i++) {
           list.value.push(list.value.length + 1);
         }
-        loading.value = false;
+        isLoading.value = false;
 
         // if (list.value.length >= 40) {
         //   finished.value = true;
@@ -67,14 +67,14 @@ export default {
 
       // 重新加载数据
       // 将 loading 设置为 true，表示处于加载状态
-      loading.value = true;
+      isLoading.value = true;
       onLoad();
     };
 
     return {
       list,
       onLoad,
-      loading,
+      loading: isLoading,
       finished,
       onRefresh,
       refreshing,
