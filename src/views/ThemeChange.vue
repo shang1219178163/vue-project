@@ -21,9 +21,8 @@ import randomcolor from '../utils/random';
 const onClickLeft = () => history.back();
 
 const onClickRight = () => {
-
-
-
+    let themeColor = document.body.style.getPropertyValue('--theme-color') || getComputedStyle(document.body).getPropertyValue('--theme-color')
+    console.log(">>>themeColor:", themeColor);
 };
 
 const onChangeColor = () => {

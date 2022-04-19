@@ -74,3 +74,9 @@ String.prototype.uppercaseWords = function () {
 	let str = this;
     return (str) => str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase())
 }
+
+
+// 打电话
+String.prototype.toTel = function () {
+    window.location.href = "tel://" + this.trim();
+}
