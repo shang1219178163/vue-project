@@ -41,14 +41,15 @@ export default {
     const slider = ref(50);
     const show = ref(false);
 
+    let themeColor = document.body.style.getPropertyValue('--theme-color') || getComputedStyle(document.body).getPropertyValue('--theme-color')
     const themeVars = {
-      rateIconFullColor: '#07c160',
+      rateIconFullColor: themeColor,
       sliderBarHeight: '4px',
       sliderButtonWidth: '20px',
       sliderButtonHeight: '20px',
-      sliderActiveBackgroundColor: '#07c160',
-      buttonPrimaryBorderColor: '#07c160',
-      buttonPrimaryBackgroundColor: '#07c160',
+      sliderActiveBackgroundColor: themeColor,
+      buttonPrimaryBorderColor: themeColor,
+      buttonPrimaryBackgroundColor: themeColor,
       popupBackgroundColor: "#ff0000"
     };
 

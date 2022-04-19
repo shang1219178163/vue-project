@@ -60,11 +60,18 @@ export const RouterMap = [
     desc: "第二主页面",
   },
   {
+    path: "/ThemeChange",
+    name: "ThemeChange",
+    component: _import_("ThemeChange"),
+    desc: "主题色切换",
+  },
+  {
     path: "/Lifecycle",
     name: "Lifecycle",
     component: _import_("Lifecycle"),
     desc: "生命周期",
   },
+  
   {
     path: "/HookDemo",
     name: "HookDemo",
@@ -166,6 +173,12 @@ export const RouterMap = [
     name: "PullMoreDemo",
     component: _import_("PullMoreDemo"),
     desc: "上拉加载更多",
+  },
+  {
+    path: "/PullRefreshCustom",
+    name: "PullRefreshCustom",
+    component: _import_("PullRefreshCustom"),
+    desc: "上拉刷新自定义",
   },
   {
     path: "/sceneList",
@@ -434,12 +447,7 @@ export const RouterMap = [
     component: _import_("VUploadDemo"),
     desc: "VUpload Demo",
   },
-  {
-    path: "/ThemeChange",
-    name: "ThemeChange",
-    component: _import_("ThemeChange"),
-    desc: "ThemeChange",
-  },
+
   {
     path: "/OffLineTest",
     name: "OffLineTest",
