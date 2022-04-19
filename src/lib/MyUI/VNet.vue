@@ -14,7 +14,8 @@
         </div>
         <div class="nodata" v-else-if="status===0">
             <div class="item">
-                <img src="@/assets/images/img_no_data.png" 
+                <img 
+                :src="nodataSrc"
                 :width="imageWidth" 
                 :height="imageHeight" 
                 @click="click" 
@@ -36,10 +37,14 @@ import { ref, defineProps, defineEmits } from 'vue';
 
 
 const props = defineProps({
-    /// 页面状态 1 正常; 0 数据为空; 网络请求失败; 
+    /// 页面状态 1 正常; 0 数据为空; -1 网络请求失败; 
     status: {
-        type: [Number, String],
-        default: 1
+        type: Number,
+        default: 1,
+        validator: (value) => {
+            console.log("netStatus", typeof value, value);
+            return [-1, 0, 1].includes(value); 
+        }
     },
     content: {
         type: String,
@@ -60,6 +65,10 @@ const props = defineProps({
     nodataMsg: {
         type: String,
         default: "暂无数据"
+    },
+    nodataSrc: {
+        type: String,
+        default: require('@/assets/images/img_no_data.png') //暂无数据
     },
 })
 
