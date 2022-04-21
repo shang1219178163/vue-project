@@ -80,3 +80,10 @@ String.prototype.uppercaseWords = function () {
 String.prototype.toTel = function () {
     window.location.href = "tel://" + this.trim();
 }
+
+
+// 获取到特定长度
+String.prototype.toLength = function (count, defaultValue = "-") {
+    if (this === "undefined") return defaultValue
+    return this.length < count ? this : this.substring(0, count);
+}
