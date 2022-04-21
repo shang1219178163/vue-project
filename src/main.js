@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import plugins from './plugins';
-import VueMD from './router/eventTracking.js';
+import VueDT from './router/DataTracking.js';
 // 导入所有组件
 import Vant, {Toast, Lazyload, ConfigProvider} from 'vant';
 import 'vant/lib/index.css';
@@ -63,7 +63,7 @@ app.directive('demo', (el, binding) => {
 
 app.use(router)
 .use(store)
-.use(VueMD)
+.use(VueDT)
 .use(plugins)
 .use(Vant)
 .use(Toast)
