@@ -7,7 +7,10 @@
         @click-right="onClickRight"/>
         <van-tabs v-model:active="active">
           <van-tab v-for="t in tabTitles" :key="t" :title="t">
-            <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+            <van-pull-refresh 
+              v-model="refreshing" 
+              @refresh="onRefresh"
+            >
                 <van-list
                     v-model:loading="loading"
                     :finished="finished"
