@@ -9,7 +9,7 @@
 <script>
 export default {
     name:"submit-button",
-    data() {},
+    // data() {},
     created(){
         console.log("submit-button")
     }

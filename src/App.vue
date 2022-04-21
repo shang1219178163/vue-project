@@ -16,7 +16,7 @@ export default {
   components: {
     
   },
-  data() {
+  // data() {
     // let themeColor = getComputedStyle(document.body).getPropertyValue('--theme-color') || '#BE965A';
     // console.log({themeColor});
     // return {
@@ -31,12 +31,12 @@ export default {
     //       dialogConfirmButtonTextColor: themeColor,
     //   }
     // }
-  },
-  computed: {
+  // },
+  // computed: {
     // themeColor() {
     //   return getComputedStyle(document.body).getPropertyValue('--theme-color');
     // }
-  },
+  // },
 }
 </script>
 

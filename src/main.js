@@ -19,21 +19,19 @@ import '@/plugins/remSelf';
 
 import platformMixin from '@/mixin/platformMixin';
 
-// import logMixin from '@/mixin/logMixin';
-
 import MyUI from '@/lib/MyUI';
 
-const app = createApp(App)
+const app = createApp(App);
 ///添加全局方法
 app.config.globalProperties.$log = LOG;
 
-app.config.globalProperties.utils = utils
+app.config.globalProperties.utils = utils;
 ///添加全局实例
 app.config.globalProperties.user = {
     name: "zhangshan",
     token: "asdfsadfasdf32342342",
     uid: "sdfasdfasdfwe2342dsds"
-}
+};
 // 注册全局自定义指令
 
 /// 仅在 mounted 和 updated 时触发相同行为
@@ -66,10 +64,8 @@ app.use(router)
 .use(VueDT)
 .use(plugins)
 .use(Vant)
-.use(Toast)
 .use(iosAlertSheet)
 .use(Directives)
-.use(LOG)
 .mixin(MyUI)
 .mixin(platformMixin)
 .mount('#app')
