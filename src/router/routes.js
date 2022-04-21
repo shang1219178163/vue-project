@@ -250,7 +250,7 @@ export const RouterMap = [
     path: "/watchDemo",
     name: "WatchDemo",
     component: _import_("WatchDemo"),
-    desc: "vue watch",
+    desc: "vue watch 键值监听",
   },
 
   {
@@ -489,5 +489,11 @@ export const RouterMap = [
     name: "PlatformTest",
     component: _import_("PlatformTest"),
     desc: "PlatformTest",
+  },
+  {
+    path: "/VantToastDemo",
+    name: "VantToastDemo",
+    component: _import_("VantToastDemo"),
+    desc: "VantToastDemo",
   },
 ];
