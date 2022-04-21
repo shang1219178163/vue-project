@@ -1,6 +1,6 @@
 import {ref, watch} from "vue";
 
-// 去抖
+// 去抖(后向触发)
 export function useDebounce(fn, delay = 1000) {
     const timer = ref(null)
 
@@ -20,7 +20,7 @@ export function useDebounce(fn, delay = 1000) {
     }
 }
 
-// 节流
+// 节流(前向触发)
 export function useThrottle(fn, duration = 1000) {
     let start = +new Date()
     return function () {
