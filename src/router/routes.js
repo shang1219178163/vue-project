@@ -298,9 +298,9 @@ export const RouterMap = [
   },
 
   {
-    path: "/eventTrackingTest",
-    name: "eventTrackingTest",
-    component: _import_("EventTrackingTest"),
+    path: "/DataTrackingTest",
+    name: "DataTrackingTest",
+    component: _import_("DataTrackingTest"),
     desc: "埋点",
   },
   {
