@@ -14,11 +14,11 @@
 
 <script setup>
 import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
-import { Toast } from 'vant';
+// import { Toast } from 'vant';
 
 const instance = getCurrentInstance()
-// console.log(instance);
-// const { $toast as Toast } = instance.appContext.config.globalProperties;
+console.log(instance);
+const { $toast: Toast, $log: LOG } = instance.appContext.config.globalProperties;
 
 
 const list = reactive([
@@ -40,8 +40,11 @@ const list = reactive([
 ])
 
 const onText = () => {
-    Toast('提示内容');
-    Toast('网络不可用，请检查网络');
+    Toast('网络不可用，请检查网络,网络不可用，请检查网络');
+
+    setTimeout(() => {
+        console.log("sadf");
+    }, 1000);
 }
 
 const onLoading = () => {

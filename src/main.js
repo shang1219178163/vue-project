@@ -1,25 +1,32 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import VueMD from './router/eventTracking.js'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import plugins from './plugins';
+import VueMD from './router/eventTracking.js';
 // 导入所有组件
-import Vant, {Lazyload, ConfigProvider} from 'vant'
-import 'vant/lib/index.css'
+import Vant, {Toast, Lazyload, ConfigProvider} from 'vant';
+import 'vant/lib/index.css';
 
-import store from '@/store' // short for @/store/index
+import store from '@/store'; // short for @/store/index
 
-import * as utils from './utils/common'
-import Directives from './utils/directives'
+import * as utils from './utils/common';
+import Directives from './utils/directives';
 
-import iosAlertSheet from './components/iosAlertSheet'
+import iosAlertSheet from './components/iosAlertSheet';
+import * as LOG from '@/utils/log';
 
-import platformMixin from '@/mixin/platformMixin'
-// import logMixin from '@/mixin/logMixin'
+import '@/plugins/remSelf';
 
-import MyUI from '@/lib/MyUI'
+import platformMixin from '@/mixin/platformMixin';
+
+// import logMixin from '@/mixin/logMixin';
+
+import MyUI from '@/lib/MyUI';
 
 const app = createApp(App)
 ///添加全局方法
+app.config.globalProperties.$log = LOG;
+
 app.config.globalProperties.utils = utils
 ///添加全局实例
 app.config.globalProperties.user = {
@@ -27,7 +34,6 @@ app.config.globalProperties.user = {
     token: "asdfsadfasdf32342342",
     uid: "sdfasdfasdfwe2342dsds"
 }
-
 // 注册全局自定义指令
 
 /// 仅在 mounted 和 updated 时触发相同行为
@@ -56,14 +62,16 @@ app.directive('demo', (el, binding) => {
 })
 
 app.use(router)
-.use(VueMD)
 .use(store)
+.use(VueMD)
+.use(plugins)
 .use(Vant)
+.use(Toast)
 .use(iosAlertSheet)
 .use(Directives)
+.use(LOG)
 .mixin(MyUI)
 .mixin(platformMixin)
-// .mixin(logMixin)
 .mount('#app')
 
 

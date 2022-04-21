@@ -1,17 +1,42 @@
 <template>
-  <div id="app">
-    <!-- <img src="@/assets/logo.png"> -->
-    <router-view/>
-  </div>
+  <!-- <ConfigProviderProps :theme-vars="themeVars"> -->
+    <router-view v-slot="{ Component, route }">
+      <keep-alive>
+        <component :is="Component" :key="route.name" />
+      </keep-alive>
+    </router-view>
+  <!-- </ConfigProviderProps> -->
 </template>
 
 <script>
+import { Toast, ConfigProviderProps, Dialog } from 'vant';
 
 export default {
   name: 'App',
   components: {
     
-  }
+  },
+  data() {
+    // let themeColor = getComputedStyle(document.body).getPropertyValue('--theme-color') || '#BE965A';
+    // console.log({themeColor});
+    // return {
+    //   themeVars: {
+    //       rateIconFullColor: "red",
+    //       sliderBarHeight: '4px',
+    //       sliderButtonWidth: '20px',
+    //       sliderButtonHeight: '20px',
+    //       sliderActiveBackgroundColor: themeColor,
+    //       buttonPrimaryBorderColor: themeColor,
+    //       buttonPrimaryBackgroundColor: themeColor,
+    //       dialogConfirmButtonTextColor: themeColor,
+    //   }
+    // }
+  },
+  computed: {
+    // themeColor() {
+    //   return getComputedStyle(document.body).getPropertyValue('--theme-color');
+    // }
+  },
 }
 </script>
 
@@ -68,14 +93,16 @@ html[theme="gray"] {
 }
 
 .van-toast{
-  width: auto !important;
-  min-height: 1.5rem !important;
+  // width: auto !important;
+  min-height: 24px !important;
+  // max-width: 80% !important;
   line-height: .28rem !important;
   font-size: .28rem !important;
 }
+
 .van-toast--text{
-  padding: .2rem .4rem!important;
-  font-size: .28rem!important;
+  padding: .2rem .3rem !important;
+  font-size: .28rem !important;
 }
 
 body {
@@ -86,6 +113,7 @@ body {
 
     // 主题颜色
     --theme-color:#0082e0;
+    --theme-color:#BE965A;
     // 全局背景色
     --bg-color:#F6F6F6;
     //  color: var(--themeColor);
