@@ -86,7 +86,8 @@ import router from "@/router/index";
 
 import {RouterMap} from "@/router/routes";
 
-import { colors } from "@/utils/colors.js"
+import { colors } from "@/assets/color/colors.js"
+
 import color from "../utils/directives/color";
 
 

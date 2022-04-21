@@ -15,7 +15,7 @@
           <!-- 下拉提示，通过 scale 实现一个缩放效果 -->
           <template #pulling="props">
             <img
-              class="doge"
+              class="logo"
               :src="require('@/assets/images/img_pull_refresh.gif')"
               :style="{ transform: `scale(${props.distance / 80})` }"
             />
@@ -24,7 +24,7 @@
           <!-- 释放提示 -->
           <template #loosing>
             <img
-              class="doge"
+              class="logo"
               :src="require('@/assets/images/img_pull_refresh.gif')"
             />
           </template>
@@ -32,7 +32,7 @@
           <!-- 加载提示 -->
           <template #loading>
             <img
-              class="doge"
+              class="logo"
               :src="require('@/assets/images/img_pull_refresh.gif')"
             />
           </template>
@@ -44,7 +44,7 @@
           >
             <template #loading>
               <img
-                class="doge"
+                class="logo"
                 :src="require('@/assets/images/img_pull_refresh.gif')"
               />
             </template>
@@ -66,10 +66,11 @@
       </van-tab>
       <van-tab title="标签 3">
         <VPullRefresh 
-          v-model="isLoading" 
+          v-model="refreshing" 
           v-model:loading="isLoading"
           :finished="finished"
           :netStatus="netStatus"
+          :netHeight="'calc(100vh - 44px - 46px)'"
           :onRefresh="onRefresh" 
           :onLoad="onLoad"
           :onNet="onNet"
@@ -85,7 +86,7 @@
 <script setup>
 import VPullRefresh from '@/components/VPullRefresh.vue';
 
-import { ref, onActivated } from "vue";
+import { ref, reactive, watch, watchEffect, computed, onActivated } from "vue";
 
 const onClickLeft = () => history.back();
 
@@ -96,12 +97,29 @@ onActivated(() => {
   onRefresh();
 });
 
-const list = ref([]);
+const list = reactive([]);
+
 const isLoading = ref(false);
 const finished = ref(false);
 const refreshing = ref(false);
 
-let netStatus = ref(0);
+let netStatus = ref(1);
+const count = ref(0);
+ 
+watch([count, list], (newValue, oldValue) => {
+    console.log('watch', newValue, oldValue);
+  },
+ { deep: true }
+)
+
+watchEffect(() => console.log("count", count.value))
+watchEffect(() => console.log("list", list))
+
+// const count = ref(0)
+// watch(count, (count, prevCount) => {
+//   /* ... */
+// })
+
 
 const onLoad = () => {
   setTimeout(() => {
@@ -110,15 +128,18 @@ const onLoad = () => {
       refreshing.value = false;
     }
 
-    for (let i = 0; i < 10; i++) {
-      list.value.push(list.value.length + 1);
+    for (let i = 0; i < 30; i++) {
+      list.push(list.length + 1);
     }
+
     isLoading.value = false;
 
     // if (list.value.length >= 40) {
     //   finished.value = true;
     // }
     finished.value = true;
+
+    netStatus.value = 1;
   }, 2000);
 };
 
@@ -134,6 +155,8 @@ const onRefresh = () => {
 
 const onNet = () => {
   console.log("onNet");
+
+  onRefresh()
 }
 
 </script>
@@ -146,11 +169,11 @@ const onNet = () => {
   top: 46px;
 }
 
-.doge {
+.logo {
   width: 60px;
   height: 60px;
-  /* margin-top: 8px;
-  border-radius: 4px; */
+  margin-top: 8px;
+  border-radius: 4px;
   backgroud-color: green,
 }
 </style>
