@@ -14,7 +14,7 @@ import {useDebounce} from "./index";
 // }
 
 // demo: input输入时联想查询关键字
-export function useAssociateSearch() {
+export function useAssociateSearch(delay = 1000) {
     const keyword = ref('')
 
     const search = (oldVal, newVal) => {
@@ -24,7 +24,7 @@ export function useAssociateSearch() {
 
     // watch(keyword, search)
     // watch(keyword, debounce(search, 1000))
-    watch(keyword, useDebounce(search, 1000))
+    watch(keyword, useDebounce(search, delay))
 
     return {
         keyword
