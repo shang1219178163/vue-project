@@ -1,4 +1,6 @@
-import {ref, onMounted, onUnmounted} from 'vue'
+import { push } from 'core-js/core/array'
+import { concat } from 'core-js/core/array'
+import {ref, reactive, computed, onMounted, onUnmounted} from 'vue'
 import useApi from './index'
 
 function fetchBookList(params) {
@@ -47,11 +49,11 @@ export function useBook() {
 
 
 // 使用useApi封装
-export function useBook2() {
+export function useBook2(isRefresh: true) {
     const {loading, error, result, fetchResource,} = useApi(fetchBookList)
 
     onMounted(() => {
-        fetchResource({page: 1})
+        fetchResource({page: 1});
     })
 
     return {
@@ -89,5 +91,52 @@ export function useUser() {
         loading,
         error,
         list: result
+    }
+}
+
+
+
+export function useUserNew() {
+    const fetchUsers = (params) => {
+        return fetchUserList(params).then(res => {
+            console.log(res)
+            if (res.code === 200) {
+                return res.data
+            }
+            return []
+        })
+    }
+    // 对useApi本身无需做任何调整
+    const {loading, error, result, request,} = useApi(fetchUsers)
+
+    const list = reactive([]);
+
+    const pageIndex = ref(1);
+
+    onMounted(() => {
+        console.log("useUser: onMounted")
+        request({page: pageIndex.value})
+    })
+
+    watchEffect(()=>{
+        request({page: pageIndex.value});
+    })
+
+    onUnmounted(() => {
+        console.log("useUser: onUnmounted");
+    })
+
+    const items = computed(() => {
+        if (pageIndex.value === 1) {
+            list = [];
+        }
+        list.push(result);
+        return list;
+    })
+
+    return {
+        loading,
+        error,
+        result: items,
     }
 }
