@@ -7,7 +7,8 @@
       </template>
       <template #title class="navBar-Title" >{{ navBarTitle }}</template>
       <template #right>
-        <van-icon v-if="isrightShow" name="ellipsis" size="17" @click="toShare" />
+        <!-- <van-icon v-if="isrightShow" name="ellipsis" size="17" @click="toShare" /> -->
+        <slot name="right"></slot>
       </template>
     </van-nav-bar>
     <!-- 分享面板 -->

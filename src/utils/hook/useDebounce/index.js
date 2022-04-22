@@ -2,21 +2,21 @@ import {ref, watch} from "vue";
 
 // 去抖(后向触发)
 export function useDebounce(fn, delay = 1000) {
-    const timer = ref(null)
+    const timer = ref(null);
 
     const cancel = () => {
-        clearTimeout(timer)
-        timer.value = null
+        clearTimeout(timer);
+        timer.value = null;
     }
 
     return function () {
-        clearTimeout(timer.value)
+        clearTimeout(timer.value);
         let args = arguments,
-            context = this
+            context = this;
         timer.value = setTimeout(() => {
             fn.apply(context, args);
             cancel();
-        }, delay)
+        }, delay);
     }
 }
 
@@ -24,12 +24,12 @@ export function useDebounce(fn, delay = 1000) {
 export function useThrottle(fn, duration = 1000) {
     let start = +new Date()
     return function () {
-        let args = arguments
-        let context = this
-        let now = +new Date()
+        let args = arguments,
+            context = this;
+        let now = +new Date();
         if (now - start >= duration) {
-            fn.apply(context, args)
-            start = now
+            fn.apply(context, args);
+            start = now;
         }
     }
 }

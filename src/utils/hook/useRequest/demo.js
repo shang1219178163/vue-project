@@ -1,5 +1,3 @@
-import { push } from 'core-js/core/array'
-import { concat } from 'core-js/core/array'
 import {ref, reactive, computed, onMounted, onUnmounted} from 'vue'
 import useApi from './index'
 
@@ -49,7 +47,7 @@ export function useBook() {
 
 
 // 使用useApi封装
-export function useBook2(isRefresh: true) {
+export function useBook2() {
     const {loading, error, result, fetchResource,} = useApi(fetchBookList)
 
     onMounted(() => {

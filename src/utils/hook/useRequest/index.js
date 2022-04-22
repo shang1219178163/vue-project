@@ -2,19 +2,19 @@ import {ref} from 'vue'
 
 
 export default function useApi(api) {
-    const loading = ref(false)
-    const result = ref(null)
-    const error = ref(null)
+    const loading = ref(false);
+    const result = ref(null);
+    const error = ref(null);
 
     const request = (params) => {
-        loading.value = true
+        loading.value = true;
         return api(params).then(data => {
-            result.value = data
+            result.value = data;
         }).catch(e => {
-            error.value = e
+            error.value = e;
         }).finally(() => {
-            loading.value = false
-        })
+            loading.value = false;
+        });
     }
     return {
         loading,
@@ -26,20 +26,20 @@ export default function useApi(api) {
 
 
 /// 请求分页网络接口
-export function useApiPage(api, pageInitail: 1) {
-    const {loading, error, result, request } = useApi(api)
+export function useApiPage(api, pageInitail = 1) {
+    const {loading, error, result, request } = useApi(api);
 
     const list = reactive([]);
 
-    const pageIndex = ref(pageInitail);
+    const page = ref(pageInitail);
 
     watchEffect(()=>{
-        request({page: pageIndex.value});
+        request({ page: pageIndex.value });
     })
 
     onMounted(() => {
         console.log("useApiPage: onMounted");
-        request({page: pageIndex.value});
+        request({ page: pageIndex.value });
     })
 
     onUnmounted(() => {
@@ -57,7 +57,7 @@ export function useApiPage(api, pageInitail: 1) {
     return {
         loading,
         error,
-        page: pageIndex.value,
+        page,
         result: items,
     }
 }

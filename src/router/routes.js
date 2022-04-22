@@ -409,7 +409,7 @@ export const RouterMap = [
     path: "/LogDemo",
     name: "LogDemo",
     component: _import_("LogDemo"),
-    desc: "LogDemo",
+    desc: "Log 自定义",
   },
   {
     path: "/ServiceProgress",
@@ -495,5 +495,11 @@ export const RouterMap = [
     name: "VantToastDemo",
     component: _import_("VantToastDemo"),
     desc: "VantToastDemo",
+  },
+  {
+    path: "/VantPopverDemo",
+    name: "VantPopverDemo",
+    component: _import_("VantPopverDemo"),
+    desc: "VantPopverDemo",
   },
 ];

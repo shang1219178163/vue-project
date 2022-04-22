@@ -83,7 +83,7 @@ String.prototype.toTel = function () {
 
 
 // 获取到特定长度
-String.prototype.toLength = function (count, defaultValue = "-") {
-    if (this === "undefined") return defaultValue
-    return this.length < count ? this : this.substring(0, count);
+String.prototype.toLength = function (count, defaultValue = "-", sufix = "") {
+    if (this === undefined) return defaultValue
+    return this.length < count ? this : this.substring(0, count) + sufix;
 }
