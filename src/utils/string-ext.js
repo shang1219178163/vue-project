@@ -18,7 +18,7 @@ String.prototype.reverse = function () {
     return str.split('').reverse().join('');
 }
 
-// 反转字符串
+// 获取链接参数
 String.prototype.URLParameters = function () {
     let URL = this;
     URL = JSON.parse('{"' + decodeURI(URL.split("?")[1])
@@ -58,21 +58,21 @@ String.prototype.uppercaseWords = function () {
 /**
  * 将字符串转换为camelCase
  * 
- * toCamelCase('background-color'); // backgroundColor
- * toCamelCase('-webkit-scrollbar-thumb'); // WebkitScrollbarThumb
- * toCamelCase('_hello_world'); // HelloWorld
- * toCamelCase('hello_world'); // helloWorld
+ * 'background-color'.toCamelCase(); // backgroundColor
+ * '-webkit-scrollbar-thumb'.toCamelCase(); // WebkitScrollbarThumb
+ * '_hello_world'.toCamelCase(); // HelloWorld
+ * 'hello_world'.toCamelCase(); // helloWorld
  */
 String.prototype.toCamelCase = function () {
-	let str = this;
-    return (str) => str.trim().replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''));
+	const str = this;
+  return (str) => str.trim().replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ''));
 }
 
 
-// 从数组中删除虚假值
+// 转为大写
 String.prototype.uppercaseWords = function () {
-	let str = this;
-    return (str) => str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase())
+	const str = this;
+  return (str) => str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase())
 }
 
 
@@ -81,9 +81,20 @@ String.prototype.toTel = function () {
     window.location.href = "tel://" + this.trim();
 }
 
-
-// 获取到特定长度
-String.prototype.toLength = function (count, defaultValue = "-", sufix = "") {
-    if (this === undefined) return defaultValue
-    return this.length < count ? this : this.substring(0, count) + sufix;
+/**
+ * 获取到特定长度
+ * 
+ * @param {*} count 最大长度
+ * @param {*} sufix 超过最大值时添加后缀
+ * @param {*} isFillBlank 字数不够时,是否填充空字符串
+ * @returns 处理后的结果
+ */
+String.prototype.toLength = function (count, sufix = "", isFillBlank = false) {
+    const val = this;
+    if (count > val.length) {
+      const padStr = "\xa0\xa0\xa0".repeat(count - val.length);
+      // console.log("padStr", `${val}_${padStr}_${count - val.length}_${fixedWidth ? padStr : ""}_`);
+      return val + (isFillBlank ? padStr : "");
+    }
+    return val.substring(0, count) + sufix;
 }
