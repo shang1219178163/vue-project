@@ -2,26 +2,23 @@
 
 <template>
      <div class="container">
-        <div class="error" v-if="status===-1">
-            <div class="item">
-                <img src="@/assets/images/img_net_error.png" 
-                :width="imageWidth" 
-                :height="imageHeight" 
-                @click="click" 
-                />
-                <div>{{errorMsg}}</div>
-            </div>
+        <div class="item error" v-if="status===-1">
+          <img 
+            src="@/assets/images/img_net_error.png" 
+            :width="imageWidth" 
+            :height="imageHeight" 
+            @click="click" 
+          />
+          <div class="msg">{{ errorMsg }}</div>
         </div>
-        <div class="nodata" v-else-if="status===0">
-            <div class="item">
-                <img 
-                :src="nodataSrc"
-                :width="imageWidth" 
-                :height="imageHeight" 
-                @click="click" 
-                />
-                <div>{{nodataMsg}}</div>
-            </div>
+        <div class="item nodata" v-else-if="status===0">
+          <img 
+            :src="nodataSrc"
+            :width="imageWidth" 
+            :height="imageHeight" 
+            @click="click" 
+          />
+          <div class="msg">{{ nodataMsg }}</div>
         </div>
         <div v-else>
             <slot>
@@ -85,34 +82,25 @@ const click = () => {
 <style scoped>
 
 .container{
-    width: 100%;
-    height: 100%;
-    background-color: #F5F5F5;
-    /* background-color: red; */
+  width: 100%;
+  /* height: 100%; */
+  height: inherit;
+  background-color: #F5F5F5;
+  /* background-color: red; */
 }
-.error{
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nodata{
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.item{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.msg {
+  font-size: .28rem;
+  margin-left: .4rem;
+  margin-right: .4rem;
+  color: #666666;
 }
-
 </style>
