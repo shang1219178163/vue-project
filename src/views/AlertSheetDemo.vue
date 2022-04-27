@@ -139,9 +139,9 @@ console.log(instance.type.__file, "randomcolor", randomcolor());
 
 
 <style scoped>
-.container{
-  /* --randomcolor: randomcolor(); */
-}
+/* .container{
+  --randomcolor: randomcolor();
+} */
 
 .wrapper {
   display: flex;

@@ -54,9 +54,9 @@ const cancell = (val) => {
 </script>
 
 <style scoped>
-.container{
-  /* --randomcolor: randomcolor(); */
-}
+/* .container{
+  --randomcolor: randomcolor();
+} */
 
 .wrapper {
   display: flex;

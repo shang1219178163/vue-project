@@ -23,7 +23,7 @@ body {
     height: 1400px;
     margin: 0 auto;
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 p {
@@ -32,7 +32,7 @@ p {
     padding: 10px;
     margin: 10px;
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 span {
@@ -45,7 +45,7 @@ h1 {
   top: 0;
   width: 500px;
   margin: 0 auto;
-  background: white;
+  background: red;
   padding: 10px;
 }
 
