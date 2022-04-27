@@ -1,4 +1,9 @@
 
+// 数组生成
+Array.prototype.generator = function (n, block = (i) => { i.toString() }) {
+  return Array(n).fill().map((e, i)=> block(i));
+}
+
 
 // 数组去重
 Array.prototype.unique = function () {
