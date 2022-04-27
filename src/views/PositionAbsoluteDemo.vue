@@ -1,0 +1,119 @@
+<template>
+  <div class="absolute">
+    <div class="fixed"></div>
+    <div class="relative"></div>
+    <div class="sticky">sticky</div>
+  </div>
+
+    <!-- <h1>Basic document flow</h1>
+
+    <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
+
+    <p class="positioned">By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding + border width/height.</p>
+
+    <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
+
+    <p>inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span>, or just go on to a new line if not, much like this image will do: <img src="https://mdn.mozillademos.org/files/13360/long.jpg"></p> -->
+</template>
+
+<script>
+
+
+</script>
+
+
+<style scoped>
+
+.absolute{
+  position: absolute;
+  overflow: auto;
+
+  width: 100%;
+  height: 200%;
+
+  background-color: green;
+}
+
+.relative{
+  position: relative;
+
+  width: 20%;
+  height: 20%;
+
+  top: 20px;
+  left: 10px;
+
+  background-color: yellow;
+}
+    
+.fixed{
+  position: fixed;
+
+  width: 20px;
+  height: 40px;
+
+  background-color: orange;
+}
+
+.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+
+  /* width: 20px;
+  height: 40px; */
+
+  background-color: cyan;
+}
+
+/* body {
+    width: 500px;
+    height: 1400px;
+    margin: 0 auto;
+
+    border: 1px solid red;
+}
+
+p {
+    background: aqua;
+    border: 3px solid blue;
+    padding: 10px;
+    margin: 10px;
+
+    border: 1px solid red;
+}
+
+span {
+    background: red;
+    border: 1px solid black;
+}
+
+h1 {
+  position: fixed;
+  top: 0;
+  width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 10px;
+}
+
+.positioned {
+    position: absolute;
+    position: relative;
+
+    background: yellow;
+
+    top: 30px;
+    left: 30px;
+}
+
+p:nth-of-type(1) {
+  position: absolute;
+  background: lime;
+  top: 10px;
+  right: 30px;
+
+  z-index: 1;
+
+} */
+</style>

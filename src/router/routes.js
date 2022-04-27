@@ -346,10 +346,28 @@ export const RouterMap = [
     desc: "ArrayTest",
   },
   {
-    path: "/CSSPositionDemo",
-    name: "CSSPositionDemo",
-    component: _import_("CSSPositionDemo"),
-    desc: "CSSPositionDemo",
+    path: "/PositionDemo",
+    name: "PositionDemo",
+    component: _import_("PositionDemo"),
+    desc: "PositionDemo",
+  },
+  {
+    path: "/PositionAbsoluteDemo",
+    name: "PositionAbsoluteDemo",
+    component: _import_("PositionAbsoluteDemo"),
+    desc: "Absolute",
+  },
+  {
+    path: "/PositionStickyDemo",
+    name: "PositionStickyDemo",
+    component: _import_("PositionStickyDemo"),
+    desc: "Sticky",
+  },
+  {
+    path: "/PositionFixedDemo",
+    name: "PositionFixedDemo",
+    component: _import_("PositionFixedDemo"),
+    desc: "Fixed",
   },
   {
     path: "/VImgDemo",
