@@ -502,4 +502,12 @@ export const RouterMap = [
     component: _import_("VantPopverDemo"),
     desc: "VantPopverDemo",
   },
+  {
+    path: "/DropdownMenuDemo",
+    name: "DropdownMenuDemo",
+    component: _import_("DropdownMenuDemo"),
+    desc: "下拉菜单",
+  },
+
+  
 ];
