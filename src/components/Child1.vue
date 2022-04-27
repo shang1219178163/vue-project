@@ -36,6 +36,5 @@ const increment = () => {
 
 </script>
 
-<style></style>
 
 

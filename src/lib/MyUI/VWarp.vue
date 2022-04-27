@@ -21,7 +21,7 @@ const props = defineProps({
 </script>
 
 
-<style>
+<style scoped>
 
 .container {
   display: flex;

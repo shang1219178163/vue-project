@@ -138,7 +138,7 @@ console.log(instance.type.__file, "randomcolor", randomcolor());
 </script>
 
 
-<style>
+<style scoped>
 .container{
   /* --randomcolor: randomcolor(); */
 }

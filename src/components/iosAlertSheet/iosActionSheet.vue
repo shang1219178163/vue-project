@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ios-actionsheet-overlay{
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   color: #000;
