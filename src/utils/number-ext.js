@@ -7,9 +7,5 @@ Number.prototype.isEven = function () {
 }
 
 
-// 检查数字是偶数还是奇数
-Number.prototype.random = function (max) {
-    const min = this;
-    const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-    return random;
-}
+//生成随机数
+export const RandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
