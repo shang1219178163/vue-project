@@ -13,7 +13,6 @@
                 v-model:show="showPopover"
                 placement="bottom-end"
                 :actions="list" 
-                @select="onSelect"
             >
                 <template #reference>
                     <div class="right">
@@ -28,17 +27,21 @@
                     class="van-list"
                     style="width: 240px; max-height: 500px;"
                     >
-                        <van-cell v-for="i in 9" :key="i" :title="i" @click="showPopover = false" />
-                        <PopverCell
-                        v-for="i in 9" :key="i" @click="showPopover = false"
+                        <!-- <van-cell v-for="i in 9" :key="i" :title="i" @click="showPopover = false" /> -->
+                        <OrderVersionCell
+                        class="popverCell"
+                        v-for="i in 9" :key="i" 
+                        :title="'小区小区小区小区'"
+                        :subtitle="'管家管家管家'"
                         :isSelected="selectedIdx === i"
-                        ></PopverCell>
+                        @click="onPopverCell(i)"
+                        ></OrderVersionCell>
                     </van-list>
             </van-popover>
         </template>
     </navbar>
-    <IconButton class="iconButton">sadfasd</IconButton>
-    <!-- <van-tabs 
+    <VButtonIcon class="button-icon" @click="onClickBtn" >VButtonIcon</VButtonIcon>
+    <van-tabs 
     :class="['van-tabs', {'top': !isWxmp && isShowNavBar }]" 
     v-model:active="active" 
     :color="'var(--theme-color)'"
@@ -55,14 +58,14 @@
         <van-tab title="人员清单">
             <div v-for="(e, i) in 3" :key="i">{{i}}</div>
         </van-tab>
-    </van-tabs> -->
+    </van-tabs>
 
 </template>
 
 <script setup>
 import navbar from '@/components/navbar.vue'
-import PopverCell from '@/components/PopverCell.vue'
-import IconButton from '@/components/IconButton.vue'
+import OrderVersionCell from '@/components/OrderVersionCell.vue'
+import VButtonIcon from '@/components/VButtonIcon.vue'
 
 
 import { getCurrentInstance, ref, reactive, onMounted, onActivated, } from 'vue';
@@ -125,6 +128,21 @@ const onClickRight = () => {
 }
 
 
+
+const onClickBtn = (val) => {
+    console.log("onClickBtn:", val);
+
+}
+
+const onPopverCell = (val) => {
+    showPopover.value = !showPopover.value;
+
+    console.log("onPopverCell:", val);
+    selectedIdx.value = val;
+    
+}
+
+
 </script>
 
 
@@ -150,7 +168,8 @@ const onClickRight = () => {
 }
 
 .van-list{
-  overflow: scroll;
+  overflow: auto;
+
 }
 .popver{
     width: 400px;
@@ -175,8 +194,10 @@ const onClickRight = () => {
     width: 100%;
     // margin-top: 30px;
     &.top{
-        margin-top: 46px + 44px;
+        margin-top: 46px;
     }
+
+    border: 1px solid blue;
 }
 
 .pageContain{
@@ -202,11 +223,18 @@ const onClickRight = () => {
    z-index: 10;
 }
 
-.iconButton{
+
+.popverCell{
+    margin-left: 5px;
+}
+
+.button-icon{
     position: relative;
     // overflow: hidden;
-    width: 50%;
-    height: 25px;
+
+    // width: 80%;
+    height: 44px;
+
     // margin-top: 30px;
     top: 46px;
 
@@ -214,5 +242,9 @@ const onClickRight = () => {
     //     margin-top: 46px + 44px;
     // }
 
+// color: red;
+
+    color: blue;
+    border: 2px solid red;
 }
 </style>
