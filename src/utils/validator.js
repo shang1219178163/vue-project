@@ -18,9 +18,14 @@ export function isObj(o){
     return Object.prototype.toString.call(o) == "[object Array]"
 }
 
-export function isArray(o){
-    return Array.isArray(o)
+/// 类型检查
+export function checkType(o, type) {
+  const typeStr = Object.prototype.toString.call(o).replace(/\[object (\w+)\]/, "$1");
+  return type ? type === (typeStr || typeStr.toLowerCase()) : typeStr;
 }
+// export function isArray(o){
+//     return Array.isArray(o)
+// }
 // function isType(type) {
 //     return function(obj) {
 //         return {}.toString.call(obj) == "[object " + type + "]"
