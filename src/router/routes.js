@@ -509,16 +509,22 @@ export const RouterMap = [
     desc: "PlatformTest",
   },
   {
+    path: "/VantListDemo",
+    name: "VantListDemo",
+    component: _import_("VantListDemo"),
+    desc: "列表",
+  },
+  {
     path: "/VantToastDemo",
     name: "VantToastDemo",
     component: _import_("VantToastDemo"),
-    desc: "VantToastDemo",
+    desc: "Toast",
   },
   {
     path: "/VantPopverDemo",
     name: "VantPopverDemo",
     component: _import_("VantPopverDemo"),
-    desc: "VantPopverDemo",
+    desc: "Popver",
   },
   {
     path: "/DropdownMenuDemo",

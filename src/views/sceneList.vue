@@ -343,13 +343,13 @@ export default {
 .triangle {
   width: 0.32rem;
   height: 0.32rem;
-  background: url(../assets/images/selected.png) no-repeat;
+  background: url(../assets/images/icon_selected.png) no-repeat;
   background-size: 100%;
   margin: 0 auto;
   margin-bottom: 0.32rem;
 }
 .triangle_down {
-  background: url(../assets/images/selected.png) no-repeat;
+  background: url(../assets/images/icon_selected.png) no-repeat;
   background-size: 100%;
 }
 /* 互斥选择项不可选样式 */

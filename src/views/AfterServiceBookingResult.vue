@@ -11,7 +11,7 @@
       <van-image 
         width="162" 
         height="124" 
-        :src="require('@/assets/images/book_success.png')"
+        :src="require('@/assets/images/icon_success.png')"
         />
       <div class="title">售后服务预约成功</div>
       <div class="message">我们会尽快为您安排，请保持手机畅通，耐心等待～</div>

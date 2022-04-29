@@ -3,15 +3,18 @@
         <VButton
             class="VButton"
             @click="click"
-            ></VButton>
+            >
+          </VButton>
         <VButton 
             class="VButton"
             type="highlighted" 
-            @click="click" ></VButton>
+            @click="click" >
+        </VButton>
         <VButton 
             class="VButton"
             type="disabled" 
-            @click="click" ></VButton>
+            @click="click" >
+          </VButton>
 
         <VButton
             class="VButton"
@@ -20,7 +23,32 @@
             @click="click"
             >
             <div>asdfasdf</div>
-            </VButton>
+        </VButton> -->
+
+        <VButtonIcon
+        hasEnd
+        >
+        </VButtonIcon>
+
+        <VButtonIcon
+        hasEnd
+        direction="column"
+        >
+        <template #start>
+          <van-image 
+          :src="require('@/assets/images/icon_district.png')" 
+          width="58px" 
+          height="58px" 
+          />
+        </template>
+          <template #end>
+          <van-image 
+          :src="require('@/assets/images/icon_manager.png')" 
+          width="58px" 
+          height="58px" 
+          />
+        </template>
+        </VButtonIcon>
     </div>
 </template>
 
@@ -69,10 +97,10 @@ const click = (val) => {
 <style scoped lang='scss'>
 
 .VButton{
-    margin: 20px;
+    // margin: 20px;
 
-    width: 80px;
-    height: 36px;
+    // width: 80px;
+    // height: 36px;
 
     // background-color: red;
 }
