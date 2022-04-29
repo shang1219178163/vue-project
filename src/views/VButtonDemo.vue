@@ -96,12 +96,12 @@ const click = (val) => {
 
 <style scoped lang='scss'>
 
-.VButton{
+// .VButton{
     // margin: 20px;
 
     // width: 80px;
     // height: 36px;
 
     // background-color: red;
-}
+// }
 </style>
