@@ -8,51 +8,44 @@
     >
       <van-tab title="标签 1">
         <van-pull-refresh 
-          v-model="isLoading" 
-          :head-height="80" 
+          v-model="isLoading"
+          :head-height="70"
+          :pull-distance="70"
           @refresh="onRefresh"
         >
-          <!-- 下拉提示，通过 scale 实现一个缩放效果 -->
-          <template #pulling="props">
-            <img
-              class="logo"
-              :src="require('@/assets/images/img_pull_refresh.gif')"
-              :style="{ transform: `scale(${props.distance / 80})` }"
-            />
+          <!-- 下拉提示 -->
+          <template #pulling>
+            <div class="pull-content" >
+              <img class="pull-content__logo" :src="require('@/assets/images/img_pull_refresh.gif')" />
+              <div class="pull-content__title">下拉刷新</div>
+            </div>
           </template>
 
           <!-- 释放提示 -->
           <template #loosing>
-            <img
-              class="logo"
-              :src="require('@/assets/images/img_pull_refresh.gif')"
-            />
+            <div class="pull-content">
+              <img class="pull-content__logo" :src="require('@/assets/images/img_pull_refresh.gif')" />
+              <div class="pull-content__title">松开刷新</div>
+            </div>
           </template>
 
           <!-- 加载提示 -->
           <template #loading>
-            <img
-              class="logo"
-              :src="require('@/assets/images/img_pull_refresh.gif')"
-            />
+            <div class="pull-content" >
+              <img class="pull-content__logo" :src="require('@/assets/images/img_pull_refresh.gif')" />
+              <div class="pull-content__title">刷新中...</div>
+            </div>
           </template>
-          <van-list
-            v-model:loading="isLoading"
-            :finished="finished"
-            finished-text="没有更多了"
-            @load="onLoad"
-          >
-            <template #loading>
-              <img
-                class="logo"
-                :src="require('@/assets/images/img_pull_refresh.gif')"
-              />
-            </template>
-            <van-cell v-for="item in list" :key="item" :title="item" />
-          </van-list>
+          <template #success>
+            <div class="pull-content" >
+              <img class="pull-content__logo" :src="require('@/assets/images/img_pull_refresh.gif')" />      
+              <div class="pull-content__title">刷新完成</div>
+            </div>
+          </template>
+        <p style="height: 500px; margin:0px; paddding: 0px">刷新次数: {{ count }}</p>
         </van-pull-refresh>
       </van-tab>
-      <van-tab title="标签 2">
+      <!-- <van-tab title="标签 2">
         <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
           <van-list
             v-model:loading="loading"
@@ -77,7 +70,7 @@
         >
             <van-cell v-for="item in list" :key="item" :title="item" />
         </VPullRefresh>
-      </van-tab>
+      </van-tab> -->
     </van-tabs>
   </div>
 </template>
@@ -90,7 +83,7 @@ import { ref, reactive, watch, watchEffect, computed, onActivated } from "vue";
 
 const onClickLeft = () => history.back();
 
-const active = ref(2);
+const active = ref(0);
 
 
 onActivated(() => {
@@ -149,8 +142,8 @@ const onRefresh = () => {
 
   // 重新加载数据
   // 将 loading 设置为 true，表示处于加载状态
-  isLoading.value = true;
-  onLoad();
+  // isLoading.value = true;
+  // onLoad();
 };
 
 const onNet = () => {
@@ -162,18 +155,40 @@ const onNet = () => {
 </script>
 
 
-<style scoped>
+<style scoped lang="scss">
+
+// .van-pull-refresh {
+//   --van-pull-refresh-head-height: 0;
+// }
 
 .van-tabs{
   position: relative;
   top: 46px;
 }
 
-.logo {
-  width: 60px;
-  height: 60px;
-  margin-top: 8px;
-  border-radius: 4px;
-  backgroud-color: green,
+
+.pull-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__logo {
+    width: 60px;
+    height: 60px;
+
+    margin-top: 8px; 
+  }
+
+  &__title {
+    // height: 18px;
+    line-height: normal;
+    margin-top: -18px;
+    font-size: 12px;
+    color: #333333;
+    font-family: PingFangSC-Regular;
+  }
 }
+
+
 </style>
