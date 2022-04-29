@@ -30,6 +30,17 @@ const onChangeColor = () => {
     const color = randomcolor();
     console.log(">>>color", color);
     document.body.style.setProperty('--theme-color', color);
+
+    const token = ""
+    const token1 = undefined
+    const token2 = null
+
+    console.log(">>>token:", token ? "true" : "false");
+    console.log(">>>token1:", token1 ? "true" : "false");
+    console.log(">>>token2:", token2 ? "true" : "false");
+    console.log(">>>Array.isArray(token1)", Array.isArray(token1));
+    console.log(">>>Array.isArray(token2)", Array.isArray(token2));
+
 };
 
 const onChangeBgColor = () => {
