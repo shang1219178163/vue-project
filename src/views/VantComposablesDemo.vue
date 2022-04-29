@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div ref="root1">
         <van-cell-group title="useClickAway">
             <div ref="root" @click='click'>root</div>

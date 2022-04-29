@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
        <button @click="showToast" class="btn">打开 toast</button>
         <!-- to 属性就是目标位置 -->

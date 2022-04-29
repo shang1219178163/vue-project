@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <van-nav-bar title="标题" left-arrow @click-left="onClickLeft" />
         <div class="tips">设置van-popup overlay 颜色必须使用 rgba 方法,不然会有视觉bug</div>

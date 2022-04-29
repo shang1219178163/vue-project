@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <div>
             <h2>object-fit: fill</h2>

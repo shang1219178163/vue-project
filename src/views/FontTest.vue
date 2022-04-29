@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
     <p style="font-size:1px">font-size:1px，这是1号字体</p>
      <p style="font-size:2px">font-size:2px，这是2号字体</p>

@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <van-nav-bar title="导航标题" left-arrow @click-left="onClickLeft"/>
     <div class="container">
         <!-- <h1>vimg</h1> -->

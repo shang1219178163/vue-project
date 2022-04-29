@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <button @click="testwatch">testwatch</button>
         <button @click="testWatchEffect">watchEffect</button>

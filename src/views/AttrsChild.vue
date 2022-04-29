@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>AttrsChild</div>
     <button @click="bar">bar</button>
     <button @click="emit('tap', 'tap')">tap</button>

@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <div>AttrsFather</div>
         <!-- 父组件传递数据给子组件 -->

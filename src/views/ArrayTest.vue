@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div class="container">
         <button @click="testArray">testArray</button>
         <button @click="testSet">testSet</button>

@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <van-config-provider :theme-vars="themeVars">
         <van-form>

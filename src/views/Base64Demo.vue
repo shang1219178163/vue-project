@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div 
     class="button"
     @click="click64">

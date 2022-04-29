@@ -1,4 +1,4 @@
-<template lang=""> 
+<template> 
     <h1>动态class</h1>
     <div>{{ count }}</div>
     <button @click="add">add</button>

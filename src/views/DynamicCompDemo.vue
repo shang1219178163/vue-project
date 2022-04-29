@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div> 
     <h1>动态组件</h1>
     <div id ="example"> 

@@ -1,4 +1,4 @@
-// <template lang="">
+// <template>
 //     <div>
 //         <button @click="click">click</button>
 //         <button @click="click1">click1</button>
