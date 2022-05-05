@@ -5,36 +5,36 @@
  ****************************************************
  */
 <template>
-    <div :class="['content', {'outline': hasOutline }]" @click="click">
-        <div class="start" v-show="hasStart">
-            <slot name="start">
-                <van-image 
-                :src="require('@/assets/images/icon_order_change.png')" 
-                width="18px" 
-                height="18px" 
-                />
-            </slot>
-        </div>
-        <div class="mid" v-if="title">
-            <slot>
-                <div class="title" v-if="title">{{title}}</div>
-            </slot>
-        </div>
-        <div class="end" v-show="hasEnd">
-            <slot name="end">
-                <van-image 
-                :src="endIcon" 
-                width="18px" 
-                height="18px" 
-                />
-            </slot>
-        </div>
+  <div :class="['content', {'outline': hasOutline }]" @click="click">
+    <div class="start" v-show="hasStart">
+      <slot name="start">
+        <van-image 
+        :src="require('@/assets/images/icon_order_change.png')" 
+        width="18px" 
+        height="18px" 
+        />
+      </slot>
     </div>
+    <div class="mid" v-if="title">
+      <slot>
+        <div class="title" v-if="title">{{title}}</div>
+      </slot>
+    </div>
+    <div class="end" v-show="hasEnd">
+      <slot name="end">
+        <van-image 
+        :src="endIcon" 
+        width="18px" 
+        height="18px" 
+        />
+      </slot>
+    </div>
+  </div>
 </template>
 
 
 <script setup>
-import { getCurrentInstance, defineProps, defineEmits, ref, reactive, watchEffect, computed, onMounted, } from 'vue';
+import { ref, reactive, computed, } from 'vue';
 // import { Toast } from 'vant;
 
 const props = defineProps({
