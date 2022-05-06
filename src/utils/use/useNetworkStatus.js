@@ -1,19 +1,19 @@
 import { onMounted, onUnmounted } from 'vue';
 
 export const useNetworkStatus = (callback = () => { }) => {
-  const updateOnlineStatus = () => {
+  const changeNetworkStatus = () => {
     const status = navigator.onLine ? 'online' : 'offline';
     callback(status);
   }
 
   onMounted(() => {
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
+    window.addEventListener('online', changeNetworkStatus);
+    window.addEventListener('offline', changeNetworkStatus);
   });
 
   onUnmounted(() => {
-    window.removeEventListener('online', updateOnlineStatus);
-    window.removeEventListener('offline', updateOnlineStatus);
+    window.removeEventListener('online', changeNetworkStatus);
+    window.removeEventListener('offline', changeNetworkStatus);
   })
 }
 
