@@ -1,42 +1,50 @@
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
-const getItem = (key, storage) => {
-  let value = storage.getItem(key);
-  if (!value) {
-    return null;
-  }
-  try {
-    return JSON.parse(value)
-  } catch (error) {
-    return value;
-  }
-}
 
-export const useStorage = (key, type = 'session') => {
-  let storage = null;
-  switch (type) {
-    case 'session':
-      storage = sessionStorage;
-      break;
-    case 'local':
-      storage = localStorage;
-      break;
-    default:
-      return null;
-  }
-  const value = ref(getItem(key, storage));
-  const setItem = (storage) => {
-    return (newValue) => {
-      value.value = newValue;
-      storage.setItem(key, JSON.stringify(newValue));
+const useStorage = (key, defaultValue, storage = localStorage) => {
+  const getState = (key, storage) => {
+    let raw = storage.getItem(key);
+    try {
+      raw = JSON.parse(raw);
+    } catch (error) {
+
     }
+    return raw ?? defaultValue;
   }
-  return [
-    value,
-    setItem(storage)
-  ]
+  
+  const state = ref(getState(key, storage) ?? defaultValue);
+  const setState = () => {
+      storage.setItem(key, JSON.stringify(state.value));
+  }
+
+  watch(state, () => { 
+      setState(); 
+    },
+    { deep: true, immediate: false },
+  );
+  return state;
 }
 
+const useStorageLocal = (key, defaultValue = '') => useStorage(key, defaultValue)
 
-// const [token, setToken] = useStorage('token');
-// setToken('new token');
+const useStorageSession = (key, defaultValue = '') => useStorage(key, defaultValue, sessionStorage)
+
+export{
+  useStorageLocal,
+  useStorageSession,
+}
+
+// example:
+// const token = useStorageLocal('token');
+
+// const form = useStorageLocal('user', {
+//   name: 'Local',
+//   age: 18,
+// });
+
+// form.value.name += 'n';
+// form.value.age += 2;
+// console.log(">>>", form);
+
+// token.value += "t";
+// console.log(">>>", token.value);
