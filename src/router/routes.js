@@ -532,6 +532,11 @@ export const RouterMap = [
     component: _import_("DropdownMenuDemo"),
     desc: "下拉菜单",
   },
+  {
+    path: "/useToastDemo",
+    name: "useToastDemo",
+    component: _import_("useToastDemo"),
+    desc: "useToastDemo",
+  },
 
-  
 ];

@@ -20,6 +20,7 @@ import '@/plugins/remSelf';
 import platformMixin from '@/mixin/platformMixin';
 
 import MyUI from '@/lib/MyUI';
+import XToast from "@/components/XToast";
 
 const app = createApp(App);
 ///添加全局方法
@@ -68,6 +69,8 @@ app.use(router)
 .use(Directives)
 .mixin(MyUI)
 .mixin(platformMixin)
+.use(XToast)
+
 .mount('#app')
 
 
