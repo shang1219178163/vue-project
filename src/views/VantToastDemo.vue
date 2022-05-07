@@ -30,17 +30,17 @@ const list = reactive([
 
     {name: "自定义图标", func: "onIcon", },
     {name: "自定义图片", func: "onImg", },
+    {name: "小茶杯", func: "onImgGif", },
     {name: "自定义加载图标", func: "onLoadingType", },
 
     {name: "顶部展示", func: "onTop", },
     {name: "底部展示", func: "onBom", },
 
     {name: "动态更新提示", func: "onDynamic", },
-
 ])
 
 const onText = () => {
-    Toast('网络不可用，请检查网络,网络不可用，请检查网络');
+  Toast('网络不可用，请检查网络,网络不可用，请检查网络');
 
     setTimeout(() => {
         console.log("sadf");
@@ -48,75 +48,81 @@ const onText = () => {
 }
 
 const onLoading = () => {
-    Toast.loading({
+  Toast.loading({
     message: '加载中...',
     forbidClick: true,
-    });
+  });
 }
 
 const onSuccess = () => {
-    Toast.success('成功文案');
+  Toast.success('成功文案');
 }
 
 const onFail = () => {
-    Toast.fail('失败文案');
+  Toast.fail('失败文案');
 }
 
 const onIcon = () => {
-    Toast({
+  Toast({
     message: '自定义图标',
     icon: 'like-o',
-    });
+  });
 }
 
 const onImg = () => {
-    Toast({
+  Toast({
     message: '自定义图片',
     icon: 'https://cdn.jsdelivr.net/npm/@vant/assets/logo.png',
-    });
+  });
+}
+
+const onImgGif = () => {
+  Toast({
+    icon: require('@/assets/images/img_loading.gif'),
+  });
 }
 
 const onLoadingType = () => {
-    Toast.loading({
+  Toast.loading({
     message: '加载中...',
     forbidClick: true,
     loadingType: 'spinner',
-    });
+  });
 }
 
 // const rgbToHex = (r, g, b) =>   "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 const onTop = () => {
-    Toast({
-        message: '顶部展示',
-        position: 'top',
-    });
+  Toast({
+    message: '顶部展示',
+    position: 'top',
+  });
 }
 
 const onBom = () => {
-    Toast({
-        message: '底部展示',
-        position: 'bottom',
-    });
+  Toast({
+    message: '底部展示',
+    position: 'bottom',
+  });
 }
 
 
 const onDynamic = () => {
-    const toast = Toast.loading({
+  const toast = Toast.loading({
     duration: 0,
     forbidClick: true,
     message: '倒计时 3 秒',
-    });
+  });
 
-    let second = 3;
-    const timer = setInterval(() => {
+  let second = 3;
+  const timer = setInterval(() => {
     second--;
     if (second) {
-        toast.message = `倒计时 ${second} 秒`;
+      toast.message = `倒计时 ${second} 秒`;
     } else {
-        clearInterval(timer);
-        Toast.clear();
+      clearInterval(timer);
+      Toast.clear();
     }
-    }, 1000);
+  }, 1000);
 }
 
 
