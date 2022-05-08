@@ -13,7 +13,7 @@ export default {
       document.body.appendChild(instance.$el);
 
       // 3.定义全局($toast即是此插件的名称)
-      app.config.globalProperties.$xtoast = instance;
+      app.config.globalProperties.$toast = instance;
     })
   },
 };
