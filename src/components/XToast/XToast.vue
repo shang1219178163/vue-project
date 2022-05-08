@@ -6,6 +6,9 @@
   >
     <div v-if="typeRef==='text'" :style="contentStyle" v-text="messageRef">
     </div>
+    <!-- <div v-else-if="typeRef==='img'" :style="contentStyle"> -->
+      <!-- <img width='44' height='44' :src="require('@/assets/images/img_loading.gif')" alt='' /> -->
+    <!-- </div> -->
     <div v-else :style="contentStyle" v-html="messageRef">
     </div>
   </div>
