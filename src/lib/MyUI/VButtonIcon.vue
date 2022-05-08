@@ -39,11 +39,11 @@ import { ref, reactive, computed, } from 'vue';
 
 const props = defineProps({
     direction:{
-        type: String,
-        default: 'row',
-        validator: (value) => {
-          return ['row', 'column'].includes(value); 
-        }
+      type: String,
+      default: 'row',
+      validator: (value) => {
+        return ['row', 'column'].includes(value); 
+      }
     },
     title: {
         type: String,
