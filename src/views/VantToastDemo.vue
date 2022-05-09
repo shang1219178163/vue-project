@@ -1,14 +1,15 @@
 <template>
-    <div>
+  <div>
     <van-cell-group inset title="Toast用法">
-        <van-cell 
-            v-for="(e, index) in list" :key="index"
-            :title="e.name" 
-            :value="e.func"
-            @click='this[e.func]()'
-        />
+      <van-cell
+        is-link 
+        v-for="(e, index) in list" :key="index"
+        :title="e.name" 
+        :value="e.func"
+        @click='this[e.func]()'
+      />
     </van-cell-group>
-    </div>
+  </div>
 </template>
 
 

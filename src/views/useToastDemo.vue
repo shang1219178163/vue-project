@@ -1,21 +1,38 @@
 <template>
   <div>
-    <button @click="click">useToast</button>
-    <button @click="click1">VToast</button>
-    <button @click="click2">VToast html</button>
-    <button @click="click3">VToast img</button>
+    <van-cell-group inset title="自定义 Toast">
+      <van-cell
+        is-link 
+        v-for="(e, index) in list" :key="index"
+        :title="e.name" 
+        :value="e.func"
+        @click='this[e.func]()'
+      />
+    </van-cell-group>
   </div>
 </template>
 
 
 <script setup>
-import { getCurrentInstance } from 'vue';
+import { getCurrentInstance, reactive } from 'vue';
 
 import { useToast } from "@/components/useToast.js";
 
+import imgLoading from '@/assets/images/img_loading.gif';
+import imgLoading_base64 from '@/assets/images/img_loading_base64.js';
+
+const list = reactive([
+  {name: "useToast", func: "onClick", },
+  {name: "VToast", func: "click1", },
+
+  {name: "VToast 网络图片", func: "click2", },
+  {name: "VToast 本地图片", func: "click3", },
+  {name: "VToast loading", func: "click4", },
+])
+
 const Toast = useToast(); 
       
-const click = () => {
+const onClick = () => {
   Toast("Hello World");
 }
 
@@ -49,15 +66,19 @@ const click2 = () => {
       console.log("overlayClick"); 
     }
   });
+
+  // setTimeout(() => {
+  //   click3()
+  // }, 1500)
 }
 
 const click3 = () => {
   $vtoast.show({
     type:"html",
-    duration: 0, 
-    // template: `<img width='44' height='44' src="require('@/assets/images/img_loading.gif')" />`, 
-    template: `<img width='44' height='44' src="src/assets/images/img_loading.gif" />`, 
-    contentBg: "red",
+    // template: "<img src=\"https://www.baidu.com/img/flexible/logo/pc/result.png\" />", 
+    template: `<img width='64' height='64' src="${imgLoading_base64}" />`, 
+    // template: `<img width='44' height='44' :src="img_loading_base64" />`, 
+    contentBg: "green",
     overlayClick: () => { 
       $vtoast.clear();
       console.log("overlayClick"); 
@@ -65,20 +86,14 @@ const click3 = () => {
   });
 }
 
-// const click3 = () => {
-//   $vtoast.show({
-//     type:"img",
-//     duration: 0, 
-//     template: `<img width='44' height='44' :src="require('@/assets/images/img_loading.gif')" alt='' />`, 
-//     contentBg: "red",
-//     overlayClick: () => { 
-//       $vtoast.clear();
-//       console.log("overlayClick"); 
-//   }});
-// }
+const click4 = () => {
+  $vtoast.loading({});
+  setTimeout(() => {
+    $vtoast.clear()
+  }, 1500)
+}
 
                 
-
 </script>
 <style lang="">
   

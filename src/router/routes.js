@@ -533,10 +533,21 @@ export const RouterMap = [
     desc: "下拉菜单",
   },
   {
+    path: "/StorageDemo",
+    name: "StorageDemo",
+    component: _import_("StorageDemo"),
+    desc: "存储",
+  },
+  {
+    path: "/ToggleDemo",
+    name: "ToggleDemo",
+    component: _import_("ToggleDemo"),
+    desc: "翻转值",
+  },
+  {
     path: "/useToastDemo",
     name: "useToastDemo",
     component: _import_("useToastDemo"),
-    desc: "useToastDemo",
+    desc: "自定义 Toast",
   },
-
 ];

@@ -17,6 +17,10 @@
 
 <script setup>
 import {computed, reactive, ref} from 'vue';
+// import img_loading from '@/assets/images/img_loading.gif';
+import img_loading_base64 from '@/assets/images/img_loading_base64.js';
+
+
 
 const props = defineProps({
   type: {
@@ -111,6 +115,20 @@ function show({
   clear(duration);
 }
 
+
+/**
+ * 显示加载中(默认小茶杯)
+ * @param {*} src 图片 
+ */
+function loading({img = img_loading_base64, width = 64, height = 64}){
+  show({
+    type:"html",
+    // template: `<img width='44' height='44' src="${img_loading}" />`, 
+    template: `<img width='${width}' height='${height}' src="${img}" />`, 
+    duration: 0, 
+    contentBg: "transparent",
+  });
+}
 
 /**
  * 清除弹窗
