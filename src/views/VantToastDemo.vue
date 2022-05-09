@@ -16,6 +16,7 @@
 import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
 // import { Toast } from 'vant';
 
+
 const instance = getCurrentInstance()
 console.log(instance);
 const { $toast: Toast, $log: LOG } = instance.appContext.config.globalProperties;
@@ -77,7 +78,9 @@ const onImg = () => {
 }
 
 const onImgGif = () => {
-  Toast({
+  Toast.loading({
+    duration: 1500,
+    // overlay: true,
     icon: require('@/assets/images/img_loading.gif'),
   });
 }
@@ -124,6 +127,7 @@ const onDynamic = () => {
     }
   }, 1000);
 }
+
 
 
 </script>
