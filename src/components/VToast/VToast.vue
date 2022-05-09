@@ -21,55 +21,65 @@ import {computed, reactive, ref} from 'vue';
 import img_loading_base64 from '@/assets/images/img_loading_base64.js';
 
 
-
 const props = defineProps({
   type: {
     type: String,
     reuire: false,
     default: "text",
     validator: (value) => {
-      return ['text', 'img', 'html'].includes(value); 
-    }
+      return ['text', 'html'].includes(value); 
+    },
+    desc: "展示类型 text 或者 html",
   },
   template: {
     type: String,
     default: "默认文本",
+    desc: "展示内容, 文字或者 html",
   },
   duration: {
     type: Number,
     default: 1500,
+    desc: "持续时间, 0 为不自动消失,需手动调用 clear() 关闭",
   },
   contentTop: {
     type: String,
     default: "50%",
+    desc: "内容距离顶部距离(top)",
   },
   contentMargin: {
     type: String,
     default: "0px",
+    desc: "内容 margin",
   },
   contentPadding: {
     type: String,
     default: "8px 10px",
+    desc: "内容 padding",
   },
   contentColor: {
     type: String,
     default: "#ffffff",
+    desc: "内容 文字颜色",
   },
   contentBg: {
     type: String,
     default: "rgb(0,0,0, 0.6)",
+    desc: "内容 背景色",
   },
   overlayBg: {
     type: String,
     default: "transparent",
+    desc: "背板颜色",
   },
   overlayClick: {
     type: Function,
-  }
+    desc: "背板点击事件, 一般 duration === 0 时使用",
+  },
 })
 
+// 展示开关
 let isShow = ref(false);
-
+// 展示类型
 let typeRef = ref(props.type);
 let templateRef = ref(props.template);
 let durationRef = ref(props.duration);
