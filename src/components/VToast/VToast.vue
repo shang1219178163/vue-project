@@ -4,12 +4,12 @@
     v-show="isShow" 
     @click="overlayClickRef"
   >
-    <div v-if="typeRef==='text'" :style="contentStyle" v-text="messageRef">
+    <div v-if="typeRef==='text'" :style="contentStyle" v-text="templateRef">
     </div>
     <!-- <div v-else-if="typeRef==='img'" :style="contentStyle"> -->
       <!-- <img width='44' height='44' :src="require('@/assets/images/img_loading.gif')" alt='' /> -->
     <!-- </div> -->
-    <div v-else :style="contentStyle" v-html="messageRef">
+    <div v-else :style="contentStyle" v-html="templateRef">
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ const props = defineProps({
       return ['text', 'img', 'html'].includes(value); 
     }
   },
-  message: {
+  template: {
     type: String,
     default: "默认文本",
   },
@@ -67,7 +67,7 @@ const props = defineProps({
 let isShow = ref(false);
 
 let typeRef = ref(props.type);
-let messageRef = ref(props.message);
+let templateRef = ref(props.template);
 let durationRef = ref(props.duration);
 let contentTopRef = ref(props.contentTop);
 let contentMarginRef = ref(props.contentMargin);
@@ -83,7 +83,7 @@ let overlayClickRef = ref(props.overlayClick);
  */
 function show({
   type = props.type, 
-  message = props.message, 
+  template = props.template, 
   duration = props.duration, 
   contentTop = props.contentTop, 
   contentMargin = props.contentMargin,
@@ -95,7 +95,7 @@ function show({
 }){
   isShow.value = true;
   typeRef.value = type; 
-  messageRef.value = message; 
+  templateRef.value = template; 
   durationRef.value = duration; 
   contentTopRef.value = contentTop; 
   contentMarginRef.value = contentMargin; 
