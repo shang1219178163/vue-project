@@ -3,15 +3,15 @@
 const _import_ = (file) => () => import("@/views/" + file + ".vue");
 export const H5Router = {
   /// 初始页面
-  initial: "/helloPage",
+  initial: "/HomePage",
   /// 未知页面/404
   unknown: "",
   /// home页
-  home: "/helloPage",
+  home: "/HomePage",
   /// 登录页
   page: "/page/:id",
   ///
-  helloPage: "/helloPage",
+  HomePage: "/HomePage",
   ///
   user: "/user",
   ///
@@ -50,13 +50,13 @@ export const routers = [
   {
     path: "/home",
     name: "home",
-    component: _import_("HelloPage"),
+    component: _import_("HomePage"),
     desc: "首页",
   },
   {
-    path: "/helloPage",
-    name: "helloPage",
-    component: _import_("HelloPage"),
+    path: "/HomePage",
+    name: "HomePage",
+    component: _import_("HomePage"),
     desc: "第二主页面",
   },
   {
