@@ -5,7 +5,7 @@
         </div>
         <vnet class="vnet"
         :status="netStatus"
-        @click="clickPlaceHolder"
+        @click="onNet"
         >
         </vnet>
     </div>
@@ -18,8 +18,12 @@ import { ref, reactive, getCurrentInstance, defineProps } from 'vue';
 
 let netStatus = ref(0);
 
-const clickPlaceHolder = (val) => {
+const onNet = (val) => {
     console.log(val);
+
+    // netStatus.value = 0;
+    netStatus.value = -1;
+
 }
 // setTimeout(() => {
 //     netStatus.value = 0

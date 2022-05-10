@@ -28,7 +28,8 @@ const list = reactive([
   {name: "VToast 网络图片", func: "click2", },
   {name: "VToast 本地图片", func: "click3", },
   {name: "VToast loading", func: "click4", },
-])
+  {name: "VToast loading img", func: "click5", },
+]);
 
 const Toast = useToast(); 
       
@@ -92,6 +93,15 @@ const click4 = () => {
     $vtoast.clear()
   }, 1500)
 }
+
+const click5 = () => {
+  $vtoast.loading_img({});
+  setTimeout(() => {
+    $vtoast.clear()
+  }, 1500)
+}
+
+
 
                 
 </script>

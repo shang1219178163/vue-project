@@ -550,4 +550,12 @@ export const RouterMap = [
     component: _import_("useToastDemo"),
     desc: "自定义 Toast",
   },
+  {
+    path: "/MouseDetectDemo",
+    name: "MouseDetectDemo",
+    component: _import_("MouseDetectDemo"),
+    desc: "鼠标检测",
+  },
+
+  
 ];

@@ -27,7 +27,7 @@
 
 <script setup>
 import { Toast } from 'vant';
-import { ref, reactive, getCurrentInstance, computed, defineProps } from 'vue';
+import { ref, reactive, getCurrentInstance, computed } from 'vue';
 
 
 const instance = getCurrentInstance();

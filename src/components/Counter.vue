@@ -8,7 +8,7 @@
 
 <script setup>
 // import { created, mounted } from "vue";
-import { defineExpose, ref, reactive, computed, watch, getCurrentInstance } from "vue";
+import { ref, reactive, computed, watch, getCurrentInstance } from "vue";
 
 // eslint-disable-next-line no-undef
 const props = defineProps({

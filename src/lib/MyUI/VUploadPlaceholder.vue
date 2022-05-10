@@ -10,7 +10,7 @@
 
 
 <script setup>
-import {ref, reactive, onMounted, defineProps, defineEmits} from 'vue';
+import {ref, reactive, onMounted,} from 'vue';
 // import { Toast } from 'vant;
 
 const props = defineProps({

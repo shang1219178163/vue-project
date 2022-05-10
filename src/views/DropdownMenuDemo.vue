@@ -9,7 +9,7 @@
 
 
 <script setup>
-import { getCurrentInstance, defineProps, ref, reactive, watch, onMounted, } from 'vue';
+import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant;
 import { useRouter, useRoute } from 'vue-router';
 import { DropdownMenu, DropdownItem } from 'vant';

@@ -20,8 +20,13 @@ watch([a, list], (newValues, oldValues) => {
     LOG.log("watch", newValues, oldValues)
 })
 
+watch([a, list], (newValues, oldValues) => {
+    LOG.log("watch", newValues, oldValues)
+})
+
 const testwatch = (() => {
-    a.value += 'John '
+    // a.value += 'John '
+    a.value = ''
 })
 
 

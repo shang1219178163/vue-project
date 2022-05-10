@@ -4,7 +4,7 @@
 
 
 <script setup>
-import {ref, reactive, defineProps, defineEmits} from 'vue';
+import {ref, reactive, } from 'vue';
 
 const props = defineProps({
     value: {

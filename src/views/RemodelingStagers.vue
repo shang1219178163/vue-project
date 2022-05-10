@@ -49,7 +49,6 @@ import {
     getCurrentInstance, 
     watch, 
     computed, 
-    defineProps 
     } from 'vue';
 import { Toast } from 'vant';
 import RemodelingStagerCell from '@/components/RemodelingStagerCell.vue';

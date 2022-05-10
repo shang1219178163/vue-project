@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
 
 // console.log("CallPhone.vue");
 const instance = getCurrentInstance()

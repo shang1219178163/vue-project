@@ -17,7 +17,7 @@
 
 <script setup>
 import {computed, reactive, ref} from 'vue';
-// import img_loading from '@/assets/images/img_loading.gif';
+import img_loading from '@/assets/images/img_loading.gif';
 import img_loading_base64 from '@/assets/images/img_loading_base64.js';
 
 
@@ -140,6 +140,16 @@ function loading({img = img_loading_base64, width = 64, height = 64}){
   });
 }
 
+function loading_img({img = img_loading, width = 64, height = 64}){
+  show({
+    type:"html",
+    // template: `<img width='44' height='44' src="${img_loading}" />`, 
+    template: `<img width='${width}' height='${height}' src="${img}" />`, 
+    duration: 0, 
+    contentBg: "transparent",
+  });
+}
+
 /**
  * 清除弹窗
  * @param {*} duration 延迟小时时间
@@ -160,7 +170,8 @@ const overlayStyle = computed(()=>{
     height: "100%",
 
     background: overlayBgRef.value || props.overlayBg,
-}});
+  };
+});
 
 const contentStyle = computed(()=>{
   return {
@@ -180,7 +191,8 @@ const contentStyle = computed(()=>{
     padding: contentPaddingRef.value,
     color: contentColorRef.value,
     background: contentBgRef.value,
-}});
+  };
+});
 
 </script>
 

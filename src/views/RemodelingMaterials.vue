@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import { ref, getCurrentInstance, defineProps } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
 import { Toast } from 'vant';
 // import { Promise } from 'es6-promise';
 // import vcard from '@/components/VCard.vue';

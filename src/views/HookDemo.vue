@@ -14,7 +14,7 @@
 
 
 <script setup>
-import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
+import {getCurrentInstance, ref, reactive, onMounted, watch} from 'vue';
 // import { Toast } from 'vant;
 
 import useRequestDemo from "@/utils/hook/components/useRequest.vue";

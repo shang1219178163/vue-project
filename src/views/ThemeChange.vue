@@ -41,6 +41,9 @@ const onChangeColor = () => {
     console.log(">>>Array.isArray(token1)", Array.isArray(token1));
     console.log(">>>Array.isArray(token2)", Array.isArray(token2));
 
+    const {a, d} = {a: 1, b: 2, c:3, d: 4};
+    console.log(">>>a:", a, d);
+
 };
 
 const onChangeBgColor = () => {

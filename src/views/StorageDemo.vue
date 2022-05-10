@@ -12,7 +12,7 @@
 
 
 <script setup>
-import { getCurrentInstance, defineProps, ref, reactive, watch, onMounted, } from 'vue';
+import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant;
 
 import { useStorageLocal, useStorageSession } from "@/utils/use/useStorage"

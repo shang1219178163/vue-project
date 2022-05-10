@@ -33,7 +33,7 @@
 
 
 <script setup>
-import { ref, getCurrentInstance, defineProps } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
 
 const props = defineProps({
     /// 标题

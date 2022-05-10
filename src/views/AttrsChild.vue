@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref, useSlots, useAttrs, getCurrentInstance, defineProps, defineExpose, defineEmits, inject } from 'vue'
+import { ref, useSlots, useAttrs, getCurrentInstance, inject } from 'vue'
 
 const props = defineProps({
     aa: {

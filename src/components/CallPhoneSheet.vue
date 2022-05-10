@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, defineProps, defineEmits } from "vue";
+import { ref, reactive, computed, } from "vue";
 import { Toast } from "vant";
 
 const onCancel = () => Toast("取消");

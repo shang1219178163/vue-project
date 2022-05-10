@@ -28,7 +28,6 @@ import {
     getCurrentInstance, 
     watch, 
     computed, 
-    defineProps 
     } from 'vue';
 
 const props = defineProps({

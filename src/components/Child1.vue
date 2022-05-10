@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, defineExpose, computed } from "vue"
+import { computed } from "vue"
 
 const props = defineProps({
   count: Number,

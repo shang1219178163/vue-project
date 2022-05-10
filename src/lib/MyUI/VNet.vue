@@ -30,8 +30,11 @@
 
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue';
+import { getCurrentInstance, watchEffect } from 'vue';
 
+const currentInstance = getCurrentInstance();
+const { $vtoast } = currentInstance.appContext.config.globalProperties;
+// console.log(currentInstance);
 
 const props = defineProps({
     /// 页面状态 1 正常; 0 数据为空; -1 网络请求失败; 
@@ -72,9 +75,19 @@ const props = defineProps({
 const emit = defineEmits(["click"]);
 
 const click = () => {
-    emit("click", props.status)
-    // alert(props.status)
-}
+  console.log({$vtoast});
+  $vtoast.loading({});
+
+  watchEffect(() => {
+    if ([-1, 0, 1].includes(props.status)) {
+      // $vtoast.clear();
+      setTimeout(() => {
+        $vtoast.clear();
+      }, 1500);
+      }
+  });
+  emit('click', props.status);
+};
 
 </script>
 

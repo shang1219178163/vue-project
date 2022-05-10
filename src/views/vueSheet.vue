@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, ref, defineProps, defineEmits, defineExpose, computed } from 'vue';
+import { getCurrentInstance, ref, computed } from 'vue';
 
 const instance = getCurrentInstance()
 

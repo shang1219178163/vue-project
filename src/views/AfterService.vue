@@ -48,7 +48,6 @@ import {
     getCurrentInstance, 
     watch, 
     computed, 
-    defineProps 
     } from 'vue';
 import { Toast } from 'vant';
 import ServiceCell from '@/components/ServiceCell.vue';

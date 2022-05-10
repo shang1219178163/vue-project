@@ -52,7 +52,7 @@
 <script setup>
 import VButtonIcon from '@/components/VButtonIcon.vue'
 
-import { getCurrentInstance, defineProps, ref, reactive, watch, onMounted, } from 'vue';
+import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant;
 
 const props = defineProps({

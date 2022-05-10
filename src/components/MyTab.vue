@@ -56,7 +56,7 @@
 
 
 <script setup>
-import { ref, reactive, getCurrentInstance, computed, defineProps } from 'vue';
+import { ref, reactive, getCurrentInstance, computed } from 'vue';
 
 const instance = getCurrentInstance();
 console.log(instance.type.__file, instance);

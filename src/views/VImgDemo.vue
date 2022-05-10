@@ -18,7 +18,7 @@
 <script setup>
 // import vimg from '@/components/VImg.vue';
 // import vnetone from '@/components/VNetOne.vue';
-import { ref, defineProps, defineEmits } from 'vue';
+import { ref, } from 'vue';
 
 const props = defineProps({
     location: {

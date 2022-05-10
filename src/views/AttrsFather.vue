@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { defineProps, ref, watch, getCurrentInstance, onMounted, provide } from 'vue'
+import { ref, watch, getCurrentInstance, onMounted, provide } from 'vue'
 import AttrsChild from "./AttrsChild.vue"
 import AttrsGrandChild from "./AttrsGrandChild.vue"
 

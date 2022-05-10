@@ -45,7 +45,7 @@
 // import vnet from "@/components/VNet.vue";
 // import * as uplusApi from '@/utils/uplusApi'
 
-import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from "vue";
+import {getCurrentInstance, ref, reactive, onMounted, watch} from "vue";
 import { Toast } from "vant";
 import ServiceStepCell from '@/components/ServiceStepCell.vue';
 import CallPhone from "@/components/CallPhone.vue";

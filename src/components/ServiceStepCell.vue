@@ -30,7 +30,7 @@
 
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { ref } from 'vue'
 
 defineProps({
     /// 0 开始 1 结束 2 其他

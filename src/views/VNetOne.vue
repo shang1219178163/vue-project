@@ -11,7 +11,7 @@
 
 
 <script setup>
-import { defineProps, defineExpose } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
     /// 页面状态 1 正常; 0 数据为空; 网络请求失败; 

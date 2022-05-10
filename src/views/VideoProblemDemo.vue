@@ -6,7 +6,7 @@
 
 
 <script setup>
-import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
+import {getCurrentInstance, ref, reactive, onMounted, watch} from 'vue';
 // import { Toast } from 'vant;
 
 // 解决ios audio无法自动播放、循环播放的问题

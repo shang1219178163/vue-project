@@ -49,7 +49,7 @@
 
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { ref } from 'vue';
 import navbar from "@/components/navbar.vue";
 // import VButton from '@/components/VButton.vue';
 

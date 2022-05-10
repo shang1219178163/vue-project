@@ -19,7 +19,7 @@
 
 <script setup>
 import navbar from '@/components/navbar.vue'
-import { ref, defineProps} from 'vue';
+import { ref} from 'vue';
 import router from '../router';
 
 

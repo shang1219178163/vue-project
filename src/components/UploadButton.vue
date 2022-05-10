@@ -6,7 +6,7 @@
 
 
 <script setup>
-import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
+import {getCurrentInstance, ref, reactive, onMounted, watch} from 'vue';
 // import { Toast } from 'vant;
 import { useRouter, useRoute } from 'vue-router';
 
