@@ -21,6 +21,7 @@ import platformMixin from '@/mixin/platformMixin';
 
 import MyUI from '@/lib/MyUI';
 import VToast from "@/components/VToast";
+import VSheetPhone from "@/components/VSheetPhone";
 
 const app = createApp(App);
 ///添加全局方法
@@ -57,7 +58,7 @@ app.directive("font-size", (el, binding, vnode) => {
 });
 
 app.directive('demo', (el, binding) => {
-    // console.log('demo', binding)
+  // console.log('demo', binding)
 })
 
 app.use(router)
@@ -68,11 +69,9 @@ app.use(router)
 .use(iosAlertSheet)
 .use(Directives)
 .use(VToast)
+.use(VSheetPhone)
+
 .mixin(MyUI)
 .mixin(platformMixin)
 
 .mount('#app')
-
-
-// import * as LOG from "@/utils/log.js";
-// window.LOG = LOG;

@@ -43,7 +43,8 @@ export const H5Router = {
 };
 
 export const routers = [
-  { path: "/", 
+  { 
+    path: "/", 
     redirect: "/home", 
     desc: "为空跳回到首页" 
   },
