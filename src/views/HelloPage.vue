@@ -44,8 +44,8 @@
       --theme-color
     </div>
     <vwarp>
-        <vcard 
-        v-for="item in RouterMap" :key="item.path"
+      <vcard 
+        v-for="item in routerList" :key="item.path"
         :margin="'4px 0 4px'" 
         :padding="'8px'" 
         :borderRadius="'8px'"
@@ -54,7 +54,7 @@
         :footerTitle="item.desc"
         @click="gotoPage(item.path)"
         >
-        </vcard>
+      </vcard>
     </vwarp>
 
     <van-action-sheet
@@ -81,20 +81,21 @@ import Counter from "@/components/Counter.vue";
 // import UserCell from '@/components/UserCell.vue'
 
 // import { useRouter, useRoute } from "vue-router"
-import {ref, reactive, computed, watch, getCurrentInstance} from "vue";
+import {getCurrentInstance, ref, reactive, computed, watch, } from "vue";
 import router from "@/router/index";
 
-import {RouterMap} from "@/router/routes";
+import { routers } from "@/router/routes";
+import { colors } from "@/assets/color/colors.js";
+import "@/utils/extensions";
 
-import { colors } from "@/assets/color/colors.js"
 
-import color from "../utils/directives/color";
-
+const routerList = computed(() => {
+  return routers.sortKey("name");
+});
 
 const onClickLeft = () => history.back();
 
 const onClickRight = () => {
-
    show.value = !show.value;
 };
 

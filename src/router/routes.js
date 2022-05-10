@@ -42,7 +42,7 @@ export const H5Router = {
   userlist1: "/userlist1",
 };
 
-export const RouterMap = [
+export const routers = [
   { path: "/", 
     redirect: "/home", 
     desc: "为空跳回到首页" 
