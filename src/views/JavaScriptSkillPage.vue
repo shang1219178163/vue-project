@@ -17,10 +17,7 @@ import * as BO from "@/utils/browser"
 import * as CM from "@/utils/common"
 import * as CO from "@/utils/color"
 
-import "@/utils/date-ext"
-import "@/utils/array-ext"
-import "@/utils/string-ext"
-import "@/utils/number-ext"
+import "@/utils/extensions";
 
 // function runMethod(method) {
 //   this[method]()

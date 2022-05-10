@@ -17,7 +17,7 @@ var moment =require('moment');
  * @returns 字符串日期
  */
  Date.prototype.hourAndMinute = function () {
-    let date = this; 
+  let date = this; 
 	return date.toLocaleTimeString().slice(0, 5);
 }
 
@@ -39,39 +39,39 @@ const weekMap = {
  * @returns 日期模型数组 {date (外部通过 (new Date(e.date))获取), dateStr, weekday, weekdayDesc} 
  */
  Date.prototype.getWeektime = function ({offset = 0, block = (e) => { e.toLocaleDateString() }}) {
-    let date = this; 
-    date.setDate(date.getDate() + offset);
-	
-    const list = [];
-    for (let i = 0; i < 7; i++) {
-		let dateStr = block(date) ?? date.toLocaleString()
-		// let dateStr = block(date) ?? date.Format()
-		let weekday = date.getDay() || 7
-		let weekdayStr = weekMap[weekday] ?? ""
+  let date = this; 
+  date.setDate(date.getDate() + offset);
 
-		let newDate = JSON.parse(JSON.stringify(date))
-		const obj = {
-            date: newDate,
-			dateStr: dateStr,
-            weekday: weekday,
-			weekdayStr: weekdayStr,
-        }
-        list.push(obj)
-        date.setDate(date.getDate() + 1);
+  const list = [];
+  for (let i = 0; i < 7; i++) {
+    let dateStr = block(date) ?? date.toLocaleString()
+    // let dateStr = block(date) ?? date.Format()
+    let weekday = date.getDay() || 7
+    let weekdayStr = weekMap[weekday] ?? ""
+
+    let newDate = JSON.parse(JSON.stringify(date))
+    const obj = {
+      date: newDate,
+      dateStr: dateStr,
+      weekday: weekday,
+      weekdayStr: weekdayStr,
     }
-    return list;
+    list.push(obj)
+    date.setDate(date.getDate() + 1);
+  }
+  return list;
 }
 
 
 if (!Date.prototype.getMonday) {
-    Date.prototype.getMonday = function() {
-        const nowDay = this.getDay() || 7;
-    
-        // let monday = new Date();
-        let monday = this;
-        monday.setDate(this.getDate() - nowDay + 1);
-        return monday
-    }
+  Date.prototype.getMonday = function() {
+    const nowDay = this.getDay() || 7;
+
+    // let monday = new Date();
+    let monday = this;
+    monday.setDate(this.getDate() - nowDay + 1);
+    return monday
+  }
 }
 
 /**
@@ -99,8 +99,8 @@ if (!Date.prototype.getMonday) {
 
 Date.prototype.dayOfYear = function () {
 	let date = this;
-    let dateYearStart = new Date(date.getFullYear(), 0, 0)
-    return Math.floor((date - dateYearStart) / 1000 / 60 / 60 / 24);
+  let dateYearStart = new Date(date.getFullYear(), 0, 0)
+  return Math.floor((date - dateYearStart) / 1000 / 60 / 60 / 24);
 }
 
 /**
@@ -111,14 +111,14 @@ Date.prototype.dayOfYear = function () {
  */
 Date.prototype.betweenDates = function (endDate) {
 	let startDate = this;
-    let list = []
-    //to avoid modifying the original date
-    const dateTmp = new Date(startDate)
-    while (dateTmp < endDate) {
-      list = [...list, new Date(dateTmp)]
-      dateTmp.setDate(dateTmp.getDate() + 1)
-    }
-    return list
+  let list = []
+  //to avoid modifying the original date
+  const dateTmp = new Date(startDate)
+  while (dateTmp < endDate) {
+    list = [...list, new Date(dateTmp)]
+    dateTmp.setDate(dateTmp.getDate() + 1)
+  }
+  return list
 }
 
 /**
@@ -129,5 +129,5 @@ Date.prototype.betweenDates = function (endDate) {
  */
 Date.prototype.dayDif = function (endDate) {
 	let date = this;
-    return Math.ceil(Math.abs(date.getTime() - endDate.getTime()) / 86400000)
+  return Math.ceil(Math.abs(date.getTime() - endDate.getTime()) / 86400000)
 }
