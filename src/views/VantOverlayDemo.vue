@@ -10,8 +10,8 @@
         <div class="block" @click="click" >
           <div class="item item0">
             <div class="callphone">
-              <!-- <img width="24" height="24" src="@/assets/images/call_phone.png" /> -->
-              <van-image :src="require('@/assets/images/call_phone.png')" />
+              <!-- <img width="24" height="24" src="@/assets/images/icon_call_phone.png" /> -->
+              <van-image :src="require('@/assets/images/icon_call_phone.png')" />
               <div>呼叫 188 8888 8888</div>
             </div>
           </div>

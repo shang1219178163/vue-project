@@ -57,8 +57,8 @@ const click2 = () => {
   $vtoast.show({
     type:"html",
     duration: 0, 
-    // template: `<van-image width="44px" height="44px" src="require('@/assets/images/call_phone.png')" />`, 
-    // template: `<img width="44px" height="44px" src="@/assets/images/call_phone.png" />`, 
+    // template: `<van-image width="44px" height="44px" src="require('@/assets/images/icon_call_phone.png')" />`, 
+    // template: `<img width="44px" height="44px" src="@/assets/images/icon_call_phone.png" />`, 
     // template: `<img width='44' height='44' src='src/assets/images/img_loading.gif' alt='' />`, 
     template: "<img src=\"https://www.baidu.com/img/flexible/logo/pc/result.png\" />", 
     contentBg: "green",

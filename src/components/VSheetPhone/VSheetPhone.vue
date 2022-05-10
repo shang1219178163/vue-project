@@ -1,62 +1,68 @@
-
 <template>
-  <div class='container'>
-    <van-overlay :show="show">
-     <!-- <transition @after-leave="afterLeave"> -->
-        <div class="wrapper" @click.stop>
-            <div class="block" @click="click" >
-                <div class="item item0">
-                    <div class="callphone">
-                    <van-image :src="require('@/assets/images/icon_call_phone.png')" />
-                    <div>呼叫 {{ props.phone || '-' }}</div>
-                    </div>
-                </div>
-                <div class="item" @click.stop="cancell">取消</div>
+  <div class="container">
+    <van-overlay :show="showRef">
+      <!-- <transition @after-leave="afterLeave"> -->
+      <div class="wrapper" @click.stop>
+        <div class="block" @click="click">
+          <div class="item item0">
+            <div class="phone">
+              <van-image :src="require('@/assets/images/icon_call_phone.png')" />
+              <div>呼叫 {{ phoneRef }}</div>
             </div>
+          </div>
+          <div class="item" @click.stop="cancell">取消</div>
         </div>
-     <!-- </transition> -->
+      </div>
+      <!-- </transition> -->
     </van-overlay>
   </div>
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { ref } from "vue";
+import { Image as VanImage, Overlay as VanOverlay} from 'vant';
 
-// console.log("CallPhone.vue");
+// const props = defineProps({
+//   show: {
+//     type: Boolean,
+//     default: false,
+//   },
+//   phone: {
+//     type: String,
+//     validator: (val) => {
+//       return val !== undefined && val !== null;
+//     },
+//   },
+// });
 
-const props = defineProps({
-    phone: {
-        type: String,
-        // default: undefined,
-        required: true,
-        validator: (val) => {
-          return val !== undefined && val !== null;
-        }
-    },
-    show: {
-        type: Boolean,
-        required: true,
-        default: false,
-    }
-});
+const emit = defineEmits(["click", "cancell"]);
 
-const emit = defineEmits(['click', "cancell"]);
+const showRef = ref(false);
+const phoneRef = ref("-");
+
+function show(phone = "-"){
+  showRef.value = true;
+  phoneRef.value = phone;
+}
 
 const click = () => {
-    emit("click", props.phone);
+  emit("click", phoneRef.value);
+  clear();
 };
 
 const cancell = () => {
-    emit("cancell");
+  emit("cancell");
+  clear();
+};
+
+const clear = () => {
+  showRef.value = false;
 };
 
 // const afterLeave = () => {
 //     console.log("afterLeave");
 // };
-
-
 </script>
-
 
 <style scoped>
 .wrapper {
@@ -81,7 +87,7 @@ const cancell = () => {
   justify-content: space-between;
 }
 
-.item{
+.item {
   height: 58px;
   background-color: white;
   /* margin-top: 8px;
@@ -96,19 +102,19 @@ const cancell = () => {
   font-family: PingFangSC-Regular;
 
   /* 垂直水平居中 */
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.item:first-child{
+.item:first-child {
   /* padding-right: 50; */
   /* padding-left: -50px; */
   /* background-color: aquamarine; */
   padding-left: -50px;
 }
 
-.item:last-child{
+.item:last-child {
   margin-top: 8px;
   font-weight: 600;
 }
@@ -119,21 +125,20 @@ const cancell = () => {
   padding-left: -50;
 } */
 
-.van-image{
+.van-image {
   width: 24px;
   height: 24px;
   padding-right: 13px;
   /* background-color: red; */
 }
 
-.callphone{
-  display:flex;
-  justify-content:center;
+.phone {
+  display: flex;
+  justify-content: center;
   align-items: center;
 
   width: auto;
   /* background-color: red; */
   margin-left: -30px;
 }
-
 </style>

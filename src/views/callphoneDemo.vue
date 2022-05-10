@@ -5,7 +5,6 @@
     <van-cell is-link title="van-action-sheet" @click="click" />
     <van-cell is-link title="打电话" @click="callPhoneNew" />
     <!-- <call-phone :show="show" @click="callphone" @cancell="cancell" /> -->
-    <call-phone-one :show="show" :phone="phone" @click="callphone" @cancell="cancell" @dismiss="dismiss"/>
   </div>
 </template>
 
@@ -13,7 +12,6 @@
 import { ref, getCurrentInstance, onMounted, inject } from 'vue';
 
 import callPhone from '@/components/CallPhone.vue';
-import callPhoneOne from '@/components/CallPhoneOne.vue';
 
 const onClickLeft = () => history.back();
 

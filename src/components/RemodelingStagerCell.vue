@@ -9,8 +9,8 @@
     </div>
     <div class="mid">
       <div class="line0">
-        <div class="font-bold"> {{ name }} </div>
-        <div class="tag-job"> {{ job }} </div>
+        <div class="title"> {{ name }} </div>
+        <div class="tag"> {{ job }} </div>
       </div>
       <div class="line1" v-if="experience">
         <!-- <div>岗位:{{ job }}</div> -->
@@ -19,11 +19,11 @@
       <div class="des">服务宗旨:  {{ des }}</div>
     </div>
     <div class="right">
-      <van-image 
-      :src="require('@/assets/images/call_phone_circle.png')" 
-      fit="fill" 
+      <van-image
       class="img-callphone"
-      @click="$emit('click', phone)"
+      :src="require('@/assets/images/icon_call_phone_circle.png')" 
+      fit="fill" 
+      @click="$emit('clickPhone', phone)"
        />
       <!-- <div class="right" @click="$emit('click', phone)">呼叫</div> -->
     </div>
@@ -32,7 +32,7 @@
 
 
 <script setup>
-import { ref } from 'vue'
+import { defineProps } from 'vue';
 
 // eslint-disable-next-line no-undef
 defineProps({
@@ -42,12 +42,10 @@ defineProps({
   experience: String,
   phone: String,
   des: String,
-})
+});
 
 // eslint-disable-next-line no-undef
-defineEmits(
-  ["click",]
-)
+defineEmits(["clickPhone",]);
 
 </script>
 
@@ -76,10 +74,6 @@ div {
 .cell {
   display: flex;
   justify-content: space-between;
-  /* margin: 0; */
-  /* padding: 8px; */
-  /* background-color: aquamarine; */
-  // height: 68px;
   border-bottom: 1px solid #eeeeee;
 
   background-color: #ffffff;
@@ -107,7 +101,7 @@ div {
   align-items: center;
 }
 
-.font-bold{
+.title{
   font-family: PingFangSC-Semibold;
   font-size: 15px;
   color: #333333;
@@ -120,7 +114,7 @@ div {
   @include line-limit-length;
 }
 
-.tag-job{
+.tag{
   background-image: linear-gradient(136deg, #005AAA 0%, #46A7F1 100%);
   box-shadow: inset -0.5px -0.5px 0px 0px rgba(0,0,0,0.15);
   border-radius: 3px;
@@ -152,7 +146,6 @@ div {
 
 .line1 {
   display: flex;
-  justify-content: space-evenly;
 }
 
 .flex-column {

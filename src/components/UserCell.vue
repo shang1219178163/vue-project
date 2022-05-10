@@ -19,7 +19,7 @@
       <div class="des">服务宗旨:  {{ des }}</div>
     </div>
     <div class="right">
-      <van-image :src="require('@/assets/images/call_phone_circle.png')" fit="fill" class="img-callphone" />
+      <van-image :src="require('@/assets/images/icon_call_phone_circle.png')" fit="fill" class="img-callphone" />
       <!-- <div class="right" @click="$emit('click', phone)">呼叫</div> -->
     </div>
   </div>
