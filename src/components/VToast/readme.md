@@ -63,6 +63,7 @@ const currentInstance = getCurrentInstance();
 const { $vtoast } = currentInstance.appContext.config.globalProperties;
 // console.log(currentInstance);
 
+//文字提示
 const click1 = () => {
   $vtoast.show({
     template: '添加到购物车成功', 
@@ -70,6 +71,8 @@ const click1 = () => {
   });
 }
 
+// duration === 0,不自动消失,需手动调用 $vtoast.clear();
+// 自定义弹窗内容
 const click2 = () => {
   $vtoast.show({
     type:"html",
@@ -87,6 +90,7 @@ const click2 = () => {
   // }, 1500)
 }
 
+// 自定义弹窗内容,自动消失
 const click3 = () => {
   $vtoast.show({
     type:"html",
@@ -101,15 +105,14 @@ const click3 = () => {
   });
 }
 
-//小茶杯
-const click4 = () => {
-  $vtoast.loading({});
-  setTimeout(() => {
-    $vtoast.clear();
-  }, 1500)
-}
+ //小茶杯
+ const click4 = () => {
+   $vtoast.loading({});// 展示小茶杯
+   setTimeout(() => {
+     $vtoast.clear();// 清除小茶杯
+   }, 1500)
+ }
 ```
-
 
 ## 其他：
 更新代码后如果运行报错，执行这两行代码:

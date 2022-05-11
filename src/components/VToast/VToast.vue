@@ -22,6 +22,10 @@ import img_loading_base64 from '@/assets/images/img_loading_base64.js';
 
 
 const props = defineProps({
+  show: {
+    type: Boolean,
+    default: false,
+  },
   type: {
     type: String,
     reuire: false,
@@ -75,12 +79,12 @@ const props = defineProps({
     type: Function,
     desc: "背板点击事件, 一般 duration === 0 时使用",
   },
-})
+});
 
-defineExpose(["show", "loading", "clear"]);
+// defineExpose(["show", "loading", "clear"]);
 
 // 展示开关
-let isShow = ref(false);
+let isShow = ref(props.show);
 // 展示类型
 let typeRef = ref(props.type);
 let templateRef = ref(props.template);
@@ -150,6 +154,10 @@ function clear(duration = 0){
   setTimeout(() => {
     isShow.value = false;
   }, duration);
+}
+
+function isLoading(){
+  return isShow.value;
 }
 
 const overlayStyle = computed(()=>{

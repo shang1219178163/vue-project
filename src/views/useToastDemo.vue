@@ -96,7 +96,7 @@ const click4 = () => {
 };
 
 const click5 = () => {
-  $vtoast.loading_img({});
+  $vtoast.loading({});
   setTimeout(() => {
     $vtoast.clear();
   }, 1500);
