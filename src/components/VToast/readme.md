@@ -109,3 +109,11 @@ const click4 = () => {
   }, 1500)
 }
 ```
+
+
+## 其他：
+更新代码后如果运行报错，执行这两行代码:
+
+npm uninstall -g @vue/cli
+
+npm i vue@3.2.0

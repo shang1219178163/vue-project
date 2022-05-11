@@ -557,6 +557,11 @@ export const routers = [
     component: _import_("MouseDetectDemo"),
     desc: "鼠标检测",
   },
-
+  {
+    path: "/DomMount",
+    name: "DomMount",
+    component: _import_("DomMount"),
+    desc: "dom挂载",
+  },
   
 ];

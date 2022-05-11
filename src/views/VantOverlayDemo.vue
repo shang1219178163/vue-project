@@ -1,13 +1,12 @@
-
 <template>
-  <div class='container'>
-    <van-nav-bar title="人员清单" left-arrow  @click-left="onClickLeft"/>
+  <div class="container">
+    <van-nav-bar title="人员清单" left-arrow @click-left="onClickLeft" />
     <!-- <van-button type="primary" text="显示遮罩层" @click="show = true" />
     <van-overlay :show="show" @click="show = false" /> -->
     <van-cell is-link title="Overlay" @click="show = true" />
     <van-overlay :show="show" @click="show = false">
       <div class="wrapper" @click.stop>
-        <div class="block" @click="click" >
+        <div class="block" @click="click">
           <div class="item item0">
             <div class="callphone">
               <!-- <img width="24" height="24" src="@/assets/images/icon_call_phone.png" /> -->
@@ -17,14 +16,14 @@
           </div>
           <div class="item">取消</div>
         </div>
-      </div>     
+      </div>
     </van-overlay>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { Toast } from 'vant';
+import {ref} from "vue";
+import {Toast} from "vant";
 
 const onClickLeft = () => history.back();
 
@@ -42,12 +41,11 @@ const show = ref(false);
 //     Toast(item.name);
 // };
 const click = () => {
-    show.value = false;
-    console.log("block");
-    // Toast("block");
+  show.value = false;
+  console.log("block");
+  // Toast("block");
 };
 </script>
-
 
 <style scoped>
 .wrapper {
@@ -70,7 +68,7 @@ const click = () => {
   justify-content: space-between;
 }
 
-.item{
+.item {
   height: 58px;
   background-color: white;
   /* margin-top: 8px;
@@ -85,19 +83,19 @@ const click = () => {
   font-family: PingFangSC-Regular;
 
   /* 垂直水平居中 */
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.item:first-child{
+.item:first-child {
   /* padding-right: 50; */
   /* padding-left: -50px; */
   /* background-color: aquamarine; */
   padding-left: -50px;
 }
 
-.item:last-child{
+.item:last-child {
   margin-top: 8px;
   font-weight: 600;
 }
@@ -108,21 +106,20 @@ const click = () => {
   padding-left: -50;
 } */
 
-.van-image{
+.van-image {
   width: 24px;
   height: 24px;
   padding-right: 13px;
   /* background-color: red; */
 }
 
-.callphone{
-  display:flex;
-  justify-content:center;
+.callphone {
+  display: flex;
+  justify-content: center;
   align-items: center;
 
   width: auto;
   /* background-color: red; */
   margin-left: -30px;
 }
-
 </style>

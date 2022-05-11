@@ -33,6 +33,9 @@ const props = defineProps({
 // eslint-disable-next-line no-undef
 const emit = defineEmits(["add", "sub", "change", "min", "max"]);
 
+// const instance = getCurrentInstance()
+// console.log(instance.type.__file, instance) ;
+
 const aCount = ref(props.count);
 
 const go = (val) => {
@@ -74,8 +77,7 @@ defineExpose({
   a88,b88
 })
 
-const instance = getCurrentInstance()
-console.log(instance.type.__file, instance) ;
+
 </script>
 
 <style scoped>

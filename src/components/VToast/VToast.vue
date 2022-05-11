@@ -77,6 +77,8 @@ const props = defineProps({
   },
 })
 
+defineExpose(["show", "loading", "clear"]);
+
 // 展示开关
 let isShow = ref(false);
 // 展示类型
@@ -125,22 +127,11 @@ function show({
   clear(duration);
 }
 
-
 /**
  * 显示加载中(默认小茶杯)
  * @param {*} src 图片 
  */
 function loading({img = img_loading_base64, width = 64, height = 64}){
-  show({
-    type:"html",
-    // template: `<img width='44' height='44' src="${img_loading}" />`, 
-    template: `<img width='${width}' height='${height}' src="${img}" />`, 
-    duration: 0, 
-    contentBg: "transparent",
-  });
-}
-
-function loading_img({img = img_loading, width = 64, height = 64}){
   show({
     type:"html",
     // template: `<img width='44' height='44' src="${img_loading}" />`, 
