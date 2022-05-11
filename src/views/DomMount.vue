@@ -13,7 +13,7 @@ import { createApp, getCurrentInstance, defineProps, ref, reactive, watch, onMou
 // import { Toast } from 'vant;
 
 const currentInstance = getCurrentInstance();
-const { $uplus, $log: LOG, $vtoast} = currentInstance.appContext.config.globalProperties;
+const { $uplus, $log: LOG, $vtoastOne: $vtoast} = currentInstance.appContext.config.globalProperties;
 // LOG.log(instance.type.__file);
 
 const click = async () => {

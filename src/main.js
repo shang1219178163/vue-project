@@ -20,16 +20,16 @@ import '@/plugins/remSelf';
 import platformMixin from '@/mixin/platformMixin';
 
 import MyUI from '@/lib/MyUI';
-// import VToast from "@/components/VToast";
+import VToast from "@/components/VToast";
 import * as vtoastOne from "@/components/VToastOne";
-import * as vtoast from '@/components/VToast';
+// import * as vtoast from '@/components/VToast';
 
 import VSheetPhone from "@/components/VSheetPhone";
 
 const app = createApp(App);
 ///添加全局方法
 app.config.globalProperties.$log = LOG;
-app.config.globalProperties.$vtoast = vtoast;
+// app.config.globalProperties.$vtoast = vtoast;
 app.config.globalProperties.$vtoastOne = vtoastOne;
 
 app.config.globalProperties.utils = utils;
@@ -73,7 +73,7 @@ app.use(router)
 .use(Vant)
 .use(iosAlertSheet)
 .use(Directives)
-// .use(VToast)
+.use(VToast)
 .use(VSheetPhone)
 
 .mixin(MyUI)
