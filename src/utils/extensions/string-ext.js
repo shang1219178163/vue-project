@@ -69,6 +69,15 @@ String.prototype.toCamelCase = function () {
 }
 
 
+/**
+ * 
+ * @returns 驼峰转中划线
+ */
+String.prototype.toKababCase = function () {
+  const reg = /\B([A-Z])/g;
+  return this.replace(reg, '-$1').toLowerCase();
+}
+
 // 转为大写
 String.prototype.uppercaseWords = function () {
 	const str = this;
@@ -98,3 +107,13 @@ String.prototype.toLength = function (count, sufix = "", isFillBlank = false) {
   }
   return val.substring(0, count) + sufix;
 }
+
+
+String.prototype.hasHanzi = function () {
+  return /[\u4E00-\u9FA5]+/g.test(this)
+}
+
+String.prototype.isAllHanzi = function () {
+  return /^[\u4E00-\u9FA5]+$/.test(this)
+}
+

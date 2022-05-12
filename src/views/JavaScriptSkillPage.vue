@@ -50,6 +50,10 @@ const list = ref([
 
     {name: "获取日期小时分钟", func: "onhourAndMinute", },
     {name: "测试", func: "onTest", },
+
+    {name: "字符串是否包含中文", func: "onHasChinese", },
+    {name: "字符串是否全是中文", func: "onAllChinese", },
+
 ])
 
 const oncookie = () => {
@@ -160,6 +164,13 @@ const onTest = () => {
     console.log(`>>>list2: ${list2}`);
 }
 
+const onHasChinese = () => {
+    console.log(`>>>list2汉字: ${"list2汉字".hasHanzi()}`);
+}
+
+const onAllChinese = () => {
+    console.log(`>>>list2汉字: ${"list2汉字".isAllHanzi()}`);
+}
 
 </script>
 
