@@ -27,7 +27,7 @@ import img_loading from '@/assets/images/img_loading_base64.js';
 //     contentBg: contentBg, 
 //     overlayBg: overlayBg, 
 //     overlayClick: overlayClick, 
-//   })
+//   });
 
 //   // 创建一个挂载容器
 //   let node = document.querySelector('#vtoast');

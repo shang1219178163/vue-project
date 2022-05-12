@@ -27,7 +27,7 @@ function show ({
     contentBg: contentBg, 
     overlayBg: overlayBg, 
     overlayClick: overlayClick, 
-  })
+  });
 
   // 创建一个挂载容器
   let node = document.querySelector('#vtoast');
