@@ -563,5 +563,11 @@ export const routers = [
     component: _import_("DomMount"),
     desc: "dom挂载",
   },
-  
+  {
+    path: "/VModelValueModifier",
+    name: "VModelValueModifier",
+    component: _import_("VModelValueModifier"),
+    desc: "v-model 修饰符",
+  },
+
 ];
