@@ -569,5 +569,11 @@ export const routers = [
     component: _import_("VModelValueModifier"),
     desc: "v-model 修饰符",
   },
+  {
+    path: "/InjectDemo",
+    name: "InjectDemo",
+    component: _import_("InjectDemo"),
+    desc: "注入",
+  },
 
 ];
