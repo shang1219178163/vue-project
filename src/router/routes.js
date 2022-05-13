@@ -575,5 +575,11 @@ export const routers = [
     component: _import_("InjectDemo"),
     desc: "注入",
   },
+  {
+    path: "/NetworkStatusDemo",
+    name: "NetworkStatusDemo",
+    component: _import_("NetworkStatusDemo"),
+    desc: "网络状态检测",
+  },
 
 ];

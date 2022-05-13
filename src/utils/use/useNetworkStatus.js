@@ -1,9 +1,12 @@
-import { onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
+// 返回ref 布尔值
 export const useNetworkStatus = () => {
-  let isOnline = true;
+  let isOnline = ref(true);
   const changeNetworkStatus = () => {
-    isOnline = navigator.onLine ? 'online' : 'offline';
+    isOnline.value = navigator.onLine;
+    // isOnline = navigator.onLine ? 'online' : 'offline';
+    // console.log("changeNetworkStatus", isOnline);
   };
 
   onMounted(() => {
@@ -20,26 +23,6 @@ export const useNetworkStatus = () => {
 }
 
 
-// useNetworkStatus((status) => { 
-//     console.log(`Your network status is ${status}`);
-// }
+// import { useNetworkStatus } from "@/utils/use/useNetworkStatus"
 
-
-
-export const useNetworkStatusOne = () => {
-  const changeNetworkStatus = () => {
-    return navigator.onLine ? 'online' : 'offline';
-  };
-
-  onMounted(() => {
-    window.addEventListener('online', changeNetworkStatus);
-    window.addEventListener('offline', changeNetworkStatus);
-  });
-
-  onUnmounted(() => {
-    window.removeEventListener('online', changeNetworkStatus);
-    window.removeEventListener('offline', changeNetworkStatus);
-  });
-
-  return changeNetworkStatus;
-}
+// const isOnline = useNetworkStatus();
