@@ -14,11 +14,11 @@ export default {
   
       let instance = new iosActionSheet({propsData: {buttons}});
   
-      let mount = document.createElement('div');
-      mount.id = 'ios-actionsheet-' + Date.now();
+      let node = document.createElement('div');
+      node.id = 'ios-actionsheet-' + Date.now();
       document.body.appendChild(mount);
   
-      instance.$mount(mount);
+      instance.$mount(node);
   
       return instance.activate();
     }

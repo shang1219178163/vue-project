@@ -1,36 +1,18 @@
 <template>
-  <!-- <ConfigProviderProps :theme-vars="themeVars"> -->
-    <router-view v-slot="{ Component, route }">
-      <keep-alive>
-        <component :is="Component" :key="route.name" />
-      </keep-alive>
-    </router-view>
-  <!-- </ConfigProviderProps> -->
+  <router-view v-slot="{ Component, route }">
+    <keep-alive>
+      <component :is="Component" :key="route.name" />
+    </keep-alive>
+  </router-view>
 </template>
 
 <script>
-import { Toast, ConfigProviderProps, Dialog } from 'vant';
+import { provide, } from 'vue';
+import { useInject } from '@/utils/use/useInject';
 
 export default {
   name: 'App',
-  components: {
-    
-  },
   // data() {
-    // let themeColor = getComputedStyle(document.body).getPropertyValue('--theme-color') || '#BE965A';
-    // console.log({themeColor});
-    // return {
-    //   themeVars: {
-    //       rateIconFullColor: "red",
-    //       sliderBarHeight: '4px',
-    //       sliderButtonWidth: '20px',
-    //       sliderButtonHeight: '20px',
-    //       sliderActiveBackgroundColor: themeColor,
-    //       buttonPrimaryBorderColor: themeColor,
-    //       buttonPrimaryBackgroundColor: themeColor,
-    //       dialogConfirmButtonTextColor: themeColor,
-    //   }
-    // }
   // },
   // computed: {
     // themeColor() {
@@ -92,19 +74,6 @@ html[theme="gray"] {
   -webkit-overflow-scrolling: touch;
 }
 
-.van-toast{
-  // width: auto !important;
-  min-height: 24px !important;
-  // max-width: 80% !important;
-  line-height: .28rem !important;
-  font-size: .28rem !important;
-}
-
-.van-toast--text{
-  padding: .2rem .3rem !important;
-  font-size: .28rem !important;
-}
-
 body {
     -webkit-text-size-adjust: 100% !important;
     text-size-adjust: 100% !important;
@@ -118,6 +87,27 @@ body {
     --bg-color:#F6F6F6;
     //  color: var(--themeColor);
     // document.body.style.setProperty('--themeColor', '#ff0000');
+}
+
+.van-toast {
+  --van-toast-max-width: 70%;
+  --van-toast-font-size: 0.28rem;
+  --van-toast-line-height: 0.28rem;
+  --van-toast-text-padding: 0.24rem 0.4rem;
+  --van-toast-font-size: 0.34rem;
+  --van-toast-line-height: 0.44rem;
+}
+
+.van-tabs{
+  --van-tab-font-size: 17px;
+  --van-tab-active-text-color:#333333;
+  --van-tab-text-color: #999999;	
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+
+  // &__line{
+  //   bottom: 19px !important;
+  // }
 }
 
 </style>
