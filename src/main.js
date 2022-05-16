@@ -26,6 +26,12 @@ import * as vtoastOne from "@/components/VToastOne";
 
 import VSheetPhone from "@/components/VSheetPhone";
 
+
+const isProd = process.env.NODE_ENV === 'production'
+if (!isProd) {
+  import('./lib/vconsole');
+}
+
 const app = createApp(App);
 ///添加全局方法
 app.config.globalProperties.$log = LOG;
