@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 export const useScrollToBottom = (cb = (val) => { }) => {
-  let isFlag = ref(false);
+  const isFlag = ref(false);
 
   const handleScrolling = () => {
     isFlag.value = (window.innerHeight + window.scrollY) >= document.body.scrollHeight;

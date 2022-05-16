@@ -4,10 +4,10 @@ export const MOBILE = 'MOBILE'
 export const TABLET = 'TABLET'
 export const DESKTOP = 'DESKTOP'
 
-export const useViewport = (config = {}) => {
-  const { mobile = null, tablet = null } = config;
-  let mobileWidth = mobile ? mobile : 768;
-  let tabletWidth = tablet ? tablet : 922;
+export const useViewport = ({mobileWidth = 768, tabletWidth = 922}) => {
+  // const { mobile = null, tablet = null } = config;
+  // let mobileWidth = mobile ?? 768;
+  // let tabletWidth = tablet ?? 922;
   let device = ref(getDevice(window.innerWidth));
   function getDevice(width) {
     if (width < mobileWidth) {

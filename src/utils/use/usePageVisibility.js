@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 export const usePageVisibility = (cb = (val) => { }) => {
-  let isFlag = ref(false);
+  const isFlag = ref(false);
 
   let hidden, visibilityChange;
   if (typeof document.hidden !== "undefined") {

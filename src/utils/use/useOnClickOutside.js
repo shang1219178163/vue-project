@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 export const useOnClickOutside = (refDiv = null, cb = (val) => {}) => {
-  let isFlag = ref(false);
+  const isFlag = ref(false);
 
   const handleClickOutside = (event) => {
     isFlag.value = refDiv.value && !refDiv.value.contains(event.target);
