@@ -99,9 +99,9 @@ module.exports = {
     loaderOptions: {
       scss: {
         additionalData: `
-        @import "@/assets/css/mixin.scss";
-        @import "@/assets/css/variable.scss";
-        `
+          @import "@/assets/css/mixin.scss";
+          @import "@/assets/css/variable.scss";
+          `
       }
     }
   }
