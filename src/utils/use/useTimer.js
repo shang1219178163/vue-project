@@ -6,7 +6,7 @@
 
 import { ref, onUnmounted } from 'vue';
 
-export const useTimer = (callback = () => { }, step = 1000) => {
+export const useTimer = (cb = () => { }, step = 1000) => {
   let timerVariableId = null;
   let times = 0;
   const isPaused = ref(false);
@@ -26,7 +26,7 @@ export const useTimer = (callback = () => { }, step = 1000) => {
       timerVariableId = setInterval(() => {
         if (!isPaused.value) {
           times++;
-          callback(times, step * times);
+          cb(times, step * times);
         }
       }, step)
     }

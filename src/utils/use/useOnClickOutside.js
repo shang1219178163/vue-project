@@ -1,10 +1,12 @@
-import { onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
-export const useOnClickOutside = (ref = null, callback = () => {}) => {
-  function handleClickOutside(event) {
-    if (ref.value && !ref.value.contains(event.target)) {
-      callback()
-    }
+export const useOnClickOutside = (refDiv = null, cb = (val) => {}) => {
+  let isFlag = ref(false);
+
+  const handleClickOutside = (event) => {
+    isFlag.value = refDiv.value && !refDiv.value.contains(event.target);
+    // console.log(isFlag.value ? "outside" : "inside");
+    cb(isFlag.value);
   }
 
   onMounted(() => {
@@ -14,8 +16,8 @@ export const useOnClickOutside = (ref = null, callback = () => {}) => {
   onUnmounted(() => {
     document.removeEventListener('mousedown', handleClickOutside);
   });
+  return isFlag;
 }
-
 
 
 {/* <template>

@@ -1,10 +1,12 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 // 返回ref 布尔值
-export const useNetworkStatus = () => {
-  let isOnline = ref(true);
+export const useNetworkStatus = (cb = (val) => {}) => {
+  const isOnline = ref(true);
   const changeNetworkStatus = () => {
     isOnline.value = navigator.onLine;
+    cb(isOnline.value);
+
     // isOnline = navigator.onLine ? 'online' : 'offline';
     // console.log("changeNetworkStatus", isOnline);
   };
@@ -23,6 +25,6 @@ export const useNetworkStatus = () => {
 }
 
 
-// import { useNetworkStatus } from "@/utils/use/useNetworkStatus"
+// import useNetworkStatus from "@/utils/use/useNetworkStatus"
 
 // const isOnline = useNetworkStatus();

@@ -7,15 +7,14 @@
 
 
 <script setup>
-import { getCurrentInstance, defineProps, ref, reactive, watch, onMounted, } from 'vue';
+import { getCurrentInstance, isRef, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant;
-
-import { useNetworkStatus } from "@/utils/use/useNetworkStatus"
+import {useNetworkStatus} from "@/utils/use/useNetworkStatus"
 
 const isOnline = useNetworkStatus();
 
 const onClick = async () => {
-  console.log("isOnline:", isOnline);
+  console.log("isOnline:", isOnline.value);
 
   alert(isOnline.value);
 };

@@ -1,6 +1,8 @@
-import { onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
-export const usePageVisibility = (callback = () => { }) => {
+export const usePageVisibility = (cb = (val) => { }) => {
+  let isFlag = ref(false);
+
   let hidden, visibilityChange;
   if (typeof document.hidden !== "undefined") {
     hidden = "hidden";
@@ -14,7 +16,8 @@ export const usePageVisibility = (callback = () => { }) => {
   }
 
   const handleVisibilityChange = () => {
-    callback(document[hidden]);
+    isFlag.value = document[hidden];
+    cb(isFlag.value);
   }
 
   onMounted(() => {

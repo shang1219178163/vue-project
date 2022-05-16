@@ -1,10 +1,11 @@
-import { onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
-export const useScrollToBottom = (callback = () => { }) => {
+export const useScrollToBottom = (cb = (val) => { }) => {
+  let isFlag = ref(false);
+
   const handleScrolling = () => {
-    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-      callback();
-    }
+    isFlag.value = (window.innerHeight + window.scrollY) >= document.body.scrollHeight;
+    cb(isFlag.value);
   }
 
   onMounted(() => {

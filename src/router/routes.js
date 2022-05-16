@@ -581,5 +581,11 @@ export const routers = [
     component: _import_("NetworkStatusDemo"),
     desc: "网络状态检测",
   },
+  {
+    path: "/ClickOutsideDemo",
+    name: "ClickOutsideDemo",
+    component: _import_("ClickOutsideDemo"),
+    desc: "点击外部",
+  },
 
 ];
