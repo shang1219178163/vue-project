@@ -1,8 +1,9 @@
 <template>
   <router-view v-slot="{ Component, route }">
-    <keep-alive>
+    <keep-alive v-if="canKeepAlive(route)" >
       <component :is="Component" :key="route.name" />
     </keep-alive>
+    <component v-else :is="Component" :key="route.name" />
   </router-view>
 </template>
 
@@ -15,10 +16,16 @@ export default {
   // data() {
   // },
   // computed: {
-    // themeColor() {
-    //   return getComputedStyle(document.body).getPropertyValue('--theme-color');
-    // }
+
   // },
+  methods: {
+    // 是否缓存页面
+    canKeepAlive(route) {
+      const result = route.meta?.keepAlive ?? true;
+      console.log("route:", route.name, result);
+      return result;
+    }
+  },
 }
 </script>
 

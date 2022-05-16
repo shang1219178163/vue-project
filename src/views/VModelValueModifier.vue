@@ -13,5 +13,7 @@ import vInputcmpV2 from '@/components/VModelValueModifier/inputcmpV2.vue'
 let inpvalue1 = ref('abc');
 let inpvalue2 = ref('zs');
 let zs = ref('zs')
+let msg = ref('msg')
+
 </script>
 
