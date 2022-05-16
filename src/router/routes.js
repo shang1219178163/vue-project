@@ -1,4 +1,5 @@
 //import App from '../App'
+import { defineAsyncComponent } from 'vue'
 
 const _import_ = (file) => () => import("@/views/" + file + ".vue");
 export const H5Router = {
@@ -55,21 +56,15 @@ export const routers = [
     desc: "首页",
   },
   {
-    path: "/HomePage",
-    name: "HomePage",
-    component: _import_("HomePage"),
-    desc: "第二主页面",
-  },
-  {
     path: "/ThemeChange",
     name: "ThemeChange",
-    component: _import_("ThemeChange"),
+    component: defineAsyncComponent(() => _import_("ThemeChange")),
     desc: "主题色切换",
   },
   {
     path: "/Lifecycle",
     name: "Lifecycle",
-    component: _import_("Lifecycle"),
+    component: () => _import_("Lifecycle"),
     desc: "生命周期",
   },
   

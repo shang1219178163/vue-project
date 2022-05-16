@@ -44,7 +44,6 @@ module.exports = {
   devServer: {
     // host: 'localhost',
     port: 57103, // 端口号配置
-    // open: true,
     proxy: {
       '/appApi': {
         target: 'https://zjsj-test.haier.net/',//测试
@@ -96,14 +95,14 @@ module.exports = {
     })
   },
     //配置全局样式变量
-    css: {
-      loaderOptions: {
-          scss: {
-              additionalData: `
-              @import "@/assets/css/mixin.scss";
-              @import "@/assets/css/variable.scss";
-              `
-          }
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `
+        @import "@/assets/css/mixin.scss";
+        @import "@/assets/css/variable.scss";
+        `
       }
+    }
   }
 }
