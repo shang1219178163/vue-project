@@ -1,7 +1,7 @@
 //import App from '../App'
 import { defineAsyncComponent } from 'vue'
 
-const _import_ = (file) => defineAsyncComponent(() => import(`@/views/${file}.vue`));
+const _import_ = (file) => () => import(`@/views/${file}.vue`);
 // const _import_ = (file) => () => import(`@/views/${file}.vue`);
 
 export const H5Router = {
