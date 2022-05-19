@@ -8,19 +8,36 @@
 
 <script setup>
 import { ref, computed} from 'vue';
+import logo from '@/assets/logo.png';
 
 const props = defineProps({
-  alignment: {
+  // alignment: {
+  //   type: String,
+  //   default: "topLeft",
+  //   validator: (value) => {
+  //     console.log("alignment", typeof value, value);
+  //     return ["topLeft", "topRight", "bottomLeft", "bottomRight", ].includes(value); 
+  //   }
+  // },
+  top: {
     type: String,
-    default: "topLeft",
-    validator: (value) => {
-      console.log("alignment", typeof value, value);
-      return ["topLeft", "topRight", "bottomLeft", "bottomRight", ].includes(value); 
-    }
+    default: "auto",
+  },
+  left: {
+    type: String,
+    default: "auto",
+  },
+  bottom: {
+    type: String, 
+    default: "auto",
+  },
+  right: {
+    type: String,
+    default: "auto",
   },
   img: {
     type: String,
-    default: "@/assets/logo.png",
+    default: logo,
   },
   width: {
     type: String,
@@ -38,8 +55,12 @@ const props = defineProps({
     type: String,
     default: "4px",
   },
+  backgroud: {
+    type: String,
+    default: undefined,
+  },
 
-  src: {
+  overflow: {
     type: String,
     default: "hidden",
   },
@@ -94,6 +115,6 @@ const props = defineProps({
   overflow: v-bind(overflow); 
 
   border-radius: v-bind(borderRadius); 
-  // background-color: red;
+  background: v-bind(backgroud); 
 }
 </style>

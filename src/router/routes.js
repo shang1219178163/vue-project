@@ -587,5 +587,16 @@ export const routers = [
     component: _import_("ClickOutsideDemo"),
     desc: "点击外部",
   },
-
+  {
+    path: "/TestAndroid",
+    name: "TestAndroid",
+    component: _import_("TestAndroid"),
+    desc: "安卓功能测试",
+  },
+  {
+    path: "/PositionedStackDemo",
+    name: "PositionedStackDemo",
+    component: _import_("PositionedStackDemo"),
+    desc: "Stack 组件",
+  },
 ];

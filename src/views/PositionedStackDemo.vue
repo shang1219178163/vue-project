@@ -29,10 +29,10 @@
     </VStackText>
     <VStackImg
       class="wrapper-section4" 
+      top="10px" 
       width="30px"
       height="30px" 
       borderRadius="4px"
-      backgroud="#BE965A"
     >
       <div class="VStackText-content">VStack-content</div>
     </VStackImg>
