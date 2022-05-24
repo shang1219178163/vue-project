@@ -86,7 +86,10 @@ class DataTracking {
 		if (!obj.data) {
 			return;
 		}
-		// console.log(">>>data", JSON.stringify(obj.data));
+		console.log(">>>data", JSON.stringify(obj.data));
+    const dtParamsObj = JSON.parse(obj.data.dtParams);
+    console.log(">>>dtParamsObj", dtParamsObj);
+
 		// console.warn(data)
 		// console.log('%c记录数据埋点...', "color: red;")
 		this.list.push(obj);
