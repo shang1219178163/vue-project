@@ -34,9 +34,9 @@ class DataTracking {
 					current: this.pageCurrent,
 				},
 				data: null,
-			}
-			this.recordDT(data)
-		}
+			};
+			this.recordDT(data);
+		};
 		// 记录路由数据
 		router.beforeEach((to, from, next) => {
 			this.pageFrom = from;
