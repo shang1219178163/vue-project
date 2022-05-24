@@ -39,7 +39,7 @@ module.exports = {
   ],
 
   // 生产环境关闭 source map
-  productionSourceMap: true,
+  productionSourceMap: process.env.NODE_ENV !== 'production',
 
   devServer: {
     // host: 'localhost',

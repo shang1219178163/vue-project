@@ -1,13 +1,13 @@
-import router from './index'
+import router from './index';
 
 function isEmptyObject(obj) {
-	return !obj || !Object.keys(obj).length
+	return !obj || !Object.keys(obj).length;
 }
 
 const install = () => {
 	// 全局只挂在一个实例子
 	window.$dt = new DataTracking();
-}
+};
 
 /* web数据埋点 */
 class DataTracking {
@@ -42,13 +42,13 @@ class DataTracking {
 			this.pageFrom = from;
 			this.pageCurrent = to;
 			handleViewDT();
-			next()
-		})
+			next();
+		});
 		
 		// 推送已存在的埋点数据
 		router.afterEach(() => {
-			this.list.length  && this.pushOrigin();
-		})
+			this.list.length && this.pushOrigin();
+		});
 	}
 
 	// 监听点击事件
@@ -61,9 +61,9 @@ class DataTracking {
 					current: this.pageCurrent,
 				},
 				data: dataset,
-			}
-			this.recordDT(obj)
-		}
+			};
+			this.recordDT(obj);
+		};
 	
 		document.onclick = (e) => {
 			let i = 0;
@@ -72,21 +72,21 @@ class DataTracking {
 				if (!isEmptyObject(data)) {
 					// 如果data-dt-name存在的时候，才进行埋点
 					if (data.dtName) {
-						i = e.path.length
+						i = e.path.length;
 						handleClickDT(data);
 					}
 				}
 				i ++;
 			}
-		}
+		};
 	}
 
 	// 记录DT数据
 	recordDT(obj) {
 		if (!obj.data) {
-			return
+			return;
 		}
-		console.log(">>>data", JSON.stringify(obj.data));
+		// console.log(">>>data", JSON.stringify(obj.data));
 		// console.warn(data)
 		// console.log('%c记录数据埋点...', "color: red;")
 		this.list.push(obj);
