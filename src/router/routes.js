@@ -599,4 +599,17 @@ export const routers = [
     component: _import_("PositionedStackDemo"),
     desc: "Stack 组件",
   },
+  {
+    path: "/DecorationInstallment",
+    name: "DecorationInstallment",
+    component: _import_("DecorationInstallment"),
+    desc: "家装分期",
+  },
+  {
+    path: "/VantFromDemo",
+    name: "VantFromDemo",
+    component: _import_("VantFromDemo"),
+    desc: "表单",
+  },
+  
 ];
