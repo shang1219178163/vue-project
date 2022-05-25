@@ -27,7 +27,7 @@ class DataTracking {
 	// 监听页面的路由更改
 	addViewListener() {
 		const handleViewDT = () => {
-			const data = {
+			const obj = {
 				type: 'view',
 				page: {
 					from: this.pageFrom,
@@ -35,7 +35,7 @@ class DataTracking {
 				},
 				data: null,
 			};
-			this.recordDT(data);
+			this.recordDT(obj);
 		};
 		// 记录路由数据
 		router.beforeEach((to, from, next) => {
@@ -66,13 +66,15 @@ class DataTracking {
 		};
 	
 		document.onclick = (e) => {
+      const path = e.path || (e.composedPath && e.composedPath());
+ 
 			let i = 0;
-			while(i < e.path.length) {
-				const data = e.path[i].dataset;
+			while(i < path.length) {
+				const data = path[i].dataset;
 				if (!isEmptyObject(data)) {
 					// 如果data-dt-name存在的时候，才进行埋点
 					if (data.dtName) {
-						i = e.path.length;
+						i = path.length;
 						handleClickDT(data);
 					}
 				}
@@ -81,14 +83,15 @@ class DataTracking {
 		};
 	}
 
+
 	// 记录DT数据
 	recordDT(obj) {
 		if (!obj.data) {
 			return;
 		}
 		console.log(">>>data", JSON.stringify(obj.data));
-    const dtParamsObj = JSON.parse(obj.data.dtParams);
-    console.log(">>>dtParamsObj", dtParamsObj);
+    const params = obj.data.dtParams ? JSON.parse(obj.data.dtParams) : undefined;
+    console.log(">>>params", params);
 
 		// console.warn(data)
 		// console.log('%c记录数据埋点...', "color: red;")
