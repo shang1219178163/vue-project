@@ -8,6 +8,7 @@ import draggable from './draggable'
 import ellipsis from './ellipsis'
 import emoji from './emoji'
 import expandClick from './expandClick'
+import fmt from './fmt'
 import focus from './focus'
 import itemSelect from './itemSelect'
 import longpress from './longpress'
@@ -28,6 +29,7 @@ const directives = {
   ellipsis,
   emoji,
   expandClick,
+  fmt,
   focus,
   itemSelect,
   longpress,
