@@ -1,14 +1,14 @@
 const permission = {
-    inserted: function (el, binding) {
-        let hasPermission = binding.value // 获取到 v-permission的值
-        if (!hasPermission) {
-            // 没有权限 移除Dom元素
-            el.parentNode && el.parentNode.removeChild(el)
-        }
-    },
-  }
-  
-  export default permission
+  inserted: function (el, binding) {
+      let hasPermission = binding.value; // 获取到 v-permission的值
+      if (!hasPermission) {
+          // 没有权限 移除Dom元素
+          el.parentNode && el.parentNode.removeChild(el);
+      }
+  },
+};
+
+export default permission;
 
 
 //   <!-- 显示 -->

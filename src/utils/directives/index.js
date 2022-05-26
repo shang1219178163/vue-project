@@ -1,22 +1,22 @@
 
-import lazyLoad from './lazyLoad'
-import backtop from './backtop'
-import color from './color'
-import copy from './copy'
-import drag from './drag'
-import draggable from './draggable'
-import ellipsis from './ellipsis'
-import emoji from './emoji'
-import expandClick from './expandClick'
-import fmt from './fmt'
-import focus from './focus'
-import itemSelect from './itemSelect'
-import longpress from './longpress'
-import permission from './permission'
-import pin from './pin'
-import randomColor from './randomColor'
-import tabSelect from './tabSelect'
-import waterMarker from './waterMarker'
+import lazyLoad from './lazyLoad';
+import backtop from './backtop';
+import color from './color';
+import copy from './copy';
+import drag from './drag';
+import draggable from './draggable';
+import ellipsis from './ellipsis';
+import emoji from './emoji';
+import expandClick from './expandClick';
+import field from './field';
+import focus from './focus';
+import itemSelect from './itemSelect';
+import longpress from './longpress';
+import permission from './permission';
+import pin from './pin';
+import randomColor from './randomColor';
+import tabSelect from './tabSelect';
+import waterMarker from './waterMarker';
 
 //自定义指令
 const directives = {
@@ -29,7 +29,7 @@ const directives = {
   ellipsis,
   emoji,
   expandClick,
-  fmt,
+  field,
   focus,
   itemSelect,
   longpress,
@@ -38,13 +38,13 @@ const directives = {
   randomColor,
   tabSelect,
   waterMarker
-}
+};
 
 export default {
   install(app) {
     Object.keys(directives).forEach((key) => {
         // console.log(key, directives[key]);
-        app.directive(key, directives[key])
-    })
+        app.directive(key, directives[key]);
+    });
   },
-}
+};

@@ -1,9 +1,9 @@
 const pin = (el, binding) => {
-    el.style.position = 'fixed'
-    // binding.arg 是我们传递给指令的参数
-    const s = binding.arg || 'top'
-    el.style[s] = binding.value + 'px'
-}
+  el.style.position = 'fixed';
+  // binding.arg 是我们传递给指令的参数
+  const s = binding.arg || 'top';
+  el.style[s] = binding.value + 'px';
+};
 
 // app.directive('pin', {
 //     mounted(el, binding) {
@@ -17,7 +17,7 @@ const pin = (el, binding) => {
 //     }
 //   })
 
-export default pin
+export default pin;
 
 
 

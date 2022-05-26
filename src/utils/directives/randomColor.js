@@ -5,6 +5,6 @@ const randomcolor = (el, binding) => {
     const randomColor = `rgb(${r},${g},${b})`;
     // const randomColor = '#'+Math.floor(Math.random()*(2<<23)).toString(16); 
     el.style.backgroundColor = randomColor;
-}
+};
   
-export default randomcolor
+export default randomcolor;
