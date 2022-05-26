@@ -18,7 +18,7 @@
         label="用户名"
         placeholder="用户名"
         :rules="[{ required: true, message: '请填写用户名' }]"
-        v-fmt="/[^\u4E00-\u9FA5]/g"
+        v-field="/[^\u4E00-\u9FA5]/g"
       />
       <van-field
         v-model="password"
