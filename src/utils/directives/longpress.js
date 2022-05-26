@@ -1,5 +1,5 @@
 const longpress = {
-  bind: function (el, binding, vNode) {
+  mounted: function (el, binding, vNode) {
     if (typeof binding.value !== 'function') {
       throw 'callback must be a function';
     }
@@ -37,11 +37,11 @@ const longpress = {
     el.addEventListener('touchcancel', cancel);
   },
   // 当传进来的值更新的时候触发
-  componentUpdated(el, { value }) {
+  updated(el, { value }) {
     el.$value = value;
   },
   // 指令与元素解绑的时候，移除事件绑定
-  unbind(el) {
+  unmounted(el) {
     el.removeEventListener('click', el.handler);
   },
 };

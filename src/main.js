@@ -10,7 +10,7 @@ import 'vant/lib/index.css';
 import store from '@/store'; // short for @/store/index
 
 import * as utils from './utils/common';
-import Directives from './utils/directives';
+import directives from './utils/directives';
 
 import iosAlertSheet from './components/iosAlertSheet';
 import * as LOG from '@/utils/log';
@@ -78,7 +78,7 @@ app.use(router)
 .use(plugins)
 .use(Vant)
 .use(iosAlertSheet)
-.use(Directives)
+.use(directives)
 .use(VToast)
 .use(VSheetPhone)
 
