@@ -1,5 +1,5 @@
 
-import lazyLoad from './lazyLoad';
+import LazyLoad from './LazyLoad';
 import backtop from './backtop';
 import color from './color';
 import copy from './copy';
@@ -20,7 +20,7 @@ import waterMarker from './waterMarker';
 
 //自定义指令
 const directives = {
-  lazyLoad,
+  LazyLoad,
   backtop,
   color,
   copy,
