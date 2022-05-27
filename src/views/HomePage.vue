@@ -161,6 +161,12 @@ const where = () =>{
   return res&&res[1]
 }
 
+const fn1 = (size = "16px") => {
+  console.log("parseFloat(size)", parseFloat(size) );
+}
+
+fn1()
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
