@@ -1,5 +1,5 @@
 
-import lazyLoad from './LazyLoad';
+import lazyLoad from './lazyLoad';
 import backtop from './backtop';
 import color from './color';
 import copy from './copy';

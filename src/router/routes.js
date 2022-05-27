@@ -611,5 +611,10 @@ export const routers = [
     component: _import_("VantFromDemo"),
     desc: "表单",
   },
-  
+  {
+    path: "/CSSChangeImgColor",
+    name: "CSSChangeImgColor",
+    component: _import_("CSSChangeImgColor"),
+    desc: "CSS 图片颜色渲染",
+  },
 ];
