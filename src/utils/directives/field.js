@@ -1,7 +1,6 @@
 const findEle = (el, tag) => {
-  // const target = el instanceof HTMLInputElement ? el : el.querySelector(tag);
-  const target = el.tagName.toLowerCase() === tag ? el : el.querySelector(tag);
-  // console.log("target", target);
+  const target = el instanceof HTMLInputElement ? el : el.querySelector(tag);
+  // const target = el.tagName.toLowerCase() === tag ? el : el.querySelector(tag);
   return target;
 };
 
@@ -9,6 +8,7 @@ const trigger = (e, binding) => {
   // console.log("trigger", e.target.value);
   // console.log("binding", binding);
 
+  // Regex check
   if (binding.value.test(e.target.value)) {
     e.target.value = e.target.value.replace(binding.value, "");
     e.target.dispatchEvent(new Event("input"));//调用input事件使vue v-model绑定更新,下面相同
@@ -18,11 +18,11 @@ const trigger = (e, binding) => {
 export default {
   // 当被绑定的元素挂载到 DOM 中时……
   mounted(el, binding, vnode) {
-    // console.log("el", el, el.tagName, typeof el.tagName);
+    const target = findEle(el, "input");
     if (!binding.value) {
       return;
     }
-    const target = findEle(el, "input");
+
     // target.addEventListener("keydown", e => {
     //   trigger(e, binding);
     // });
@@ -34,6 +34,9 @@ export default {
     });
   },
   unmounted (el, binding) {
+    if (!binding.value) {
+      return;
+    }
     const target = findEle(el, "input");
     // target.removeEventListener('keydown');
     target.removeEventListener('keyup');

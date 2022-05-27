@@ -13,6 +13,17 @@
     letter-spacing: 0;
 }
 
+@mixin font($size: 16px){
+  @if (parseFloat($size) < 12) {
+    font-size: 16px;
+    -webkit-transform-origin-x: 0;
+    -webkit-transform: scale(parseFloat($size)/16);
+  } 
+  @else {
+    font-size: $size;
+  }
+}
+
 // 单行文本溢出掩藏
 @mixin text-ellipsis {
     text-overflow: ellipsis;
