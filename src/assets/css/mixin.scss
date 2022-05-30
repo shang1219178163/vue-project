@@ -43,12 +43,25 @@
 }
 
 // 实现三角形的效果(向上)
-@mixin triangle($color: red) {      
-    width: 0;      
-    height: 0;      
-    border-right: 20px solid transparent;      
-    border-left: 20px solid transparent;      
-    border-bottom: 20px solid $color;  
+// @mixin triangle($color: red) {      
+//     width: 0;      
+//     height: 0;      
+//     border-right: 20px solid transparent;      
+//     border-left: 20px solid transparent;      
+//     border-bottom: 20px solid $color;  
+// }
+
+@mixin triangle($size: 10px, $color: #ff7f0b, $deg: 0deg) {
+  width: 0;
+  height: 0;
+  border-bottom: $size solid $color;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+
+  font-size: 0;
+  line-height: 0;
+
+  transform: rotate($deg);
 }
 
 // flex垂直居中
