@@ -42,14 +42,14 @@ Array.prototype.removeFalsy = function () {
 }
 
 // 根据属性对象数组排序
-Array.prototype.sortKey = function (key) {
+Array.prototype.sortKey = function (key, cb = (value) => { return value }) {
   if (!key) {
     return this.sort();
   }
 
   const compare = function (obj1, obj2) {
-    const a = obj1[key];
-    const b = obj2[key];
+    const a = cb(obj1[key]);
+    const b = cb(obj2[key]);
     if (a < b) {
       return -1;
     } else if (a > b) {
