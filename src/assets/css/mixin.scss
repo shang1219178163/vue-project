@@ -246,7 +246,7 @@
   transform: translateX(-25%) rotate(45deg);
 }
 
-@mixin arrowDown($size: 12px, $color: #ff7f0b) {
+@mixin arrowBottom($size: 12px, $color: #ff7f0b) {
   /* Transparent background */
   background-color: transparent;
 

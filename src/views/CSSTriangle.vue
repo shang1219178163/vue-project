@@ -59,7 +59,7 @@
 }
 
 .button__arrow--bottom {
-  @include arrowDown;
+  @include arrowBottom;
 }
 
 .button__arrow--left {
