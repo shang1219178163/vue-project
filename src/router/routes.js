@@ -617,4 +617,16 @@ export const routers = [
     component: _import_("CSSChangeImgColor"),
     desc: "CSS 图片颜色渲染",
   },
+  {
+    path: "/CSSTriangle",
+    name: "CSSTriangle",
+    component: _import_("CSSTriangle"),
+    desc: "三角形",
+  },
+  {
+    path: "/VFoldDemo",
+    name: "VFoldDemo",
+    component: _import_("VFoldDemo"),
+    desc: "折叠",
+  },
 ];

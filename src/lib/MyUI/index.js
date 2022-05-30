@@ -9,7 +9,7 @@ import VPage from './VPage.vue';
 import VUpload from './VUpload.vue';
 import VUploadPlaceholder from './VUploadPlaceholder.vue';
 import VWarp from './VWarp.vue';
-
+import VFold from './VFold.vue';
 
 import vbutton from './VButton.vue';
 import vbuttonIcon from './VButtonIcon.vue';
@@ -33,6 +33,7 @@ export default {
         VUpload,
         VUploadPlaceholder,
         VWarp,
+        VFold,
 
         vbutton,
         vcard,
