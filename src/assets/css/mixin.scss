@@ -42,28 +42,6 @@
     -webkit-line-clamp: $clamp;    
 }
 
-// 实现三角形的效果(向上)
-// @mixin triangle($color: red) {      
-//     width: 0;      
-//     height: 0;      
-//     border-right: 20px solid transparent;      
-//     border-left: 20px solid transparent;      
-//     border-bottom: 20px solid $color;  
-// }
-
-@mixin triangle($size: 10px, $color: #ff7f0b, $deg: 0deg) {
-  width: 0;
-  height: 0;
-  border-bottom: $size solid $color;
-  border-left: $size solid transparent;
-  border-right: $size solid transparent;
-
-  font-size: 0;
-  line-height: 0;
-
-  transform: rotate($deg);
-}
-
 // flex垂直居中
 @mixin flex-center {
     display: flex;
@@ -223,4 +201,75 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+// 实现三角形的效果(默认向上)
+@mixin triangle($size: 10px, $color: #ff7f0b, $deg: 0deg) {
+  width: 0;
+  height: 0;
+  border-bottom: $size solid $color;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+
+  font-size: 0;
+  line-height: 0;
+
+  transform: rotate($deg);
+}
+
+
+@mixin arrowTop($size: 12px, $color: #ff7f0b) {
+  /* Transparent background */
+  background-color: transparent;
+
+  /* Size */
+  width: $size;
+  height: $size;
+
+  /* Edges */
+  border-left: 1px solid $color;
+  border-top: 1px solid $color;
+  transform: translateY(25%) rotate(45deg);
+}
+
+@mixin arrowRight($size: 12px, $color: #ff7f0b) {
+  /* Transparent background */
+  background-color: transparent;
+
+  /* Size */
+  width: $size;
+  height: $size;
+
+  /* Edges */
+  border-right: 1px solid $color;
+  border-top: 1px solid $color;
+  transform: translateX(-25%) rotate(45deg);
+}
+
+@mixin arrowDown($size: 12px, $color: #ff7f0b) {
+  /* Transparent background */
+  background-color: transparent;
+
+  /* Size */
+  width: $size;
+  height: $size;
+
+  /* Edges */
+  border-bottom: 1px solid $color;
+  border-right: 1px solid $color;
+  transform: translateY(-25%) rotate(45deg);
+}
+
+@mixin arrowLeft($size: 12px, $color: #ff7f0b) {
+  /* Transparent background */
+  background-color: transparent;
+
+  /* Size */
+  width: $size;
+  height: $size;
+
+  /* Edges */
+  border-bottom: 1px solid $color;
+  border-left: 1px solid $color;
+  transform: translateX(25%) rotate(45deg);
 }
