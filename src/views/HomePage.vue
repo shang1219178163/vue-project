@@ -90,7 +90,9 @@ import "@/utils/extensions";
 
 
 const routerList = computed(() => {
-  return routers.sortKey("name");
+  return routers.sortKey("name", (value) => { 
+    return `${value}`.toLowerCase();
+  });
 });
 
 const onClickLeft = () => history.back();
