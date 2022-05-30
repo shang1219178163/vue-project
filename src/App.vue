@@ -98,15 +98,23 @@ body {
 
 .van-toast {
   --van-toast-max-width: 70%;
-  --van-toast-font-size: 0.28rem;
-  --van-toast-line-height: 0.28rem;
   --van-toast-text-padding: 0.24rem 0.4rem;
   --van-toast-font-size: 0.34rem;
   --van-toast-line-height: 0.44rem;
 }
 
+.van-dialog {
+  --van-dialog-header-font-weight: 400;
+  --van-dialog-has-title-message-text-color: #666666;	
+  --van-dialog-confirm-button-text-color: var(--theme-color);
+}
+
+.van-dialog__header {
+  color: #333333;
+}
+
 .van-tabs{
-  --van-tab-font-size: 17px;
+  --van-tab-font-size: 0.34rem;
   --van-tab-active-text-color:#333333;
   --van-tab-text-color: #999999;	
   font-family: PingFangSC-Medium;
