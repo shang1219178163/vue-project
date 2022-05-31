@@ -9,6 +9,7 @@ import VPage from './VPage.vue';
 import VStack from './VStack.vue';
 import VStackImg from './VStackImg.vue';
 import VStackText from './VStackText.vue';
+import VSteperNumber from './VSteperNumber.vue';
 import VUpload from './VUpload.vue';
 import VUploadPlaceholder from './VUploadPlaceholder.vue';
 import VWarp from './VWarp.vue';
@@ -26,6 +27,7 @@ export default {
       VStack,
       VStackImg,
       VStackText,
+      VSteperNumber,
       VUpload,
       VUploadPlaceholder,
       VWarp,

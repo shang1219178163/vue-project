@@ -677,4 +677,17 @@ export const routers = [
     component: _import_("StickyDemo"),
     desc: "StickyDemo",
   },
+  {
+    path: "/StampBorderDemo",
+    name: "StampBorderDemo",
+    component: _import_("StampBorderDemo"),
+    desc: "StampBorderDemo",
+  },
+  {
+    path: "/SteperNumberDemo",
+    name: "SteperNumberDemo",
+    component: _import_("SteperNumberDemo"),
+    desc: "加减steper",
+  },
+
 ];
