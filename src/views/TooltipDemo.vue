@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <!-- The tooltip content -->
-    <div class="container__content">提示信息</div>
+    <div class="container__content">提示信息提示信息</div>
 
     <!-- The tooltip arrow -->
     <div class="container__arrow" />
 
     <!-- The trigger element -->
-    ...
+    button
   </div>
 </template>
 
@@ -21,8 +21,9 @@ import { getCurrentInstance, ref, reactive, watch, onMounted } from "vue";
   /* Used to position the arrow */
   position: relative;
 
-margin: 50px;
-  border: 1px solid blue;
+  margin: 50px;
+  background: rgba($color: #000000, $alpha: 0.1);
+  // border: 1px solid blue;
 }
 
 /* Show the arrow and content and restore pointer events when hovering the trigger element */

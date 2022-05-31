@@ -117,6 +117,7 @@
 
   /* Border */
   border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 
   width: 200px;
   height: 200px;

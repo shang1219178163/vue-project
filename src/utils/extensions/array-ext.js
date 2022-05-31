@@ -42,7 +42,7 @@ Array.prototype.removeFalsy = function () {
 }
 
 // 根据属性对象数组排序
-Array.prototype.sortKey = function (key, cb = (value) => { return value }) {
+Array.prototype.sortKey = function (key, cb = (v) => { return v }) {
   if (!key) {
     return this.sort();
   }

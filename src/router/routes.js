@@ -629,4 +629,34 @@ export const routers = [
     component: _import_("VFoldDemo"),
     desc: "折叠",
   },
+  {
+    path: "/TimelineDemo",
+    name: "TimelineDemo",
+    component: _import_("TimelineDemo"),
+    desc: "时间线",
+  },
+  {
+    path: "/TooltipDemo",
+    name: "TooltipDemo",
+    component: _import_("TooltipDemo"),
+    desc: "Tooltip",
+  },
+  {
+    path: "/SectionDemo",
+    name: "SectionDemo",
+    component: _import_("SectionDemo"),
+    desc: "SectionDemo",
+  },
+  {
+    path: "/TreeDiagramDemo",
+    name: "TreeDiagramDemo",
+    component: _import_("TreeDiagramDemo"),
+    desc: "TreeDiagramDemo",
+  },
+  {
+    path: "/WizardDemo",
+    name: "WizardDemo",
+    component: _import_("WizardDemo"),
+    desc: "WizardDemo",
+  },
 ];
