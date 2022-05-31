@@ -24,7 +24,7 @@
     <!-- <router-link class="page-item" :to="item.path" > {{ item.name }} </router-link> -->
 
     <div class="page" v-if="0">
-        <vcard
+        <VCard
         v-for="item in RouterMap" :key="item.path"
         :margin="'8px 0 8px'" 
         :padding="'8px 8px 8px'" 
@@ -35,7 +35,7 @@
         @click="gotoPage(item.path)"
         >
           <!-- <div class="name">{{ item.name }}</div> -->
-        </vcard>
+        </VCard>
     </div>
     <div
     class="theme-div"    
@@ -43,8 +43,8 @@
     >
       --theme-color
     </div>
-    <vwarp>
-      <vcard 
+    <VWarp>
+      <VCard 
         v-for="item in routerList" :key="item.path"
         :margin="'4px 0 4px'" 
         :padding="'8px'" 
@@ -54,8 +54,8 @@
         :footerTitle="item.desc"
         @click="gotoPage(item.path)"
         >
-      </vcard>
-    </vwarp>
+      </VCard>
+    </VWarp>
 
     <van-action-sheet
       v-model:show="show"
@@ -76,7 +76,7 @@
 
 <script setup>
 import Counter from "@/components/Counter.vue";
-// import vcard from '@/components/VCard.vue';
+// import VCard from '@/components/VCard.vue';
 // import vwarp from "@/components/VWarp.vue";
 // import UserCell from '@/components/UserCell.vue'
 

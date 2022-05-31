@@ -9,7 +9,7 @@
             v-if="props.isShowNavBar"
             />
             <!-- <van-pull-refresh v-model="loading" @refresh="onRefresh"> -->
-            <vcard 
+            <VCard 
                 :margin="'12px'" 
                 :padding="'19px 8px 19px'" 
                 :borderRadius="'8px'"
@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                 </div>
-            </vcard>
+            </VCard>
         <!-- </van-pull-refresh>  -->
     </div>
     <!-- </suspense> -->
@@ -55,7 +55,7 @@
 import { ref, getCurrentInstance } from 'vue';
 import { Toast } from 'vant';
 // import { Promise } from 'es6-promise';
-// import vcard from '@/components/VCard.vue';
+// import VCard from '@/components/VCard.vue';
 
 const props = defineProps({
     isShowNavBar: {

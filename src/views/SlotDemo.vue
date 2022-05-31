@@ -16,7 +16,7 @@
       </li>
     </ol>
 
-    <vcard
+    <VCard
       :margin="'12px'" 
       :padding="'19px 8px 19px'" 
       :borderRadius="'8px'"
@@ -32,7 +32,7 @@
       <template #footer>
           <p>Here's some contact info</p>
       </template>
-  </vcard>
+  </VCard>
   </div>
 
 </template>
@@ -40,7 +40,7 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import todoList from "@/components/TodoList.vue";
-// import vcard from '@/components/VCard.vue';
+// import VCard from '@/components/VCard.vue';
 
 const tap = (val) => {
   // alert(val.name)

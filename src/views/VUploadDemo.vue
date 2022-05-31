@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>VUploadPlaceholder</h1>
-        <vupload
+        <VUpload
         title="设计"
         @change="onChange"
         >
@@ -15,7 +15,7 @@
                     <button>button1</button>
                 </div>
             </template> -->
-        </vupload>
+        </VUpload>
         <VUploadPlaceholder
         :src="require('@/assets/images/icon_camera.png')"
         title="（最多6张）"

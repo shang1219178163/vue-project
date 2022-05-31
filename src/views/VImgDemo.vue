@@ -2,7 +2,7 @@
     <van-nav-bar title="导航标题" left-arrow @click-left="onClickLeft"/>
     <div class="container">
         <!-- <h1>vimg</h1> -->
-        <vimg
+        <VImg
         text="我标签" 
         align="bottomCenter"
         :src="require('@/assets/images/img_net_error.png')"
@@ -10,7 +10,7 @@
         :height="200"
         @clickTag="clickTag"
         >
-        </vimg>
+        </VImg>
     </div>
 </template>
 

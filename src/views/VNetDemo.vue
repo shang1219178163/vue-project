@@ -3,11 +3,11 @@
         <div class="top">
         顶部视图
         </div>
-        <vnet class="vnet"
+        <VNet class="vnet"
         :status="netStatus"
         @click="onNet"
         >
-        </vnet>
+        </VNet>
     </div>
 </template>
 

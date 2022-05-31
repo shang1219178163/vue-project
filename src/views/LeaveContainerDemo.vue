@@ -3,14 +3,14 @@
         <div class="top">
         顶部视图
         </div>
-        <vnet class="vnet"
+        <VNet class="vnet"
         :status="netStatus"
         @click="clickPlaceHolder"
         >
-        </vnet>
+        </VNet>
     </div> -->
 
-    <vleave>
+    <VLeave>
         <template #header>
             <van-nav-bar class="van-nav-bar" title="标题" left-arrow  @click-left="onClickLeft"/>
         </template>
@@ -23,7 +23,7 @@
         <template #footer>
             <div>footer</div>
         </template>
-    </vleave>
+    </VLeave>
 </template>
 
 <script setup>

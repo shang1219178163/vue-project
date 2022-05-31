@@ -1,6 +1,6 @@
 <template>
   <div class='container'>
-    <vcard
+    <VCard
       :margin="'12px'" 
       :padding="'19px 8px 19px'" 
       :borderRadius="'8px'"
@@ -16,14 +16,14 @@
       <template #footer>
           <p>VCard slot footer: template #footer</p>
       </template>
-  </vcard>
+  </VCard>
   </div>
 
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue';
-// import vcard from '@/components/VCard.vue';
+// import VCard from '@/components/VCard.vue';
 
 const tap = (val) => {
   // alert(val.name)
