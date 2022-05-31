@@ -283,7 +283,7 @@ export const routers = [
     desc: "transition 动画研究",
   },
   {
-    path: "/vCardDemo",
+    path: "/VCardDemo",
     name: "VCardDemo",
     component: _import_("VCardDemo"),
     desc: "自定义卡片组件",
@@ -658,5 +658,23 @@ export const routers = [
     name: "WizardDemo",
     component: _import_("WizardDemo"),
     desc: "WizardDemo",
+  },
+  {
+    path: "/DotIndicatorDemo",
+    name: "DotIndicatorDemo",
+    component: _import_("DotIndicatorDemo"),
+    desc: "PageIndicator",
+  },
+  {
+    path: "/DropdownDemo",
+    name: "DropdownDemo",
+    component: _import_("DropdownDemo"),
+    desc: "DropdownDemo",
+  },
+  {
+    path: "/StickyDemo",
+    name: "StickyDemo",
+    component: _import_("StickyDemo"),
+    desc: "StickyDemo",
   },
 ];
