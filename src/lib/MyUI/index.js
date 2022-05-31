@@ -6,6 +6,9 @@ import VImg from './VImg.vue';
 import VLeave from './VLeave.vue';
 import VNet from './VNet.vue';
 import VPage from './VPage.vue';
+import VStack from './VStack.vue';
+import VStackImg from './VStackImg.vue';
+import VStackText from './VStackText.vue';
 import VUpload from './VUpload.vue';
 import VUploadPlaceholder from './VUploadPlaceholder.vue';
 import VWarp from './VWarp.vue';
@@ -20,6 +23,9 @@ export default {
       VLeave,
       VNet,
       VPage,
+      VStack,
+      VStackImg,
+      VStackText,
       VUpload,
       VUploadPlaceholder,
       VWarp,

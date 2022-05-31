@@ -65,7 +65,6 @@
 <script setup>
 import navbar from '@/components/navbar.vue'
 import OrderVersionCell from '@/components/OrderVersionCell.vue'
-import VButtonIcon from '@/components/VButtonIcon.vue'
 
 
 import { getCurrentInstance, ref, reactive, onMounted, onActivated, } from 'vue';

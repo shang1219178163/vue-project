@@ -46,9 +46,9 @@
 <script setup>
 import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant;
-import VStack from '@/components/VStack.vue';
-import VStackText from '@/components/VStackText.vue';
-import VStackImg from '@/components/VStackImg.vue';
+// import VStack from '@/components/VStack.vue';
+// import VStackText from '@/components/VStackText.vue';
+// import VStackImg from '@/components/VStackImg.vue';
 
 
 onMounted(() => {
