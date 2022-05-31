@@ -35,29 +35,6 @@
 <script setup>
 import {getCurrentInstance, ref, reactive, onMounted, watch} from 'vue';
 // import { Toast } from 'vant;
-import { useRouter, useRoute } from 'vue-router';
-
-// import VUploadPlaceholder from '@/components/VUploadPlaceholder.vue';
-// import VUpload from "@/components/VUpload.vue";
-
-const router = useRouter();
-const route = useRoute()
-
-onMounted(() => {
-    onRefresh();
-});
-
-watch(() => route.params, (params, previousParams) => {
-    if (Object.keys(params).length === 0 ) {
-        return;
-    }
-    handleRouteParams()
-})
-
-const handleRouteParams = () => {
-
-};
-
 
 const onRefresh = async () => {
 
