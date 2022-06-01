@@ -6,6 +6,7 @@ import VImg from './VImg.vue';
 import VLeave from './VLeave.vue';
 import VNet from './VNet.vue';
 import VPage from './VPage.vue';
+import VProgressBar from './VProgressBar.vue';
 import VStack from './VStack.vue';
 import VStackImg from './VStackImg.vue';
 import VStackText from './VStackText.vue';
@@ -24,6 +25,7 @@ export default {
       VLeave,
       VNet,
       VPage,
+      VProgressBar,
       VStack,
       VStackImg,
       VStackText,

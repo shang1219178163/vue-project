@@ -689,5 +689,11 @@ export const routers = [
     component: _import_("SteperNumberDemo"),
     desc: "加减steper",
   },
+  {
+    path: "/ProgressBarDemo",
+    name: "ProgressBarDemo",
+    component: _import_("ProgressBarDemo"),
+    desc: "进度条",
+  },
 
 ];
