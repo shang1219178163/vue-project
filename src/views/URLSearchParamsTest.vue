@@ -16,8 +16,6 @@
 import { ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant';
 // let url=require("url")
-import "@/utils/extensions";
-
 
 const urlString =ref(`https://sybird-oss.haier.net/resource/decorationMoney/index.html
 ?token=d04eedfeb76d4e9bb1021eff8149c196&phone=18792710637&#/installment`)
@@ -34,7 +32,11 @@ const parseURLString = async () => {
   // const URL = new url.parse(urlString, true);
   let url = new URL(urlString.value);
   console.log("host:", url);
-  console.log("url.params:", url.params());
+  // console.log("url.searchParams:", url.searchParams.toString());
+  for (let item of url.searchParams) {
+    console.log("item:", item[0], item[1]);
+    list.push(item);
+  }
 
 `  host: URL {
 hash: "#/installment"
@@ -52,13 +54,12 @@ username: ""
 `
   // const params = {};
 
-  const searchParams = new URLSearchParams(url.search);
-  console.log("searchParams:", searchParams);
-  for (let p of searchParams) {
-    console.log(p[0], p[1]);
-    list.push(p)
-    // params[p[0]] = p[1];
-  }
+  // const searchParams = new URLSearchParams(url.search);
+  // console.log("searchParams:", searchParams);
+  // for (let p of searchParams) {
+  //   // console.log(p[0], p[1]);
+  //   list.push(p)
+  // }
   // console.log("params:", params);
   // console.log(typeof url, url);
 
