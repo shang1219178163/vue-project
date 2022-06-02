@@ -695,5 +695,11 @@ export const routers = [
     component: _import_("ProgressBarDemo"),
     desc: "进度条",
   },
+  {
+    path: "/URLSearchParamsTest",
+    name: "URLSearchParamsTest",
+    component: _import_("URLSearchParamsTest"),
+    desc: "URL测试",
+  },
 
 ];

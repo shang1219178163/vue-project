@@ -4,3 +4,4 @@ import './bool-ext.js';
 import './date-ext.js';
 import './number-ext.js';
 import './string-ext.js';
+import './url-ext.js';
