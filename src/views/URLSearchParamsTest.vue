@@ -15,12 +15,10 @@
 <script setup>
 import { ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant';
-// let url=require("url")
 
 const urlString =ref(`https://sybird-oss.haier.net/resource/decorationMoney/index.html
 ?token=d04eedfeb76d4e9bb1021eff8149c196&phone=18792710637&#/installment`)
 ;
-
 
 let list = reactive([]);
 let items = reactive([]);
