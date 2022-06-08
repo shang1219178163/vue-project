@@ -4,7 +4,7 @@
       v-for="(item, i) in count" :key="i"
     >
       <div class="box__step__cell" >
-        <slot name="left">
+        <slot name="left" :index="i" >
           <div class="box__step__cell--left">left</div>
         </slot>
 
@@ -25,7 +25,7 @@
           <div :class="['box__connector--tailing', i < indexRef ? 'active' : '']"></div>
         </div>
         
-        <slot name="right">
+        <slot name="right" :index="i" >
           <div class="box__step__cell--right">
             <div v-for="(item, index) in i" :key="index">right{{index}}</div>
           </div>
@@ -74,7 +74,7 @@ const props = defineProps({
   },
   dotMargin: {
     type: String,
-    default: '5px 0',
+    default: '0px 0',
   },
   dotPadding: {
     type: String,
@@ -190,7 +190,7 @@ $direction: column;
     margin-left: calc($dotSize/2);
 
     background-color: $stepActiveColor;
-    height: calc((100% - $dotSize)/2);
+    // height: calc((100% - $dotSize)/2);
   }
   // height: 100px;
 }
