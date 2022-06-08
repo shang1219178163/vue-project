@@ -1,10 +1,10 @@
 <template>
-  <VSteperNumber
+  <VSteperCount
     height="30px"
     :color="'orange'"
     @min="onMin"
   >
-  </VSteperNumber>
+  </VSteperCount>
 </template>
 
 <script setup>

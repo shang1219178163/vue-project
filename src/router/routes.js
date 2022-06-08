@@ -654,10 +654,10 @@ export const routers = [
     desc: "TreeDiagramDemo",
   },
   {
-    path: "/WizardDemo",
-    name: "WizardDemo",
-    component: _import_("WizardDemo"),
-    desc: "WizardDemo",
+    path: "/VSteperDemo",
+    name: "VSteperDemo",
+    component: _import_("VSteperDemo"),
+    desc: "VSteperDemo",
   },
   {
     path: "/DotIndicatorDemo",
@@ -684,9 +684,9 @@ export const routers = [
     desc: "StampBorderDemo",
   },
   {
-    path: "/SteperNumberDemo",
-    name: "SteperNumberDemo",
-    component: _import_("SteperNumberDemo"),
+    path: "/SteperCountDemo",
+    name: "SteperCountDemo",
+    component: _import_("SteperCountDemo"),
     desc: "加减steper",
   },
   {
