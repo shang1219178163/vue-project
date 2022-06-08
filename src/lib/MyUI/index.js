@@ -11,6 +11,7 @@ import VStack from './VStack.vue';
 import VStackImg from './VStackImg.vue';
 import VStackText from './VStackText.vue';
 import VSteper from './VSteper.vue';
+import VSteperVertical from './VSteperVertical.vue';
 import VSteperCount from './VSteperCount.vue';
 
 import VUpload from './VUpload.vue';
@@ -32,6 +33,7 @@ export default {
       VStackImg,
       VStackText,
       VSteper,
+      VSteperVertical,
       VSteperCount,
       VUpload,
       VUploadPlaceholder,

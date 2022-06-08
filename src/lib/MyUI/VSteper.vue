@@ -2,7 +2,7 @@
   <div class="box">
     <!-- Step -->
     <div class="box__step" 
-      v-for="(item, i) in 3" :key="i"
+      v-for="(item, i) in count" :key="i"
     >
       <div class='box__connector'>
         <!-- The start connector -->
@@ -48,6 +48,10 @@ import { getCurrentInstance, ref, reactive, watch, onMounted } from "vue";
 
 
 const props = defineProps({
+  count: {
+    type: Number,
+    default: 3
+  },
   index: {
     type: Number,
     default: 1
@@ -94,10 +98,10 @@ const props = defineProps({
   },
 });
 
+const emit = defineEmits(['clickDot',])
+
 const indexRef = ref(props.index);
 
-
-const onRefresh = async () => {};
 
 const clickDot = (v) => {
   if (!props.canChangeIdx) {
@@ -105,6 +109,7 @@ const clickDot = (v) => {
   }
   console.log(v);
   indexRef.value = v;
+  emit("clickDot", v);
 };
 </script>
 
