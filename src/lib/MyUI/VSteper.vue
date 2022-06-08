@@ -1,14 +1,11 @@
 <template>
   <div class="box">
-    <!-- Step -->
     <div class="box__step" 
       v-for="(item, i) in count" :key="i"
     >
       <div class='box__connector'>
-        <!-- The start connector -->
         <div :class="['box__connector--leading', i <= indexRef ? 'active' : '']"></div>
 
-        <!-- The step dot -->
         <!-- <slot name="dot">
           <div 
           :class="['box__connector--dot', i <= indexRef ? 'active' : '']"
@@ -28,11 +25,9 @@
           @click="clickDot(i)"
           >{{i}}</div>
         </slot>
-        <!-- The end connector -->
         <div :class="['box__connector--tailing', i < indexRef ? 'active' : '']"></div>
       </div>
 
-      <!-- Title of step -->
       <slot name="dotContent" :index="i" >
         <div class="box__step--content">content of step {{i}}</div>
       </slot>

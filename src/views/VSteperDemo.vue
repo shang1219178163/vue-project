@@ -23,6 +23,7 @@
   <h1>VSteperVertical</h1>
   <VSteperVertical
   :count="5"
+  padding="8px"
   >
     <template #left="slotProps">
       <div class="left">
