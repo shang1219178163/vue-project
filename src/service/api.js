@@ -71,8 +71,50 @@ async function request({ api = {}, id = '', outerParams, outerOptions}) {
   return axios(options);
 }
 
+
+async function axiosRequest({ api = {}, outerParams, outerOptions}) {
+
+  const { method, path, desc, domainProd, domainPre, domainDev, tokenProd, tokenDev, } = api;
+
+  let url = '';
+  if (domainProd && domainPre && domainDev) {
+    if (isProd) {
+      url = domainProd + path;
+    } else if(isPre) {
+      url = domainPre + path;
+    } else {
+      url = domainDev + path;
+    }
+  } else {
+    url = axios.baseURL + path;
+  }
+
+  // 合并头部信息
+  const headers = _assign({}, header, outerOptions);
+  if (tokenProd && tokenDev) {
+    const token = isProd ? tokenProd : tokenDev;
+    headers.Authorization = `Bearer ${token}`;
+  }
+
+  // 如果没传入参数 则传递默认参数
+  const data = _isEmpty(outerParams) ? params : Array.isArray(outerParams) 
+  ? outerParams : _assign({}, params, outerParams);
+
+  let options = { url, method, headers, api, desc,};
+  if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) {
+    options.data = data;
+    if (postParams) {
+      options.params = postParams;
+    }
+  } else if (options.method === 'GET') {
+    options.params = data;
+  }
+  return axios(options);
+}
+
+
 /// 上传文件
-function uploadFile({file, url, token, onProgress = (v) => {}, }) {
+async function uploadFile({file, url, token, onProgress = (v) => {}, }) {
   // let file = event.target.files[0];
   return new Promise((resolve, reject) => {
     let params = new FormData();

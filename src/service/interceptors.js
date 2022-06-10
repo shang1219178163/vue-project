@@ -9,6 +9,7 @@ import { NET_MSG_ERROR } from '@/service/request/apiMessage';
 
 
 let instance = axios.create({
+  baseURL: 'https://zjhx-test.haier.net',
   timeout: 30000
 });
 
