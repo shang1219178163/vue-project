@@ -72,9 +72,9 @@ async function request({ api = {}, id = '', outerParams, outerOptions}) {
 }
 
 
-async function axiosRequest({ api = {}, outerParams, outerOptions}) {
+async function axiosRequest({ api = {}, outerParams, outerHeaders}) {
 
-  const { method, path, desc, domainProd, domainPre, domainDev, tokenProd, tokenDev, } = api;
+  const { method, path, desc, domainProd, domainPre, domainDev, tokenProd, tokenDev, header, params, } = api;
 
   let url = '';
   if (domainProd && domainPre && domainDev) {
@@ -90,7 +90,7 @@ async function axiosRequest({ api = {}, outerParams, outerOptions}) {
   }
 
   // 合并头部信息
-  const headers = _assign({}, header, outerOptions);
+  const headers = _assign({}, header, outerHeaders);
   if (tokenProd && tokenDev) {
     const token = isProd ? tokenProd : tokenDev;
     headers.Authorization = `Bearer ${token}`;
