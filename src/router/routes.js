@@ -701,5 +701,23 @@ export const routers = [
     component: _import_("URLSearchParamsTest"),
     desc: "URL测试",
   },
+  {
+    path: "/ExpandTapArea",
+    name: "ExpandTapArea",
+    component: _import_("ExpandTapArea"),
+    desc: "扩大点击范围",
+  },
+  {
+    path: "/JSObjectFuncDemo",
+    name: "JSObjectFuncDemo",
+    component: _import_("JSObjectFuncDemo"),
+    desc: "对象相关方法",
+  },
+  {
+    path: "/VantDatePickerDemo",
+    name: "VantDatePickerDemo",
+    component: _import_("VantDatePickerDemo"),
+    desc: "时间选择器",
+  },
 
 ];
