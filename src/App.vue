@@ -32,6 +32,8 @@ export default {
 
 
 <style lang="scss">
+//以便与Flutter模型一致.
+* { box-sizing: border-box; }
 
 // // 天地失色,灰色滤镜
 // html {
@@ -82,18 +84,18 @@ html[theme="gray"] {
 }
 
 body {
-    -webkit-text-size-adjust: 100% !important;
-    text-size-adjust: 100% !important;
-    -moz-text-size-adjust: 100% !important;
-    font-size: 10px;
+  -webkit-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
+  font-size: 10px;
 
-    // 主题颜色
-    --theme-color:#0082e0;
-    --theme-color:#BE965A;
-    // 全局背景色
-    --bg-color:#F6F6F6;
-    //  color: var(--themeColor);
-    // document.body.style.setProperty('--themeColor', '#ff0000');
+  // 主题颜色
+  --theme-color:#0082e0;
+  --theme-color:#BE965A;
+  // 全局背景色
+  --bg-color:#F6F6F6;
+  //  color: var(--themeColor);
+  // document.body.style.setProperty('--themeColor', '#ff0000');
 }
 
 .van-toast {
