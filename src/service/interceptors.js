@@ -21,8 +21,7 @@ let instance = axios.create({
 function axiosRequestSucessFunc(config) {
   // console.log('config', config)
   // 合并传入的头部信息
-  config.headers = _assign(config.headers, config.headerParams);
-
+  // config.headers = _assign(config.headers, config.headerParams);
   return config;
 }
 

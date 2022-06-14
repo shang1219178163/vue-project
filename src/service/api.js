@@ -19,60 +19,8 @@ import axios from './interceptors';
 import _assign from 'lodash/assign';
 import _isEmpty from 'lodash/isEmpty';
 
-// restful api 请求方法封装
-async function request({ api = {}, id = '', outerParams, outerOptions}) {
-
-  const { method, path, mockPath, desc, domainProd, domainDev, tokenProd, tokenDev, code, isLog } = api;
-
-  let url = '';
-  if (isLocal) {
-    if (domainDev) {
-      url = `${domainDev}${path}`;
-    } else {
-      url = isMocked ? mockPath : path;
-    }
-  } else if (domainProd && domainDev) {
-    if (isProd) {
-      url = domainProd + path;
-    } else if(isPre) {
-      url = domainPre + path;
-    } else {
-      url = domainDev + path;
-    }
-  } else {
-    let hostUrl = apiSpecialConfig[specialUrl] + '';
-    url = hostUrl.includes('http') ? `${hostUrl}${path}` : isMocked ? `${mockBaseUrl}${path}` : `${prodBaseUrl}${path}`;
-  }
-
-  // 如果没传入参数 则传递默认参数
-  const data = _isEmpty(outerParams) ? params : Array.isArray(outerParams) 
-  ? outerParams : _assign({}, params, outerParams);
-
-  // 合并头部信息
-  const headerParams = _assign({}, header, outerOptions);
-  if (tokenProd && tokenDev) {
-    const token = isProd ? tokenProd : tokenDev;
-    headerParams.Authorization = `Bearer ${token}`;
-  }
-
-  if (id) {
-    url = `${url}/${id}`;
-  }
-
-  let options = { url, method, desc, headerParams, api };
-  if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) {
-    options.data = data;
-    if (postParams) {
-      options.params = postParams;
-    }
-  } else if (options.method === 'GET') {
-    options.params = data;
-  }
-  return axios(options);
-}
-
-
-async function axiosRequest({ api = {}, outerParams, outerHeaders}) {
+/// 网络请求封装
+async function axiosRequest({ api = {}, outerParams, outerHeaders, urlBlock = (v) => { v; }}) {
 
   const { method, path, desc, domainProd, domainPre, domainDev, tokenProd, tokenDev, header, params, } = api;
 
@@ -87,6 +35,10 @@ async function axiosRequest({ api = {}, outerParams, outerHeaders}) {
     }
   } else {
     url = axios.baseURL + path;
+  }
+
+  if (urlBlock) {
+    url = urlBlock(url);
   }
 
   // 合并头部信息
