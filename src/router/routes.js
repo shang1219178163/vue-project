@@ -719,5 +719,11 @@ export const routers = [
     component: _import_("VantDatePickerDemo"),
     desc: "时间选择器",
   },
+  {
+    path: "/PostionFixedPage",
+    name: "PostionFixedPage",
+    component: _import_("PostionFixedPage"),
+    desc: "兼容小程序",
+  },
 
 ];

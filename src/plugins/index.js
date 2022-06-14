@@ -1,9 +1,13 @@
 
+import platform from '@/utils/platform';
 
 import  * as LOG from '@/utils/log';
 
 export default {
   install(app) {
+    // 平台判断
+    app.config.globalProperties.$platform = platform;
+
     app.config.globalProperties.$log = LOG;
 
     app.config.errorHandler = (err, vm, info) => {

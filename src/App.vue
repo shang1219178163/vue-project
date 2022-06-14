@@ -117,6 +117,7 @@ body {
   --van-tab-font-size: 0.34rem;
   --van-tab-active-text-color:#333333;
   --van-tab-text-color: #999999;	
+  --van-tabs-bottom-bar-color: var(--theme-color);
   font-family: PingFangSC-Medium;
   font-weight: 500;
 
@@ -124,6 +125,16 @@ body {
   //   bottom: 19px !important;
   // }
 }
+
+.van-picker__confirm {
+  --van-picker-confirm-action-color: var(--theme-color);
+}
+
+// .van-picker__cancel {
+
+// }
+
+
 
 </style>
 

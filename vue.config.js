@@ -14,6 +14,11 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
+// console.log('__dirname：', __dirname)
+// console.log('__filename：', __filename)
+// console.log('process.cwd()：', process.cwd())
+// console.log('./：', path.resolve('./'))
+
 console.log('process.env.NODE_ENV =', process.env.NODE_ENV);
 // vue.config.js
 module.exports = {
@@ -44,7 +49,7 @@ module.exports = {
   devServer: {
     // host: 'localhost',
     port: 57103, // 端口号配置
-    proxy: {
+    proxy: {// 配置代理（只在本地开发有效，上线无效）
       '/appApi': {
         target: 'https://zjsj-test.haier.net/',//测试
         // target: 'https://zjsj.haier.net/', //生产
