@@ -52,7 +52,7 @@ async function axiosRequest({ api = {}, outerParams, outerHeaders, urlBlock = (v
   const data = _isEmpty(outerParams) ? params : Array.isArray(outerParams) 
   ? outerParams : _assign({}, params, outerParams);
 
-  let options = { url, method, headers, api, desc,};
+  let options = { url, method, headers, desc,};
   if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) {
     options.data = data;
     if (postParams) {
@@ -96,4 +96,10 @@ async function uploadFile({file, url, token, onProgress = (v) => {}, }) {
       reject(e);
     };
   });
+}
+
+
+export{
+  axiosRequest,
+  uploadFile,
 }
