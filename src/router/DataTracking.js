@@ -86,6 +86,11 @@ class DataTracking {
 
 	// 记录DT数据
 	recordDT(obj) {
+    if (obj.type !== 'click') {
+      console.log(">>>obj.page.current.name", obj.page.current.name);
+      return;
+    }
+
 		if (!obj.data) {
 			return;
 		}
@@ -107,3 +112,33 @@ class DataTracking {
 }
 
 export default install;
+
+
+// example:
+/* <template>
+	<div>
+    <div 
+      v-for="item in 9" 
+      :key="item" 
+      data-dt-name="div" 
+      :data-dt-value="item"
+      :data-dt-params="dtParams(item)"
+      @click="onClick(item)"
+    >点击我,进行埋点测试{{ item }}
+    </div> 
+  </div>
+</template>
+
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const dtParams = computed(() => (val) => {
+  let params = {
+    name: "div", 
+    value: val,
+  };
+  return JSON.stringify(params);
+});
+
+</script> */
