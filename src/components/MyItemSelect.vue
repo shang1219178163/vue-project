@@ -89,7 +89,8 @@ const maxblock = (val) => {
 <style scoped lang="scss">
     
 a{
-    font-size: 1rem;
+    font-size: 15px;
+
     margin: 8px;
     &.active{
         margin: 8px;

@@ -91,7 +91,7 @@ const changeItem = (idx) => {
 <style scoped lang="scss">
     
 a{
-    font-size: 1rem;
+    font-size: 15px;
     margin: 8px;
     &.active{
         text-decoration: none;
@@ -112,7 +112,7 @@ a{
 }
 
 .tab-item{
-    font-size: 1rem;
+    font-size: 15px;
     margin: 8px;
     color: gray;
     &.active{
