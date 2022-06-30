@@ -10,6 +10,7 @@ import emoji from './emoji';
 import expandClick from './expandClick';
 import field from './field';
 import focus from './focus';
+import has from './has';
 import itemSelect from './itemSelect';
 import longpress from './longpress';
 import permission from './permission';
@@ -31,6 +32,7 @@ const directives = {
   expandClick,
   field,
   focus,
+  has,
   itemSelect,
   longpress,
   permission,

@@ -16,16 +16,16 @@
         :initailIndex="initailIndex"
     >
     </my-tab> -->
-    <my-tab-select
+    <MyTabSelect
         :list="list"
         :initailIndex="initailIndex"
         >
-    </my-tab-select>
-    <my-item-select
+    </MyTabSelect>
+    <MyItemSelect
         :list="list"
         :initailIndex="initailIndex"
         >
-    </my-item-select>
+    </MyItemSelect>
 
     <div class="tab">
         <div class="tab-item" @click="tabValueChanged(0)">
@@ -69,6 +69,13 @@
             </div>
         </div>
     </div>
+
+
+    <button v-has="'create'" @click="createTest">create</button>
+    <button v-has="'delete'">delete</button>
+    <button v-has="'update'">update</button>
+    <button v-has="'read'">read</button>
+
 </template>
 
 
@@ -115,6 +122,18 @@ const tabValueChanged = (idx) => {
 const clickText = (val) => {
     console.log(val);
     tabIdx.value = val
+}
+
+
+const createTest = () => {
+  try {
+    localStorage.setItem('permsssion', JSON.stringify(['create', 'delete']));
+  } catch (error) {
+    console.log(error);
+  }
+
+  const tmp = localStorage.getItem('permsssion');
+  console.log('tmp', tmp);
 }
 </script>
 
