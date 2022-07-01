@@ -98,6 +98,19 @@ body {
   // document.body.style.setProperty('--themeColor', '#ff0000');
 }
 
+.van-button{
+  --van-button-primary-background-color: var(--theme-color);	
+  --van-button-primary-border-color: var(--theme-color);
+}
+
+.van-checkbox{
+  --van-checkbox-checked-icon-color: var(--theme-color);	
+}
+
+.van-overlay{
+  --van-overlay-background-color:	rgba(0, 0, 0, 0.5);	
+}
+
 .van-toast {
   --van-toast-max-width: 70%;
   --van-toast-text-padding: 0.24rem 0.4rem;
