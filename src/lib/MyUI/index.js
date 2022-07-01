@@ -19,6 +19,8 @@ import VUpload from './VUpload.vue';
 import VUploadPlaceholder from './VUploadPlaceholder.vue';
 import VWarp from './VWarp.vue';
 import VFold from './VFold.vue';
+import VSwipeToLeft from './VSwipeToLeft.vue';
+import VPopup from './VPopup.vue';
 
 export default {
     components: {
@@ -41,5 +43,7 @@ export default {
       VUploadPlaceholder,
       VWarp,
       VFold,
+      VSwipeToLeft,
+      VPopup
     }
 }
