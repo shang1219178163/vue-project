@@ -56,7 +56,9 @@ const list = ref([
 
     {name: "字符串是否包含中文", func: "onHasChinese", },
     {name: "字符串是否全是中文", func: "onAllChinese", },
+
     {name: "测试", func: "onTest", },
+    {name: "生成器", func: "onGenerator", },
 
 ])
 
@@ -166,6 +168,7 @@ const onAllChinese = () => {
     console.log(`>>>list2汉字: ${"list2汉字".isAllHanzi()}`);
 }
 
+
 const onTest = () => {
     // const date = new Date()
     // const endDate = new Date(date).offsetDay(4)
@@ -193,26 +196,20 @@ const onTest = () => {
   imServiceMsgObj.unreadNum += 2;
 
 }
-  let progressMsgObj = {
-    title: '进度消息',
-    badgeValue: '',
-    icon: require('@/assets/images/icon_schedule.png'),
-    index: 2,
-    unreadNum: 0,
+
+const onGenerator = () => {
+  function* generatorFn(initial){
+    console.log(initial);
+    console.log(yield);
+    console.log(yield);
   };
 
-  let imServiceMsgObj = reactive({
-    title: '收到新消息',
-    hasMsg: false, // 默认没有消息
-    time: '',
-    details: '收到新消息，快来查看吧！',
-    unreadNum: 0,
-  });
+  let generatorobject = generatorFn('foo');
+  generatorobject.next('bar');//foo
+  generatorobject.next('baz');//baz
+  generatorobject.next('qux');//qux
+}
 
-  const tabItems = reactive([
-    progressMsgObj,
-    imServiceMsgObj,
-  ]);
 </script>
 
 
