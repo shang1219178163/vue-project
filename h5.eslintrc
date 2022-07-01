@@ -167,7 +167,7 @@
         ],
         "max-len": [
             "error",
-            80,
+            120,
             2
         ],
         "max-statements-per-line": "error",

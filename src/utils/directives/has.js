@@ -12,7 +12,7 @@ export default {
     if (!hasPermssion) {
       el.style.display = 'none';
       setTimeout(() => {
-        el.parentNode.remooveChild(el);
+        el.parentNode.removeChild(el);
       }, 0);
     }
   }

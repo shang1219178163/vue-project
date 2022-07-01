@@ -71,10 +71,10 @@
     </div>
 
 
-    <button v-has="'create'" @click="createTest">create</button>
-    <button v-has="'delete'">delete</button>
-    <button v-has="'update'">update</button>
-    <button v-has="'read'">read</button>
+    <button v-has.xxx="'create'" @click="createTest">create</button>
+    <button v-has:[arg]="'delete'" @click="clickDelete">delete</button>
+    <!-- <button v-has="'update'">update</button>
+    <button v-has="'read'">read</button> -->
 
 </template>
 
@@ -135,6 +135,13 @@ const createTest = () => {
   const tmp = localStorage.getItem('permsssion');
   console.log('tmp', tmp);
 }
+
+const arg = ref("aaa")
+
+const clickDelete = (val) => {
+  arg.value += 'a'
+}
+
 </script>
 
 

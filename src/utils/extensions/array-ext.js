@@ -1,5 +1,8 @@
 
 // 数组生成
+// Array.prototype.generator = function (n, block = (i) => { i.toString() }) {
+//   return Array(n).fill().map((e, i)=> block(i));
+// }
 Array.prototype.generator = function (n, block = (i) => { i.toString() }) {
   return Array(n).fill().map((e, i)=> block(i));
 }
@@ -41,6 +44,12 @@ Array.prototype.removeFalsy = function () {
   return arr.filter(Boolean)
 }
 
+// 从数组中删除 [undefined, null]
+Array.prototype.removeNull = function () {
+  const arr = this
+  return arr.filter((e) => ![undefined, null].includes(e));
+}
+
 // 根据属性对象数组排序
 Array.prototype.sortKey = function (key, cb = (v) => { return v }) {
   if (!key) {
@@ -59,3 +68,10 @@ Array.prototype.sortKey = function (key, cb = (v) => { return v }) {
   } 
   return this.sort(compare);
 }
+
+
+// 数组转对象
+Array.prototype.ObjValue = function () {
+  return {...this};
+}
+

@@ -725,5 +725,35 @@ export const routers = [
     component: _import_("PostionFixedPage"),
     desc: "兼容小程序",
   },
-
+  {
+    path: "/RightSwipeDeleteDemo",
+    name: "RightSwipeDeleteDemo",
+    component: _import_("RightSwipeDeleteDemo"),
+    desc: "左滑删除",
+  },
+  {
+    path: "/useSwipeDemo",
+    name: "useSwipeDemo",
+    component: _import_("VueUseSwipeDemo"),
+    desc: "滑动",
+  },
+  {
+    path: "/CustomTabDemo",
+    name: "CustomTabDemo",
+    component: _import_("CustomTabDemo"),
+    desc: "自定义tab",
+  },
+  {
+    path: "/ImgCenterDemo",
+    name: "ImgCenterDemo",
+    component: _import_("ImgCenterDemo"),
+    desc: "图片居中",
+  },
+  {
+    path: "/SelectList",
+    name: "SelectList",
+    component: _import_("SelectList"),
+    desc: "选择列表",
+  },
+ 
 ];

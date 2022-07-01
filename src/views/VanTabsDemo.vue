@@ -7,18 +7,19 @@
     line-width="40"	
     line-height="3"
     sticky
+    
     >
-        <van-tab title="申请售后">
+        <van-tab title="申请售后" :badge="0" >
             <div v-for="(item, index) in 20" :key="index">
                 {{ item }}
             </div>
         </van-tab>
-        <van-tab title="售后中">
+        <van-tab title="售后中" :badge="'99+'" >
             <div v-for="(item, index) in 20" :key="index">
                 {{ item }}
             </div>
         </van-tab>
-        <van-tab title="售后完成">
+        <van-tab title="售后完成" dot>
              <div v-for="(item, index) in 20" :key="index">
                 {{ item }}
             </div>
@@ -55,6 +56,10 @@ const active = ref(0);
 //     }  
 // })
 
+const onClickLeft = () => {
+  
+}
+
 </script>
 
 
@@ -75,5 +80,9 @@ const active = ref(0);
 #vanTabs .van-tabs__line {
     // bottom: 20px;
     background: linear-gradient(90deg, #FFC800 2%, rgba(255,200,0,0.00) 100%);
+}
+
+#vanTabs .van-tab__text--ellipsis{
+  padding: 3px 3px 0 0;
 }
 </style>

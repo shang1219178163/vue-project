@@ -1,107 +1,114 @@
 <template>
-    <div>
-        <VButton
-            class="VButton"
-            @click="click"
-            >
-          </VButton>
-        <VButton 
-            class="VButton"
-            type="highlighted" 
-            @click="click" >
-        </VButton>
-        <VButton 
-            class="VButton"
-            type="disabled" 
-            @click="click" >
-          </VButton>
+  <div>
+    <VButton class="VButton" @click="click"> </VButton>
+    <VButton class="VButton" type="highlighted" @click="click"> </VButton>
+    <VButton class="VButton" type="disabled" @click="click"> </VButton>
 
-        <VButton
-            class="VButton"
-            background="linear-gradient(90deg, #FFC800 2%, rgba(255,200,0,0.00) 100%)"
-            :fontSize="'12px'"
-            @click="click"
-            >
-            <div>asdfasdf</div>
-        </VButton> -->
+    <VButton
+      class="VButton"
+      background="linear-gradient(90deg, #FFC800 2%, rgba(255,200,0,0.00) 100%)"
+      :fontSize="'12px'"
+      @click="click"
+    >
+      <div>asdfasdf</div>
+    </VButton>
+    -->
 
-        <VButtonIcon
-        hasEnd
-        >
-        </VButtonIcon>
+    <VButtonIcon hasEnd> </VButtonIcon>
 
-        <VButtonIcon
-        hasEnd
-        direction="column"
-        >
+    <VButtonIcon hasEnd direction="column">
+      <template #start>
+        <van-image
+          :src="require('@/assets/images/icon_district.png')"
+          width="30px"
+          height="30px"
+        />
+      </template>
+      <template #end>
+        <van-image
+          :src="require('@/assets/images/icon_manager.png')"
+          width="30px"
+          height="30px"
+        />
+      </template>
+    </VButtonIcon>
+
+    <VStackText
+      class="VStackText"
+      text="我是标签"
+      bottom="0px"
+      left="0px"
+      borderRadius="4px"
+      backgroud="#BE965A"
+    >
+      <VButtonIcon class="VButtonIcon" hasEnd direction="column">
         <template #start>
-          <van-image 
-          :src="require('@/assets/images/icon_district.png')" 
-          width="58px" 
-          height="58px" 
+          <van-image
+            :src="require('@/assets/images/icon_district.png')"
+            width="30px"
+            height="30px"
           />
         </template>
-          <template #end>
-          <van-image 
-          :src="require('@/assets/images/icon_manager.png')" 
-          width="58px" 
-          height="58px" 
-          />
-        </template>
-        </VButtonIcon>
-    </div>
+      </VButtonIcon>
+    </VStackText>
+  </div>
 </template>
 
-
 <script setup>
-import {getCurrentInstance, ref, reactive, onMounted, watch, defineProps} from 'vue';
+import {
+  getCurrentInstance,
+  ref,
+  reactive,
+  onMounted,
+  watch,
+  defineProps,
+} from "vue";
 // import { Toast } from 'vant;
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter, useRoute } from "vue-router";
 // import VButton from '@/components/VButton.vue';
 
-
 const router = useRouter();
-const route = useRoute()
+const route = useRoute();
 
 onMounted(() => {
-    onRefresh();
+  onRefresh();
 });
 
-watch(() => route.params, (params, previousParams) => {
-    if (Object.keys(params).length === 0 ) {
-        return;
+watch(
+  () => route.params,
+  (params, previousParams) => {
+    if (Object.keys(params).length === 0) {
+      return;
     }
-    handleRouteParams()
-})
+    handleRouteParams();
+  }
+);
 
-const handleRouteParams = () => {
+const handleRouteParams = () => {};
 
-};
+const onRefresh = async () => {};
 
-
-const onRefresh = async () => {
-
-};
-
-const onMore = async () => {
-
-};
+const onMore = async () => {};
 
 const click = (val) => {
-    console.log(">>>", val);
-}
-
+  console.log(">>>", val);
+};
 </script>
 
-
-<style scoped lang='scss'>
-
+<style scoped lang="scss">
 // .VButton{
-    // margin: 20px;
+// margin: 20px;
 
-    // width: 80px;
-    // height: 36px;
+// width: 80px;
+// height: 36px;
 
-    // background-color: red;
+// background-color: red;
 // }
+.VButtonIcon{
+  width: 100px;
+}
+.VStackText{
+  width: 100px;
+  border: 1px solid red;
+}
 </style>

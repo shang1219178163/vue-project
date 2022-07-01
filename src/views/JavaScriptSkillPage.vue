@@ -1,11 +1,15 @@
 <template>
-    <div>
-        <button class="button" 
-        v-for="(item, index) in list" :key="index" 
-        @click='this[item.func]()' >
-         {{ item.name }}
-         </button>
+  <div>
+    <button 
+      class="button" 
+      v-for="(item, index) in list" :key="index" 
+      @click='this[item.func]()' >
+        {{ item.name }}
+    </button>
+    <div v-for="(item, index) in tabItems" :key="index">
+    {{item.title}} {{item.unreadNum}}
     </div>
+  </div>
 </template>
 
 
@@ -49,10 +53,10 @@ const list = ref([
     {name: "找出两日期之间的天数", func: "ondayDif", },
 
     {name: "获取日期小时分钟", func: "onhourAndMinute", },
-    {name: "测试", func: "onTest", },
 
     {name: "字符串是否包含中文", func: "onHasChinese", },
     {name: "字符串是否全是中文", func: "onAllChinese", },
+    {name: "测试", func: "onTest", },
 
 ])
 
@@ -154,16 +158,6 @@ const onhourAndMinute = () => {
     console.log(`>>>hourAndMinute: _${date.hourAndMinute()}_`);
 }
 
-
-const onTest = () => {
-    const date = new Date()
-    const endDate = new Date(date).offsetDay(4)
-    console.log("date-endDate", date.format(), endDate.format());
-
-    const list2 = date.betweenDates(endDate).map((e) => e.format() )
-    console.log(`>>>list2: ${list2}`);
-}
-
 const onHasChinese = () => {
     console.log(`>>>list2汉字: ${"list2汉字".hasHanzi()}`);
 }
@@ -172,6 +166,53 @@ const onAllChinese = () => {
     console.log(`>>>list2汉字: ${"list2汉字".isAllHanzi()}`);
 }
 
+const onTest = () => {
+    // const date = new Date()
+    // const endDate = new Date(date).offsetDay(4)
+    // console.log("date-endDate", date.format(), endDate.format());
+
+    // const list2 = date.betweenDates(endDate).map((e) => e.format() )
+    // console.log(`>>>list2: ${list2}`);
+
+  let data = undefined;
+  data = {
+    unreadNums: [],
+    items: undefined,
+    
+  }
+
+  console.log(`>>>onTest: ${data?.unreadNums?.length}`);
+  console.log(`>>>onTest1: ${data.items?.length}`);
+  console.log(`>>>onTest2: ${data.list?.length}`);
+
+  // if (data?.unreadNums?.length > 0) {
+  //   console.log(`>>>onTest: ${data?.unreadNums?.length}`);
+  // }
+
+  progressMsgObj.unreadNum += 1;
+  imServiceMsgObj.unreadNum += 2;
+
+}
+  let progressMsgObj = {
+    title: '进度消息',
+    badgeValue: '',
+    icon: require('@/assets/images/icon_schedule.png'),
+    index: 2,
+    unreadNum: 0,
+  };
+
+  let imServiceMsgObj = reactive({
+    title: '收到新消息',
+    hasMsg: false, // 默认没有消息
+    time: '',
+    details: '收到新消息，快来查看吧！',
+    unreadNum: 0,
+  });
+
+  const tabItems = reactive([
+    progressMsgObj,
+    imServiceMsgObj,
+  ]);
 </script>
 
 
