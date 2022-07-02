@@ -1,74 +1,63 @@
  /**
-    支持三种 type: 
-    默认: 白色背景,外边框圆角矩形;
-    高亮(highlighted): 可设置背景,字体颜色;
-    不可点击(disabled): opacity: 0.3; disabled 为true 时不会返回事件;
-  */
+  支持三种 type: 
+  默认: 白色背景,外边框圆角矩形;
+  高亮(highlighted): 可设置背景,字体颜色;
+*/
 
 
 <template>
-    <button 
-    :class="['button', disabled ? 'disabled' : type]"
-    @click="click"
-    >
-        <slot>{{ title }}</slot>
-    </button>
+  <button :class="['button', type, disabled ? 'disabled' : '']">
+    <slot>
+    {{ title }}
+      <!-- <div class="title">{{ title }}</div> -->
+    </slot>
+  </button>
 </template>
 
-
 <script setup>
-import {ref, reactive, onMounted, } from 'vue';
-// import { Toast } from 'vant;
 
 const props = defineProps({
-    title: {
-        type: String,
-        default: "VButton"
-    },
-    type: {
-        type: String,
-        default: "default"
-    },
-    fontFamily: {
-        type: String,
-        default: "PingFangSC-Regular"
-    },
-    fontSize: {
-        type: String,
-        default: "15px"
-    },
-    fontColor: {
-        type: String,
-        default: "#BE965A"
-    },
-    bg: {
-        type: String,
-        default: "#FFFFFF"
-    },
-    bgHighlighted: {
-        type: String,
-        default: "linear-gradient(136deg, #BE965A, #D4BB86)"
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-})
-
-const emits = defineEmits(["click"])
-
-const click = () => {
-    if (props.type === "disabled" || props.disabled) {
-        return
-    }
-    emits("click", props.type)
-}
+  title: {
+    type: String,
+    default: "VButton",
+  },
+  type: {
+    type: String,
+    default: "default",
+  },
+  fontFamily: {
+    type: String,
+    default: "PingFangSC-Regular",
+  },
+  fontSize: {
+    type: String,
+    default: "13px",
+  },
+  fontWeight: {
+    type: String,
+    default: "500w",
+  },
+  fontColor: {
+    type: String,
+    default: "#BE965A",
+  },
+  bg: {
+    type: String,
+    default: "#FFFFFF",
+  },
+  bgHighlighted: {
+    type: String,
+    default: "linear-gradient(136deg, #BE965A, #D4BB86)",
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+});
 
 </script>
 
-
-<style scoped lang='scss'>
-
+<style scoped lang="scss">
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -81,33 +70,41 @@ const click = () => {
   white-space: nowrap;
 }
 
-@mixin text{
-    font-family: PingFangSC-Regular;
-    font-size: 12px;
-    color: #333333;
-    letter-spacing: 0;
-    line-height: 16px;
+@mixin text {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 16px;
 }
-.button{
-    @include flex-center;
-    @include text;
-    @include line-limit-length;
-    font-family: v-bind(fontFamily);
-    font-size: v-bind(fontSize);
+.button {
+  @include flex-center;
+  @include text;
+  @include line-limit-length;
 
-    color: v-bind(fontColor);
-    background: v-bind(bg);
+  color: v-bind(fontColor);
+  background: v-bind(bg);
 
-    border: 1px solid #E4E4E4;
-    border-radius: 4px;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
 
-    &.highlighted{
-        color: #FFFFFF;
-        background: v-bind(bgHighlighted);
-        border: 1px solid transparent;
-    }
-    &.disabled{
-        opacity: 0.4; //有选择图片的弹窗时,会图层错位
-    }
+  font-family: v-bind(fontFamily);
+  font-size: v-bind(fontSize);
+  font-weight: v-bind(fontWeight);
+
+  &.highlighted {
+    color: #ffffff;
+    background: v-bind(bgHighlighted);
+    border: 1px solid transparent;
+  }
+  &.disabled {
+    opacity: 0.4; //有选择图片的弹窗时,会图层错位
+  }
 }
+
+// .title{
+//   font-family: v-bind(fontFamily);
+//   font-size: v-bind(fontSize);
+//   font-weight: v-bind(fontWeight);
+// }
 </style>

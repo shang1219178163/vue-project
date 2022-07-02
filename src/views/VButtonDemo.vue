@@ -2,7 +2,9 @@
   <div>
     <VButton class="VButton" @click="click"> </VButton>
     <VButton class="VButton" type="highlighted" @click="click"> </VButton>
-    <VButton class="VButton" type="disabled" @click="click"> </VButton>
+
+    <VButton class="VButton" disabled @click="click"> </VButton>
+    <VButton class="VButton" type="highlighted" disabled @click="click"> </VButton>
 
     <VButton
       class="VButton"
@@ -12,7 +14,7 @@
     >
       <div>asdfasdf</div>
     </VButton>
-    -->
+    
 
     <VButtonIcon hasEnd> </VButtonIcon>
 
@@ -56,12 +58,10 @@
 
 <script setup>
 import {
-  getCurrentInstance,
   ref,
   reactive,
   onMounted,
   watch,
-  defineProps,
 } from "vue";
 // import { Toast } from 'vant;
 import { useRouter, useRoute } from "vue-router";
@@ -90,8 +90,8 @@ const onRefresh = async () => {};
 
 const onMore = async () => {};
 
-const click = (val) => {
-  console.log(">>>", val);
+const click = (e) => {
+  console.log(">>>", e.target);
 };
 </script>
 
@@ -104,6 +104,11 @@ const click = (val) => {
 
 // background-color: red;
 // }
+
+.VButton{
+  margin: 8px;
+  padding: 3px 5px;
+}
 .VButtonIcon{
   width: 100px;
 }
