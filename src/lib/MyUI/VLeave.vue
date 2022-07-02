@@ -7,13 +7,13 @@
 <template>
   <div class="container">
     <div class="header">
-      <slot name="header"></slot>
+      <slot name="header">header</slot>
     </div>
     <div class="leave">
       <slot>剩余高度视图</slot>
     </div>
     <div class="footer">
-      <slot name="footer"></slot>
+      <slot name="footer">footer</slot>
     </div>
   </div>
 </template>
@@ -43,6 +43,8 @@ const props = defineProps({
   height: inherit;
 
   border: 1px dashed orange;
+
+  position: fixed;
 }
 
 .header {
@@ -55,8 +57,9 @@ const props = defineProps({
 
 .leave {
   flex: 1;
-
   flex-direction: column;
+
+  overflow: auto;
 
   background-color: darkcyan;
   @include flex-center;
