@@ -1,15 +1,16 @@
  /**
-  支持三种 type: 
-  默认: 白色背景,外边框圆角矩形;
+  支持两种 type: 
+  默认(normal): 白色背景,外边框圆角矩形;
   高亮(highlighted): 可设置背景,字体颜色;
+  通过 disabled控制按钮是否可以点击态;
 */
 
 
 <template>
-  <button :class="['button', type, disabled ? 'disabled' : '']">
-    <slot>
-    {{ title }}
-    </slot>
+  <button 
+    :class="['button', type, classHighlighted, isHighlighted ? 'highlighted' : '', disabled ? 'disabled' : '']"
+  >
+    <slot>{{ title }}</slot>
   </button>
 </template>
 
@@ -19,6 +20,9 @@ const props = defineProps({
   title: {
     type: String,
     default: "VButton",
+    validator: (value) => {
+      return value;
+    }
   },
   type: {
     type: String,
@@ -27,29 +31,20 @@ const props = defineProps({
       return ["normal", 'highlighted'].includes(value);
     }
   },
-  fontFamily: {
-    type: String,
-    default: "PingFangSC-Regular",
-  },
-  fontSize: {
-    type: String,
-    default: "13px",
-  },
-  fontWeight: {
-    type: String,
-    default: "500w",
-  },
-  fontColor: {
+  color: {
     type: String,
     default: "#BE965A",
+    validator: (value) => {
+      return value;
+    }
   },
-  bg: {
+  classHighlighted: {
     type: String,
-    default: "#FFFFFF",
+    default: "",
   },
-  bgHighlighted: {
-    type: String,
-    default: "linear-gradient(136deg, #BE965A, #D4BB86)",
+  isHighlighted: {
+    type: Boolean,
+    default: false,
   },
   disabled: {
     type: Boolean,
@@ -84,24 +79,18 @@ const props = defineProps({
   @include text;
   @include line-limit-length;
 
-  color: v-bind(fontColor);
+  color: v-bind(color);
   background: v-bind(bg);
 
-  border: 1px solid #e4e4e4;
+  border: 1px solid v-bind(color);
   border-radius: 4px;
-
-  font-family: v-bind(fontFamily);
-  font-size: v-bind(fontSize);
-  font-weight: v-bind(fontWeight);
-
-  &.highlighted {
-    color: #ffffff;
-    background: v-bind(bgHighlighted);
-    border: 1px solid transparent;
-  }
-  &.disabled {
-    opacity: 0.4; //有选择图片的弹窗时,会图层错位
-  }
 }
-
+.highlighted {
+  color: #ffffff;
+  background: v-bind(color);
+  border: 1px solid transparent;
+}
+.disabled {
+  opacity: 0.4; //有选择图片的弹窗时,会图层错位
+}
 </style>

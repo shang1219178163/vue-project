@@ -1,20 +1,64 @@
 <template>
   <div>
-    <VButton class="VButton" @click="click"> </VButton>
-    <VButton class="VButton" type="highlighted" @click="click"> </VButton>
+    <VButton 
+      class="VButton" 
+      @click="click"
+    >默认样式
+    </VButton>
 
-    <VButton class="VButton" disabled @click="click"> </VButton>
-    <VButton class="VButton" type="highlighted" disabled @click="click"> </VButton>
+    <VButton 
+      class="VButton" 
+      type="highlighted" 
+      @click="click"
+    >高亮样式
+    </VButton>
+
+    <VButton 
+      class="VButton" 
+      color="red" 
+      @click="click"
+    >红色默认
+    </VButton>
+    <VButton
+      class="VButton"
+      color="red"
+      type="highlighted"
+      @click="click"
+    >红色高亮
+    </VButton>
+
+    <VButton 
+      class="VButton" 
+      disabled 
+      @click="click"
+    >默认不可点击态
+    </VButton>
+
+    <VButton 
+      class="VButton" 
+      type="highlighted" 
+      disabled 
+      @click="click"
+    >高亮不可点击态
+    </VButton>
+
 
     <VButton
       class="VButton"
-      background="linear-gradient(90deg, #FFC800 2%, rgba(255,200,0,0.00) 100%)"
-      :fontSize="'12px'"
+      color="red"
+      type="highlighted"
+      classHighlighted="Highlightedone"
+      @click="click"
+    >自定义高亮样式
+    </VButton>
+
+    <VButton
+      class="VButton"
+      :isHighlighted="isHighlighted"
       @click="click"
     >
-      <div>asdfasdf</div>
+      点击切换样式
     </VButton>
-    
 
     <VButtonIcon hasEnd> </VButtonIcon>
 
@@ -57,62 +101,36 @@
 </template>
 
 <script setup>
-import {
-  ref,
-  reactive,
-  onMounted,
-  watch,
-} from "vue";
-// import { Toast } from 'vant;
-import { useRouter, useRoute } from "vue-router";
-// import VButton from '@/components/VButton.vue';
+import {ref, reactive, onMounted, watch} from "vue";
 
-const router = useRouter();
-const route = useRoute();
+let isHighlighted = ref(false)
 
-onMounted(() => {
-  onRefresh();
-});
-
-watch(
-  () => route.params,
-  (params, previousParams) => {
-    if (Object.keys(params).length === 0) {
-      return;
-    }
-    handleRouteParams();
-  }
-);
-
-const handleRouteParams = () => {};
-
-const onRefresh = async () => {};
-
-const onMore = async () => {};
 
 const click = (e) => {
   console.log(">>>", e.target);
+  isHighlighted.value = !isHighlighted.value;
 };
 </script>
 
 <style scoped lang="scss">
-// .VButton{
-// margin: 20px;
 
-// width: 80px;
-// height: 36px;
-
-// background-color: red;
-// }
-
-.VButton{
+.VButton {
   margin: 8px;
   padding: 3px 5px;
 }
-.VButtonIcon{
+// .VButton:hover{
+//   color: green;
+//   border: 1px solid green;
+// }
+
+.Highlightedone {
+  color: blue;
+  background: seagreen;
+}
+.VButtonIcon {
   width: 100px;
 }
-.VStackText{
+.VStackText {
   width: 100px;
   border: 1px solid red;
 }
