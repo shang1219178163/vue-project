@@ -9,7 +9,6 @@
   <button :class="['button', type, disabled ? 'disabled' : '']">
     <slot>
     {{ title }}
-      <!-- <div class="title">{{ title }}</div> -->
     </slot>
   </button>
 </template>
@@ -102,9 +101,4 @@ const props = defineProps({
   }
 }
 
-// .title{
-//   font-family: v-bind(fontFamily);
-//   font-size: v-bind(fontSize);
-//   font-weight: v-bind(fontWeight);
-// }
 </style>
