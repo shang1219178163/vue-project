@@ -22,7 +22,10 @@ const props = defineProps({
   },
   type: {
     type: String,
-    default: "default",
+    default: "normal",
+    validator: (value) => {
+      return ["normal", 'highlighted'].includes(value);
+    }
   },
   fontFamily: {
     type: String,
