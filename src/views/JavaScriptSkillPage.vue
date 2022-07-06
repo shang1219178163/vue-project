@@ -23,6 +23,8 @@ import * as CO from "@/utils/color"
 
 import "@/utils/extensions";
 
+import factorial from '@/utils/factorial'
+
 // function runMethod(method) {
 //   this[method]()
 // }
@@ -57,8 +59,10 @@ const list = ref([
     {name: "字符串是否包含中文", func: "onHasChinese", },
     {name: "字符串是否全是中文", func: "onAllChinese", },
 
-    {name: "测试", func: "onTest", },
     {name: "生成器", func: "onGenerator", },
+    {name: "递归计算阶乘", func: "onfactorial", },
+
+    {name: "测试", func: "onTest", },
 
 ])
 
@@ -168,6 +172,34 @@ const onAllChinese = () => {
     console.log(`>>>list2汉字: ${"list2汉字".isAllHanzi()}`);
 }
 
+const onGenerator = () => {
+  function* generatorFn(initial){
+    console.log(initial);
+    console.log(yield);
+    console.log(yield);
+  };
+
+  let generatorobject = generatorFn('foo');
+  generatorobject.next('bar');//foo
+  generatorobject.next('baz');//baz
+  generatorobject.next('qux');//qux
+}
+
+const onfactorial = () => {
+  var a, b, c, d, e;
+
+  a = factorial(1); // 1 赋值给 a
+  b = factorial(2); // 2 赋值给 b
+  c = factorial(3); // 6 赋值给 c
+  d = factorial(4); // 24 赋值给 d
+  e = factorial(5); // 120 赋值给 e
+
+  console.log({ a });
+  console.log({ b });
+  console.log({ c });
+  console.log({ d });
+  console.log({ e });
+}
 
 const onTest = () => {
     // const date = new Date()
@@ -181,7 +213,6 @@ const onTest = () => {
   data = {
     unreadNums: [],
     items: undefined,
-    
   }
 
   console.log(`>>>onTest: ${data?.unreadNums?.length}`);
@@ -195,19 +226,6 @@ const onTest = () => {
   progressMsgObj.unreadNum += 1;
   imServiceMsgObj.unreadNum += 2;
 
-}
-
-const onGenerator = () => {
-  function* generatorFn(initial){
-    console.log(initial);
-    console.log(yield);
-    console.log(yield);
-  };
-
-  let generatorobject = generatorFn('foo');
-  generatorobject.next('bar');//foo
-  generatorobject.next('baz');//baz
-  generatorobject.next('qux');//qux
 }
 
 </script>
