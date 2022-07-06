@@ -755,5 +755,11 @@ export const routers = [
     component: _import_("SelectList"),
     desc: "选择列表",
   },
- 
+  {
+    path: "/AttrsTestDemo",
+    name: "AttrsTestDemo",
+    component: _import_("AttrsTestDemo"),
+    desc: "数据透传测试",
+  },
+
 ];

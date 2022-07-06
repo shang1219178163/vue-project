@@ -1,15 +1,25 @@
 <template>
   <div class="nav-bar">
     <!-- 页面导航根据页面内容进行配置操作 -->
-    <van-nav-bar :fixed="isFixed" >
+    <van-nav-bar v-bind="$attrs" >
       <template #left>
-        <van-icon v-if="isleftarrow" name="arrow-left" size="17" @click="goback" />
+        <slot name="left">
+          <van-icon v-if="isleftarrow" name="arrow-left" size="17" @click="goback" />
+        </slot>
       </template>
-      <template #title class="navBar-Title" >{{ navBarTitle }}</template>
+
+      <template #title>
+        <slot name="title">
+          <span class="van-nav-bar-title" @click="onTitle">{{ navBarTitle }}</span>
+        </slot>
+      </template>
+
       <template #right>
-        <!-- <van-icon v-if="isrightShow" name="ellipsis" size="17" @click="toShare" /> -->
         <slot name="right"></slot>
       </template>
+      <!-- <template #right>
+        <van-icon v-if="isrightShow" name="ellipsis" size="17" @click="toShare" />
+      </template> -->
     </van-nav-bar>
     <!-- 分享面板 -->
     <van-share-sheet
@@ -22,15 +32,26 @@
 </template>
 
 <script>
+import { json } from 'body-parser';
+
 export default {
   name: 'NavBar',
   props: {
     navBarTitle: String, // 标题文字
     navLeftText: String || null, // 左侧箭头文字叙述
     isleftarrow: Boolean, // 是否显示左侧返回按钮
-    isrightShow: false, // 是否显示右侧分享按钮
-    closeWebview: false, // 是否关闭webview
-    isFixed: false
+    isrightShow: {
+      type: Boolean,
+      default: false,
+    }, // 是否显示右侧分享按钮
+    closeWebview: {
+      type: Boolean,
+      default: false,
+    }, // 是否关闭webview
+    isFixed: {
+      type: Boolean,
+      default: false,
+    }
   },
   data () {
     return {
@@ -49,37 +70,42 @@ export default {
           { name: '小程序码', icon: 'weapp-qrcode' }
         ]
       ]
-    }
+    };
   },
   created () {
   },
   methods: {
     // 返回上一页
     goback () {
-      window.history.go(-1);
-      // if (this.isInnerApp && this.closeWebview) {
-      //   // 直接关闭容器
-      //   console.log("this.$uplus.closeH5ContainerView();");
-      //   this.$uplus.closeH5ContainerView();
-      // } else if (this.isWxmp && this.closeWebview) {
-      //   // 返回小程序
-      //   console.log("wx.miniProgram.navigateBack();");
-      //   wx.miniProgram.navigateBack();
-      // } else {
-      //   console.log("window.history.go(-1)");
-      //   window.history.go(-1);
-      // }
+      // alert(`isFixed:${this.isFixed} `)
+      if (this.isInnerApp && this.closeWebview) {
+        // 直接关闭容器
+        console.log('this.$uplus.closeH5ContainerView();');
+        this.$uplus.closeH5ContainerView();
+      } else if (this.isWxmp && this.closeWebview) {
+        // 返回小程序
+        console.log('wx.miniProgram.navigateBack();');
+        wx.miniProgram.navigateBack();
+      } else {
+        console.log('window.history.go(-1)');
+        window.history.go(-1);
+      }
     },
     // 分享
     toShare () {
-      this.showShare = true
+      this.showShare = true;
     },
     // 选择分享途径
     selectShare (option) {
-      console.log('选择分享的途径', option)
+      console.log('选择分享的途径', option);
+    },
+    onTitle () {
+      console.log('$attrs', this.$attrs);
+      console.log('$attrs', JSON.stringify(this.$attrs));
+      console.log(`$attrs['left-arrow']`, this.$attrs['left-arrow']);
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -89,11 +115,10 @@ export default {
 
   /* border: 1px solid red; */
   }
-  .van-nav-bar__title {
-    font-size: 16px;
-    font-weight: bold;
+  .van-nav-bar-title {
+    font-size: 18px;
   }
-  .van-nav-bar .van-icon, .van-nav-bar__title {
+  .van-nav-bar .van-icon, .van-nav-bar-title {
     color: #333333;
   }
   .van-nav-bar__content {
