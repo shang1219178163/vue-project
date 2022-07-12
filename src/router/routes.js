@@ -761,5 +761,11 @@ export const routers = [
     component: _import_("AttrsTestDemo"),
     desc: "数据透传测试",
   },
+  {
+    path: "/ScrollTest",
+    name: "ScrollTest",
+    component: _import_("ScrollTest"),
+    desc: "Scroll 滚动测试",
+  },
 
 ];
