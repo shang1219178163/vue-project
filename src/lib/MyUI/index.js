@@ -20,6 +20,7 @@ import VUploadPlaceholder from './VUploadPlaceholder.vue';
 import VWarp from './VWarp.vue';
 import VFold from './VFold.vue';
 import VSwipeToLeft from './VSwipeToLeft.vue';
+import VSwipeCell from './VSwipeCell.vue';
 import VPopup from './VPopup.vue';
 
 export default {
@@ -44,6 +45,7 @@ export default {
       VWarp,
       VFold,
       VSwipeToLeft,
+      VSwipeCell,
       VPopup
     }
 }
