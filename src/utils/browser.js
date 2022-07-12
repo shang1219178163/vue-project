@@ -31,11 +31,18 @@ const isAppleDevice = () => /Mac|iPod|iPhone|iPad/.test(navigator.platform);
 
 
 // 重定向到一个URL
-const redirect = url => location.href = url
+const redirect = url => location.href = url;
 // redirect("https://www.google.com/")
 
 // 打开浏览器打印框
-const showPrintDialog = () => window.print()
+const showPrintDialog = () => window.print();
+
+
+const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+const touchSupported = () => ('ontouchstart' in window || DocumentTouch && document instanceof DocumentTouch);
+
+const average = (arr) => arr.reduce((a, b) => a + b) / arr.length;
 
 export{
     cookie,
