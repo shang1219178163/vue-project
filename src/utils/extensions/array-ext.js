@@ -50,6 +50,19 @@ Array.prototype.removeNull = function () {
   return arr.filter((e) => ![undefined, null].includes(e));
 }
 
+// 从数组中删除对象
+Array.prototype.remove = function (item) {
+  const idx = this.findIndex((e) => e === item);
+  if (idx !== -1) {
+    this.splice(idx, 1);
+  }
+}
+
+// 从数组中删除索引所在的对象
+Array.prototype.removeIndex = function (idx) {
+  this.splice(idx, 1);
+}
+
 // 根据属性对象数组排序
 Array.prototype.sortKey = function (key, cb = (v) => { return v }) {
   if (!key) {
