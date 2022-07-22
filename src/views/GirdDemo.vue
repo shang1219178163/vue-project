@@ -1,4 +1,5 @@
 <template>
+  <h1>通过 flex 实现</h1>
   <div>
     <div class='Grid'>
       <div class='Grid-cell'>
@@ -26,10 +27,13 @@
       <div class='Grid-cell'>
         <div class='Grid-cell'>{{justifyContent}}</div>
         <div class='Grid-cell'>{{alignItems}}</div>
-      </div>
+      </div>  
     </div>
   </div>
-
+  <h1>通过 grid 实现</h1>
+  <div class="grid__box">
+    <div class="grid__box--item" v-for="(item, index) in 9" :key="index">{{ index }}</div>
+  </div>
 </template>
 
 <script setup>
@@ -55,5 +59,22 @@ div{
 .Grid-cell {
   display: flex;
   flex-grow: 1;
+}
+
+.grid__box{
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%); 
+  grid-template-rows: repeat(3, 33.3%);
+  grid-template-areas:'a b c'
+                      'd e f'
+                      'g h i';
+}
+.grid__box--item{
+  /* color: var(--theme-color); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100px;
 }
 </style>

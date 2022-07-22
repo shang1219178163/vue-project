@@ -11,8 +11,6 @@
     "start": "npm run serve"
   },
   "dependencies": {
-    "@better-scroll/core": "^2.3.1",
-    "@better-scroll/pull-up": "^2.3.1",
     "@vueuse/components": "^8.7.5",
     "@vueuse/core": "^8.7.5",
     "axios": "^0.21.1",
@@ -31,6 +29,7 @@
     "postcss-px2rem": "^0.3.0",
     "qrcodejs2": "0.0.2",
     "sass-resources-loader": "^2.2.4",
+    "swiper": "^8.2.4",
     "ts-loader": "^9.2.8",
     "vant": "^3.5.1",
     "vconsole": "^3.7.0",

@@ -767,5 +767,22 @@ export const routers = [
     component: _import_("ScrollTest"),
     desc: "Scroll 滚动测试",
   },
-
+  {
+    path: "/SwiperDemo",
+    name: "SwiperDemo",
+    component: _import_("SwiperDemo"),
+    desc: "轮播图",
+  },
+  {
+    path: "/VantButtonDeme",
+    name: "VantButtonDeme",
+    component: _import_("VantButtonDeme"),
+    desc: "vant 按钮相关",
+  },
+  {
+    path: "/SelectorFocusDemo",
+    name: "SelectorFocusDemo",
+    component: _import_("SelectorFocusDemo"),
+    desc: "Focus 效果",
+  },
 ];

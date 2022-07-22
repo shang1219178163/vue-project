@@ -32,3 +32,21 @@ export function checkType(o, type) {
 
 // var isString = isType("String")
 // var isFunction = isType("Function")
+
+
+// const isArray = (val) => Array.isArray(val);
+
+// const isFunction = (val) => typeof val === 'function';
+// const isString = (val) => typeof val === 'string';
+// const isSymbol = (val) => typeof val === 'symbol';
+// const isObject = (val) => val !== null && typeof val === 'object';
+
+// const toTypeString = (value) => Object.prototype.toString.call(value);
+// const isMap = (val) => toTypeString(val) === '[object Map]';
+// const isSet = (val) => toTypeString(val) === '[object Set]';
+// const isDate = (val) => toTypeString(val) === '[object Date]';
+// const isPlainObject = (val) => Object.prototype.toString.call(val) === '[object Object]'// isPlainObject 判断是不是普通对象（排除正则、数组、日期、new Boolean、new Number、new String 这些特殊的对象）
+// isObject([]); // true
+// isPlainObject([]); // false
+// const isPromise = (val) => {  return isObject(val) && isFunction(val.then) && isFunction(val.catch)
+// }
