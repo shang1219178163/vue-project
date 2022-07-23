@@ -99,3 +99,18 @@ export default {
     });
   },
 };
+
+
+// const VToast = (options) => {
+//   const app = createApp(VToast, options);
+//   show(app, options.duration)
+// }
+
+// function show(app, duration = 2000) {
+//   const oFrag = document.createDocumentFragment();
+//   const vm = app.mount(oFrag);
+
+//   document.body.appendChild(oFrag);
+// }
+
+// function

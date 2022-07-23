@@ -81,7 +81,8 @@ const props = defineProps({
   },
 });
 
-// defineExpose(["show", "loading", "clear"]);
+defineExpose(["show", "loading", "clear"]);
+// defineExpose({show, loading, clear})÷;
 
 // 展示开关
 let isShow = ref(props.show);
