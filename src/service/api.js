@@ -6,13 +6,13 @@
 // https://sybird-oss.haier.net/resource/myhome/index.html
 
 
-export const isProd = process.env.NODE_ENV === 'production' &&
- ['https://sybird-oss.haier.net'].includes(window.location.origin);
+export const isProd = ['https://sybird-oss.haier.net'].includes(window.location.origin);
+ /***仅用于生产环境调试***/
+// export const isProd = true;//add test
 
-export const isPre = process.env.NODE_ENV === 'production' && 
-['https://sybirdyz-oss.haier.net'].includes(window.location.origin);
+export const isPre = ['https://sybirdyz-oss.haier.net'].includes(window.location.origin);
 
-export const isLocal = ['localhost:8080'].includes(window.location.origin);
+export const isLocal = ['http://localhost:8080'].includes(window.location.origin);
 
 
 import axios from './interceptors';
