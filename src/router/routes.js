@@ -792,4 +792,16 @@ export const routers = [
     desc: "CSS优先级",
   },
  
+    path: "/VantImagePreviewDemo",
+    name: "VantImagePreviewDemo",
+    component: _import_("VantImagePreviewDemo"),
+    desc: "图片预览",
+  },
+  {
+    path: "/CustomeRefDemo",
+    name: "CustomeRefDemo",
+    component: _import_("CustomeRefDemo"),
+    desc: "CustomeRef",
+  },
+
 ];

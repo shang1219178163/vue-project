@@ -117,3 +117,14 @@ String.prototype.isAllHanzi = function () {
   return /^[\u4E00-\u9FA5]+$/.test(this)
 }
 
+///最多显示 n 位,超出截取加后缀(默认省略符号)
+String.prototype.orLimit= (count = Number.MAX_VALUE, sufix = '...') => {
+  const val = this;
+  if (!val) {
+    return '-';
+  }
+  if (count >= val.length) {
+    return val;
+  }
+  return val.substring(0, count) + sufix;
+};
