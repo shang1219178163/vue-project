@@ -17,6 +17,7 @@ const { $uplus, $log: LOG, $vtoastOne: $vtoast} = currentInstance.appContext.con
 // LOG.log(instance.type.__file);
 
 const click = async () => {
+  console.log('click $vtoast:', $vtoast);
   // VToastOne()
   $vtoast.show({
     duration: 0, 
@@ -28,6 +29,8 @@ const click = async () => {
 
 
 const click1 = async () => {
+  console.log('click1 $vtoast:', $vtoast);
+
   $vtoast.loading({});
   setTimeout(() => {
     $vtoast.clear();

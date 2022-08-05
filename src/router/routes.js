@@ -785,4 +785,11 @@ export const routers = [
     component: _import_("SelectorFocusDemo"),
     desc: "Focus 效果",
   },
+  {
+    path: "/CSSPriorityLevel",
+    name: "CSSPriorityLevel",
+    component: _import_("CSSPriorityLevel"),
+    desc: "CSS优先级",
+  },
+ 
 ];
