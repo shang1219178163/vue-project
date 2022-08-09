@@ -791,7 +791,7 @@ export const routers = [
     component: _import_("CSSPriorityLevel"),
     desc: "CSS优先级",
   },
- 
+  {
     path: "/VantImagePreviewDemo",
     name: "VantImagePreviewDemo",
     component: _import_("VantImagePreviewDemo"),
@@ -803,5 +803,14 @@ export const routers = [
     component: _import_("CustomeRefDemo"),
     desc: "CustomeRef",
   },
-
+  {
+    path: '/cyptoDemo',
+    name: 'cryptoDemo',
+    component: _import_('cryptoDemo'),
+    meta: {
+      keepAlive: true,
+      title: '加密',
+    },
+    desc: '加密',
+  },
 ];
