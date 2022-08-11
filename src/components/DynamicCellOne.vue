@@ -134,7 +134,6 @@ onMounted(() => {
   // margin-left: 0.24rem;
   // margin-top: 0.24rem;
   // margin-bottom: 0.24rem;
-  margin-right: 3px;
 }
 .item-content {
   display: flex;
