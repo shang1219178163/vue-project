@@ -72,8 +72,8 @@ class DataTracking {
 			while(i < path.length) {
 				const data = path[i].dataset;
 				if (!isEmptyObject(data)) {
-					// 如果data-dt-name存在的时候，才进行埋点
-					if (data.dtName) {
+					// 如果data-track存在的时候，才进行埋点
+					if (data.track) {
 						i = path.length;
 						handleClickDT(data);
 					}
@@ -87,24 +87,24 @@ class DataTracking {
 	// 记录DT数据
 	recordDT(obj) {
     if (obj.type !== 'click') {
-      console.log(">>>obj.page.current.name", obj.page.current.name);
+      console.log('>>>obj.page.current.name', obj.page.current.name);
       return;
     }
 
-		if (!obj.data) {
+		if (!obj.data.track) {
 			return;
 		}
-		console.log(">>>data", JSON.stringify(obj.data));
-    const params = obj.data.dtParams ? JSON.parse(obj.data.dtParams) : undefined;
-    console.log(">>>params", params);
+		console.log('>>>data', JSON.stringify(obj.data));
+    const params = JSON.parse(obj.data.track);
+    console.log('>>>track', params);
 
 		// console.warn(data)
 		// console.log('%c记录数据埋点...', "color: red;")
 		this.list.push(obj);
 	}
 
-	// 埋点数据推送到远程
-	pushOrigin() {
+    // 埋点数据推送到远程
+    pushOrigin() {
 		// console.warn(this.list)
 		// console.log('%c推送埋点数据....', "color: red;")
 		this.list = [];
@@ -120,25 +120,14 @@ export default install;
     <div 
       v-for="item in 9" 
       :key="item" 
-      data-dt-name="div" 
-      :data-dt-value="item"
-      :data-dt-params="dtParams(item)"
+      :data-track="JSON.stringify({
+        name: 'div',
+        value: item,
+        type: 'click'
+      })"
       @click="onClick(item)"
     >点击我,进行埋点测试{{ item }}
     </div> 
   </div>
 </template>
-
-
-<script setup>
-import { ref, computed } from 'vue';
-
-const dtParams = computed(() => (val) => {
-  let params = {
-    name: "div", 
-    value: val,
-  };
-  return JSON.stringify(params);
-});
-
-</script> */
+*/

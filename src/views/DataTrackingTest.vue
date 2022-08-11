@@ -11,9 +11,11 @@
     <div 
       v-for="item in 9" 
       :key="item" 
-      data-dt-name="div" 
-      :data-dt-value="item"
-      :data-dt-params="dtParams(item)"
+      :data-track="JSON.stringify({
+        name: 'div',
+        value: item,
+        type: 'click'
+      })"
       @click="onClick(item)"
     >点击我,进行埋点测试{{ item }}
     </div>
