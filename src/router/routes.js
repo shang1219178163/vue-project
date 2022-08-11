@@ -326,9 +326,9 @@ export const routers = [
     desc: "装修人员清单",
   },
   {
-    path: "/dyamicClassDemo",
-    name: "dyamicClassDemo",
-    component: _import_("DyamicClassDemo"),
+    path: "/dynamicClassDemo",
+    name: "dynamicClassDemo",
+    component: _import_("DynamicClassDemo"),
     desc: "动态类名绑定",
   },
   {
@@ -813,4 +813,15 @@ export const routers = [
     },
     desc: '加密',
   },
+  {
+    path: '/dynamicCompAdvanced',
+    name: 'dynamicCompAdvanced',
+    component: _import_('DynamicCompAdvanced'),
+    meta: {
+      keepAlive: true,
+      title: '动态组件进阶',
+    },
+    desc: '动态组件进阶',
+  },
+
 ];
