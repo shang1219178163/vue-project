@@ -8,3 +8,16 @@ Object.prototype.isEmpty = function () {
   const result = Reflect.ownKeys(obj).length === 0 && obj.constructor === Object;
   return result;
 }
+
+/// 转为 json 字符串
+String.prototype.toStringify = function (reviver) {
+  return new Promise((resolve, reject) => {
+    try{
+      let result = JSON.stringify(this, reviver)
+      resolve(result);
+    }
+    catch(e){
+      reject(e);
+    }
+  });
+}

@@ -128,3 +128,16 @@ String.prototype.orLimit= (count = Number.MAX_VALUE, sufix = '...') => {
   }
   return val.substring(0, count) + sufix;
 };
+
+/// 转为json
+String.prototype.toJSON = function (reviver) {
+  return new Promise((resolve, reject) => {
+    try{
+      let json = JSON.parse(this, reviver)
+      resolve(json);
+    }
+    catch(e){
+      reject(e);
+    }
+  });
+}
