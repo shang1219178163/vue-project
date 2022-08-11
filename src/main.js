@@ -4,7 +4,7 @@ import router from './router';
 import plugins from './plugins';
 import VueDT from './router/DataTracking.js';
 // 导入所有组件
-import Vant, {Toast, Lazyload, ConfigProvider} from 'vant';
+import Vant, {Toast, Lazyload, ConfigProvider, ImagePreview} from 'vant';
 import 'vant/lib/index.css';
 
 import store from '@/store'; // short for @/store/index
@@ -77,6 +77,7 @@ app.use(router)
 .use(VueDT)
 .use(plugins)
 .use(Vant)
+.use(ImagePreview)
 .use(iosAlertSheet)
 .use(directives)
 .use(VToast)
