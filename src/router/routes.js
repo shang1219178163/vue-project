@@ -823,5 +823,14 @@ export const routers = [
     },
     desc: '动态组件进阶',
   },
-
+  {
+    path: '/IntersectionObserverDemo',
+    name: 'IntersectionObserverDemo',
+    component: _import_('IntersectionObserverDemo'),
+    meta: {
+      keepAlive: true,
+      title: '曝光检测',
+    },
+    desc: '曝光检测',
+  },
 ];
