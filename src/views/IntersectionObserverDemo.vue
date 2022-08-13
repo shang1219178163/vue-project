@@ -34,14 +34,18 @@ const io = new IntersectionObserver((entries) =>{
   entries.forEach(entry => {
     console.log(`entry:${entry.target.className} ${entry.target.innerText} ${entry.intersectionRatio}`);
     // intersectionRatio === 1说明该元素完全暴露出来，符合业务需求
+    if (entry.intersectionRatio < 1) {
+      entry.target.classList.add('active');
+    } else {
+      entry.target.classList.remove('active');
+    }
+
     if (entry.intersectionRatio >= 1) {
       console.log(`${entry.target.className} is visible`);
-      entry.target.classList.add('active');
       // 。。。 埋点曝光代码
 
     } else if (entry.intersectionRatio <= 0) {
       console.log(`${entry.target.className} is dismiss`);
-      entry.target.classList.remove('active');
     }
     // io.unobserve(entry.target)
   })
