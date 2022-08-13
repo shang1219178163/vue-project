@@ -15,7 +15,9 @@
       </template>
 
       <template #right>
-        <slot name="right"></slot>
+        <slot name="right">
+          <div v-if="rightText">{{rightText}}</div>
+        </slot>
       </template>
       <!-- <template #right>
         <van-icon v-if="isrightShow" name="ellipsis" size="17" @click="toShare" />
@@ -38,7 +40,8 @@ export default {
   name: 'NavBar',
   props: {
     navBarTitle: String, // 标题文字
-    navLeftText: String || null, // 左侧箭头文字叙述
+    leftText: String, // 左侧箭头文字叙述
+    rightText: String, // 左侧箭头文字叙述
     isleftarrow: Boolean, // 是否显示左侧返回按钮
     isrightShow: {
       type: Boolean,
