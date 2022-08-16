@@ -833,4 +833,34 @@ export const routers = [
     },
     desc: '曝光检测',
   },
+  {
+    path: '/VScrollDemo',
+    name: 'VScrollDemo',
+    component: _import_('VScrollDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'VScrollDemo',
+    },
+    desc: 'VScrollDemo',
+  },
+  {
+    path: '/hightFnTest',
+    name: 'hightFnTest',
+    component: _import_('hightFnTest'),
+    meta: {
+      keepAlive: true,
+      title: '高阶函数',
+    },
+    desc: '高阶函数',
+  },
+  {
+    path: '/imgAreaTap',
+    name: 'imgAreaTap',
+    component: _import_('ImgAreaTap'),
+    meta: {
+      keepAlive: true,
+      title: '图像区域点击',
+    },
+    desc: '图像区域点击',
+  },
 ];
