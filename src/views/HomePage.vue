@@ -22,7 +22,6 @@
     <input type="text" v-model="watchObj.name" />
     <counter :count="count" :step="step" />
     <!-- <router-link class="page-item" :to="item.path" > {{ item.name }} </router-link> -->
-    <button @click='click'>button</button>
     <div class="page" v-if="0">
         <VCard
         v-for="item in RouterMap" :key="item.path"
@@ -141,63 +140,6 @@ const changeMsg = () => {
   // alert(message)
 };
 
-function compute(str) {
-  // Suppose the calculation in the funtion is very time consuming
-  console.log('2000ms have passed')
-  return str.toUpperCase()
-}
-
-function double(num) {
-  return num * 2;
-}
-
-let computedEnhance = intercept(cached(compute), {
-  before: arg => {
-    console.log(`before ${arg}`)
-  },
-  after: res => {
-    console.log(`after ${res}`)
-  }
-});
-
-// let computedEnhance = batch(intercept(cached(compute), {
-//   before: arg => {
-//     console.log(`processing ${arg}`)
-//   },
-//   after: res => {
-//     console.log(`returned ${res}`)
-//   }
-// }));
-
-const click = () => {
-  // console.log("父组件");
-
-  // const list = '5,吧,c'.split(',');
-  // // alert(list[0]);
-
-  // console.log('aabbcc'.replace('b', '.'));
-  // console.log('aabbcc'.replaceAll('b', '.'));
-
-  // let timestamp = new Date().getTime();
-  // let timestamp1 = Date.now();
-
-  // console.log(`getTime:${timestamp}`);
-  // console.log(`now:${timestamp1}`);
-
-  // testone(99)
-
-  let cacheCompute = cached(compute)
-  cacheCompute('99');
-
-
-  // const double = batch(double);
-  // console.log('double', double(2));
-  // console.log('double', double([2, 3, 4], 'zzz'));
-
-
-  computedEnhance('[1, 2, 3]')
-  // computedEnhance('avc')
-};
 
 
 
@@ -232,19 +174,6 @@ const fn1 = (size = "16px") => {
 
 fn1()
 
-function once(func) {
-  let hasExecuted = false;
-  let result;
-
-  return function () {
-    if (hasExecuted) return result;
-
-    hasExecuted = true;
-    result = func.apply(this, arguments);
-    func = null;
-    return result;
-  };
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
