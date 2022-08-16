@@ -13,8 +13,9 @@
 <script setup>
 import { ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant';
+import "@/utils/extensions";
 
-const urlString =ref(`https://sybird-oss.haier.net/resource/decorationMoney/index.html
+const urlString = ref(`https://sybird-oss.haier.net/resource/decorationMoney/index.html
 ?token=d04eedfeb76d4e9bb1021eff8149c196&phone=18792710637&#/installment`)
 ;
 
@@ -31,7 +32,7 @@ const parseURLString = async () => {
   /// 可迭代带向转对象
   let params = Object.fromEntries(url.searchParams);
   console.log("url.searchParams:", params);
-  console.table([params]);
+  // console.table([params]);
 
 
 `  host: URL {
@@ -56,6 +57,18 @@ username: ""
 };
 
 parseURLString();
+
+console.log("-----------------------------------");
+
+const url = new URL(window.location.href.hashLast());
+console.log("url:", url);
+let params = Object.fromEntries(url.searchParams);
+// let params = url.toEntries();
+console.log("url.searchParams:", params);
+
+const paramValue = url.searchParams.get("kind");
+console.log({paramValue});
+
 </script>
 
 

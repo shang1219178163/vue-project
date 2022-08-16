@@ -1,5 +1,8 @@
 const ua = window.navigator.userAgent.toLowerCase()
 
+const isMobile = () =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+  
 // android平台
 const isAndroid = (() => {
   return /Android|Adr/i.test(ua)
@@ -40,7 +43,10 @@ const isInnerApp = (() => {
   return isInnerAdr || isInnerIos || isZjApp
 })()
 
+
+
 export default {
+  isMobile,
   isAndroid,
   isIos,
   isWechat,

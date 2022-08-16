@@ -141,3 +141,13 @@ String.prototype.toJSON = function (reviver) {
     }
   });
 }
+
+// 移动路由到最后
+String.prototype.hashLast = function() {
+  if (!this.includes('=')) {
+    return this;
+  }
+  const list = this.split(/\/#|\?/);
+  const result = `${list[0]}?${list[2]}#${list[1]}`
+  return result;
+}

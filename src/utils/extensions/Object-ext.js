@@ -9,8 +9,13 @@ Object.prototype.isEmpty = function () {
   return result;
 }
 
+
+Object.prototype.deepCopy = function () {
+  return JSON.parse(JSON.stringify(this));;
+}
+
 /// 转为 json 字符串
-String.prototype.toStringify = function (reviver) {
+Object.prototype.toStringify = function (reviver) {
   return new Promise((resolve, reject) => {
     try{
       let result = JSON.stringify(this, reviver)
