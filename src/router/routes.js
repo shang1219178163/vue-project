@@ -863,4 +863,16 @@ export const routers = [
     },
     desc: '图像区域点击',
   },
+  {
+    path: '/useDropZoneDemo',
+    name: 'useDropZoneDemo',
+    component: _import_('useDropZoneDemo'),
+    meta: {
+      keepAlive: true,
+      title: '拖放文件',
+    },
+    desc: '拖放文件',
+  },
+
+  
 ];
