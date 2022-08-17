@@ -5,16 +5,16 @@
         title="设计"
         @change="onChange"
         >
-            <template #subtitle>
-                <div>
-                    <button>button</button>
-                </div>
-            </template>
-            <template #footer>
-                <div>
-                    <button>button1</button>
-                </div>
-            </template>
+          <template #subtitle>
+            <div>
+                <button>button</button>
+            </div>
+          </template>
+          <template #footer>
+            <div>
+                <button>button1</button>
+            </div>
+          </template>
         </VUpload> -->
 
     <label for="avatar">选择图片:</label>
