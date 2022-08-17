@@ -734,7 +734,7 @@ export const routers = [
   {
     path: "/useSwipeDemo",
     name: "useSwipeDemo",
-    component: _import_("VueUseSwipeDemo"),
+    component: _import_("useSwipeDemo"),
     desc: "滑动",
   },
   {
