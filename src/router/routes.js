@@ -873,6 +873,15 @@ export const routers = [
     },
     desc: '拖放文件',
   },
+  {
+    path: '/useWindowScrollDemo',
+    name: 'useWindowScrollDemo',
+    component: _import_('useWindowScrollDemo'),
+    meta: {
+      keepAlive: true,
+      title: '滚动距离检测 x,y',
+    },
+    desc: '滚动距离检测 x,y',
+  },
 
-  
 ];
