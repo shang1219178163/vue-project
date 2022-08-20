@@ -833,4 +833,15 @@ export const routers = [
     },
     desc: '曝光检测',
   },
+  {
+    path: '/html2PageTest',
+    name: 'html2PageTest',
+    component: _import_('html2PageTest'),
+    meta: {
+      keepAlive: true,
+      title: '海报生成',
+    },
+    desc: '海报生成',
+  },
+
 ];
