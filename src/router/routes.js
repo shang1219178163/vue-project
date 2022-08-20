@@ -734,7 +734,7 @@ export const routers = [
   {
     path: "/useSwipeDemo",
     name: "useSwipeDemo",
-    component: _import_("VueUseSwipeDemo"),
+    component: _import_("useSwipeDemo"),
     desc: "滑动",
   },
   {
@@ -842,6 +842,56 @@ export const routers = [
       title: '海报生成',
     },
     desc: '海报生成',
+  },
+  {
+    path: '/VScrollDemo',
+    name: 'VScrollDemo',
+    component: _import_('VScrollDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'VScrollDemo',
+    },
+    desc: 'VScrollDemo',
+  },
+  {
+    path: '/hightFnTest',
+    name: 'hightFnTest',
+    component: _import_('hightFnTest'),
+    meta: {
+      keepAlive: true,
+      title: '高阶函数',
+    },
+    desc: '高阶函数',
+  },
+  {
+    path: '/imgAreaTap',
+    name: 'imgAreaTap',
+    component: _import_('ImgAreaTap'),
+    meta: {
+      keepAlive: true,
+      title: '图像区域点击',
+    },
+    desc: '图像区域点击',
+  },
+  {
+    path: '/useDropZoneDemo',
+    name: 'useDropZoneDemo',
+    component: _import_('useDropZoneDemo'),
+    meta: {
+      keepAlive: true,
+      title: '拖放文件',
+    },
+    desc: '拖放文件',
+  },
+  {
+    path: '/useWindowScrollDemo',
+    name: 'useWindowScrollDemo',
+    component: _import_('useWindowScrollDemo'),
+    meta: {
+      keepAlive: true,
+      title: '滚动距离检测 x,y',
+    },
+    desc: '滚动距离检测 x,y',
   },
 
 ];

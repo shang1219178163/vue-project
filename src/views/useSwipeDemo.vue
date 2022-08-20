@@ -18,6 +18,7 @@ const { isSwiping, direction } = useSwipe(el)
 
 <style scoped> 
 .wrapper{
+  height: 100px;
   border: 1px solid red;
 }
 </style>
