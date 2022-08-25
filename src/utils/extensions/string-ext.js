@@ -151,3 +151,30 @@ String.prototype.hashLast = function() {
   const result = `${list[0]}?${list[2]}#${list[1]}`
   return result;
 }
+
+/**
+ * 字符串转金额
+ * @param {*} locales  
+ * @param {*} options  Number.prototype.toLocaleString()'s  options
+ * @param {*} prefix  前缀
+ * @param {*} suffix  后缀
+ * @returns 金额字符串
+ */
+String.prototype.toMoney = function ({
+  locales = 'zh-CN', 
+  options = {
+    style: 'currency',
+    currency: 'CNY',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  },
+  prefix = '',
+  suffix = '',
+}) {
+  const value = parseFloat(this);
+  if (value == NaN) {
+    return this
+  }
+  const result = prefix + value.toLocaleString(locales, options) + suffix;
+  return result;
+}
