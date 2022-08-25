@@ -84,6 +84,13 @@ html[theme="gray"] {
 }
 
 body {
+  // height: 100%;
+  // height: calc(100% - constant(safe-area-inset-bottom));
+  // height: calc(100% - env(safe-area-inset-bottom));
+
+  // padding-bottom: constant(safe-area-inset-bottom);
+  // padding-bottom: env(safe-area-inset-bottom);
+
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
   -moz-text-size-adjust: 100% !important;

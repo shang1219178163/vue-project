@@ -1,4 +1,33 @@
 
+// ipx系列底部padding值
+@mixin iPhoneX-bottom($bottom: 0px, $isPadding: false) {
+  @if $isPadding {
+    padding-bottom: $bottom;
+    padding-bottom: calc(#{$bottom} + constant(safe-area-inset-bottom));
+    padding-bottom: calc(#{$bottom} + env(safe-area-inset-bottom));
+  } @else {
+    // ipx系列fixed定位底部bottom值
+    bottom: $bottom;
+    bottom: calc(#{$bottom} + constant(safe-area-inset-bottom));
+    bottom: calc(#{$bottom} + env(safe-area-inset-bottom));
+  }
+}
+
+// ipx系列fixed定位bottom为0的处理函数
+@mixin iPhoneX-fixed-bottom-zero($bgColor: #ffffff) {
+  @include iPhoneX-bottom();
+  &:after {
+    content: ' ';
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $bgColor;
+    height: constant(safe-area-inset-bottom);
+    height: env(safe-area-inset-bottom);
+  }
+}
+
 @mixin font-regular($size: 12px, $color: #999999) {
     font-family: PingFangSC-Regular;
     font-size: $size;

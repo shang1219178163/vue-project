@@ -893,5 +893,64 @@ export const routers = [
     },
     desc: '滚动距离检测 x,y',
   },
-
+  {
+    path: '/useVirtualListDemo',
+    name: 'useVirtualListDemo',
+    component: _import_('useVirtualListDemo'),
+    meta: {
+      keepAlive: true,
+      title: '虚拟列表',
+    },
+    desc: '虚拟列表',
+  },
+  {
+    path: '/Pictures',
+    name: 'Pictures',
+    component: _import_('Pictures'),
+    meta: {
+      keepAlive: true,
+      title: '图片列表',
+    },
+    desc: '图片列表',
+  },
+  {
+    path: '/ErrorHandlerTest',
+    name: 'ErrorHandlerTest',
+    component: _import_('ErrorHandlerTest'),
+    meta: {
+      keepAlive: true,
+      title: '错误封装',
+    },
+    desc: '错误封装',
+  },
+  {
+    path: '/useCurrentElementDemo',
+    name: 'useCurrentElementDemo',
+    component: _import_('useCurrentElementDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'useCurrentElementDemo',
+    },
+    desc: 'useCurrentElementDemo',
+  },
+  {
+    path: '/useDateFormatDemo',
+    name: 'useDateFormatDemo',
+    component: _import_('useDateFormatDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'useDateFormat 格式化',
+    },
+    desc: 'useDateFormat 格式化',
+  },
+  {
+    path: '/useQRCodeDemo',
+    name: 'useQRCodeDemo',
+    component: _import_('useQRCodeDemo'),
+    meta: {
+      keepAlive: true,
+      title: '二维码',
+    },
+    desc: '二维码',
+  },
 ];
