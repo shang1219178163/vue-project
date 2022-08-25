@@ -11,7 +11,7 @@
   <!-- <h1>{{ $route.meta.title }}</h1> -->
   <!-- <h1>{{ JSON.stringify(route) }}</h1> -->
   <!-- <button @click="toggle">Toggle Even/Odd</button> -->
-  <div v-bind="containerProps" style="height: cacl(100% - 35px - 88px)">
+  <div v-bind="containerProps" style="height: 600px">
     <div v-bind="wrapperProps">
       <div
         class="list-cell" 
