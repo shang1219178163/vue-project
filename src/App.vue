@@ -105,6 +105,11 @@ body {
   // document.body.style.setProperty('--themeColor', '#ff0000');
 }
 
+.van-nav-bar{
+  --van-nav-bar-icon-color: var(--theme-color);	
+  --van-nav-bar-text-color: var(--theme-color);	
+}
+
 .van-button{
   --van-button-primary-background-color: var(--theme-color);	
   --van-button-primary-border-color: var(--theme-color);

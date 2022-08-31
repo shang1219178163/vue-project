@@ -1,32 +1,27 @@
 <template>
-    <div class="container">
-        <slot>
-            <div class="item" v-if="title">{{ title }}</div>
-        </slot>
-    </div>
+  <div class="container">
+    <slot>
+      <div class="item" v-if="title">{{ title }}</div>
+    </slot>
+  </div>
 </template>
 
-
 <script setup>
-import { ref } from 'vue';
+import {ref} from "vue";
 
 const props = defineProps({
-    title: {
-        type: String,
-        default: "VWarp"
-    },
-})
-
-
+  title: {
+    type: String,
+    default: "VWarp",
+  },
+});
 </script>
 
-
 <style scoped>
-
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: flex-start; */
 }
 
 .item {
@@ -34,5 +29,4 @@ const props = defineProps({
   padding: 8px;
   border: 1px solid red;
 }
-
 </style>

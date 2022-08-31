@@ -1,29 +1,16 @@
 
 
 <template>
-  <div class="hello">
-    <van-nav-bar title="主题切换" 
+    <van-nav-bar 
+    title="HomePage" 
     :left-arrow='false'
     @click-left="onClickLeft"
     right-text="选择"
     @click-right="onClickRight"
     />
-    <div>hello page</div>
-    <h3>{{ message }}<span @click="changeMsg">-></span></h3>
-    <h3>Essential Links</h3>
-    <ul>
-      <li v-for="e in arr" :key="e.id">
-        <a :href="e.url" target="_blank">
-          {{ e.name }}
-        </a>
-      </li>
-    </ul>
-
-    <input type="text" v-model="watchObj.name" />
-    <counter :count="count" :step="step" />
-    <!-- <router-link class="page-item" :to="item.path" > {{ item.name }} </router-link> -->
+    
     <div class="page" v-if="0">
-        <VCard
+      <VCard
         v-for="item in RouterMap" :key="item.path"
         :margin="'8px 0 8px'" 
         :padding="'8px 8px 8px'" 
@@ -34,25 +21,21 @@
         @click="gotoPage(item.path)"
         >
           <!-- <div class="name">{{ item.name }}</div> -->
-        </VCard>
+      </VCard>
     </div>
-    <div
-    class="theme-div"    
-    :style="{'backgroud-color': 'var(--theme-color)',}"
-    >
-      --theme-color
-    </div>
-    <VWarp>
-      <VCard 
+
+    <VWarp class="vwrap">
+      <VCard
+        class="VCard" 
         v-for="item in routerList" :key="item.path"
-        :margin="'4px 0 4px'" 
+        :margin="'4px'" 
         :padding="'8px'" 
         :borderRadius="'8px'"
         :content="item.path"
         :color="'var(--theme-color)'"
         :footerTitle="item.desc"
         @click="gotoPage(item.path)"
-        >
+      >
       </VCard>
     </VWarp>
 
@@ -70,13 +53,10 @@
         {{item.name}}<span>{{item.color}}</span> 
       </div>
     </van-action-sheet>
-  </div>
 </template>
 
 <script setup>
 import Counter from "@/components/Counter.vue";
-// import VCard from '@/components/VCard.vue';
-// import vwarp from "@/components/VWarp.vue";
 // import UserCell from '@/components/UserCell.vue'
 
 // import { useRouter, useRoute } from "vue-router"
@@ -106,48 +86,21 @@ const actions = reactive([]);
 actions.push(...colors)
 
 const onSelect = (color) => {
-    document.body.style.setProperty('--theme-color', color);
-    onClickRight()
-    let bgcolor = document.body.style.getPropertyValue('--bg-Color');
-    console.log("bgcolor", bgcolor);
+  document.body.style.setProperty('--theme-color', color);
+  onClickRight()
+  let bgcolor = document.body.style.getPropertyValue('--bg-Color');
+  console.log("bgcolor", bgcolor);
 
-    console.log("color", color);
+  console.log("color", color);
 }
 
 
 // const router = useRouter();
 // const route = useRoute();
 
-const instance = getCurrentInstance();
-// console.log(instance.type.__file, RouterMap);
+const currentInstance = getCurrentInstance();
+// console.log(currentInstance.type.__file, RouterMap);
 
-const count = ref(8);
-const step = ref(5);
-
-let message = ref("Welcome to Your Vue.js App");
-
-const arr = [
-  {url: "http://router.vuejs.org/", name: "vue-router", id: 0},
-  {url: "http://vuex.vuejs.org/", name: "vuex", id: 1},
-  {url: "http://vue-loader.vuejs.org/", name: "vue-loader", id: 2},
-  {url: "https://github.com/vuejs/awesome-vue", name: "awesome-vue", id: 3},
-];
-
-const changeMsg = () => {
-  console.log("之前", where(), message);
-  message = message.value == "Welcome to Your Vue.js App" ? "前端框架" : "Welcome to Your Vue.js App";
-  console.log(where(), message.value === "Welcome to Your Vue.js App", message);
-  // alert(message)
-};
-
-
-
-
-function testone(a = 0, b =1, c = 2) {
-  // console.log(`1:${$1}`);
-  console.log(`arguments:${Array.from(arguments)}`);
-  console.log(`b:${b}`);
-}
 
 const gotoPage = (to) => {
   console.log(typeof router);
@@ -157,9 +110,6 @@ const gotoPage = (to) => {
   router.push({ path: to, query: { kind: "car" } });
 };
 
-const watchObj = {
-  name: "-----姓名",
-};
 
 const where = () =>{
   let reg = /\s+at\s(\S+)\s\(/g 
@@ -176,24 +126,15 @@ fn1()
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
+.item{ 
+  font-size: 15px;
   color: #42b983;
 }
-
 .button {
   margin: 5px;
   padding: 5px;
@@ -235,5 +176,16 @@ a {
 
   /* color: #ffffff;
   background-color: #42b983; */
+}
+
+.vwrap{
+  height: calc(100% - 46px);
+  overflow-y: auto;
+
+  /* background-color: green; */
+}
+
+.VCard:last-child{
+  margin-bottom: 8px;
 }
 </style>
