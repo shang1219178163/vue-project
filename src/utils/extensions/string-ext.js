@@ -118,10 +118,10 @@ String.prototype.isAllHanzi = function () {
 }
 
 ///最多显示 n 位,超出截取加后缀(默认省略符号)
-String.prototype.orLimit= (count = Number.MAX_VALUE, sufix = '...') => {
+String.prototype.toLimit = (count = Number.MAX_VALUE, defaultValue = '-', sufix = '...') => {
   const val = this;
   if (!val) {
-    return '-';
+    return defaultValue;
   }
   if (count >= val.length) {
     return val;
