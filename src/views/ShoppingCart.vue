@@ -25,7 +25,7 @@
     <span> {{ JSON.stringify(item) }}</span>     
   </div>
   <div>
-    <span>总价: {{ totalPrice }}</span>
+    <h3>总价: {{ totalPrice }}</h3>
   </div>
 </template>
 
@@ -64,6 +64,7 @@ const totalPrice = computed(() => {
   .filter(e => e.count && e.count > 0)
   .map(e => e.price * e.count)
   .reduce((pre, cur) => pre + cur, 0)
+  .toFixed(2);
 });
 
 const change = (val, obj) => {
