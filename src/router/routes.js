@@ -929,9 +929,9 @@ export const routers = [
     component: _import_('useCurrentElementDemo'),
     meta: {
       keepAlive: true,
-      title: 'useCurrentElementDemo',
+      title: '当前组件元素',
     },
-    desc: 'useCurrentElementDemo',
+    desc: '当前组件元素',
   },
   {
     path: '/useDateFormatDemo',
@@ -953,4 +953,75 @@ export const routers = [
     },
     desc: '二维码',
   },
+  {
+    path: '/useNetworkDemo',
+    name: 'useNetworkDemo',
+    component: _import_('useNetworkDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'useNetwork',
+    },
+    desc: 'useNetwork',
+  },
+  {
+    path: '/useGeolocationDemo',
+    name: 'useGeolocationDemo',
+    component: _import_('useGeolocationDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'useGeolocation',
+    },
+    desc: 'useGeolocation',
+  },
+  {
+    path: '/WebWorkDemo',
+    name: 'WebWorkDemo',
+    component: _import_('WebWorkDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'Work线程',
+    },
+    desc: 'Work线程',
+  },
+  {
+    path: '/useWebWorkerDemo',
+    name: 'useWebWorkerDemo',
+    component: _import_('useWebWorkerDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'useWebWorker',
+    },
+    desc: 'useWebWorker',
+  },
+  {
+    path: '/useWebWorkerFnDemo',
+    name: 'useWebWorkerFnDemo',
+    component: _import_('useWebWorkerFnDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'useWebWorkerFn',
+    },
+    desc: 'useWebWorkerFn',
+  },
+  {
+    path: '/DragUpDemo',
+    name: 'DragUpDemo',
+    component: _import_('DragUpDemo'),
+    meta: {
+      keepAlive: true,
+      title: '上拉抽屉',
+    },
+    desc: '上拉抽屉',
+  },
+  {
+    path: '/ShoppingCart',
+    name: 'ShoppingCart',
+    component: _import_('ShoppingCart'),
+    meta: {
+      keepAlive: true,
+      title: '购物车',
+    },
+    desc: '购物车',
+  },
+
 ];
