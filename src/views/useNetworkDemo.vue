@@ -20,5 +20,10 @@ const text = JSON.stringify(network);
 
 console.log('network', network);
 
-console.log('network.keys', Object.keys(toRaw(network)));
+///对象遍历
+const obj = toRaw(network);
+// const obj = network;
+for (let key in obj) {
+  console.log('network', key, obj[key]);
+}
 </script>
