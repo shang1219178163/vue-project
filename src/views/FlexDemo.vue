@@ -12,7 +12,7 @@
       </div>
     </div> -->
 
-    <div>Y:{{touchY}},</div>
+    <div>Y:{{touchY}}, {{JSON.stringify(point)}}</div>
 
     <div class="float--detail">
       <div class="float--detail--child">
@@ -65,10 +65,11 @@ const click = (val) => {
 
 const touchX = ref(0);
 const touchY = ref(0);
+let point = reactive({touchX, touchY});
 
     // 修改滑动容器行为
-const bindTouchEvents = () => {
-  const el = document.getElementsByClassName('float--detail')[0];
+const bindTouchEvents = (classname = 'float--detail') => {
+  const el = document.getElementsByClassName(classname)[0];
   if (!el) {
     console.warn('未获取到表格元素')
     return;
@@ -77,14 +78,23 @@ const bindTouchEvents = () => {
 
   let startX = 0;
   let startY = 0;
+  let offsetX = 0
+  let offsetY = 0;
 
   el.addEventListener('touchstart', event => {
-      event.preventDefault()
-      startX = event.changedTouches[0].clientX;
-      startY = event.changedTouches[0].clientY;
+      event.preventDefault();
 
-      touchX.value = startX;
-      touchY.value = startY;
+      const touch = event.changedTouches[0];
+      touchX.value = touch.clientX;
+      touchY.value = touch.clientY;
+      point = touch;
+
+      startX = touchX.value;
+      startY = touchY.value;
+      console.log(`touchstart: touchY_${touch.clientY}, startY_${startY}`);
+
+      // el.style.top = startY + 'px';
+      el.style.top = touchY.value + 'px';
     },
     true
   );
@@ -92,11 +102,14 @@ const bindTouchEvents = () => {
   el.addEventListener('touchmove', event => {
       event.preventDefault()
 
-      touchX.value = event.changedTouches[0].clientX;
-      touchY.value = event.changedTouches[0].clientY;
+      const touch = event.changedTouches[0];
+      touchX.value = touch.clientX;
+      touchY.value = touch.clientY;
+      point = touch;
+
       // 计算手指偏移量
-      const offsetX = touchX.value - startX;
-      const offsetY = touchY.value - startY;
+      offsetX = touchX.value - startX;
+      offsetY = touchY.value - startY;
 
       // el.scrollLeft = el.scrollLeft - offsetX;
       // el.scrollTop = el.scrollTop - offsetY;
@@ -104,8 +117,14 @@ const bindTouchEvents = () => {
       // console.log('el.scrollTop:', el.scrollTop, offsetY, Math.abs(offsetY));
 
       // el.style.height = Math.abs(offsetY) + 'px';
-      el.style.top = offsetY + 'px';
+      // el.style.top = offsetY + 'px';
+      el.style.top = touchY.value + 'px';
 
+      // console.log(`touchmtouchendove: touchY_${touchY.value}, offsetY:${offsetY}`);
+
+      // startY = 0
+      offsetX = 0;
+      offsetY = 0;
     },
     true
   );
@@ -113,12 +132,27 @@ const bindTouchEvents = () => {
   el.addEventListener('touchend', event => {
       event.preventDefault()
 
-      touchX.value = event.changedTouches[0].clientX;
-      touchY.value = event.changedTouches[0].clientY;
-      console.log('el.style.top:', el.style.top, typeof el.style.top);
-      if (el.style.top.startsWith('-')) {
-        el.style.top = '0px';
+      const touch = event.changedTouches[0];
+      touchX.value = touch.clientX;
+      touchY.value = touch.clientY;
+      point = touch;
+
+      // console.log('el.style.top:', el.style.top, typeof el.style.top);
+
+      // 计算手指偏移量
+      offsetX = touchX.value - startX;
+      offsetY = touchY.value - startY;
+      // el.style.top = offsetY + 'px';
+      el.style.top = touchY.value + 'px';
+      console.log(`touchend: touchY_${touchY.value}, startY_${startY}, offsetY:${offsetY}`);
+
+      if (touch.clientY < 0) {
+        el.style.top = '40px';
       }
+
+      // startY = 0;
+      offsetX = 0;
+      offsetY = 0;
     },
     true
   );
@@ -132,6 +166,8 @@ const bindTouchEvents = () => {
 
 .container{
   /* position: relative; */
+
+  /* scroll-behavior: none; */
 }
 
 .box {
