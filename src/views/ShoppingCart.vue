@@ -33,8 +33,7 @@
 <script setup>
 import Counter from "@/components/Counter.vue";
 
-import { getCurrentInstance, ref, reactive, computed, onMounted, } from 'vue';
-// import { Toast } from 'vant';
+import { ref, reactive, computed, onMounted, } from 'vue';
 
 
 const list = reactive([
@@ -62,7 +61,7 @@ const carts = reactive([]);
 
 const totalPrice = computed(() => {
   return carts
-  .filter(e => e.count > 0)
+  .filter(e => e.count && e.count > 0)
   .map(e => e.price * e.count)
   .reduce((pre, cur) => pre + cur, 0)
 });
@@ -82,9 +81,6 @@ const change = (val, obj) => {
   }
 };
 
-const onMore = async () => {
-
-};
 
 </script>
 
