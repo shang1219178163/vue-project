@@ -1,6 +1,6 @@
 <template>
   <div>
-    <counter
+    <Counter
       :count="count"
       :step="step"
       @add="add"
@@ -44,9 +44,9 @@ const change = (e) => {
   console.log("change", typeof e, e);
 };
 
-const instance = getCurrentInstance()
-console.log(instance.type.__file, instance) ; 
+// const instance = getCurrentInstance()
+// console.log(instance.type.__file, instance) ; 
 
-console.log(instance.refs);
+// console.log(instance.refs);
 
 </script>

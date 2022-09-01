@@ -1,13 +1,12 @@
 <template>
   <div class="box">
-    <input type="button" value="-" @click="sub1" />
+    <input type="button" value="-" @click="sub" />
     <span>{{ aCount }}</span>
-    <input type="button" value="+" @click="add1" />
+    <input type="button" value="+" @click="add" />
   </div>
 </template>
 
 <script setup>
-// import { created, mounted } from "vue";
 import { ref, reactive, computed, watch, getCurrentInstance } from "vue";
 
 // eslint-disable-next-line no-undef
@@ -26,8 +25,11 @@ const props = defineProps({
   },
   max: {
     type: Number,
-    default: 20,
+    default: 100,
   },
+  obj: {
+    type: Object,
+  }
 });
 
 // eslint-disable-next-line no-undef
@@ -51,31 +53,30 @@ const go = (val) => {
     emit("min", props.min);
     return;
   }
-  // aCount.value += parseInt(val);
   aCount.value = aValue;
-  console.log("aCount", aCount.value);
+  // console.log("aCount", aCount.value);
 
-  emit("change", aCount.value);
+  emit("change", aCount.value, props.obj);
   if (val > 0) {
-    emit("add", val);
+    emit("add", val, props.obj);
   } else {
-    emit("sub", val);
+    emit("sub", val, props.obj);
   }
 };
 
-const add1 = () => {
+const add = () => {
   go(props.step);
 };
 
-const sub1 = () => {
+const sub = () => {
   go(-props.step);
 };
 
-const a88 = ref("aa")
-const b88 = ref(true)
-defineExpose({
-  a88,b88
-})
+// const a88 = ref("aa")
+// const b88 = ref(true)
+// defineExpose({
+//   a88,b88
+// })
 
 
 </script>
