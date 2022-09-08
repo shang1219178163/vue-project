@@ -80,7 +80,7 @@
 
 
 <script setup>
-import { ref, defineProps, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
 import MyTab from '@/components/MyTab.vue';
 import MyTabSelect from '../components/MyTabSelect.vue';
 import MyItemSelect from '../components/MyItemSelect.vue';

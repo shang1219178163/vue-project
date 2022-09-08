@@ -13,7 +13,7 @@ export default createStore({
     state: {
         count: 1,
         obj: {
-            message: ""
+          message: ""
         }
       },
       //   mutations 通过 store.commit('increment', 2);

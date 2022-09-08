@@ -20,9 +20,6 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
-
-// console.log("CallPhone.vue");
 
 const props = defineProps({
     phone: {

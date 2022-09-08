@@ -45,10 +45,10 @@
       close-on-click-action
     >
       <div 
-      class="sheet-cell"
-      v-for="(item, index) in actions" :key="index" 
-      :style="{'background-color': item.color,}"
-      @click="onSelect(item.color)"
+        class="sheet-cell"
+        v-for="(item, index) in actions" :key="index" 
+        :style="{'background-color': item.color,}"
+        @click="onSelect(item.color)"
       >
         {{item.name}}<span>{{item.color}}</span> 
       </div>
