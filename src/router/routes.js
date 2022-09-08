@@ -1014,9 +1014,9 @@ export const routers = [
     desc: '上拉抽屉',
   },
   {
-    path: '/ShoppingCart',
-    name: 'ShoppingCart',
-    component: _import_('ShoppingCart'),
+    path: '/useShoppingCartDemo',
+    name: 'useShoppingCartDemo',
+    component: _import_('useShoppingCartDemo'),
     meta: {
       keepAlive: true,
       title: '购物车',
