@@ -1,13 +1,18 @@
 import { ref, reactive, computed, } from 'vue';
 
 /**
- * 
- * @param {*} items 
- * @param {*} {
- * 
+ * 购物车逻辑
+ * @param {*} items 默认商品列表
+ * @param {*} options {
+ *  idKey: 'id', //商品 id
+ *  priceKey: 'price', //商品价格键
+ *  countKey: 'count', //商品数量键(值为本地添加到购物车的特定商品数量)
+ *  priceFn: (val) => parseInt(val)} //商品价格回调函数
  * } 
  * @returns {
- * 
+ *  procuts, //商品数组
+ *  totalPrice, //商品总价
+ *  change //商品变动回调方法
  * }
  */
 const useShoppingCart = (items = [], 
@@ -63,7 +68,11 @@ const useShoppingCart = (items = [],
     }
   };
   
-  return {procuts, totalPrice, change};
+  return {
+    procuts, 
+    totalPrice, 
+    change
+  };
 }
 
 export{
@@ -71,16 +80,3 @@ export{
 }
 
 // example:
-// const token = useStorageLocal('token');
-
-// const form = useStorageLocal('user', {
-//   name: 'Local',
-//   age: 18,
-// });
-
-// form.value.name += 'n';
-// form.value.age += 2;
-// console.log(">>>", form);
-
-// token.value += "t";
-// console.log(">>>", token.value);
