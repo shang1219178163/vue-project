@@ -9,7 +9,7 @@
     <div id="dawei" class="page__subtitle">海报副副副标题</div>
     <div 
       class="page__cell" 
-      v-for="(item, index) in 3" :key="index"
+      v-for="(item, index) in 6" :key="index"
     >
       海报正文段落:{{index}}
     </div>
@@ -24,8 +24,7 @@ import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant';
 
 import html2canvas from 'html2canvas';
-// import canvas2image from "canvas2image-2";
-
+import canvas2image from "canvas2image-2";
 
 const save = async (id) => {
   const dpi = window.devicePixelRatio || 2;
@@ -37,6 +36,7 @@ const save = async (id) => {
 
   const el = document.getElementById(id) ?? document.getElementsByClassName('page')[0];
   html2canvas(el, options).then((canvas) => {
+    // canvas2image.saveAsPNG(canvas);//不可以自定义图片名称
     canvas.toBlob((blob) => {
       download(blob);
     });
