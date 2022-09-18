@@ -11,7 +11,7 @@
 <script setup>
 import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant';
-import { EventObserver } from '@/utils/publish_subscribe.js';
+import { EventObserver } from '@/utils/designPatterns/publish_subscribe';
 
 
 const changeValue = (key) => {

@@ -43,12 +43,14 @@ export const EventObserver = (function () {
     listen,
     trigger,
     remove,
-    list
+    // list
   }
 })()
 
-EventObserver.listen('square88', function (price) {
-  console.log(`价格是${price}`)
-})
 
-EventObserver.trigger('square88', 10000)
+// example:
+// EventObserver.listen('square88', function (price) {
+//   console.log(`价格是${price}`)
+// })
+
+// EventObserver.trigger('square88', 10000)
