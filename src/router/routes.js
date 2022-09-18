@@ -1023,5 +1023,16 @@ export const routers = [
     },
     desc: '购物车',
   },
+  {
+    path: '/PublishSubscribeDemo',
+    name: 'PublishSubscribeDemo',
+    component: _import_('PublishSubscribeDemo'),
+    meta: {
+      keepAlive: true,
+      title: '发布/订阅模式',
+    },
+    desc: '发布/订阅模式',
+  },
+
 
 ];
