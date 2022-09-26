@@ -1033,6 +1033,15 @@ export const routers = [
     },
     desc: '发布/订阅模式',
   },
-
+  {
+    path: '/DownloadExcelToCsv',
+    name: 'DownloadExcelToCsv',
+    component: _import_('DownloadExcelToCsv'),
+    meta: {
+      keepAlive: true,
+      title: '下载CSV文件',
+    },
+    desc: '下载CSV文件',
+  },
 
 ];
