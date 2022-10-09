@@ -36,10 +36,10 @@
 }
 
 @mixin font-semibold($size: 14px, $color: #333333) {
-    font-family: PingFangSC-Semibold;
-    font-size: $size;
-    color: $color;
-    letter-spacing: 0;
+  font-family: PingFangSC-Semibold;
+  font-size: $size;
+  color: $color;
+  letter-spacing: 0;
 }
 
 @mixin font($size: 16px){
@@ -55,43 +55,43 @@
 
 // 单行文本溢出掩藏
 @mixin text-ellipsis {
-    text-overflow: ellipsis;
-    overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 // 多行文本溢出掩藏
-@mixin text-ellipsis-box($orient: vertical, $clamp: 2) {
-    text-overflow: ellipsis;
-    overflow: hidden;
+@mixin text-ellipsis-box($row: 2, $orient: vertical) {
+  text-overflow: ellipsis;
+  overflow: hidden;
 
-    display: -webkit-box;
-    -webkit-box-orient: $orient;
-    -webkit-line-clamp: $clamp;    
+  display: -webkit-box;
+  -webkit-box-orient: $orient;
+  -webkit-line-clamp: $row;    
 }
 
 // flex垂直居中
 @mixin flex-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 // flex垂直居中
 @mixin flex-center-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 // grid实现垂直居中
 @mixin grid-item-center {    
-    // display: grid;
-    align-self: center;
-    justify-self: center;
+  // display: grid;
+  align-self: center;
+  justify-self: center;
 }
 
 // css3 实现阴影效果
@@ -103,16 +103,16 @@
 }
 
 @mixin table-cell-center {  
-    display: table-cell;
-    vertical-align: middle;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 // 水平垂直居中
 @mixin absolute-center {  
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 // 设置 input placeholder 的颜色
@@ -125,114 +125,105 @@
 
 /* position 水平垂直居中 */
 @mixin position-center{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
 /* IOS 手机容器滚动条滑动不流畅 */
 @mixin webkit-scrolling{
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 
 /* 文本超出显示... */
 @mixin syn-text-nowarp($row: 1){
-    @if ($row == 1) {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        
-    } @else {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: $row;
-        overflow: hidden;
-    }
+  @if ($row == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+      
+  } @else {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $row;
+  }
 }
 
 // 弃用,推荐使用 syn-text-nowarp
 @mixin line-limit-length {
-    @include syn-text-nowarp;
+  @include syn-text-nowarp;
 }
 
 // 阴影
 @mixin syn-box-shadow {
-    // background: rgba(255,255,255, 0.60);
-    background: #FFFFFF;
-    box-shadow: inset -0.5px -0.5px 0px 0px rgba(0,0,0,0.15);
-    box-shadow: inset 0.5px 0.5px 0px 0px rgba(255,255,255,1);
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.08);
+  // background: rgba(255,255,255, 0.60);
+  background: #FFFFFF;
+  box-shadow: inset -0.5px -0.5px 0px 0px rgba(0,0,0,0.15);
+  box-shadow: inset 0.5px 0.5px 0px 0px rgba(255,255,255,1);
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.08);
 }
 
 // 卡片阴影
 @mixin syn-card-shadow($margin: 12px, $padding: 12px, $radius: 8px) {
-    margin: $margin;
-    padding: $padding;
+  margin: $margin;
+  padding: $padding;
 
-    border-radius: $radius;
+  border-radius: $radius;
 
-    @include syn-box-shadow;
+  @include syn-box-shadow;
 }
 
 // 背景色
 @mixin syn-btn-bgcolor ($margin: 12px, $colorStart: #BE965A 11%, $colorEnd: #D4BB86 100%) {
-    background-image: linear-gradient(136deg, $colorStart, $colorEnd);
+  background-image: linear-gradient(136deg, $colorStart, $colorEnd);
 }
 
 // 按钮
 @mixin syn-btn($fontFamily: PingFangSC-Regular, $fontSize: 12px) {
-    // height: $height;
-    // border-radius: calc($height*0.5);
-    
-    font-family: $fontFamily;
-    font-size: $fontSize;
-    color: #FFFFFF;
-    font-weight: 500;
+  // height: $height;
+  // border-radius: calc($height*0.5);
+  
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: #FFFFFF;
+  font-weight: 500;
 
-    @include syn-flex-center;
-    @include syn-box-shadow;
-    @include syn-btn-bgcolor;
+  @include syn-flex-center;
+  @include syn-box-shadow;
+  @include syn-btn-bgcolor;
 }
 
 // 按钮(不可点击态)
 @mixin syn-btn-disabled($fontFamily: PingFangSC-Regular, $fontSize: 12px) {
-    @include syn-btn($fontFamily: $fontFamily, $fontSize: $fontSize);
-    opacity:0.4;
+  @include syn-btn($fontFamily: $fontFamily, $fontSize: $fontSize);
+  opacity:0.4;
 }
 
 // 提交按钮
 @mixin syn-btn-submit {
-    @include syn-btn($fontFamily: PingFangSC-Medium, $fontSize: 14px)
+  @include syn-btn($fontFamily: PingFangSC-Medium, $fontSize: 14px)
 }
 
 // 提交按钮(不可点击态)
 @mixin syn-btn-submit-disabled {
-    @include syn-btn-disabled($fontFamily: PingFangSC-Medium, $fontSize: 14px)
+  @include syn-btn-disabled($fontFamily: PingFangSC-Medium, $fontSize: 14px)
 }
-
-// @mixin aa{
-//     width: 36px;
-//     height: 36px;
-
-//     @include syn-box-shadow;
-
-//     background-image: linear-gradient(136deg, #BE965A 11%, #D4BB86 100%);
-// }
 
 
 // flex垂直居中
 @mixin syn-flex-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 // 实现三角形的效果(默认向上)

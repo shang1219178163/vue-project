@@ -120,7 +120,7 @@ body {
 }
 
 .van-overlay{
-  --van-overlay-background-color:	rgba(0, 0, 0, 0.5);	
+  --van-overlay-background-color:	rgba(0, 0, 0, 0.3);	
 }
 
 .van-toast {
