@@ -1,14 +1,32 @@
 <template>
-    <div>
-        <van-dropdown-menu>
+  <navbar
+    title="数据透传1"
+    left-text="返回1"
+    right-text="按钮1"
+    left-arrow      
+    navBarTitle="数据透传"
+    isleftarrow
+  >
+    <template #title>
+      <van-dropdown-menu>
         <van-dropdown-item v-model="value1" :options="option1" />
-        <!-- <van-dropdown-item v-model="value2" :options="option2" /> -->
-        </van-dropdown-menu>
-    </div>
+      <!-- <van-dropdown-item v-model="value2" :options="option2" /> -->
+      </van-dropdown-menu>
+    </template>
+  </navbar>
+
+  <!-- <div>
+    <van-dropdown-menu>
+        <van-dropdown-item v-model="value1" :options="option1" />
+        <van-dropdown-item v-model="value2" :options="option2" />
+      </van-dropdown-menu>
+  </div> -->
 </template>
 
 
 <script setup>
+import navbar from '@/components/navbar.vue';
+
 import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant;
 import { useRouter, useRoute } from 'vue-router';
@@ -45,4 +63,7 @@ const onMore = async () => {
 
 <style scoped lang='scss'>
 
+:deep .van-nav-bar__title{
+  width: 250px;
+}
 </style>
