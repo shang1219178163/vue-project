@@ -161,6 +161,10 @@ body {
 
 // }
 
+.van-dropdown-menu{
+  --van-dropdown-menu-title-active-text-color: var(--theme-color);
+  --van-dropdown-menu-option-active-color: var(--theme-color);
+}
 
 
 </style>
