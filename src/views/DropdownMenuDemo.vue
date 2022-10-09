@@ -66,4 +66,8 @@ const onMore = async () => {
 :deep .van-nav-bar__title{
   width: 250px;
 }
+
+// :deep .van-overlay{
+//   --van-overlay-background-color: rgba(0, 0, 0, 0.3);
+// }
 </style>
