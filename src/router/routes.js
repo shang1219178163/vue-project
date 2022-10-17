@@ -1043,5 +1043,16 @@ export const routers = [
     },
     desc: '下载CSV文件',
   },
+  {
+    path: '/DivBackgroudImageDemo',
+    name: 'DivBackgroudImageDemo',
+    component: _import_('DivBackgroudImageDemo'),
+    meta: {
+      keepAlive: true,
+      title: 'div 的 backgroud-image',
+    },
+    desc: 'div 的 backgroud-image',
+  },
+  
 
 ];

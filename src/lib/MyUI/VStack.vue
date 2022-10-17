@@ -1,8 +1,8 @@
 <template>
-  <div class="bg">
+  <div class="content">
     <slot></slot>
-    <div class="tag">
-      <slot name="tag"></slot>
+    <div class="positioned">
+      <slot name="positioned"></slot>
     </div>
   </div>
 </template>
@@ -63,14 +63,14 @@ const props = defineProps({
 
 
 <style scoped lang='scss'>
-.bg{
+.content{
   position: relative;
 
   border-radius: v-bind(bgBorderRadius); 
   // background: green;
 }
 
-.tag{
+.positioned{
   position: absolute;
 
   top: v-bind(top); 
