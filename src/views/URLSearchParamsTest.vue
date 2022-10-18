@@ -2,6 +2,7 @@
   <div class="box">
     <h1>URL 测试</h1>
     <button @click="parseURLString">button</button>
+    <button @click="click">button</button>
     <h2>链接</h2>
     <h3>{{urlString}}</h3>
     <h2>URL对象:</h2>
@@ -68,6 +69,14 @@ console.log("url.searchParams:", params);
 
 const paramValue = url.searchParams.get("kind");
 console.log({paramValue});
+
+
+const click = () => {
+  const array = [ 1, 2, 1, 2, -1, 0, '0', 10, '10' ];
+  // console.log(count(array));
+  console.log(array.elementCountMap());
+
+};
 
 </script>
 

@@ -88,3 +88,54 @@ Array.prototype.ObjValue = function () {
   return {...this};
 }
 
+// 得到数组的最大值
+Array.prototype.max = function () {
+  const arr = this;
+  // const max = arr.reduce((max, num) => (max > num ? max : num));
+  const max = Math.max(...arr);
+  return max;
+}
+
+// 得到数组的最小值
+Array.prototype.min = function () {
+  const arr = this;
+  // const min = arr.reduce((min, num) => (min < num ? min : num));
+  const min = Math.min(...arr);
+  return min;
+}
+
+// 统计数组成员的个数
+Array.prototype.elementCountMap = function () {
+  const arr = this;
+  return elementCountMap(arr);
+}
+
+// 统计数组成员的个数
+Array.prototype.elementCountObj = function () {
+  const arr = this;
+  return elementCountObj(arr);
+}
+
+// 统计数组成员的个数
+const elementCountMap = (array) => {  
+  return array.reduce((acc, it) => (acc.set(it, (acc.get(it) || 0) + 1), acc), new Map());
+};
+
+// 统计数组成员的个数
+const elementCountObj = (array) => {  
+  return array.reduce((obj, e) => {
+    if(obj[e]) {
+      obj[e]++;
+    } else {
+      obj[e] = 1;
+    }
+    return obj
+  }, {});
+
+  // let obj = {};
+  // arr.map(item => {
+  //   obj[item] ? obj[item]++ : obj[item] = 1;
+  //   return obj
+  // }
+  // return obj;
+};
