@@ -4,7 +4,12 @@
     <van-nav-bar :fixed="isFixed" >
       <template #left>
         <slot name="left">
-          <van-icon v-if="isleftarrow" name="arrow-left" size="18" @click="goback" />
+          <van-icon 
+            v-if="isleftarrow" 
+            name="arrow-left" 
+            size="18" 
+            @click="goback" 
+          />
         </slot>
       </template>
 
