@@ -296,3 +296,18 @@
   border-left: 1px solid $color;
   transform: translateX(25%) rotate(45deg);
 }
+
+/// 对勾 ✔️
+@mixin icon_success($width: 12px, $height: 5.25px , $color: rgba(51,51,51,1)){
+  // width: 12px;
+  // height: 5.25px;
+  // transform: rotate(-45deg);
+  // border-left: 1.5px solid rgba(51,51,51,1);
+  // border-bottom: 1.5px solid rgba(51,51,51,1);
+
+  width: $width;
+  height: $height;
+  transform: rotate(-45deg);
+  border-left: 1.5px solid $color;
+  border-bottom: 1.5px solid $color;
+}

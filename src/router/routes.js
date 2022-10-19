@@ -1053,6 +1053,15 @@ export const routers = [
     },
     desc: 'div 的 backgroud-image',
   },
-  
+  {
+    path: '/VDropdownItemDemo', // 场景订单-补充取消原因
+    name: 'VDropdownItemDemo',
+    component: () => import('@/components/VDropdownItem/VDropdownItemDemo.vue'),
+    meta: {
+      title: 'VDropdownItemDemo',
+      keepAlive: true,
+    },
+    desc: '下拉 VDropdownItemDemo',
+  },
 
 ];
