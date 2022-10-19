@@ -5,12 +5,14 @@
     right="0"
   >
     <van-image 
-      :src="img_placeholder" 
+      :src="imgUrl" 
       error-icon="img_placeholder"
       fit="cover" 
     >
       <template #loading>
-        <van-loading type="spinner" size="20" />
+        <slot name="loading">
+          <van-loading type="spinner" size="20" />
+        </slot>
       </template>
     </van-image>
 
@@ -31,6 +33,10 @@ import img_placeholder from '@/assets/images/img_placeholder_activity_base64';
 
 
 defineProps({
+  imgUrl: {
+    type: String,
+    default: img_placeholder,
+  },
   top: {
     type: String,
     default: 'auto',
