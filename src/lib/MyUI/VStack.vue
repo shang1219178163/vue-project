@@ -9,53 +9,25 @@
 
 
 <script setup>
-import { ref, } from 'vue';
+// import { ref, onMounted } from 'vue';
 // import { Toast } from 'vant;
 
-const props = defineProps({
+defineProps({
   top: {
     type: String,
-    default: "auto",
+    default: 'auto',
   },
   left: {
     type: String,
-    default: "auto",
+    default: 'auto',
   },
   bottom: {
     type: String, 
-    default: "auto",
+    default: 'auto',
   },
   right: {
     type: String,
-    default: "auto",
-  },
-  width: {
-    type: String,
-    default: "auto",
-  },
-  height: {
-    type: String,
-    default: "auto",
-  },
-  padding: {
-    type: String,
-    default: "2px 3px",
-    desc: "tag 内边距"
-  },
-
-  overflow: {
-    type: String,
-    default: "hidden",
-  },
-  borderRadius: {
-    type: String,
-    default: "4px",
-    desc: "tag 圆角"
-  },
-  bgBorderRadius: {
-    type: String,
-    default: "4px",
-    desc: "背景画布圆角"
+    default: 'auto',
   },
 });
 
@@ -67,7 +39,6 @@ const props = defineProps({
   position: relative;
 
   border-radius: v-bind(bgBorderRadius); 
-  // background: green;
 }
 
 .positioned{
@@ -78,13 +49,8 @@ const props = defineProps({
   right: v-bind(right); 
   bottom: v-bind(bottom); 
 
-  width: v-bind(width); 
-  height: v-bind(height); 
-
-  overflow: v-bind(overflow); 
-
-  padding: v-bind(padding);
-  border-radius: v-bind(borderRadius); 
-  // background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

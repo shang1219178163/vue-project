@@ -1,54 +1,65 @@
 <template>
   <!-- <h1>Stack</h1> -->
   <div class="wrapper">
-    <div class="wrapper-section0">
-    wrapper-section0
+
+    <h2>原生实现</h2>
+    <div class="stack__content">
+      <img class="stack__img" 
+      :src="require('@/assets/images/img_placeholder_activity.png')"
+      >
+      <div class="stack__positioned">
+        VStackIm-content
+      </div>
     </div>
+
+    <h2>VStack</h2>
     <VStack
-      class="wrapper-section2" 
-      top="0px" 
+      class="VStack" 
+      bottom="0px" 
       right="0px"
       borderRadius="4px 18px 4px 4px"
     >
-      <div class="VStack-content">VStack-content</div>
-      <template #tag>
-        <div class="VStack-absolute">
-          VStack-absolute
+      <div class="VStack__content">VStackVStackVStackVStackVStackVStackVStackVStackVStackVStackVStack</div>
+      <template #positioned>
+        <div class="VStack-positioned">
+          absolute
         </div>
       </template>
     </VStack>
-    <VStackText
-      class="wrapper-section3" 
-      text="我是标签"
-      bottom="0px" 
-      left="0px"
-      borderRadius="4px"
-      backgroud="#BE965A"
-    >
-      <div class="VStackText-content">VStack-content</div>
-    </VStackText>
+
+    <h2>VStackImg</h2>
     <VStackImg
-      class="wrapper-section4" 
-      top="10px" 
-      width="30px"
-      height="30px" 
+      class="VStack" 
+      bottom="0" 
+      right="0"
       borderRadius="4px"
     >
-      <div class="VStackText-content">VStack-content</div>
+      <img 
+        class="VStackImg_positioned" 
+        :src="icon_like_red_base64" 
+      >
     </VStackImg>
-    <div class="wrapper-section1">
-    wrapper-section1
-    </div>
+
+    <h2>MessageInteractiveCell</h2>
+    <MessageInteractiveCell 
+      class="page-view__cell"
+      v-for="(item, index) in 1" :key="index"
+    >
+      MessageInteractiveCell {{ item }}
+    </MessageInteractiveCell>
+
   </div>
 </template>
 
 
 <script setup>
+import MessageInteractiveCell from '@/components/Cell/MessageInteractiveCell.vue';
+
 import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant;
-// import VStack from '@/components/VStack.vue';
-// import VStackText from '@/components/VStackText.vue';
-// import VStackImg from '@/components/VStackImg.vue';
+
+
+import icon_like_red_base64 from '@/assets/images/icon_like_red_base64';
 
 
 onMounted(() => {
@@ -99,14 +110,50 @@ const onMore = async () => {
 
 <style scoped lang='scss'>
 
+.page-view__cell{
+  height: 84px;
+
+  // border-top: 1px solid red;
+}
+
+.VStack{
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+
+  border: 1px solid red;
+}
+
+.VStack__content{
+  @include syn-text-ellipsis($row: 3);
+  white-space: normal; 
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.VStack-positioned{
+  width: 65px;
+  height: 35px;
+
+  background: orange;
+}
+
+.VStackImg_positioned{
+  width: 35px;
+  height: 35px;
+
+  right: 0;
+  bottom: 0;
+}
+
 .wrapper{
-  width: calc(100% - 30px);
-  height: calc(100% - 30px);
+  // width: calc(100% - 30px);
+  // height: calc(100% - 30px);
 
   display: flex;
   flex-direction: column;
 
-  padding: 15px;;
+  // padding: 15px;;
 }
 
 .wrapper-section0{
@@ -120,22 +167,19 @@ const onMore = async () => {
 
   background: yellowgreen;
 }
-.wrapper-section2{
-  flex-grow: 1;
-
-  background: lightblue;
-}
 
 .wrapper-section3{
   flex-grow: 1;
 
-  background: purple;
+  background: lightblue;
 }
 
 .wrapper-section4{
   flex-grow: 1;
 
   background: green;
+
+  height: 400px;
 }
 
 
@@ -147,15 +191,37 @@ const onMore = async () => {
   background: cyan;
 }
 
-.VStack-absolute{
-  background: orange;
 
-  width: 100px;
-  height: 35px;
 
-  padding: 2px 3px;
+
+.VStackText-content{
+  font-size: 14px;
+}
+.VStackImg-content{
+  font-size: 14px;
+
+  // height: 100%;
+  // width: 100%;
+
+  border-radius: 4px 18px 4px 4px;
+  background: cyan;
 }
 
+.stack__content{
+  position: relative;
 
+  border: 1px solid blue;
+}
 
+.stack__img{
+  height: 100px;
+}
+
+.stack__positioned{
+  position: absolute;
+
+  top: 0;
+  
+  border: 1px solid blue;
+}
 </style>

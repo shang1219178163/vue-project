@@ -10,7 +10,6 @@ import VProgressBar from './VProgressBar.vue';
 import VScroll from './VScroll.vue';
 import VStack from './VStack.vue';
 import VStackImg from './VStackImg.vue';
-import VStackText from './VStackText.vue';
 import VSteper from './VSteper.vue';
 import VSteperVertical from './VSteperVertical.vue';
 import VSteperCount from './VSteperCount.vue';
@@ -37,7 +36,6 @@ export default {
       VScroll,
       VStack,
       VStackImg,
-      VStackText,
       VSteper,
       VSteperVertical,
       VSteperCount,

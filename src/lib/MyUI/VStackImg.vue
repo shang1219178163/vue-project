@@ -1,120 +1,92 @@
 <template>
-  <div class="content">
-    <slot></slot>
-    <img class="tag" :src="img" />
-  </div>
+  <VStack
+    class="cell-left__stack" 
+    bottom="0"
+    right="0"
+  >
+    <van-image 
+      :src="img_placeholder" 
+      error-icon="img_placeholder"
+      fit="cover" 
+    >
+      <template #loading>
+        <van-loading type="spinner" size="20" />
+      </template>
+    </van-image>
+
+    <template #positioned>
+      <slot></slot>
+    </template>
+  </VStack>
 </template>
 
 
 <script setup>
-import { ref, computed} from 'vue';
-import logo from '@/assets/logo.png';
+import VStack from './VStack.vue';
 
-const props = defineProps({
-  // alignment: {
-  //   type: String,
-  //   default: "topLeft",
-  //   validator: (value) => {
-  //     console.log("alignment", typeof value, value);
-  //     return ["topLeft", "topRight", "bottomLeft", "bottomRight", ].includes(value); 
-  //   }
-  // },
+// import { ref, onMounted } from 'vue';
+// import { Toast } from 'vant;
+
+import img_placeholder from '@/assets/images/img_placeholder_activity_base64';
+
+
+defineProps({
   top: {
     type: String,
-    default: "auto",
+    default: 'auto',
   },
   left: {
     type: String,
-    default: "auto",
+    default: 'auto',
   },
   bottom: {
     type: String, 
-    default: "auto",
+    default: 'auto',
   },
   right: {
     type: String,
-    default: "auto",
-  },
-  img: {
-    type: String,
-    default: logo,
+    default: 'auto',
   },
   width: {
     type: String,
-    default: "auto",
+    default: '44px',
   },
   height: {
     type: String,
-    default: "auto",
-  },
-  overflow: {
-    type: String,
-    default: "hidden",
+    default: '44px',
   },
   borderRadius: {
     type: String,
-    default: "4px",
-  },
-  backgroud: {
-    type: String,
-    default: undefined,
-  },
-
-  overflow: {
-    type: String,
-    default: "hidden",
+    default: '44px',
   },
 });
-
-// let topRef = ref(props.top);
-// let leftRef = ref(props.left);
-// let templateRef = ref(props.template);
-// let templateRef = ref(props.template);
-
-// const absoluteStyle = computed(() => {
-//   return {
-//     position: "absolute",
-
-//     top: props.top,
-//     left: props.left,
-//     right: props.right,
-//     bottom: props.bottom,
-
-//     width: props.width,
-//     height: props.height,
-
-//     overflow: props.overflow,
-
-//     borderRadius: props.borderRadius,
-//   };
-// });
-
 
 </script>
 
 
 <style scoped lang='scss'>
-.content{
-  position: relative;
 
-  border-radius: v-bind(borderRadius); 
-  // background: green;
+$width: v-bind(width);
+$height: v-bind(height);
+$borderRadius: v-bind(borderRadius);
+
+
+.cell-left__stack{
+  display: flex;
+  align-self: flex-start;
+
+  width: $width;
+  height: $height;
+  border-radius: $borderRadius;
+
+  border: 1px solid red;
 }
 
-.tag{
-  position: absolute;
+.cell-left__stack_positioned{
+  width: .32rem;
+  height: .32rem;
 
-  top: v-bind(top); 
-  left: v-bind(left); 
-  right: v-bind(right); 
-  bottom: v-bind(bottom); 
-
-  width: v-bind(width); 
-  height: v-bind(height); 
-
-  overflow: v-bind(overflow); 
-
-  border-radius: v-bind(borderRadius); 
-  background: v-bind(backgroud); 
+  right: 0;
+  bottom: 0;
 }
 </style>
