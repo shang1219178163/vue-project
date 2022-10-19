@@ -1,7 +1,7 @@
 import axios from 'axios';
 import _assign from 'lodash/assign';
 
-import { NET_MSG_ERROR } from '@/service/request/apiMessage';
+import { NET_MSG_ERROR } from '@/service/request/apiContant';
 
 // axios.defaults.timeout = 10000 //超时取消请求
 // axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'

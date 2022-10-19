@@ -137,7 +137,7 @@ const click = () => {
 
   color: v-bind(color);
 
-  @include syn-text-nowarp;
+  @include syn-text-ellipsis;
 
   margin: 0 3px;
     // background-color: green;

@@ -143,7 +143,7 @@
 
 
 /* 文本超出显示... */
-@mixin syn-text-nowarp($row: 1){
+@mixin syn-text-ellipsis($row: 1){
   @if ($row == 1) {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -157,9 +157,9 @@
   }
 }
 
-// 弃用,推荐使用 syn-text-nowarp
+// 弃用,推荐使用 syn-text-ellipsis
 @mixin line-limit-length {
-  @include syn-text-nowarp;
+  @include syn-text-ellipsis;
 }
 
 // 阴影
