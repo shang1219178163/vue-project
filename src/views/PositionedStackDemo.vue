@@ -1,6 +1,6 @@
 <template>
   <!-- <h1>Stack</h1> -->
-  <div class="wrapper">
+  <div class="page">
 
     <h2>原生实现</h2>
     <div class="stack__content">
@@ -14,14 +14,14 @@
 
     <h2>VStack</h2>
     <VStack
-      class="VStack" 
-      bottom="0px" 
-      right="0px"
+      class="vstack" 
+      bottom="0" 
+      right="0"
       borderRadius="4px 18px 4px 4px"
     >
-      <div class="VStack__content">VStackVStackVStackVStackVStackVStackVStackVStackVStackVStackVStack</div>
+      <div class="vstack__content">VStackVStackVStackVStackVStackVStackVStackVStackVStackVStackVStack</div>
       <template #positioned>
-        <div class="VStack-positioned">
+        <div class="vstack-positioned">
           absolute
         </div>
       </template>
@@ -29,13 +29,13 @@
 
     <h2>VStackImg</h2>
     <VStackImg
-      class="VStack" 
+      class="vstack" 
       bottom="0" 
       right="0"
       borderRadius="4px"
     >
       <img 
-        class="VStackImg_positioned" 
+        class="vstackImg_positioned" 
         :src="icon_like_red_base64" 
       >
     </VStackImg>
@@ -109,102 +109,11 @@ const onMore = async () => {
 
 
 <style scoped lang='scss'>
-
-.page-view__cell{
-  height: 84px;
-
-  // border-top: 1px solid red;
-}
-
-.VStack{
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
-
-  border: 1px solid red;
-}
-
-.VStack__content{
-  @include syn-text-ellipsis($row: 3);
-  white-space: normal; 
-  word-break: break-all;
-  word-wrap: break-word;
-}
-
-.VStack-positioned{
-  width: 65px;
-  height: 35px;
-
-  background: orange;
-}
-
-.VStackImg_positioned{
-  width: 35px;
-  height: 35px;
-
-  right: 0;
-  bottom: 0;
-}
-
-.wrapper{
-  // width: calc(100% - 30px);
-  // height: calc(100% - 30px);
-
+.page{
   display: flex;
   flex-direction: column;
 
   // padding: 15px;;
-}
-
-.wrapper-section0{
-  flex-grow: 1;
-
-  background: yellow;
-}
-
-.wrapper-section1{
-  flex-grow: 1;
-
-  background: yellowgreen;
-}
-
-.wrapper-section3{
-  flex-grow: 1;
-
-  background: lightblue;
-}
-
-.wrapper-section4{
-  flex-grow: 1;
-
-  background: green;
-
-  height: 400px;
-}
-
-
-.VStack-content{
-  height: 100%;
-  width: 100%;
-
-  border-radius: 4px 18px 4px 4px;
-  background: cyan;
-}
-
-
-
-
-.VStackText-content{
-  font-size: 14px;
-}
-.VStackImg-content{
-  font-size: 14px;
-
-  // height: 100%;
-  // width: 100%;
-
-  border-radius: 4px 18px 4px 4px;
-  background: cyan;
 }
 
 .stack__content{
@@ -224,4 +133,41 @@ const onMore = async () => {
   
   border: 1px solid blue;
 }
+
+.vstack{
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+
+  border: 1px solid red;
+}
+
+.vstack__content{
+  // @include syn-text-ellipsis($row: 3);
+  white-space: normal; 
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.vstack-positioned{
+  width: 65px;
+  height: 35px;
+
+  background: orange;
+}
+
+.vstackImg_positioned{
+  width: 35px;
+  height: 35px;
+
+  right: 0;
+  bottom: 0;
+}
+
+.page-view__cell{
+  height: 84px;
+
+  // border-top: 1px solid red;
+}
+
 </style>

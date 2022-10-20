@@ -1,46 +1,17 @@
 <template>
   <div class="cell">
     <div class="cell-left">
-      <!-- <div class="cell-left__stack">
-        <van-image 
-          class="cell-left__img" 
-          :src="img_placeholder" 
-          error-icon="img_placeholder"
-          fit="cover" 
-        >
-          <template #loading>
-            <van-loading type="spinner" size="20" />
-          </template>
-        </van-image>
-
+      <VStackImg
+        class="cell-left__stack" 
+        bottom="0" 
+        right="0"
+        :imgPlaceholder="img_placeholder"
+      >
         <img 
-          class="cell-left__stack__positioned" 
+          class="cell-left__stack_positioned" 
           :src="icon_like_red_base64" 
         >
-      </div> -->
-
-      <VStack
-        class="cell-left__stack" 
-        bottom="0"
-        right="0"
-      >
-        <van-image 
-          :src="img_placeholder" 
-          error-icon="img_placeholder"
-          fit="cover" 
-        >
-          <template #loading>
-            <van-loading type="spinner" size="20" />
-          </template>
-        </van-image>
-
-        <template #positioned>
-          <img 
-            class="cell-left__stack_positioned" 
-            :src="icon_like_red_base64" 
-          >
-        </template>
-      </VStack>
+      </VStackImg>
     </div>
     <div class="cell-mid">
       <div class="cell-mid__row-one">
@@ -51,10 +22,11 @@
         <div class="cell-mid__row-two__detailText"  v-if="detailText"> {{ detailText }}</div>
       </div>
     </div>
-    <div class="cell-right">
+    <div class="cell-right" v-show="rightSrc">
       <van-image
         class="cell-right__img"
-        :src="require('@/assets/images/icon_call_phone_circle.png')" 
+        :src="imgUrl" 
+        :error-icon="img_placeholder"
         fit="fill" 
         @click="$emit('clickPhone', phone)"
        />
@@ -64,15 +36,29 @@
 
 
 <script setup>
+// import VStack from '@/components/VStack.vue';
+// import VStackImg from '@/components/VStackImg.vue';
 
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-import img_placeholder from '@/assets/images/img_placeholder_activity_base64';
+import img_placeholder from '@/assets/images/img_placeholder_base64';
 import icon_like_red_base64 from '@/assets/images/icon_like_red_base64';
 import icon_evaluation_gold_base64 from '@/assets/images/icon_evaluation_gold_base64';
 
 // eslint-disable-next-line no-undef
-defineProps({
+const props = defineProps({
+  leftImgWH: {
+    type: String,
+    default: '.88rem',
+  },
+  leftImgRadius: {
+    type: String,
+    default: '.44rem',
+  },
+  rightImgWH: {
+    type: String,
+    default: '.88rem',
+  },
   imgUrl: {
     type: String,
   },
@@ -88,6 +74,10 @@ defineProps({
     type: String,
     default: '评论了你的“青岛海尔博物馆等你来打卡…”',
   },
+  rightSrc: {
+    type: String,
+    default: img_placeholder,
+  },
   phone: {
     type: String,
   },
@@ -95,6 +85,13 @@ defineProps({
 
 // eslint-disable-next-line no-undef
 defineEmits(['clickPhone',]);
+
+const midWidthRef = computed(() => {
+  if (props.rightSrc) {
+    return `calc(100vw - (${props.leftImgWH} + 0.16rem) - (${props.rightImgWH} + 0.16rem) - 0.32rem*2)`;
+  }
+  return `calc(100vw - (${props.leftImgWH} + 0.16rem) - 0.32rem*2)`;
+});
 
 </script>
 
@@ -105,12 +102,14 @@ $spacing: 0.16px;
 $padding-left: 16px;
 $padding-right: 8px;
 
-$leftImgWH: .88rem;
-$rightImgWH: .88rem;
+// $leftImgWH: .88rem;
+// $rightImgWH: .88rem;
+$leftImgWH: v-bind(leftImgWH);
+$rightImgWH: if(v-bind(rightSrc), v-bind(rightImgWH), 0);
 
-// div {
-//    border: 0.3px solid blue; 
-// }
+div {
+  border: 0.3px solid blue; 
+}
 
 .cell {  
   box-sizing: border-box; 
@@ -120,50 +119,48 @@ $rightImgWH: .88rem;
   align-items: center;
 
   border-bottom: 1px solid #eeeeee;
-
   background-color: #ffffff;
 
   width: 100vw;
+
+  padding: 0 0.32rem 0 0.32rem;
 }
 
 .cell-left {
   width: $leftImgWH;
   height: $leftImgWH;
 
-  margin: 0 0.16rem 0 0.32rem;
-  padding: 0;
+  margin: 0 0.16rem 0 0;
 } 
 
 .cell-mid {
-  width: calc(100vw - ($leftImgWH + 0.16rem + 0.32rem)*2);
+  // width: calc(100vw - ($leftImgWH + 0.16rem + 0.32rem)*2);
+  width: v-bind(midWidthRef);
   height: $leftImgWH;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
-  // flex-grow: 1;
-  // flex-shrink: 1;
 }
 
 .cell-right {
   width: $rightImgWH;
-  margin: 0 0.32rem 0 0.16rem;
+  margin: 0 0 0 0.16rem;
 
   display: flex;
   align-items: center; 
 }
 
-.cell-left__img{
-  display: flex;
-  align-self: flex-start;
+// .cell-left__img{
+//   width: $leftImgWH;
+//   height: $leftImgWH;
+//   border-radius: v-bind(leftImgRadius);
 
-  width: $leftImgWH;
-  height: $leftImgWH;
-  border-radius: $leftImgWH * 0.5;
+//   display: flex;
+//   align-self: flex-start;
 
-  // border: 0.3px solid red;
-}
+//   border: 0.3px solid red;
+// }
 
 .cell-left__stack{
   display: flex;
@@ -171,7 +168,7 @@ $rightImgWH: .88rem;
 
   width: $leftImgWH;
   height: $leftImgWH;
-  border-radius: $leftImgWH * 0.5;
+  border-radius: v-bind(leftImgRadius);
 
   border: 1px solid red;
 }
@@ -248,6 +245,8 @@ $rightImgWH: .88rem;
 .cell-right__img{
   width: $rightImgWH;
   height: $rightImgWH;
+
+  border: 0.3px solid red;
 }
 
 </style>

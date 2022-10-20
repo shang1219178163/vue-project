@@ -1,7 +1,7 @@
 <template>
-  <div class="content">
+  <div class="vstack-content">
     <slot></slot>
-    <div class="positioned">
+    <div class="vstack-content__positioned">
       <slot name="positioned"></slot>
     </div>
   </div>
@@ -10,7 +10,6 @@
 
 <script setup>
 // import { ref, onMounted } from 'vue';
-// import { Toast } from 'vant;
 
 defineProps({
   top: {
@@ -35,13 +34,14 @@ defineProps({
 
 
 <style scoped lang='scss'>
-.content{
+
+.vstack-content{
   position: relative;
 
   border-radius: v-bind(bgBorderRadius); 
 }
 
-.positioned{
+.vstack-content__positioned{
   position: absolute;
 
   top: v-bind(top); 

@@ -1,12 +1,12 @@
 <template>
   <VStack
-    class="cell-left__stack" 
+    class="vstackimg-content" 
     bottom="0"
     right="0"
   >
     <van-image 
       :src="imgUrl" 
-      error-icon="img_placeholder"
+      :error-icon="imgPlaceholder"
       fit="cover" 
     >
       <template #loading>
@@ -27,13 +27,16 @@
 import VStack from './VStack.vue';
 
 // import { ref, onMounted } from 'vue';
-// import { Toast } from 'vant;
 
-import img_placeholder from '@/assets/images/img_placeholder_activity_base64';
+import img_placeholder from '@/assets/images/img_placeholder_base64';
 
 
 defineProps({
   imgUrl: {
+    type: String,
+    default: img_placeholder,
+  },
+  imgPlaceholder: {
     type: String,
     default: img_placeholder,
   },
@@ -76,8 +79,7 @@ $width: v-bind(width);
 $height: v-bind(height);
 $borderRadius: v-bind(borderRadius);
 
-
-.cell-left__stack{
+.vstackimg-content{
   display: flex;
   align-self: flex-start;
 
@@ -88,11 +90,4 @@ $borderRadius: v-bind(borderRadius);
   border: 1px solid red;
 }
 
-.cell-left__stack_positioned{
-  width: .32rem;
-  height: .32rem;
-
-  right: 0;
-  bottom: 0;
-}
 </style>
