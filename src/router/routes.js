@@ -1063,5 +1063,25 @@ export const routers = [
     },
     desc: '下拉 VDropdownItemDemo',
   },
+  {
+    path: '/VTransitionModalDemo', // 场景订单-补充取消原因
+    name: 'VTransitionModalDemo',
+    component: () => import('@/lib/MyUI/VTransitionModal/VTransitionModalDemo.vue'),
+    meta: {
+      title: 'VTransitionModalDemo',
+      keepAlive: true,
+    },
+    desc: '模态弹窗',
+  },
+  {
+    path: '/VTransitionModalDemoNew', // 场景订单-补充取消原因
+    name: 'VTransitionModalDemoNew',
+    component: _import_('VTransitionModalDemoNew'),
+    meta: {
+      title: 'VTransitionModalDemoNew',
+      keepAlive: true,
+    },
+    desc: '模态弹窗',
+  },
 
 ];

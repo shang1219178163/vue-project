@@ -13,6 +13,7 @@ import VStackImg from './VStackImg.vue';
 import VSteper from './VSteper.vue';
 import VSteperVertical from './VSteperVertical.vue';
 import VSteperCount from './VSteperCount.vue';
+import VTransitionModal from './VTransitionModal/VTransitionModal.vue';
 import VDatetimePicker from './VDatetimePicker.vue';
 
 import VUpload from './VUpload.vue';
@@ -39,6 +40,7 @@ export default {
       VSteper,
       VSteperVertical,
       VSteperCount,
+      VTransitionModal,
       VDatetimePicker,
       VUpload,
       VUploadPlaceholder,
