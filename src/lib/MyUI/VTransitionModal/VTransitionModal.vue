@@ -55,7 +55,6 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['update:show', "close"]);
 
 const showVal = computed({
   set: (newVal) => {
@@ -65,6 +64,8 @@ const showVal = computed({
   },
   get: () => props.show,
 });
+
+const emit = defineEmits(['update:show', "close"]);
 
 
 const close = () => {
