@@ -18,9 +18,9 @@
 </template>
 
 <script setup>
-import Modal from './VTransitionModal.vue'
+import Modal from './VTransitionModal.vue';
 
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 const props = defineProps({
   show: Boolean,
