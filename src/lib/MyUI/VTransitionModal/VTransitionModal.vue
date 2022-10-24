@@ -1,42 +1,10 @@
-<script setup>
-import { ref } from 'vue'
-
-const props = defineProps({
-  show: Boolean,
-  showMask: {
-    type: Boolean,
-    default: true,
-  },
-  maskCloseable: {
-    type: Boolean,
-    default: false,
-  },
-  // maskbg: {
-  //   type: String,
-  //   default: 'rgba(0, 0, 0, 0.3)',
-  // },
-});
-
-const emit = defineEmits(['close',]);
-
-const close = () => {
-  if (!props.maskCloseable) {
-    return;
-  }
-  props.show = false;
-  emit('close');
-};
-
-
-</script>
-
 <template>
   <Teleport to="body">
     <Transition name="modal">
       <div 
-        v-if="show" 
+        v-if="showVal" 
         :class="['modal-mask', showMask ? '' : 'hide']"
-        @click="close"
+        @click="closeMask"
       >
         <div class="modal-wrapper">
           <slot>
@@ -44,7 +12,6 @@ const close = () => {
               <div class="modal-header">
                 <slot name="header">default header</slot>
               </div>
-    
               <div class="modal-body">
                 <slot name="body">default body</slot>
               </div>
@@ -65,6 +32,59 @@ const close = () => {
   </Teleport>
 </template>
 
+<script setup>
+import { ref, computed } from 'vue'
+
+const props = defineProps({
+  show: Boolean,
+  showMask: {
+    type: Boolean,
+    default: true,
+  },
+  maskCloseable: {
+    type: Boolean,
+    default: false,
+  },
+  // maskbg: {
+  //   type: String,
+  //   default: 'rgba(0, 0, 0, 0.3)',
+  // },
+  verticalAlign: {
+    type: String,
+    default: 'middle',
+  },
+});
+
+const emit = defineEmits(['update:show', "close"]);
+
+const showVal = computed({
+  set: (newVal) => {
+    if (props.show !== newVal) {
+      emit('update:show', newVal);
+    }
+  },
+  get: () => props.show,
+});
+
+
+const close = () => {
+  if (!props.maskCloseable) {
+    return;
+  }
+  showVal.value = false;
+  emit('close');
+};
+
+const closeMask = () => {
+  if (!props.maskCloseable) {
+    return;
+  }
+  showVal.value = false;
+  emit('close');
+};
+
+</script>
+
 <style scoped lang="scss">
 .modal-mask {
   position: fixed;
@@ -84,7 +104,8 @@ const close = () => {
 
 .modal-wrapper {
   display: table-cell;
-  vertical-align: middle;
+  // vertical-align: middle;
+  vertical-align: v-bind(verticalAlign);
 }
 
 .modal-container {
