@@ -69,9 +69,6 @@ const emit = defineEmits(['update:show', "close"]);
 
 
 const close = () => {
-  if (!props.maskCloseable) {
-    return;
-  }
   showVal.value = false;
   emit('close');
 };
@@ -80,8 +77,7 @@ const closeMask = () => {
   if (!props.maskCloseable) {
     return;
   }
-  showVal.value = false;
-  emit('close');
+  close();
 };
 
 </script>
