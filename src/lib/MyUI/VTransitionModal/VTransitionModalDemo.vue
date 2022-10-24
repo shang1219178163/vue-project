@@ -1,6 +1,21 @@
 <!--
 可定制插槽和 CSS 过渡效果的模态框组件。
 -->
+<template>
+  <button id="show-modal" @click="showToggle">Show Modal One</button>
+  <h3 class="text">hello</h3>
+
+  <!-- 使用这个 modal 组件，传入 prop -->
+  <Modal 
+    :show="showModal" 
+    :delay="delay" 
+    @close="showToggle"
+  >
+    <template #header>
+      <h3>custom header VTransitionModalOneDemo</h3>
+    </template>
+  </Modal>
+</template>
 
 <script setup>
 import Modal from './VTransitionModal.vue'
@@ -34,22 +49,6 @@ const color = ref('red');
 //   showToggle();//响应前进、后退的回调方法
 // }, false)
 </script>
-
-<template>
-  <button id="show-modal" @click="showToggle">Show Modal One</button>
-  <h3 class="text">hello</h3>
-
-  <!-- 使用这个 modal 组件，传入 prop -->
-  <Modal 
-    :show="showModal" 
-    :delay="delay" 
-    @close="showToggle"
-  >
-    <template #header>
-      <h3>custom header VTransitionModalOneDemo</h3>
-    </template>
-  </Modal>
-</template>
 
 <style scoped>
 .text{
