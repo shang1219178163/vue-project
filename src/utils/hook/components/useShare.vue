@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import {useCounter, useCounter2, useCounter3} from "../useModel/demo"
+import {useCounter, useCounter2, useCounter3} from "../useShare/demo"
 
 export default {
-  name: "useModelDemo",
+  name: "useShareDemo",
   setup() {
     // const {count, decrement, increment} = useCounter()
     // const {count, decrement, increment} = useCounter2()

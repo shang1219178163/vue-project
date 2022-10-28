@@ -1,7 +1,7 @@
 const initialState = {count: 0};
 
 import useReducer from './index'
-import useModel from '../useModel'
+import useShare from '../useShare'
 
 function reducer(state, action) {
     switch (action.type) {
@@ -21,5 +21,5 @@ export function useStore() {
 
 // 全局的store
 export function useRedux() {
-    return useModel(useStore);
+    return useShare(useStore);
 }

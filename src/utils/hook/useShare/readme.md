@@ -1,4 +1,4 @@
-## useModel
+## useShare
 
 参考：[hox源码](https://github.com/umijs/hox/blob/master/README-cn.md)
 
@@ -67,7 +67,7 @@ export function useCounter2() {
 ```
 很显然，现在的`useCounter2`仅仅只是store的`state`与`mutations`的封装，直接在组件中使用store也可以达到相同的效果，封装就变得意义不大；此外，如果单单只是为了这个功能就为项目增加了vuex依赖，显得十分笨重。
 
-基于这些问题，我们可以使用一个`useModel`来实现复用某个钩子状态的需求
+基于这些问题，我们可以使用一个`useShare`来实现复用某个钩子状态的需求
 
 ### 实现
 
@@ -75,7 +75,7 @@ export function useCounter2() {
 
 ```js
 const map = new WeakMap()
-export default function useModel(hook) {
+export default function useShare(hook) {
     if (!map.get(hook)) {
         let ans = hook()
         map.set(hook, ans)
@@ -88,7 +88,7 @@ export default function useModel(hook) {
 
 ```js
 export function useCounter3() {
-    return useModel(useCounter)
+    return useShare(useCounter)
 }
 
 // 在多个组件调用
@@ -103,7 +103,7 @@ const {count, decrement, increment} = useCounter3()
 
 `userModel`提供了一种除`vuex`和`provide()/inject()`之外共享数据状态的思路，并且可以很灵活的管理数据与操作数据的方案，而无需将所有state放在一起或者模块下面。
 
-缺点在于，当不使用`useModel`包装时，`useCounter`就是一个普通的hook，后期维护而言，我们很难判断某个状态到底是全局共享的数据还是局部的数据。
+缺点在于，当不使用`useShare`包装时，`useCounter`就是一个普通的hook，后期维护而言，我们很难判断某个状态到底是全局共享的数据还是局部的数据。
 
-因此在使用`useModel`处理hook的共享状态时，还要要慎重考虑一下到底合不合适。
+因此在使用`useShare`处理hook的共享状态时，还要要慎重考虑一下到底合不合适。
 

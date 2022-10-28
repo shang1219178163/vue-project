@@ -57,11 +57,11 @@ function useStore() {
 }
 ```
 
-我们希望是维护一个全局的store，因此可以使用上面的`useModel`
+我们希望是维护一个全局的store，因此可以使用上面的`useShare`
 
 ```js
 export function useRedux() {
-    return useModel(useStore);
+    return useShare(useStore);
 }
 ```
 
@@ -89,7 +89,7 @@ export default {
 </script>
 ```
 
-看起来跟我们上面`useModel`的例子并没有什么区别，主要是暴露了通用的`dispatch`方法，在reducer处维护状态变化的逻辑，而不是在每个useCounter中自己维护修改数据的逻辑
+看起来跟我们上面`useShare`的例子并没有什么区别，主要是暴露了通用的`dispatch`方法，在reducer处维护状态变化的逻辑，而不是在每个useCounter中自己维护修改数据的逻辑
 
 ### 思考
 
