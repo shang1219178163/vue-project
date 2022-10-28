@@ -8,11 +8,15 @@
   >
   {{ key }}:    {{value ?? '-'}}
   </div>
+
+  <!-- <h4>{{ info }}</h4>
+  <h4>{{ JSON.stringify(process) }}</h4> -->
+
 </template>
 
 
 <script setup>
-import { reactive, toRaw } from 'vue';
+import { ref, reactive, toRaw } from 'vue';
 import { useNetwork } from '@vueuse/core';
 
 const network = reactive(useNetwork());
@@ -26,4 +30,9 @@ const obj = toRaw(network);
 for (let key in obj) {
   console.log('network', key, obj[key]);
 }
+
+console.log('process.env.NODE_ENV =', process.env.NODE_ENV);
+console.log('process.env', process.env);
+console.log('process', process);
+
 </script>
