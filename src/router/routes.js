@@ -1083,5 +1083,16 @@ export const routers = [
     },
     desc: '模态弹窗',
   },
+  {
+    path: '/CustomRefreshDemo', // 场景订单-补充取消原因
+    name: 'CustomRefreshDemo',
+    component: _import_('CustomRefreshDemo'),
+    meta: {
+      title: 'CustomRefreshDemo',
+      keepAlive: true,
+    },
+    desc: 'CustomRefreshDemo',
+  },
 
+  
 ];

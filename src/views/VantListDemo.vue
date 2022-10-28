@@ -1,25 +1,25 @@
 <template>
-    <navbar 
+  <navbar 
     navBarTitle="下拉刷新上拉加载" 
     isleftarrow
     isFixed>
-    </navbar>
-    <van-pull-refresh
-      class="van-pull-refresh" 
-      v-model="loading" 
-      :head-height="80" 
-      @refresh="onRefresh"
-      :disabled="false"
+  </navbar>
+  <van-pull-refresh
+    class="van-pull-refresh" 
+    v-model="loading" 
+    :head-height="80" 
+    @refresh="onRefresh"
+    :disabled="false"
+  >
+    <van-list
+      v-model:loading="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
     >
-      <van-list
-        v-model:loading="loading"
-        :finished="finished"
-        finished-text="没有更多了"
-        @load="onLoad"
-      >
-        <van-cell v-for="item in list" :key="item" :title="item" />
-      </van-list>
-    </van-pull-refresh>
+      <van-cell v-for="item in list" :key="item" :title="item" />
+    </van-list>
+  </van-pull-refresh>
 </template>
 
 
@@ -60,14 +60,14 @@ const onLoad = async () => {
       list.value.push(list.value.length + 1);
     }
 
-    // 加载状态结束
-    loading.value = false;
+    console.log(`list:${list.value.length}`);
+    loading.value = false;// 加载状态结束
 
-    // 数据全部加载完成
-    if (list.value.length >= 40) {
-      finished.value = true;
+    if (list.value.length >= 440) {
+      loading.value = false;// 加载状态结束
+      finished.value = true;// 数据全部加载完成
     }
-  }, 1000);
+  }, 0.3);
 };
 
 </script>

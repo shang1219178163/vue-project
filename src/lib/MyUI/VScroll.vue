@@ -5,8 +5,14 @@
 </template>
 
 <script>
-import BScroll from "better-scroll";
+// import BScroll from "better-scroll";
 import { ref } from "@vue/reactivity";
+
+import BScroll from "@better-scroll/core";
+import PullDown from "@better-scroll/pull-down";
+import PullUp from '@better-scroll/pull-up';
+BScroll.use(PullDown);
+BScroll.use(PullUp);
 
 export default {
   props: {

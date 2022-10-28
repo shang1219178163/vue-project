@@ -11,6 +11,8 @@
     "start": "npm run serve"
   },
   "dependencies": {
+    "@better-scroll/pull-down": "^2.5.0",
+    "@better-scroll/pull-up": "^2.5.0",
     "@vueuse/components": "^8.7.5",
     "@vueuse/core": "^8.9.4",
     "@vueuse/integrations": "^9.1.1",

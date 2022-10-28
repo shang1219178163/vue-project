@@ -4,16 +4,20 @@
       isleftarrow
       navBarTitle="动态组件进阶" 
       closeWebview
+      isFixed
     >
       <template #right>
         <van-icon name="ellipsis" size="17" @click="onMore" />
       </template>
     </navbar> 
 
-    <VScroll class="wrapper"
+    <VScroll 
+      class="wrapper"
       :data="list"
-      :pulldown="pulldown"
-      @pulldown="loadData"
+      :pulldown="loading"
+      :pullup="moring" 
+      @pulldown="onLoad"
+      @scrollToEnd="onMore"
     >
       <ul class="content">
         <li class="content__cell" v-for="item in list">{{item}}</li>
@@ -28,33 +32,37 @@ import navbar from '@/components/navbar.vue';
 
 import { ref, reactive, onMounted } from 'vue';
 
-let list = reactive([]);
+const list = reactive([]);
 
-const pulldown = ref(true);
-
-const onMore = () => {
-  loadData();
-};
+const loading = ref(true);
+const moring = ref(true);
 
 onMounted(() => {
-  loadData();
+  onLoad();
 });
 
-const requestData = () => {
-  return new Promise((resolve, reject) => {
-    resolve({
-      data: [1,2,3,4,5,6,7,8,9]
-    });
-  });
-};
-
-const loadData = () => {
+const onLoad = () => {
+  console.log('onLoad');
   requestData().then((res) => {
     list.push(...res.data);
   })
 };
 
-  
+
+const onMore = () => {
+  console.log('onMore');
+  onLoad();
+};
+
+
+const requestData = () => {
+  return new Promise((resolve, reject) => {
+    resolve({
+      data: Array(20).fill().map((e, i)=> i),
+    });
+  });
+};
+
 </script>
 
 
@@ -73,7 +81,7 @@ const loadData = () => {
   // flex-direction: column;
   // width: 100%;
   // height: 100%;
-  // margin-top: 46px;
+  margin-top: 46px;
   // height: calc(100% - 46px);
 
   background-color: #f6f6f6;
@@ -88,7 +96,7 @@ const loadData = () => {
 }
 
 .content__cell{
-  height: 90px;
+  height: 60px;
 
   font-size:17px
 }
