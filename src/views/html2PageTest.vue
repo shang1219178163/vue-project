@@ -1,4 +1,13 @@
 <template>
+  <navbar
+  :navBarTitle="$route.meta.title"
+  >
+    <template #right>
+      <div @click="done">
+        done
+      </div>
+    </template>
+  </navbar>
   <h1>{{ $route.meta.title }}</h1>
   <!-- <h1>{{ JSON.stringify(route) }}</h1> -->
   <button class="btn save" @click="save('page')">save</button>
@@ -20,6 +29,10 @@
 
 
 <script setup>
+import navbar from '@/components/navbar.vue';
+
+
+
 import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant';
 
@@ -99,6 +112,44 @@ const download = async (blob) => {
 
   window.URL.revokeObjectURL(url);
 };
+
+const startElem = document.getElementsByClassName('page')[0];
+
+const done = () => {
+  console.log(`done`);
+
+  startElem.addEventListener("click", function(evt) {
+    startCapture();
+  }, false);
+};
+
+
+async function startCapture(displayMediaOptions) {
+  let captureStream = null;
+
+  try {
+    captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+  } catch(err) {
+    console.error("Error: " + err);
+  }
+  return captureStream;
+}
+
+function stopCapture(evt) {
+  let tracks = videoElem.srcObject.getTracks();
+
+  tracks.forEach(track => track.stop());
+  videoElem.srcObject = null;
+}
+
+function dumpOptionsInfo() {
+  const videoTrack = videoElem.srcObject.getVideoTracks()[0];
+
+  console.info("Track settings:");
+  console.info(JSON.stringify(videoTrack.getSettings(), null, 2));
+  console.info("Track constraints:");
+  console.info(JSON.stringify(videoTrack.getConstraints(), null, 2));
+}
 
 
 </script>
