@@ -1093,6 +1093,16 @@ export const routers = [
     },
     desc: 'CustomRefreshDemo',
   },
+  {
+    path: '/VTreeNodeDemo', // 场景订单-补充取消原因
+    name: 'VTreeNodeDemo',
+    component: () => import('@/components/VTreeNode/VTreeNodeDemo.vue'),
+    meta: {
+      title: 'VTreeNodeDemo',
+      keepAlive: true,
+    },
+    desc: 'VTreeNodeDemo',
+  },
 
   
 ];
