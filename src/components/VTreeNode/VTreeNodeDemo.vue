@@ -3,9 +3,9 @@
     :list="list"
     :level="level"
   >
-    <template #item="slotProps">
-      <div class="NestedItem__cell">
-        {{prefix(slotProps.level)}}{{slotProps.item.name}}
+    <template #node="slotProps">
+      <div class="tree-node">
+        {{prefix(slotProps.level)}}{{slotProps.item.name}}{{sufix(slotProps.item)}}
       </div>
     </template>
   </VTreeNode>
@@ -20,22 +20,28 @@ import { ref, reactive, watch, onMounted, } from 'vue';
 let list = reactive(
   [{ 
     name:'一级菜单',
+    isExpand: true,//是否展开子项
+    enabled: false,//是否可以响应事件
     child:[
       { name:'二级菜单',     
+        isExpand: false,
         child:[
-          { name:'三级菜单' },
+          { name:'三级菜单', isExpand: true, },
         ]
       },
-      { name:'二级菜单' },
+      { name:'二级菜单', isExpand: true, },
     ]
   },
   { 
     name:'一级菜单',
+    isExpand: true,
     child:[
-      { name:'二级菜单' },
-      { name:'二级菜单' },
+      { name:'二级菜单', isExpand: true, },
+      { name:'二级菜单', isExpand: true, },
     ]
-  },]);
+  },]
+);
+
 
 const level = ref(0);
 
@@ -44,16 +50,24 @@ const prefix = (count) => {
   return '__'.repeat(count);
 };
 
-const onMore = async () => {
 
+const sufix = (item) => {
+  if (!Reflect.has(item, 'child')) {
+    return '';
+  }
+  return ` (${item.child.length}子项)`;
 };
 
 </script>
 
 
 <style scoped lang='scss'>
-.NestedItem__cell{
+.tree-node{
   height: 45px;
+
+  display: flex;
+  justify-self: center;
+  align-items: center;
 
   // background-color: green;
 

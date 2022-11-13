@@ -1,14 +1,14 @@
 <template>
   <!-- <div> -->
     <div v-for="(item,index) in list" :key="index">
-      <slot name="item" :item="item" :level="levelRef">
+      <slot name="node" :item="item" :level="levelRef">
         <div>{{ item.name }}</div>
       </slot>
 
-      <div v-if="item.child">
+      <div v-show="item.child && canExpand(item)" >
         <VTreeNode :list="item.child" :level="levelRef">
-          <template #item="slotProps">
-            <slot name="item" :item="slotProps.item" :level="slotProps.level">
+          <template #node="slotProps">
+            <slot name="node" :item="slotProps.item" :level="slotProps.level">
               <div>{{ slotProps.item.name }}</div>
             </slot>
           </template>
@@ -21,7 +21,6 @@
 
 <script setup>
 import { ref, reactive, watch, computed, onMounted, } from 'vue';
-// import { Toast } from 'vant';
 
 const props = defineProps({
   list: {
@@ -51,12 +50,8 @@ const levelRef = computed({
   },
 });
 
-const onRefresh = async () => {
-
-};
-
-const onMore = async () => {
-
+const canExpand = (item) => {
+  return Reflect.has(item, 'isExpand') && item.isExpand;
 };
 
 // onMounted(() => {
