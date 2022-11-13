@@ -19,25 +19,29 @@ import { ref, reactive, watch, onMounted, } from 'vue';
 
 let list = reactive(
   [{ 
-    name:'一级菜单',
+    name:'1 一级菜单',
     isExpand: true,//是否展开子项
     enabled: false,//是否可以响应事件
     child:[
-      { name:'二级菜单',     
-        isExpand: false,
+      { name:'1.1 二级菜单',     
+        isExpand: true,
         child:[
-          { name:'三级菜单', isExpand: true, },
+          { name:'1.1.1 三级菜单', isExpand: true, },
         ]
       },
-      { name:'二级菜单', isExpand: true, },
+      { name:'1.2 二级菜单', isExpand: true, },
     ]
   },
   { 
-    name:'一级菜单',
+    name:'1.1 一级菜单',
     isExpand: true,
     child:[
-      { name:'二级菜单', isExpand: true, },
-      { name:'二级菜单', isExpand: true, },
+      { name:'1.1.1 二级菜单', isExpand: true, },
+      { name:'1.1.2 二级菜单', 
+        isExpand: false, 
+        child:[
+          { name:'1.1.2.1 三级菜单', isExpand: true, },
+        ]},
     ]
   },]
 );
