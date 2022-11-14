@@ -13,6 +13,11 @@ const isIos = (() => {
   return /iPhone|iPod|iPad/i.test(ua)
 })()
 
+// ios是否有安全区
+const isIPhoneX = (() => {
+  return isIos && window.screen.height >= 812;
+})();
+
 // 微信生态
 const isWechat = (() => {
   return /MicroMessenger/i.test(ua)
@@ -49,6 +54,7 @@ export default {
   isMobile,
   isAndroid,
   isIos,
+  isIPhoneX,
   isWechat,
   isWxmp,
   isInnerAdr,
