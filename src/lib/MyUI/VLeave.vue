@@ -10,28 +10,28 @@
 */
 
 <template>
-  <div class="container">
-    <div class="header">
+  <div class="vleave-box">
+    <div class="vleave-box__header">
       <slot name="header">header</slot>
     </div>
-    <div class="leave">
+    <div class="vleave-box__leave">
       <slot>剩余高度视图</slot>
     </div>
-    <div class="footer">
+    <div class="vleave-box__footer">
       <slot name="footer">footer</slot>
     </div>
   </div>
 </template>
 
 <script setup>
-import {ref} from "vue";
+// import {ref} from "vue";
 
-const props = defineProps({
-  height: {
-    type: String,
-    default: "'100vh'",
-  },
-});
+// const props = defineProps({
+//   height: {
+//     type: String,
+//     default: "'100vh'",
+//   },
+// });
 </script>
 
 <style scoped lang="scss">
@@ -41,32 +41,25 @@ const props = defineProps({
   align-items: center;
 }
 
-.container {
+.vleave-box {
   display: flex;
   flex-flow: column nowrap;
-  // height: v-bind(height);
+
   height: inherit;
-
-  border: 1px dashed orange;
-
   position: fixed;
 }
 
-.header {
+.vleave-box__header {
   width: 100vw;
 }
 
-.footer {
+.vleave-box__footer {
   width: 100vw;
 }
 
-.leave {
+.vleave-box__leave {
   flex: 1;
-  flex-direction: column;
 
   overflow: auto;
-
-  background-color: darkcyan;
-  @include flex-center;
 }
 </style>

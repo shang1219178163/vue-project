@@ -8,7 +8,7 @@
 
 <template>
   <button 
-    :class="['button', type, classHighlighted, isHighlighted ? 'highlighted' : '', disabled ? 'disabled' : '']"
+    :class="['vbutton', type, classHighlighted, isHighlighted ? 'highlighted' : '', disabled ? 'disabled' : '']"
   >
     <slot>{{ title }}</slot>
   </button>
@@ -74,7 +74,7 @@ const props = defineProps({
   letter-spacing: 0;
   line-height: 16px;
 }
-.button {
+.vbutton {
   @include flex-center;
   @include text;
   @include line-limit-length;
