@@ -1103,6 +1103,24 @@ export const routers = [
     },
     desc: 'VTreeNodeDemo',
   },
-
-  
+  {
+    path: '/TestPageHeight', // 场景订单-补充取消原因
+    name: 'TestPageHeight',
+    component: _import_('TestPageHeight'),
+    meta: {
+      title: 'TestPageHeight',
+      keepAlive: true,
+    },
+    desc: '高度测试',
+  },
+  {
+    path: '/ScrollDemo', // 场景订单-补充取消原因
+    name: 'ScrollDemo',
+    component: _import_('ScrollDemo'),
+    meta: {
+      title: 'ScrollDemo',
+      keepAlive: true,
+    },
+    desc: '滚动测试',
+  },
 ];
