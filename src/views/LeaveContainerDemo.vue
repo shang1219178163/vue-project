@@ -5,7 +5,7 @@
         class="van-nav-bar"
         title="标题"
         left-arrow
-        @click-left="onClickLeft"
+        closeWebview
       />
       <!-- <div class="navbar">标题</div> -->
     </template>
@@ -19,7 +19,6 @@
       <div class="footer">
         <button class="primary">提交</button>
       </div>
-      
     </template>
   </VLeave>
 </template>
@@ -33,6 +32,7 @@ let netStatus = ref(0);
 const clickPlaceHolder = (val) => {
   console.log(val);
 };
+
 // setTimeout(() => {
 //     netStatus.value = 0
 // }, 2000);
@@ -44,8 +44,6 @@ const clickPlaceHolder = (val) => {
 </script>
 
 <style scoped>
-.van-nav-bar {
-}
 
 .navbar{
   height: 46px;
@@ -62,6 +60,8 @@ const clickPlaceHolder = (val) => {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border: 1px solid blue;
 }
 
 .primary{
