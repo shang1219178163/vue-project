@@ -34,12 +34,7 @@
 // });
 </script>
 
-<style scoped lang="scss">
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+<style scoped>
 
 .vexpand-box {
   display: flex;
