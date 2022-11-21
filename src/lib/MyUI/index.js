@@ -3,7 +3,7 @@ import VButtonIcon from './VButtonIcon.vue';
 
 import VCard from './VCard.vue';
 import VImg from './VImg.vue';
-import VLeave from './VLeave.vue';
+import VExpand from './VExpand.vue';
 import VNet from './VNet.vue';
 import VPage from './VPage.vue';
 import VProgressBar from './VProgressBar.vue';
@@ -30,7 +30,7 @@ export default {
       VButtonIcon,
       VCard,
       VImg,
-      VLeave,
+      VExpand,
       VNet,
       VPage,
       VProgressBar,

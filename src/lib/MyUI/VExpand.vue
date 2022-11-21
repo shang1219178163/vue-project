@@ -10,14 +10,14 @@
 */
 
 <template>
-  <div class="vleave-box">
-    <div class="vleave-box__header">
+  <div class="vexpand-box">
+    <div class="vexpand-box__header">
       <slot name="header">header</slot>
     </div>
-    <div class="vleave-box__leave">
+    <div class="vexpand-box__leave">
       <slot>剩余高度视图</slot>
     </div>
-    <div class="vleave-box__footer">
+    <div class="vexpand-box__footer">
       <slot name="footer">footer</slot>
     </div>
   </div>
@@ -41,7 +41,7 @@
   align-items: center;
 }
 
-.vleave-box {
+.vexpand-box {
   display: flex;
   flex-flow: column nowrap;
 
@@ -49,15 +49,15 @@
   position: fixed;
 }
 
-.vleave-box__header {
+.vexpand-box__header {
   width: 100vw;
 }
 
-.vleave-box__footer {
+.vexpand-box__footer {
   width: 100vw;
 }
 
-.vleave-box__leave {
+.vexpand-box__leave {
   flex: 1;
 
   overflow: auto;

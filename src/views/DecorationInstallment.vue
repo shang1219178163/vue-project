@@ -46,7 +46,7 @@ import { useStore } from 'vuex';
 
 import { useRoute } from 'vue-router';
 
-import { utility, checkType } from "@/utils/validator.js"
+import { CheckType } from "@/utils/validator"
 
 const store = useStore();
 

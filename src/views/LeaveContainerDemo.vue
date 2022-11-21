@@ -1,5 +1,5 @@
 <template>
-  <VLeave>
+  <VExpand>
     <template #header>
       <van-nav-bar
         class="van-nav-bar"
@@ -20,12 +20,12 @@
         <button class="primary">提交</button>
       </div>
     </template>
-  </VLeave>
+  </VExpand>
 </template>
 
 <script setup>
 import {ref, reactive, getCurrentInstance} from "vue";
-// import vleave from '@/components/VLeave.vue';
+// import VExpand from '@/components/VExpand.vue';
 
 let netStatus = ref(0);
 
