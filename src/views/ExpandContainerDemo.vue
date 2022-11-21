@@ -7,11 +7,11 @@
         left-arrow
         closeWebview
       />
-      <!-- <div class="navbar">标题</div> -->
     </template>
+
     <div class="content">
       <div v-for="(item, index) in 100" :key="index">
-        <div>{{ index }}</div>
+        <div class="cell">{{ index }}</div>
       </div>
     </div>
 
@@ -72,6 +72,11 @@ const clickPlaceHolder = (val) => {
   border-radius: 22px;
 
   background-color: orange;
+}
+
+.cell{
+  height: 44px;
+  border-bottom: 1px solid #eeeeee;
 }
 
 </style>

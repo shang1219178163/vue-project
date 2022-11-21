@@ -380,10 +380,10 @@ export const routers = [
     desc: "ImgDemo",
   },
   {
-    path: "/LeaveContainerDemo",
-    name: "LeaveContainerDemo",
-    component: _import_("LeaveContainerDemo"),
-    desc: "LeaveContainerDemo",
+    path: "/ExpandContainerDemo",
+    name: "ExpandContainerDemo",
+    component: _import_("ExpandContainerDemo"),
+    desc: "VExpand组件",
   },
   {
     path: "/Base64Demo",
