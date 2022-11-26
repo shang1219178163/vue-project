@@ -3,6 +3,7 @@ import VButtonIcon from './VButtonIcon.vue';
 
 import VCard from './VCard.vue';
 import VImg from './VImg.vue';
+import VSearch from './VSearch.vue';
 import VExpand from './VExpand.vue';
 import VNet from './VNet.vue';
 import VPage from './VPage.vue';
@@ -30,6 +31,7 @@ export default {
       VButtonIcon,
       VCard,
       VImg,
+      VSearch,
       VExpand,
       VNet,
       VPage,

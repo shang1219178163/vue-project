@@ -1133,5 +1133,26 @@ export const routers = [
     },
     desc: 'Reflect 动态映射',
   },
+  {
+    path: '/VInputChoiceDemo', // 场景订单-补充取消原因
+    name: 'VInputChoiceDemo',
+    component: _import_('VInputChoiceDemo'),
+    meta: {
+      title: 'VInputChoiceDemo',
+      keepAlive: true,
+    },
+    desc: 'VInputChoiceDemo 下拉输入框',
+  },
+  {
+    path: '/VSearchDemo', // 场景订单-补充取消原因
+    name: 'VSearchDemo',
+    component: _import_('VSearchDemo'),
+    meta: {
+      title: 'VSearchDemo',
+      keepAlive: true,
+    },
+    desc: 'VSearchDemo 下拉输入框',
+  },
+
   
 ];
