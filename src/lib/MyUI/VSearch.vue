@@ -1,10 +1,10 @@
 <template>
   <div class="vsearch">
-    <slot name="header">
+    <slot name="input">
       <input 
-      class="vsearch-input"
-      :placeholder="placeholder" 
-      :value='text'
+        class="vsearch-input"
+        :placeholder="placeholder" 
+        :value='text'
       />
     </slot>
     <div class="vsearch-list">
@@ -14,7 +14,7 @@
           v-for="(item, index) in props.options" :key="index"
           @click="onSelect(item, index)"
         >{{ item.text }}
-      </div>
+       </div>
       </slot>
     </div>
   </div>
@@ -22,7 +22,7 @@
 
 
 <script setup>
-import { ref, reactive, computed, onMounted, } from 'vue';
+import { ref, reactive, computed, watch, onMounted, } from 'vue';
 
 const props = defineProps({
   text: {
@@ -43,7 +43,22 @@ const props = defineProps({
   },
   onSelect: {
     type: Function,
-  }
+  },
+  onChange: {
+    type: Function,
+  },
+  borderWidth: {
+    type: String,
+    default: '0.5px',
+  },
+  borderColor: {
+    type: String,
+    default: '#4e4e4e',
+  },
+  optionPadding: {
+    type: String,
+    default: '12px',
+  },
 });
 
 
@@ -58,49 +73,77 @@ const props = defineProps({
 // });
 
 
+const selectValue = ref('');
+
+watch(() => selectValue.value, (newValue, oldValue) => {
+  console.log('watch', newValue, oldValue);
+});
+
+// watch(() => props.text, (newValue, oldValue) => {
+//   console.log('watch', newValue, oldValue);
+
+//   isExpand.value = !isExpand.value;
+// });
 </script>
 
 
 <style scoped lang='scss'>
 
+$padding: 12px;
+
+$borderWidth: v-bind(borderWidth);
+$borderColor: v-bind(borderColor);
+$optionPadding: v-bind(optionPadding);
+
 .vsearch {
-  position: absolute;
-  padding: 12px 0px 0px 0px;
-  width: 300px;
   border-radius: 4px;
   background-color: #fff;
+  
   display: flex;
   flex-direction: column;
   overflow: auto;
 
-  border: 0.5px solid #4e4e4e;
+  border: $borderWidth solid $borderColor;
 }
 .vsearch .vsearch-input {
-  margin: 0px 12px 12px 12px;
-  width: calc(100% - 28px);
+  padding: 12px;
+  width: 100%;
+
   border: none;
   outline: none;
   font-size: 14px;
 }
 
 .vsearch-list {
-  padding-left: 12px;
+  position: absolute;
+  margin-top: 24px + 20px;
+  width: 100%;
+
   overflow: auto;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
   max-height: 0px;
   overflow: hidden;
 }
 
-.vsearch:focus-within .vsearch-list, .vsearch-list:hover {
-  max-height: 200vh;
-  transition: max-height 1s ease-in-out;
-}
-.vsearch-list:hover {
+// .vsearch:focus-within .vsearch-list, .vsearch-list:hover {
+.vsearch:focus-within .vsearch-list {
   max-height: 50vh;
+  transition: max-height 1s ease-in-out;
+
+  width: calc(100% - $borderWidth * 2);
+  border: $borderWidth solid $borderColor;
+
   overflow: auto;
 }
 
-.vsearch-list-cell{
-  height: 30px;
+// .vsearch-list:hover {
+//   max-height: 50vh;
+//   overflow: auto;
+// }
+.vsearch-list-cell{  
+  padding: $optionPadding;
+
+  display: flex;
+  align-items: center;
 }
 </style>
