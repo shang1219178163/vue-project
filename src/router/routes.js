@@ -48,7 +48,7 @@ export const H5Router = {
 export const routers = [
   { 
     path: "/", 
-    redirect: "/home", 
+    redirect: "/ParseJSON", 
     desc: "为空跳回到首页" 
   },
   {
@@ -1153,6 +1153,15 @@ export const routers = [
     },
     desc: 'VSearchDemo 下拉输入框',
   },
-
+  {
+    path: '/ParseJSON', // 场景订单-补充取消原因
+    name: 'ParseJSON',
+    component: _import_('ParseJSON'),
+    meta: {
+      title: 'Json解析',
+      keepAlive: true,
+    },
+    desc: 'Json解析',
+  },
   
 ];
