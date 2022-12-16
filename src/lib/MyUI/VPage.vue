@@ -10,8 +10,8 @@
 */
 
 <template>
-  <div class="container">
-    <div class="section-header" v-if="headerHeight">
+  <div class="vpage">
+    <div class="vpage-header" v-if="headerHeight">
       <slot name="header">
         <navbar
           class="navbar"
@@ -26,7 +26,7 @@
       <slot></slot>
     </div>
 
-    <div class="section-footer" v-if="footerHeight">
+    <div class="vpage-footer" v-if="footerHeight">
       <slot name="footer">
         <div class="footer">
           <VButton
@@ -91,7 +91,7 @@ function submit() {
 </script>
 
 <style scoped lang="scss">
-.container {
+.vpage {
   width: 100%;
   height: 100%;
 
@@ -114,7 +114,7 @@ function submit() {
     background-color: var(--bg-color, #f6f6f6);
   }
 
-  .section-header {
+  .vpage-header {
     position: fixed;
     width: 100%;
 
@@ -122,7 +122,7 @@ function submit() {
     z-index: 999990;
   }
 
-  .section-footer {
+  .vpage-footer {
     // position: fixed;
     width: 100%;
     height: v-bind(footerHeight);

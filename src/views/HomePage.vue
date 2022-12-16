@@ -2,11 +2,11 @@
 
 <template>
     <van-nav-bar 
-    title="HomePage" 
-    :left-arrow='false'
-    @click-left="onClickLeft"
-    right-text="选择"
-    @click-right="onClickRight"
+      title="HomePage" 
+      :left-arrow='false'
+      @click-left="onClickLeft"
+      right-text="选择"
+      @click-right="onClickRight"
     />
     
     <div class="page" v-if="0">
