@@ -17,6 +17,7 @@ import navbar from '@/components/navbar.vue'
 import { getCurrentInstance, ref, reactive, watch, onMounted, } from 'vue';
 // import { Toast } from 'vant';
 import { useRouter, useRoute } from 'vue-router';
+import "@/utils/extensions";
 
 import { test1 } from '@/utils/testJson';
 
@@ -37,7 +38,6 @@ const printInfo = () => {
 
 const copyJSON = () => {
   const val = json.value;
-  document.execCommand(val); 
 };
 
 
@@ -46,7 +46,7 @@ const hanleToModel = () => {
 
   generatorModel(test1, 'rootModel',cache);
   // console.log(`cache:${cache}`);
-  console.log(`${JSON.stringify(cache)}`);
+  // console.log(`${JSON.stringify(cache)}`);
 
   convertModel(cache);
 
@@ -54,7 +54,7 @@ const hanleToModel = () => {
 
 };
 
-var result = `rootModel{}\n\n`;
+var result = `rootModel{\n\n`;
 
 const modelDes = (name) => {
   return `${name} {
@@ -76,7 +76,10 @@ const convertModel = (obj) => {
           res += `\t${value1.type} ${k1};\n`;
         }
       }
-      result += `${k}Model{\n${res}\n}\n\n`;
+
+      const className = `${k}Model`.capitalize();
+      result += `${className} ${k};\n`;
+      result += `${className}{\n${res}\n}\n\n`;
       convertModel(value);
 
     } else if (value.type === 'Array') {
@@ -86,15 +89,28 @@ const convertModel = (obj) => {
           res += `\t${value1.type} ${k1};\n`;
         }
       }
+
+      const className = `${k}Model`.capitalize();
+      result += `${className} ${k};\n`;
       result += `${k}Model{\n${res}\n}\n\n`;
       convertModel(value);
 
     } else {
-      result += `-----`;
+      // result += `${k}:${value.type}-----`;
+      
+      // result += `${k}:${JSON.stringify(value)}-----`;
+      if (value.type === 'Object') {
+        result += `${k}Model---`;
+      } else {
+        
+        result += `${value.type} ${k};\n`;
+      }
 
       // result += `${k}Model{\n${res}\n}\n\n`;
     }
   }
+  result += `}\n\n`;
+
 }
 
 
@@ -137,18 +153,22 @@ const generatorModel = (obj, key, ca) => {
       // console.log(`*** [${type}] ${k}: ${obj[k]}`);
 
       if (value instanceof Object) {
+        const className = `${k}Model`.capitalize();
         ca[k] = {
           type: type,
+          // des: `${className} ${k};`
         }
         generatorModel(value, k, ca[k]);
       } else if (value instanceof Array) {
         ca[k] = {
-          type: 'Array'
+          type: 'Array',
+          // des: `List<${type}> ${k};`
         }
         generatorModel(value[0], k, ca[k]);
       } else {
         ca[k] = {
           type: type,
+          // des: `${type} ${k};`
         }
         generatorModel(value, k, ca[k]);
       }
