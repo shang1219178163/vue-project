@@ -48,7 +48,8 @@ export const H5Router = {
 export const routers = [
   { 
     path: "/", 
-    redirect: "/ParseJSON", 
+    redirect: "/home", 
+    // redirect: "/ParseJSON", 
     desc: "为空跳回到首页" 
   },
   {
@@ -1163,5 +1164,16 @@ export const routers = [
     },
     desc: 'Json解析',
   },
+  {
+    path: '/DialogDemo', // 场景订单-补充取消原因
+    name: 'DialogDemo',
+    component: _import_('DialogDemo'),
+    meta: {
+      title: 'DialogDemo',
+      keepAlive: true,
+    },
+    desc: 'DialogDemo',
+  },
+
   
 ];
