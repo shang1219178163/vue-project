@@ -9,7 +9,6 @@
 <script setup>
 import { ref, reactive, computed, watch, getCurrentInstance } from "vue";
 
-// eslint-disable-next-line no-undef
 const props = defineProps({
   step: {
     type: Number,
@@ -29,7 +28,11 @@ const props = defineProps({
   },
   obj: {
     type: Object,
-  }
+  },
+  num: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // eslint-disable-next-line no-undef
@@ -78,6 +81,15 @@ const sub = () => {
 //   a88,b88
 // })
 
+watch(() => props.num, (newValue, oldValue) => {
+  console.log('watch props.num__1', newValue, oldValue);
+
+});
+
+// watch(() => props.num, (newValue, oldValue) => {
+//   console.log('watch props.num', newValue, oldValue);
+
+// }, { deep: true });
 
 </script>
 

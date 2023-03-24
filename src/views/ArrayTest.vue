@@ -5,6 +5,7 @@
         <button @click="testWeakSet">testWeakSet</button>
         <button @click="testWeakMap">testWeakMap</button>
     </div>
+    <div class="other">asda</div>
 </template>
 
 
@@ -284,6 +285,14 @@ function difference(setA, setB) {
     margin: 8px;
     display: flex;
     justify-content: space-evenly;
+
+    border: 1px solid green;
+}
+
+.other{
+  background-color:yellow;
+  // height: auto;
+  min-height: auto;
 }
     
 </style>

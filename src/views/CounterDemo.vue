@@ -3,6 +3,7 @@
     <Counter
       :count="count"
       :step="step"
+      :num="numRef"
       @add="add"
       @sub="sub"
       @change="change"
@@ -11,6 +12,7 @@
       ref="counter"
     />
   </div>
+  <button @click="onClick">测试</button>
 </template>
 
 <script setup>
@@ -48,5 +50,16 @@ const change = (e) => {
 // console.log(instance.type.__file, instance) ; 
 
 // console.log(instance.refs);
+
+const numRef = ref(false)
+
+const onClick = () => {
+  numRef.value = !numRef.value;
+};
+
+// watch(() => numRef, (newValue, oldValue) => {
+//   console.log('watch numRef', newValue, oldValue);
+
+// });
 
 </script>

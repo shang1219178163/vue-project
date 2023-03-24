@@ -1174,6 +1174,24 @@ export const routers = [
     },
     desc: 'DialogDemo',
   },
-
-  
+  {
+    path: '/DetailsDemo', // 场景订单-补充取消原因
+    name: 'DetailsDemo',
+    component: _import_('DetailsDemo'),
+    meta: {
+      title: 'DetailsDemo',
+      keepAlive: true,
+    },
+    desc: 'DetailsDemo',
+  },
+  {
+    path: '/zzz', // 场景订单-补充取消原因
+    name: 'zzz',
+    component: _import_('zzz'),
+    meta: {
+      title: 'zzz',
+      keepAlive: true,
+    },
+    desc: 'zzz',
+  },
 ];
