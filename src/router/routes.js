@@ -1194,4 +1194,16 @@ export const routers = [
     },
     desc: 'zzz',
   },
+  {
+    path: '/funcDeleagte', // 场景订单-补充取消原因
+    name: 'funcDeleagte',
+    component: _import_('funcDeleagte'),
+    meta: {
+      title: '事件代理',
+      keepAlive: true,
+    },
+    desc: 'funcDeleagte',
+  },
+
+  
 ];
