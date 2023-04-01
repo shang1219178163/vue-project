@@ -33,7 +33,13 @@ export default {
 
 <style lang="scss">
 //以便与Flutter模型一致.
-* { box-sizing: border-box; }
+* { 
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
 
 // // 天地失色,灰色滤镜
 // html {
