@@ -71,11 +71,26 @@ module.exports = {
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
 
-      config.plugins.push(new CompressionPlugin({ // gzip压缩配置
-        test: /\.js$|\.html$|\.css/, // 匹配文件名
-        threshold: 10240, // 对超过10kb的数据进行压缩
-        deleteOriginalAssets: false // 是否删除原文件
-      }))
+      config.plugins.push(
+        new CompressionPlugin({ // gzip压缩配置
+          test: /\.js$|\.html$|\.css/, // 匹配文件名
+          threshold: 1024 * 100, // 对超过100kb的数据进行压缩
+          minRatio: 0.8,
+          deleteOriginalAssets: false // 是否删除原文件
+        }),      // 压缩成 .br 文件，如果 zlib 报错无法解决，可以注释这段使用代码，一般本地没问题，需要注意线上服务器会可能发生找不到 zlib 的情况。
+        // new CompressionPlugin({
+        //   filename: '[path][base].br',
+        //   algorithm: 'brotliCompress',
+        //   test: /\.(js|css|html|svg)$/,
+        //   compressionOptions: {
+        //     params: {
+        //       [zlib.constants.BROTLI_PARAM_QUALITY]: 11
+        //     }
+        //   },
+        //   threshold: 10240,
+        //   minRatio: 0.8
+        // }),
+      )
     }
   },
   //修改或新增html-webpack-plugin的值，在index.html里面能读取htmlWebpackPlugin.options.title
@@ -98,8 +113,24 @@ module.exports = {
       // args[0].terserOptions.compress.drop_console = true
       return args
     })
+
+    config.module
+    .rule([
+      {
+        test: /.(jpg|png|gif)/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: '[name]_[hash].[ext]',
+            outputPath: 'images/',
+            limit: 2048 * 300,//小于300k 打包到 bundle.js; 
+          }
+        }
+      }
+    ])
+
   },
-    //配置全局样式变量
+  //配置全局样式变量
   css: {
     loaderOptions: {
       scss: {
@@ -109,5 +140,5 @@ module.exports = {
           `
       }
     }
-  }
+  },
 }
