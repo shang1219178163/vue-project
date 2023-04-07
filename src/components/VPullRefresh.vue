@@ -1,110 +1,120 @@
+
+/*
+<VPullRefresh
+    class="van-pull-refresh"
+    v-model:refreshing="refreshingVal"
+    :onRefresh="onRefresh"
+    :isSuccess="isSuccess">
+    内容控件
+</VPullRefresh>
+isSuccess : 请求是否成功
+onRefresh : 下拉刷新事件
+refreshing : 刷新状态
+*/
+
 <template>
-  <VNet
-    class="vnet"
-    :status="netStatus"
-    :nodataMsg="nodataMsg"
-    @click="onNet"
+  <van-pull-refresh
+    v-model="refreshingVal"
+    @refresh="onRefresh"
+    style="transition-duration: 300ms"
+    :disabled="disabled"
+    head-height="70"
+    pull-distance="70"
   >
-    <van-pull-refresh
-      class="h-van-pull-refresh" 
-      v-model="modelValueRef" 
-      @refresh="onRefresh"
-      :disabled="disabled"
-      :head-height="70"
-      :pull-distance="70"
-    >
-      <!-- 下拉提示，通过 scale 实现一个缩放效果 -->
-      <template #pulling>
-          <img class="logo" 
-          :src="src"
-          />
-          <div>下拉刷新</div>
-      </template>
-
-      <!-- 释放提示 -->
-      <template #loosing>
-          <img class="logo" :src="src" />
-          <div>松开刷新</div>
-      </template>
-
-      <!-- 加载提示 -->
-      <template #loading>
-          <img class="logo" :src="src" />
-          <div>刷新中...</div>
-      </template>
-      <template #success>
-          <img class="logo" :src="src" />
-          <div>刷新完成</div>
-      </template>
-      <slot></slot>
-    </van-pull-refresh>
-  </VNet>
+  <!-- 下拉提示 -->
+  <template #normal>
+      <div class="v-pull-refresh-content">
+        <van-image class="v-pull-refresh-content__logo" :src="img_pull_refresh_base64" />
+        <span class="v-pull-refresh-content__title">下拉刷新</span>
+      </div>
+    </template>
+    <!-- 下拉提示 -->
+    <template #pulling>
+      <div class="v-pull-refresh-content">
+        <van-image class="v-pull-refresh-content__logo" :src="img_pull_refresh_base64" />
+        <span class="v-pull-refresh-content__title">下拉刷新</span>
+      </div>
+    </template>
+    <!-- 释放提示 -->
+    <template #loosing>
+      <div class="v-pull-refresh-content">
+        <van-image class="v-pull-refresh-content__logo" :src="img_pull_refresh_base64" />
+        <span class="v-pull-refresh-content__title">松开刷新</span>
+      </div>
+    </template>
+    <!-- 加载提示 -->
+    <template #loading>
+      <div class="v-pull-refresh-content">
+        <van-image class="v-pull-refresh-content__logo" :src="img_pull_refresh_base64" />
+        <span class="v-pull-refresh-content__title">刷新中</span>
+      </div>
+    </template>
+    <!-- 完成提示 -->
+    <template #success>
+      <div class="v-pull-refresh-content">
+        <van-image class="v-pull-refresh-content__logo" :src="img_pull_refresh_base64" />
+        <span class="v-pull-refresh-content__title">{{
+          isSuccess ? '刷新成功' : '刷新失败'
+        }}</span>
+      </div>
+    </template>
+    <slot></slot>
+  </van-pull-refresh>
 </template>
 
-
 <script setup>
-import { getCurrentInstance, ref, reactive, computed, onMounted, watch} from 'vue';
-// import { Toast } from 'vant;
-import * as LOG from "@/utils/log.js";
-
-const src = require('@/assets/images/img_pull_refresh.gif')
+import { defineProps, defineEmits, computed } from 'vue';
+import img_pull_refresh_base64 from '@/assets/images/img_pull_refresh_base64.js';
 
 const props = defineProps({
-  netStatus: {
-    type: Number,
-    default: 1,
-    validator: (value) => {
-        // console.log("netStatus", typeof value, value);
-        return [-1, 0, 1].includes(value);
-    }
-  },  
-  nodataMsg: {
-    type: String,
-    default: "暂无内容", //暂无数据，默认显示'暂无内容'
+  refreshing: {
+    type: Boolean,
+    default: false,
   },
-  onNet: {
-    type: Function,
-    required: true,
-  },
-  
-  modelValue: {
+
+  disabled: {
     type: Boolean,
     default: false,
   },
   onRefresh: {
     type: Function,
-    required: true,
+    required: false,
   },
-
-})
-
-const emit = defineEmits(['update:modelValue', "update:loading"])
-
-const modelValueRef = computed({
+  isSuccess: {
+    type: Boolean,
+    default: true,
+  },
+  offsetY: {
+    type: String,
+    default: '8px',//历史原因导致默认为8px
+  },
+});
+const emits = defineEmits(['update:refreshing']);
+const refreshingVal = computed({
   set: (newVal) => {
-    if (props.modelValue !== newVal) {
-      emit("update:modelValue", newVal);
+    if (refreshingVal.value !== newVal) {
+      emits('update:refreshing', newVal);
     }
   },
-  get: () => props.modelValue,
+  get: () => props.refreshing,
 });
-
 </script>
 
+<style lang="scss" scoped>
 
-<style scoped lang='scss'>
-
-.logo {
-  width: 60px;
-  height: auto;
-  margin-top: 8px;
-}
-
-.pull-content {
+.v-pull-refresh-content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  &__logo{
+    width: 60px;
+    height: auto;
+    // margin-top: 8px;
+    margin-top: v-bind(offsetY);
+  }
+
   &__title {
     margin-top: -19px;
     font-size: 12px;
