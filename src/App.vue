@@ -39,6 +39,8 @@ export default {
   box-sizing: border-box; 
   margin: 0;
   padding: 0;
+  border: 0;
+  list-style: none;
 }
 
 // // 天地失色,灰色滤镜
