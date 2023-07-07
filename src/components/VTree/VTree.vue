@@ -1,21 +1,19 @@
 <template>
-  <!-- <div> -->
-    <div class="tree" v-for="(item,index) in list" :key="index">
-      <slot name="node" :item="item" :level="levelRef">
-        <div>{{ item.name }}</div>
-      </slot>
+  <div class="tree" v-for="(item,index) in list" :key="index">
+    <slot name="node" :item="item" :level="levelRef">
+      <div>{{ item.name }}</div>
+    </slot>
 
-      <div class="child" v-show="item.children && canExpand(item)" >
-        <VTree :list="item.children">
-          <template #node="slotProps">
-            <slot name="node" :item="slotProps.item" :level="slotProps.level">
-              <div>{{ slotProps.item.name }}</div>
-            </slot>
-          </template>
-        </VTree>
-      </div>
+    <div class="child" v-show="item.children && canExpand(item)" >
+      <VTree :list="item.children">
+        <template #node="slotProps">
+          <slot name="node" :item="slotProps.item" :level="slotProps.level">
+            <div>{{ slotProps.item.name }}</div>
+          </slot>
+        </template>
+      </VTree>
     </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 
@@ -30,7 +28,7 @@ const props = defineProps({
       return Array.isArray(val) && val.every(e => Reflect.has(e, 'name'));
     }
   },
-  levelOffsetX: {
+  indent: {
     type: String,
     default: "30px",
   }
@@ -67,7 +65,7 @@ const canExpand = (item) => {
 }
 
 .child {
-  padding-left: v-bind(levelOffsetX);
+  padding-left: v-bind(indent);
 }
 
 </style>
