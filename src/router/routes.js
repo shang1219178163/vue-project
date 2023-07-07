@@ -1095,14 +1095,14 @@ export const routers = [
     desc: 'CustomRefreshDemo',
   },
   {
-    path: '/VTreeNodeDemo', // 场景订单-补充取消原因
-    name: 'VTreeNodeDemo',
-    component: () => import('@/components/VTreeNode/VTreeNodeDemo.vue'),
+    path: '/VTreeDemo', // 场景订单-补充取消原因
+    name: 'VTreeDemo',
+    component: () => import('@/components/VTree/VTreeDemo.vue'),
     meta: {
-      title: 'VTreeNodeDemo',
+      title: 'VTreeDemo',
       keepAlive: true,
     },
-    desc: 'VTreeNodeDemo',
+    desc: 'VTreeDemo',
   },
   {
     path: '/TestPageHeight', // 场景订单-补充取消原因

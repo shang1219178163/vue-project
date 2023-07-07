@@ -1,18 +1,18 @@
 <template>
   <!-- <div> -->
-    <div v-for="(item,index) in list" :key="index">
+    <div class="tree" v-for="(item,index) in list" :key="index">
       <slot name="node" :item="item" :level="levelRef">
         <div>{{ item.name }}</div>
       </slot>
 
-      <div v-show="item.child && canExpand(item)" >
-        <VTreeNode :list="item.child" :level="levelRef">
+      <div class="child" v-show="item.children && canExpand(item)" >
+        <VTree :list="item.children">
           <template #node="slotProps">
             <slot name="node" :item="slotProps.item" :level="slotProps.level">
               <div>{{ slotProps.item.name }}</div>
             </slot>
           </template>
-        </VTreeNode>
+        </VTree>
       </div>
     </div>
   <!-- </div> -->
@@ -30,25 +30,25 @@ const props = defineProps({
       return Array.isArray(val) && val.every(e => Reflect.has(e, 'name'));
     }
   },
-  level: {
-    type: Number,
-    default: 0,
+  levelOffsetX: {
+    type: String,
+    default: "30px",
   }
 });
 
-const emit = defineEmits(['update:level', ])
+// const emit = defineEmits(['update:level', ])
 
-const levelRef = computed({
-  set: (newVal) => {
-    if (props.level !== newVal) {
-      emit("update:level", newVal);
-    }
-  },
-  get: () => {
-    const tmp = props.level + 1;
-    return tmp;
-  },
-});
+// const levelRef = computed({
+//   set: (newVal) => {
+//     if (props.level !== newVal) {
+//       emit("update:level", newVal);
+//     }
+//   },
+//   get: () => {
+//     const tmp = props.level + 1;
+//     return tmp;
+//   },
+// });
 
 const canExpand = (item) => {
   return Reflect.has(item, 'isExpand') && item.isExpand;
@@ -62,5 +62,12 @@ const canExpand = (item) => {
 
 
 <style scoped lang='scss'>
+.tree {
+  font-size: 20;
+}
+
+.child {
+  padding-left: v-bind(levelOffsetX);
+}
 
 </style>

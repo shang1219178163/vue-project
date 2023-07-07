@@ -1,5 +1,5 @@
 <template>
-  <VTreeNode 
+  <VTree 
     :list="list"
     :level="level"
   >
@@ -8,12 +8,12 @@
         {{prefix(slotProps.level)}}{{slotProps.item.name}}{{sufix(slotProps.item)}}
       </div>
     </template>
-  </VTreeNode>
+  </VTree>
 </template>
 
 
 <script setup>
-import VTreeNode from '@/components/VTreeNode/VTreeNode.vue';
+import VTree from '@/components/VTree/VTree.vue';
 
 import { ref, reactive, watch, onMounted, } from 'vue';
 
@@ -22,10 +22,10 @@ let list = reactive(
     name:'1 一级菜单',
     isExpand: true,//是否展开子项
     enabled: false,//是否可以响应事件
-    child:[
+    children:[
       { name:'1.1 二级菜单',     
         isExpand: true,
-        child:[
+        children:[
           { name:'1.1.1 三级菜单', isExpand: true, },
         ]
       },
@@ -35,31 +35,30 @@ let list = reactive(
   { 
     name:'1.1 一级菜单',
     isExpand: true,
-    child:[
+    children:[
       { name:'1.1.1 二级菜单', isExpand: true, },
       { name:'1.1.2 二级菜单', 
         isExpand: false, 
-        child:[
+        children:[
           { name:'1.1.2.1 三级菜单', isExpand: true, },
-        ]},
+        ]
+      },
     ]
   },]
 );
 
 
-const level = ref(0);
-
 
 const prefix = (count) => {
-  return '__'.repeat(count);
+  return "";
 };
 
 
 const sufix = (item) => {
-  if (!Reflect.has(item, 'child')) {
+  if (!Reflect.has(item, 'children')) {
     return '';
   }
-  return ` (${item.child.length}子项)`;
+  return ` (${item.children.length}子项)`;
 };
 
 </script>
