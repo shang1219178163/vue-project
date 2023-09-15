@@ -11,6 +11,8 @@ export const H5Router = {
   unknown: "",
   /// home页
   home: "/HomePage",
+  /// 编解码
+  codableDemo: "/CodableDemo",
   /// 登录页
   page: "/page/:id",
   ///
